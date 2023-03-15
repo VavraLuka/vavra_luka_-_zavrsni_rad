@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+/* General */
 * {
+    font-family: 'Open Sans', sans-serif;
     padding: 0;
     margin: 0;
 }
@@ -6,26 +10,55 @@
     width: 100%;
 }
 .section-wrapper {
-    width: 85%;
-    background-color: grey;
+    width: 75%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: row;
 }
-
-.left {
-    float: left;
+.box {
+    flex-grow: 1;
+    flex-basis: 0;
 }
-.center {
-    margin: 0 auto;
-}
-.right {
-    float: right;
-}
-section{
+section {
     width: 100%;
     padding: 12px;
-    background-color: red;
 }
+.background-grey {
+    background-color: #f3f3f3;
+}
+.background-white {
+    background-color: white;
+}
+.background-black {
+    background-color: #1c1c1c;
+}
+.text-grey {
+    color: #f3f3f3;
+}
+.text-white {
+    color: white;
+}
+.text-black {
+    color: #1c1c1c;
+}
+.float-right {
+    float: right;
+}
+.bold-text {
+    font-weight: 700;
+}
+
 /* Section 01 */
+.main-logo {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+}
+.search-bar {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+}
 ul {
     list-style-type: none;
     margin: 0;
@@ -35,9 +68,23 @@ ul {
 li {
     float: left;
 }  
-li a {
+ul.text-black li a {
+    text-decoration-line: none;
     display: block;
     padding: 8px;
+    color: #1c1c1c;
+    transition: 0.15s;
+}
+ul.text-white li a {
+    text-decoration-line: none;
+    display: block;
+    padding: 8px;
+    color: #ffffff;
+    transition: 0.15s;
+}
+ul li a:hover {
+    color: #46B1C9;
+    transition: 0.15s;
 }
 
 /* Section 02 */
