@@ -88,3 +88,27 @@ ul li a:hover {
 }
 
 /* Section 02 */
+
+/* Section 03 */
+h1 {
+    font-size: 36px;
+}
+.greeting-message {
+    position: relative;
+    width: 50%;
+    text-align: center;
+    padding: 16px;
+    margin: 0 auto;
+}
+.block {
+    display: inline-block;
+}
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.padding-left {
+    padding-left: 16px;
+}

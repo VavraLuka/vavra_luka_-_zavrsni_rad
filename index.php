@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>Audio trgovina</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <meta charset="UTF-8">
 </head>
 <body>
     <div class="page-wrapper">
@@ -66,6 +67,14 @@
                     <li><a href="#activespeakers">Dodatna oprema</a></li>
                     <li><a href="#activespeakers">Torbe</a></li>
                 </ul>
+            </div>
+        </section>
+
+        <!-- Section 03 -->
+        <section class="background-white text-black">
+            <div class="greeting-message">
+                <h1 class="block">Pozdrav, Luka!</h1>
+                <img class="block vertical-center padding-left" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Emoji_u1f44b.svg/768px-Emoji_u1f44b.svg.png" width="42">
             </div>
         </section>
     </div>
