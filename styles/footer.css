@@ -1,0 +1,17 @@
+footer li {
+    float: none;
+}
+footer ul.text-dark-grey li a {
+    text-decoration-line: none;
+    display: block;
+    padding: 8px;
+    color: grey;
+    transition: 0.15s;
+}
+.text-dark-grey {
+    color: grey;
+}
+.footer-padding {
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
