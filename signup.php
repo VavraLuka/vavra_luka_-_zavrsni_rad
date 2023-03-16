@@ -27,8 +27,14 @@
                     <input class="input-text" type="text" name="name" id="name" placeholder="Ime"><br>
                     <label for="surname">Prezime</label><br>
                     <input class="input-text" type="text" name="surname" id="surname" placeholder="Prezime"><br>
-                    <label for="usernameUser">Korisničko ime</label><br>
-                    <input class="input-text" type="text" name="usernameUser" id="usernameUser" placeholder="Korisničko ime"><br>
+                    <label for="address">Adresa i kućni broj</label><br>
+                    <input class="input-text" type="text" name="address" id="address" placeholder="Adresa i kućni broj"><br>
+                    <label for="postalcode">Poštanski broj</label><br>
+                    <input class="input-text" type="text" name="postalcode" id="postalcode" placeholder="Poštanski broj"><br>
+                    <label for="city">Grad</label><br>
+                    <input class="input-text" type="text" name="city" id="city" placeholder="Grad"><br>
+                    <label for="state">Država</label><br>
+                    <input class="input-text" type="text" name="state" id="state" placeholder="Država"><br>
                     <label for="contactNumber">Kontakt broj</label><br>
                     <input class="input-text" type="text" name="contactNumber" id="contactNumber" placeholder="Kontakt broj"><br>
                     <label for="email">Email adresa</label><br>

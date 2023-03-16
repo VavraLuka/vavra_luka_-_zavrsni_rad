@@ -2,29 +2,24 @@
 if (isset($_POST["submit"])) {
     $name = $_POST["name"];
     $surname = $_POST["surname"];
+    $address = $_POST["address"];
+    $postalCode = $_POST["postalCode"];
+    $city = $_POST["city"];
+    $state = $_POST["state"];
+    $contactNumber = $_POST["contactNumber"];
     $email = $_POST["email"];
     $passwordUser = $_POST["passwordUser"];
-    $passwordrepeatUser = $_POST["passwordrepeatUser"];
-    $contactNumber = $_POST["contactNumber"];
-    $usernameUser = $_POST["usernameUser"];
-
+    $passwordRepeatUser = $_POST["passwordRepeatUser"];
+    
     require_once 'databaseconnect.php';
     require_once 'functions.php';
 
-    if (emptyInputSignup($name, $surname, $email, $passwordUser, $passwordrepeatUser, $contactNumber, $usernameUser) !== false) {
+    if (emptyInputSignup($name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email, $passwordUser, $passwordRepeatUser) !== false) {
         header("location: ../signup.php?error=emptyinput");
         exit();
     }
-    if (invalidUsername($usernameUser) !== false) {
-        header("location: ../signup.php?error=invalidusername");
-        exit();
-    }
-    if (invalidPassword($passwordUser, $passwordrepeatUser) !== false) {
+    if (invalidPassword($passwordUser, $passwordRepeatUser) !== false) {
         header("location: ../signup.php?error=invalidpassword");
-        exit();
-    }
-    if (usernameExists($dbc, $usernameUser) !== false) {
-        header("location: ../signup.php?error=usernameexists");
         exit();
     }
     if (emailExists($dbc, $email) !== false) {
@@ -32,7 +27,7 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
-    createUser($dbc, $name, $surname, $email, $passwordUser, $contactNumber, $usernameUser);
+    createUser($dbc, $name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email, $passwordUser);
 } else {
     header("location: ../signup.php");
     exit();

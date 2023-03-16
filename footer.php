@@ -3,35 +3,32 @@
             <div class="section-wrapper">
                 <div class="box">
                     <h3>Kupujte i plaćajte sigurno</h3>
-                    <ul>
-                        <li><img src=""></li>
-                        <li><img src=""></li>
-                        <li><img src=""></li>
+                    <ul class="payingmethods">
+                        <li><img width="75" src="https://play-lh.googleusercontent.com/bDCkDV64ZPT38q44KBEWgicFt2gDHdYPgCHbA3knlieeYpNqbliEqBI90Wr6Tu8YOw"></li>
+                        <li><img width="75" src="https://play-lh.googleusercontent.com/bDCkDV64ZPT38q44KBEWgicFt2gDHdYPgCHbA3knlieeYpNqbliEqBI90Wr6Tu8YOw"></li>
+                        <li><img width="75" src="https://play-lh.googleusercontent.com/bDCkDV64ZPT38q44KBEWgicFt2gDHdYPgCHbA3knlieeYpNqbliEqBI90Wr6Tu8YOw"></li>
                     </ul>
-                    <ul>
-                        <li><img src=""></li>
-                        <li><img src=""></li>
-                        <li><img src=""></li>
+                    <ul class="payingmethods">
+                        <li><img width="75" src="https://play-lh.googleusercontent.com/bDCkDV64ZPT38q44KBEWgicFt2gDHdYPgCHbA3knlieeYpNqbliEqBI90Wr6Tu8YOw"></li>
+                        <li><img width="75"src="https://play-lh.googleusercontent.com/bDCkDV64ZPT38q44KBEWgicFt2gDHdYPgCHbA3knlieeYpNqbliEqBI90Wr6Tu8YOw"></li>
+                        <li><img width="75"src="https://play-lh.googleusercontent.com/bDCkDV64ZPT38q44KBEWgicFt2gDHdYPgCHbA3knlieeYpNqbliEqBI90Wr6Tu8YOw"></li>
                     </ul>
                 </div>
                 <div class="box">
                     <h3>Vaše prednosti</h3>
-                    <ul>
-                        <li>3 godine garancije</li>
-                        <li>30 dan rok povrata novca</li>
-                        <li>Usluge popravka</li>
-                        <li>Korisnička podrška</li>
-                        <li>Jamstvo zadovoljstva</li>
+                    <ul class="yourbenefits">
+                        <li><img src="https://cdn-icons-png.flaticon.com/512/33/33281.png" width="14">3 godine garancije</li>
+                        <li><img src="https://cdn-icons-png.flaticon.com/512/33/33281.png" width="14">30 dan rok povrata novca</li>
+                        <li><img src="https://cdn-icons-png.flaticon.com/512/33/33281.png" width="14">Usluge popravka</li>
+                        <li><img src="https://cdn-icons-png.flaticon.com/512/33/33281.png" width="14">Korisnička podrška</li>
+                        <li><img src="https://cdn-icons-png.flaticon.com/512/33/33281.png" width="14">Jamstvo zadovoljstva</li>
                     </ul>
                 </div>
                 <div class="box">
                     <h3>Usluge</h3>
                     <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li><a href="shipingcostsanddeliverytimes.php">Cijena i vrijeme dostave</a></li>
+                        <li><a href="help.php">Pomoć</a></li>
                     </ul>
                 </div>
             </div>
