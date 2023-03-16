@@ -43,7 +43,7 @@ function createUser($dbc, $name, $surname, $address, $postalCode, $city, $state,
 {
     $sql = "INSERT INTO users (name, surname, address, postalCode, city, state, contactNumber, email, passwordUser) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($dbc);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
+    if(!mysqli_stmt_prepare($stmt, $sql)){
         header("location: ../signup.php?error=stmtfailed");
         exit();
     }

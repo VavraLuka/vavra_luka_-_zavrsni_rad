@@ -26,7 +26,6 @@ if (isset($_POST["submit"])) {
         header("location: ../signup.php?error=emailexists");
         exit();
     }
-
     createUser($dbc, $name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email, $passwordUser);
 } else {
     header("location: ../signup.php");
