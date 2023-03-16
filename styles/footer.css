@@ -1,3 +1,7 @@
+.footer-padding {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
 footer li {
     float: none;
     padding: 2px;
@@ -30,4 +34,26 @@ footer h3 {
 }
 .yourbenefits img {
     padding-right: 6px;
+}
+ul.payingmethods li img {
+    filter: grayscale(100%);
+    transition: 0.15s;
+}
+ul.payingmethods li:hover img {
+    filter: grayscale(0%);
+    transition: 0.15s;
+}
+ul.socialIcons li {
+    float: left;
+    padding: 0px;
+    margin-right: 12px;
+    margin-bottom: 16px;
+}
+ul.socialIcons li img {
+    filter: grayscale(100%);
+    transition: 0.15s;
+}
+ul.socialIcons li:hover img {
+    filter: grayscale(0%);
+    transition: 0.15s;
 }

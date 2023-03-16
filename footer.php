@@ -1,27 +1,27 @@
     <footer>
         <section class="background-grey">
-            <div class="section-wrapper">
+            <div class="section-wrapper footer-padding">
                 <div class="box">
                     <h3>Kupujte i plaćajte sigurno</h3>
                     <ul class="payingmethods">
-                        <li><img width="75" src="https://play-lh.googleusercontent.com/bDCkDV64ZPT38q44KBEWgicFt2gDHdYPgCHbA3knlieeYpNqbliEqBI90Wr6Tu8YOw"></li>
-                        <li><img width="75" src="https://play-lh.googleusercontent.com/bDCkDV64ZPT38q44KBEWgicFt2gDHdYPgCHbA3knlieeYpNqbliEqBI90Wr6Tu8YOw"></li>
-                        <li><img width="75" src="https://play-lh.googleusercontent.com/bDCkDV64ZPT38q44KBEWgicFt2gDHdYPgCHbA3knlieeYpNqbliEqBI90Wr6Tu8YOw"></li>
+                        <li><img width="75" class="grayscale" src="images/PaymentMethods/PayPal.png"></li>
+                        <li><img width="75" src="images/PaymentMethods/Visa.png"></li>
+                        <li><img width="75" src="images/PaymentMethods/MasterCard.png"></li>
                     </ul>
                     <ul class="payingmethods">
-                        <li><img width="75" src="https://play-lh.googleusercontent.com/bDCkDV64ZPT38q44KBEWgicFt2gDHdYPgCHbA3knlieeYpNqbliEqBI90Wr6Tu8YOw"></li>
-                        <li><img width="75"src="https://play-lh.googleusercontent.com/bDCkDV64ZPT38q44KBEWgicFt2gDHdYPgCHbA3knlieeYpNqbliEqBI90Wr6Tu8YOw"></li>
-                        <li><img width="75"src="https://play-lh.googleusercontent.com/bDCkDV64ZPT38q44KBEWgicFt2gDHdYPgCHbA3knlieeYpNqbliEqBI90Wr6Tu8YOw"></li>
+                        <li><img width="75" src="images/PaymentMethods/AmericanExpress.png"></li>
+                        <li><img width="75" src="images/PaymentMethods/Diners.png"></li>
+                        <li><img width="75" src="images/PaymentMethods/BankTransfer.png"></li>
                     </ul>
                 </div>
                 <div class="box">
                     <h3>Vaše prednosti</h3>
                     <ul class="yourbenefits">
-                        <li><img src="https://cdn-icons-png.flaticon.com/512/33/33281.png" width="14">3 godine garancije</li>
-                        <li><img src="https://cdn-icons-png.flaticon.com/512/33/33281.png" width="14">30 dan rok povrata novca</li>
-                        <li><img src="https://cdn-icons-png.flaticon.com/512/33/33281.png" width="14">Usluge popravka</li>
-                        <li><img src="https://cdn-icons-png.flaticon.com/512/33/33281.png" width="14">Korisnička podrška</li>
-                        <li><img src="https://cdn-icons-png.flaticon.com/512/33/33281.png" width="14">Jamstvo zadovoljstva</li>
+                        <li><img src="images/Tick.png" width="14">3 godine garancije</li>
+                        <li><img src="images/Tick.png" width="14">30 dana rok povrata novca</li>
+                        <li><img src="images/Tick.png" width="14">Usluge popravka</li>
+                        <li><img src="images/Tick.png" width="14">Korisnička podrška</li>
+                        <li><img src="images/Tick.png" width="14">Jamstvo zadovoljstva</li>
                     </ul>
                 </div>
                 <div class="box">
@@ -48,17 +48,25 @@
                 </div>
                 <div class="box">
                     <ul class="text-dark-grey footer-ul">
-                        <li><a href="#">O nama</a></li>
-                        <li><a href="#">Kontaktiraj nas</a></li>
-                        <li><a href="#">3 godine jamstva</a></li>
-                        <li><a href="#">Povrat robe</a></li>
+                        <li><a href="aboutus.php">O nama</a></li>
+                        <li><a href="contactus.php">Kontaktiraj nas</a></li>
+                        <li><a href="warranty.php">3 godine jamstva</a></li>
+                        <li><a href="returns.php">Povrat robe</a></li>
                     </ul>
                 </div>
                 <div class="box">
-                    <p class="text-dark-grey">© 2023 Audio trgovina</p>
+                    <h3 style="color:grey;">Pratite nas i na društvenim mrežama!</h3>
+                    <ul class="socialIcons">
+                        <li><img width="50" src="images/socialIcons/Facebook.png"></li>
+                        <li><img width="50" src="images/socialIcons/Instagram.png"></li>
+                        <li><img width="50" src="images/socialIcons/LinkedIn.png"></li>
+                        <li><img width="50" src="images/socialIcons/YouTube.png"></li>
+                    </ul>
+                    <p class="text-dark-grey">© 2023 Audio trgovina. Sva prava pridržana.</p>
                 </div>
             </div>
         </section>
     </footer>
-</body>
-</html>
+    </body>
+
+    </html>

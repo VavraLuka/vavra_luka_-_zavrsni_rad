@@ -10,6 +10,8 @@ session_start();
     <link rel="stylesheet" href="styles/signin.css">
     <link rel="stylesheet" href="styles/signup.css">
     <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/catalog.css">
+    <link rel="stylesheet" href="styles/myprofile.css">
     <meta charset="UTF-8">
 </head>
 
@@ -29,8 +31,8 @@ session_start();
                 </div>
                 <div class="box">
                     <ul class="float-right text-black">
-                        <li><a href="#warranty">3 godine jamstva</a></li>
-                        <li><a href="#returns">Povrat robe</a></li>
+                        <li><a href="warranty.php">3 godine jamstva</a></li>
+                        <li><a href="returns.php">Povrat robe</a></li>
                     </ul>
                 </div>
             </div>
@@ -93,10 +95,10 @@ session_start();
                 <?php
                 if (isset($_SESSION["currentUserName"])) {
                     echo "<h1 class='block'>Pozdrav, $currentUserName!</h1>";
-                    echo "<img class='block vertical-center padding-left' src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Emoji_u1f44b.svg/768px-Emoji_u1f44b.svg.png' width='42'>";
+                    echo "<img class='block vertical-center padding-left' src='images/Wave.png' width='42'>";
                 } else {
                     echo "<h1 class='block'>Dobrodošli u online shop kvalitetne audio opreme!</h1>";
-                    echo "<img class='block vertical-center padding-left' src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Emoji_u1f44b.svg/768px-Emoji_u1f44b.svg.png' width='42'>";
+                    echo "<img class='block vertical-center padding-left' src='images/Wave.png' width='42'>";
                 }
                 ?>
             </div>
