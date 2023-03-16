@@ -1,6 +1,6 @@
 <?php
 function emptyInputSignup($name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email, $passwordUser, $passwordRepeatUser)
-{    
+{
     $result = false;
     if (empty($name) || empty($surname) || empty($address) || empty($postalCode) || empty($city) || empty($state) || empty($contactNumber) || empty($email) || empty($passwordUser) || empty($passwordRepeatUser)) {
         $result = true;

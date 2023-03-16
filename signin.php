@@ -15,12 +15,12 @@
                         echo "<br><br>";
                     }
                 ?>
-                <form action="php/login.php" method="post">
+                <form action="php/signin-process.php" method="post">
                     <h2>Prijavite se</h2>
                     <label for="email">Email adresa</label><br>
-                    <input class="input-text" type="text" name="email" id="email" placeholder="Email adresa"><br><br>
+                    <input class="input-text" type="text" name="email" id="email" placeholder="Email adresa"><br>
                     <label for="passwordUser">Lozinka</label><br>
-                    <input class="input-text" type="password" name="passwordUser" id="passwordUser" placeholder="Lozinka"><br><br>
+                    <input class="input-text" type="password" name="passwordUser" id="passwordUser" placeholder="Lozinka"><br>
                     <div class="form-buttons"><input type="submit" name="submit" value="Prijava">
                     <input type="reset" value="Očisti podatke"></div>
                 </form>
