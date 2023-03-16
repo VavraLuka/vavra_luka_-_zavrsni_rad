@@ -47,9 +47,8 @@ function createUser($dbc, $name, $surname, $address, $postalCode, $city, $state,
         header("location: ../signup.php?error=stmtfailed");
         exit();
     }
-
     $hashedPassword = password_hash($passwordUser, PASSWORD_DEFAULT);
-    mysqli_stmt_bind_param($stmt, "sssssssss", $name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email, $hashedPassword);
+    mysqli_stmt_bind_param($stmt, "sssisssss", $name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email, $hashedPassword);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../signup.php?error=none");

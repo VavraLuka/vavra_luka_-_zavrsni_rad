@@ -16,12 +16,13 @@
                     }
                 ?>
                 <form action="php/login.php" method="post">
-                    <h2>Prijava korisnika</h2>
-                    <label for="usernameUser">Korisničko ime</label><br>
-                    <input class="input-text" type="text" name="usernameUser" id="usernameUser" placeholder="Korisničko ime"><br><br>
+                    <h2>Prijavite se</h2>
+                    <label for="email">Email adresa</label><br>
+                    <input class="input-text" type="text" name="email" id="email" placeholder="Email adresa"><br><br>
                     <label for="passwordUser">Lozinka</label><br>
                     <input class="input-text" type="password" name="passwordUser" id="passwordUser" placeholder="Lozinka"><br><br>
-                    <div class="form-buttons"><input type="submit" name="submit" value="Prijava"></div>
+                    <div class="form-buttons"><input type="submit" name="submit" value="Prijava">
+                    <input type="reset" value="Očisti podatke"></div>
                 </form>
             </div>
         </section>

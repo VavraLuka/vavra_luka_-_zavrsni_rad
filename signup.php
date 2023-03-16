@@ -29,8 +29,8 @@
                     <input class="input-text" type="text" name="surname" id="surname" placeholder="Prezime"><br>
                     <label for="address">Adresa i kućni broj</label><br>
                     <input class="input-text" type="text" name="address" id="address" placeholder="Adresa i kućni broj"><br>
-                    <label for="postalcode">Poštanski broj</label><br>
-                    <input class="input-text" type="text" name="postalcode" id="postalcode" placeholder="Poštanski broj"><br>
+                    <label for="postalCode">Poštanski broj</label><br>
+                    <input class="input-text" type="text" name="postalCode" id="postalCode" placeholder="Poštanski broj"><br>
                     <label for="city">Grad</label><br>
                     <input class="input-text" type="text" name="city" id="city" placeholder="Grad"><br>
                     <label for="state">Država</label><br>
@@ -41,8 +41,8 @@
                     <input class="input-text" type="email" name="email" id="email" placeholder="Email adresa"><br>
                     <label for="passwordUser">Lozinka</label><br>
                     <input class="input-text" type="password" name="passwordUser" id="passwordUser" placeholder="Lozinka"><br>
-                    <label for="passwordrepeatUser">Ponovite lozinku</label><br>
-                    <input class="input-text" type="password" name="passwordrepeatUser" id="passwordrepeatUser" placeholder="Ponovite lozinku"><br>
+                    <label for="passwordRepeatUser">Ponovite lozinku</label><br>
+                    <input class="input-text" type="password" name="passwordRepeatUser" id="passwordRepeatUser" placeholder="Ponovite lozinku"><br>
                     <div class="form-buttons"><input type="submit" name="submit" value="Registracija">
                     <input type="reset" value="Očisti podatke"></div>
                 </form>
