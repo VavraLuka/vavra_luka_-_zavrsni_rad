@@ -15,12 +15,12 @@
             <div class="section-wrapper">
                 <div class="box">
                     <ul class="text-black">
-                        <li><a href="#contact">Kontaktiraj nas</a></li>
-                        <li><a href="#about">O nama</a></li>
+                        <li><a href="contactus.php">Kontaktiraj nas</a></li>
+                        <li><a href="aboutus.php">O nama</a></li>
                     </ul>
                 </div>
                 <div class="box main-logo">
-                    <p><a href="#index">Logo</a></p>
+                    <p><a href="index.php">Logo</a></p>
                 </div>
                 <div class="box">
                     <ul class="float-right text-black">
@@ -43,7 +43,7 @@
                 <div class="box">
                     <ul class="float-right text-black">
                         <li><a href="#currencychange">Odabir valute</a></li>
-                        <li><a href="#cart">Prijava</a></li>
+                        <li><a href="signin.php">Prijava</a></li>
                         <li><a href="signup.php">Registracija</a></li>
                         <!-- <li><a href="#favorites">Favoriti</a></li>
                         <li><a href="#cart">Košarica</a></li>

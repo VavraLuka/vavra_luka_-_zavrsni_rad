@@ -1,17 +1,20 @@
 footer li {
     float: none;
 }
-footer ul.text-dark-grey li a {
+footer ul li a {
     text-decoration-line: none;
-    display: block;
-    padding: 8px;
+    padding: 0px;
     color: grey;
+    transition: 0.15s;
+}
+footer ul li a:hover {
+    color: #46B1C9;
     transition: 0.15s;
 }
 .text-dark-grey {
     color: grey;
 }
 .footer-padding {
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding-top: 46px;
+    padding-bottom: 46px;
 }
