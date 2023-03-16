@@ -14,7 +14,6 @@ session_start();
     <link rel="stylesheet" href="styles/myprofile.css">
     <meta charset="UTF-8">
 </head>
-
 <body>
     <div class="page-wrapper">
         <!-- Section 01 -->
@@ -53,13 +52,17 @@ session_start();
                         <li><a href="#favorites">Favoriti</a></li>
                         <li><a href="#cart">Košarica</a></li>
                         <?php
-                        if (isset($_SESSION["currentUserUsername"])) {
-                            if ($_SESSION["currentUserStatus"] === 1) {
-                                echo "<li><a href='administration.php'>Administracija</a></li>";
+                        if (isset($_SESSION["currentUserName"])) {
+                            if (isset($_SESSION["currentUserStatus"])) {
+                                if ($_SESSION["currentUserStatus"] === 1) {
+                                    echo "<li><a href='administration.php'>Administracija</a></li>";
+                                } else {
+                                    echo "<li><a href='#myprofile'>Profil</a></li>";
+                                }
                             } else {
                                 echo "<li><a href='#myprofile'>Profil</a></li>";
                             }
-                            echo "<li><a href='php/logout-process'>Odjava</a></li>";
+                            echo "<li><a href='php/signout-process.php'>Odjava</a></li>";
                         } else {
                             echo "<li><a href='signin.php'>Prijava</a></li>";
                             echo "<li><a href='signup.php'>Registracija</a></li>";
@@ -94,6 +97,7 @@ session_start();
             <div class="greeting-message">
                 <?php
                 if (isset($_SESSION["currentUserName"])) {
+                    $currentUserName = $_SESSION["currentUserName"];
                     echo "<h1 class='block'>Pozdrav, $currentUserName!</h1>";
                     echo "<img class='block vertical-center padding-left' src='images/Wave.png' width='42'>";
                 } else {

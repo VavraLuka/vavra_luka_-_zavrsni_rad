@@ -10,11 +10,12 @@ if (isset($_POST["submit"])) {
     $email = $_POST["email"];
     $passwordUser = $_POST["passwordUser"];
     $passwordRepeatUser = $_POST["passwordRepeatUser"];
+    $status = 0;
     
     require_once 'databaseconnect.php';
     require_once 'functions.php';
 
-    if (emptyInputSignup($name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email, $passwordUser, $passwordRepeatUser) !== false) {
+    if (emptyInputSignup($name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email, $passwordUser, $passwordRepeatUser, $status) !== false) {
         header("location: ../signup.php?error=emptyinput");
         exit();
     }
@@ -26,7 +27,7 @@ if (isset($_POST["submit"])) {
         header("location: ../signup.php?error=emailexists");
         exit();
     }
-    createUser($dbc, $name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email, $passwordUser);
+    createUser($dbc, $name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email, $passwordUser, $status);
 } else {
     header("location: ../signup.php");
     exit();

@@ -39,16 +39,16 @@ function emailExists($dbc, $email)
     }
     mysqli_stmt_close($stmt);
 }
-function createUser($dbc, $name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email, $passwordUser)
+function createUser($dbc, $name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email, $passwordUser, $status)
 {
-    $sql = "INSERT INTO users (name, surname, address, postalCode, city, state, contactNumber, email, passwordUser) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO users (name, surname, address, postalCode, city, state, contactNumber, email, passwordUser, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($dbc);
     if(!mysqli_stmt_prepare($stmt, $sql)){
         header("location: ../signup.php?error=stmtfailed");
         exit();
     }
     $hashedPassword = password_hash($passwordUser, PASSWORD_DEFAULT);
-    mysqli_stmt_bind_param($stmt, "sssisssss", $name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email, $hashedPassword);
+    mysqli_stmt_bind_param($stmt, "sssisssssi", $name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email, $hashedPassword, $status);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../signup.php?error=none");
@@ -70,7 +70,7 @@ function loginUser($dbc, $email, $passwordUser)
         header("location: ../signin.php?error=wronglogin");
         exit();
     }
-    $passwordHashed = $emailExists["password"];
+    $passwordHashed = $emailExists["passwordUser"];
     $checkPassword = password_verify($passwordUser, $passwordHashed);
 
     if ($checkPassword === false) {
@@ -86,6 +86,7 @@ function loginUser($dbc, $email, $passwordUser)
         $_SESSION["currentUserState"] = $emailExists["state"];
         $_SESSION["currentUserContactNumber"] = $emailExists["contactNumber"];
         $_SESSION["currentUserEmail"] = $emailExists["email"];
+        $_SESSION["currentUserStatus"] = $emailExists["status"];
         header("location: ../index.php");
         exit();
     }
