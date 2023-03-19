@@ -1,0 +1,16 @@
+.filtered-products-top {
+    width: 75%;
+    text-align: center;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    margin: 0 auto;
+}
+.filtered-products-bottom {
+    width: 75%;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    margin: 0 auto;
+}
+.sorting-button {
+    width: 20%;
+}

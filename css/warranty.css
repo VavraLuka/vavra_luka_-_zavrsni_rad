@@ -1,0 +1,16 @@
+.section-wrapper-warranty {
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 36px;
+    padding-bottom: 36px;
+}
+.section-wrapper-warranty h1 {
+    padding-bottom: 24px;
+}
+.section-wrapper-warranty p {
+    text-align: left;
+}
+.section-wrapper-warranty p span {
+    font-weight: 700;
+}

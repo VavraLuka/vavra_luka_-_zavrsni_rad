@@ -8,7 +8,7 @@ include_once 'header.php';
             <img src="images/SignUp.svg" width="240">
         </div>
         <div class="signup-form">
-            <form action="php/signup-process.php" method="post">
+            <form action="php/signup-process.php" method="post" accept-charset="UTF-8">
                 <div class="two-inputs">
                     <div class="input-div"><input type="text" name="name" id="name" placeholder="Ime"><br></div>
                     <div class="input-div"><input type="text" name="surname" id="surname" placeholder="Prezime"><br></div>

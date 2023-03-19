@@ -14,6 +14,8 @@ session_start();
     <link rel="stylesheet" href="css/myprofile.css">
     <link rel="stylesheet" href="css/contactus.css">
     <link rel="stylesheet" href="css/aboutus.css">
+    <link rel="stylesheet" href="css/warranty.css">
+    <link rel="stylesheet" href="css/filteredproducts.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
 </head>
