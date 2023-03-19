@@ -15,7 +15,7 @@
                     </ul>
                 </div>
                 <div class="box">
-                    <h3>Vaše prednosti</h3>
+                    <h3>Vaše pogodnosti</h3>
                     <ul class="yourbenefits">
                         <li><img src="images/Tick.png" width="14">3 godine garancije</li>
                         <li><img src="images/Tick.png" width="14">30 dana rok povrata novca</li>

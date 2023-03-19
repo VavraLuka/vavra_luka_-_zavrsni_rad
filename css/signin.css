@@ -1,0 +1,13 @@
+.section-signin {
+    padding: 0px;
+}
+.signin-section {
+    width: 38%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 2%;
+}
+.input-div-full {
+    width: 100%;
+}

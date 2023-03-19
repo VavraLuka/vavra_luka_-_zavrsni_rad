@@ -6,14 +6,18 @@ session_start();
 
 <head>
     <title>Audio trgovina</title>
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/signin.css">
-    <link rel="stylesheet" href="styles/signup.css">
-    <link rel="stylesheet" href="styles/footer.css">
-    <link rel="stylesheet" href="styles/catalog.css">
-    <link rel="stylesheet" href="styles/myprofile.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/signin.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="css/myprofile.css">
+    <link rel="stylesheet" href="css/contactus.css">
+    <link rel="stylesheet" href="css/aboutus.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
 </head>
+
 <body>
     <div class="page-wrapper">
         <!-- Section 01 -->
@@ -76,7 +80,7 @@ session_start();
         <!-- Section 02 -->
         <section class="background-black">
             <div class="section-wrapper">
-                <ul class="text-white">
+                <ul class="text-white space-between">
                     <li><a href="#activespeakers">Kompleti razglasa</a></li>
                     <li><a href="#activespeakers">Aktivni zvučnici</a></li>
                     <li><a href="#activespeakers">Pasivni zvučnici</a></li>
@@ -91,19 +95,4 @@ session_start();
                 </ul>
             </div>
         </section>
-
-        <!-- Section 03 -->
-        <section class="background-white text-black">
-            <div class="greeting-message">
-                <?php
-                if (isset($_SESSION["currentUserName"])) {
-                    $currentUserName = $_SESSION["currentUserName"];
-                    echo "<h1 class='block'>Pozdrav, $currentUserName!</h1>";
-                    echo "<img class='block vertical-center padding-left' src='images/Wave.png' width='42'>";
-                } else {
-                    echo "<h1 class='block'>Dobrodošli u online shop kvalitetne audio opreme!</h1>";
-                    echo "<img class='block vertical-center padding-left' src='images/Wave.png' width='42'>";
-                }
-                ?>
-            </div>
-        </section>
+        <script type="text/javascript" src="js/main.js"></script>
