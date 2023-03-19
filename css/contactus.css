@@ -2,5 +2,23 @@
     display: flex;
     justify-content: space-between;
     gap: 8%;
-    margin-bottom: 24px;
+}
+.contact-title-text {
+    width: 100%;
+}
+.full-width {
+    width: 100%;
+}
+table.contactus-table {
+    text-align: left;
+    padding-top: 12px;
+}
+table.contactus-table th {
+    width: 180px;
+    padding-bottom: 6px;
+    font-weight: 400;
+}
+.contact-info {
+    padding-bottom: 84px;
+    padding-top: 48px;
 }

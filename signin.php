@@ -2,13 +2,13 @@
 include_once 'header.php';
 ?>
 <section class="section-signin">
+    <h2>Prijavite se</h2>
     <div class="signin-section vertical-padding">
         <div class="signin-image">
             <img src="images/SignIn.svg" width="240">
         </div>
-        <div>
+        <div class="signin-form">
             <form action="php/signin-process.php" method="post">
-                <h2>Prijavite se</h2>
                 <div class="input-div-full"><input class="input-text" type="text" name="email" id="email" placeholder="Email adresa"><br></div>
                 <div class="input-div-full"><input class="input-text" type="password" name="passwordUser" id="passwordUser" placeholder="Lozinka"><br></div>
                 <div class="form-buttons"><input type="submit" name="submit" value="Prijava">

@@ -29,6 +29,7 @@
                     <ul>
                         <li><a href="shipingcostsanddeliverytimes.php">Cijena i vrijeme dostave</a></li>
                         <li><a href="help.php">Pomoć</a></li>
+                        <li><a href="paymentoptions.php">Naćini plaćanja</a></li>
                     </ul>
                 </div>
             </div>

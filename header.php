@@ -87,6 +87,7 @@ session_start();
                     <li><a href="#activespeakers">Monitorski zvučnici</a></li>
                     <li><a href="#activespeakers">Pojačala</a></li>
                     <li><a href="#activespeakers">Miksete</a></li>
+                    <li><a href="#activespeakers">Kontroleri</a></li>
                     <li><a href="#activespeakers">Rasvjeta</a></li>
                     <li><a href="#activespeakers">Kablovi</a></li>
                     <li><a href="#activespeakers">Adapteri</a></li>
