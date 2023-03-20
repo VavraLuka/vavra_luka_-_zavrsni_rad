@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+/* General */
+* {
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.page-wrapper {
+    width: 100%;
+}
+
+.section-wrapper-navigation {
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.section-wrapper {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.vertical-padding {
+    padding-top: 36px;
+    padding-bottom: 40px;
+}
+
+.box {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+section {
+    width: 100%;
+    padding: 12px;
+}
+
+.background-grey {
+    background-color: #f3f3f3;
+}
+
+.background-white {
+    background-color: white;
+}
+
+.background-black {
+    background-color: #1c1c1c;
+}
+
+.text-grey {
+    color: #f3f3f3;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-black {
+    color: #1c1c1c;
+}
+
+.float-right {
+    float: right;
+}
+
+.bold-text {
+    font-weight: 700;
+}
+
+h2 {
+    padding-bottom: 24px;
+}
+
+/* Navigation bar */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+ul.text-black li a {
+    text-decoration-line: none;
+    display: block;
+    padding: 8px;
+    color: #1c1c1c;
+    transition: 0.15s;
+}
+
+ul li a:hover {
+    color: #46B1C9;
+    transition: 0.15s;
+}
+
+/* Welcome message */
+h1.welcome-message {
+    margin: 0 auto;
+    padding: 12px;
+}
+
+/* Product upload */
+form {
+    width: 30%;
+    padding-bottom: 24px;
+    margin: 0 auto;
+}
+
+.form-button {
+    width: 100%;
+    margin-top: 6px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+input[type=submit] {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    cursor: pointer;
+    border-radius: 36px;
+    font-size: 16px;
+    transition: 0.3s;
+    font-weight: 700;
+}
+
+input[type=submit]:hover {
+    opacity: 86%;
+    transition: 0.3s;
+}
+
+.input-product-category {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    background-image: url("../images/DropdownIcon.png");
+    background-position: 94%;
+    background-size: 4%;
+    background-repeat: no-repeat;
+    appearance: none;
+}
+
+/* Product management */
+/* Users management */

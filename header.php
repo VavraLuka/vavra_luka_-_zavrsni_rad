@@ -55,7 +55,6 @@ session_start();
                 <div class="box">
                     <ul class="float-right text-black">
                         <li><a href="#currencychange">Odabir valute</a></li>
-                        <li><a href="#favorites">Favoriti</a></li>
                         <li><a href="#cart">Košarica</a></li>
                         <?php
                         if (isset($_SESSION["currentUserName"])) {
@@ -63,6 +62,7 @@ session_start();
                                 if ($_SESSION["currentUserStatus"] === 1) {
                                     echo "<li><a href='administration.php'>Administracija</a></li>";
                                 } else {
+                                    echo "<li><a href='#favorites'>Favoriti</a></li>";
                                     echo "<li><a href='#myprofile'>Profil</a></li>";
                                 }
                             } else {
