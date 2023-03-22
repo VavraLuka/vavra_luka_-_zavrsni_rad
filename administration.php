@@ -7,6 +7,7 @@ session_start();
 <head>
     <title>Audio trgovina - Administracija</title>
     <link rel="stylesheet" href="css/administration.css">
+    <link rel="stylesheet" href="css/productupload-forms.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
 </head>
@@ -60,6 +61,34 @@ session_start();
                 </form>
             </div>
         </section>
+        <?php
+        if (isset($_GET['productCategory'])) {
+            $productCategory = $_GET['productCategory'];
+            if ($productCategory == "speakers") {
+                $productCategoryTitle = "Zvučnici";
+            } else if ($productCategory == "amplifiers") {
+                $productCategoryTitle = "Pojačala";
+            } else if ($productCategory == "mixers") {
+                $productCategoryTitle == "Miksete";
+            } else if ($productCategory == "controlers") {
+                $productCategoryTitle == "Kontroleri";
+            } else if ($productCategory == "light") {
+                $productCategoryTitle == "Rasvjeta";
+            } else if ($productCategory == "cables") {
+                $productCategoryTitle == "Kablovi";
+            } else if ($productCategory == "adapters") {
+                $productCategoryTitle == "Adapters";
+            } else if ($productCategory == "accessories") {
+                $productCategoryTitle == "Dodatna oprema";
+            } else {
+                $productCategoryTitle == "Torbe";
+            }
+            echo '<h2 class="center-element">Unosite novi proizvod u kategoriji: ' . $productCategoryTitle . '</h2>';
+            $includeProductForm = "php/productupload-forms/$productCategory.php";
+            include_once $includeProductForm;
+        }
+        ?>
+
         <!-- Product management -->
         <section id="productManagement">
             <div class="section-wrapper">

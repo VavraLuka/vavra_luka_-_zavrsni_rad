@@ -1,0 +1,73 @@
+.newproduct-form {
+    width: 100%;
+    padding: 24px;
+    margin: 0 auto;
+}
+
+.center-element {
+    text-align: center;
+}
+
+section.newproduct-form form {
+    width: 50%;
+}
+
+.input-type {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    background-image: url("../images/DropdownIcon.png");
+    background-position: 96%;
+    background-size: 14px;
+    background-repeat: no-repeat;
+    appearance: none;
+    color: grey;
+}
+
+.two-inputs {
+    width: 100%;
+    gap: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.three-inputs {
+    width: 100%;
+    gap: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-div-two {
+    width: 49%;
+}
+
+.input-div-three {
+    width: 32%;
+}
+
+.form-buttons {
+    width: 100%;
+    gap: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type=reset] {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+    border-radius: 36px;
+    font-size: 16px;
+    transition: 0.3s;
+    font-weight: 700;
+}
+select {
+    cursor: pointer;
+}
+input[type=reset]:hover {
+    background-color: #f3f3f3;
+    transition: 0.3s;
+}

@@ -6,9 +6,11 @@
     padding-top: 36px;
     text-align: center;
 }
+
 .signup-form {
     width: 100%;
 }
+
 .signup-section {
     width: 38%;
     margin: 0 auto;
@@ -16,12 +18,14 @@
     justify-content: space-between;
     gap: 4%;
 }
+
 input {
     width: 100%;
     padding: 12px;
     margin-bottom: 12px;
     font-size: 14px;
 }
+
 .input-state {
     width: 100%;
     padding: 12px;
@@ -29,13 +33,16 @@ input {
     font-size: 14px;
     background-image: url("../images/DropdownIcon.png");
     background-position: 94%;
-    background-size: 4%;
+    background-size: 14px;
     background-repeat: no-repeat;
     appearance: none;
+    color: grey;
 }
+
 .center-items {
     text-align: center;
 }
+
 form h2 {
     margin: 0 auto;
     padding-bottom: 12px;
@@ -47,7 +54,6 @@ form h2 {
     display: flex;
     justify-content: space-between;
 }
-
 .input-div {
     width: 49%;
 }
@@ -94,8 +100,9 @@ input[type=submit]:hover {
     opacity: 86%;
     transition: 0.3s;
 }
+
 input[type=reset]:hover {
-background-color: #f3f3f3;
+    background-color: #f3f3f3;
     transition: 0.3s;
 }
 
