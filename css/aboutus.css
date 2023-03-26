@@ -1,0 +1,36 @@
+.aboutus-section {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.aboutus-section h1 {
+    margin: 0 auto;
+    padding-top: 16px;
+}
+
+.aboutus-section h2 {
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.aboutus-section p {
+    text-align: left;
+}
+
+.aboutus-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 48px;
+    margin-bottom: 72px;
+    gap: 2%;
+}
+
+.aboutus-image {
+    width: 36%;
+    padding-top: 30px;
+}
+
+.aboutus-text {
+    width: 62%;
+}

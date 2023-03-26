@@ -13,7 +13,7 @@ footer ul li a {
     transition: 0.15s;
 }
 footer ul li a:hover {
-    color: #46B1C9;
+    color: var(--main-blue-color);
     transition: 0.15s;
 }
 .text-dark-grey {
@@ -35,6 +35,9 @@ footer h3 {
 .yourbenefits img {
     padding-right: 6px;
 }
+ul.payingmethods li {
+    cursor: pointer;
+}
 ul.payingmethods li img {
     filter: grayscale(100%);
     transition: 0.15s;
@@ -48,6 +51,7 @@ ul.socialIcons li {
     padding: 0px;
     margin-right: 12px;
     margin-bottom: 16px;
+    cursor: pointer;
 }
 ul.socialIcons li img {
     filter: grayscale(100%);

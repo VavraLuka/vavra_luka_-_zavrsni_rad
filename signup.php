@@ -4,9 +4,23 @@ include_once 'header.php';
 <section class="section-signup">
     <h2>Registrirajte se, potpuno je besplatno!</h2>
     <div class="signup-section vertical-padding">
-        <div class="signup-image">
-            <img src="images/SignUp.svg" width="240">
-        </div>
+        <?php
+        if (isset($_GET["error"])) {
+            if ($_GET["error"] == "none") {
+                echo '<div class="signup-image">
+                    <img src="images/SignUpSuccesfull.svg" width="240">
+                </div>';
+            } else {
+                echo '<div class="signup-image">
+                <img src="images/SignUp.svg" width="240">
+            </div>';
+            }
+        } else {
+            echo '<div class="signup-image">
+                <img src="images/SignUp.svg" width="240">
+            </div>';
+        };
+        ?>
         <div class="signup-form">
             <form action="php/signup-process.php" method="post" accept-charset="UTF-8">
                 <div class="two-inputs">

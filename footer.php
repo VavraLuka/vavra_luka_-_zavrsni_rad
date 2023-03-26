@@ -4,14 +4,14 @@
                 <div class="box">
                     <h3>Kupujte i plaćajte sigurno</h3>
                     <ul class="payingmethods">
-                        <li><img width="75" class="grayscale" src="images/PaymentMethods/PayPal.png"></li>
-                        <li><img width="75" src="images/PaymentMethods/Visa.png"></li>
-                        <li><img width="75" src="images/PaymentMethods/MasterCard.png"></li>
+                        <li><a href="paymentoptions.php"><img width="75" class="grayscale" src="images/PaymentMethods/PayPal.png"></a></li>
+                        <li><a href="paymentoptions.php"><img width="75" src="images/PaymentMethods/Visa.png"></a></li>
+                        <li><a href="paymentoptions.php"><img width="75" src="images/PaymentMethods/MasterCard.png"></a></li>
                     </ul>
                     <ul class="payingmethods">
-                        <li><img width="75" src="images/PaymentMethods/AmericanExpress.png"></li>
-                        <li><img width="75" src="images/PaymentMethods/Diners.png"></li>
-                        <li><img width="75" src="images/PaymentMethods/BankTransfer.png"></li>
+                        <li><a href="paymentoptions.php"><img width="75" src="images/PaymentMethods/AmericanExpress.png"></a></li>
+                        <li><a href="paymentoptions.php"><img width="75" src="images/PaymentMethods/Diners.png"></a></li>
+                        <li><a href="paymentoptions.php"><img width="75" src="images/PaymentMethods/BankTransfer.png"></a></li>
                     </ul>
                 </div>
                 <div class="box">
@@ -30,7 +30,7 @@
                         <li><a href="catalog.php">Katalog proizvoda</a></li>
                         <li><a href="shipingcostsanddeliverytimes.php">Cijena i vrijeme dostave</a></li>
                         <li><a href="help.php">Pomoć</a></li>
-                        <li><a href="paymentoptions.php">Naćini plaćanja</a></li>
+                        <li><a href="paymentoptions.php">Načini plaćanja</a></li>
                     </ul>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                         <li><img width="50" src="images/socialIcons/LinkedIn.png"></li>
                         <li><img width="50" src="images/socialIcons/YouTube.png"></li>
                     </ul>
-                    <p class="text-dark-grey">© 2023 Audio trgovina. Sva prava pridržana.</p>
+                    <p class="text-dark-grey">© 2023 Vokaton Shop. Sva prava pridržana.</p>
                 </div>
             </div>
         </section>

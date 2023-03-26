@@ -5,6 +5,7 @@
 }
 .contact-title-text {
     width: 100%;
+    padding-top: 36px;
 }
 .full-width {
     width: 100%;
@@ -18,7 +19,16 @@ table.contactus-table th {
     padding-bottom: 6px;
     font-weight: 400;
 }
+.contactus-table th a {
+    color: var(--main-blue-color);
+}
 .contact-info {
     padding-bottom: 84px;
     padding-top: 48px;
+}
+.phone-numbers {
+    padding-top: 36px;
+}
+.email-addresses {
+    padding-top: 36px;
 }

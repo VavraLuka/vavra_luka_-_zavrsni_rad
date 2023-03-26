@@ -1,0 +1,16 @@
+.section-wrapper-payment {
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 36px;
+    padding-bottom: 36px;
+}
+.section-wrapper-payment h1 {
+    padding-bottom: 24px;
+}
+.section-wrapper-payment p {
+    text-align: left;
+}
+.section-wrapper-payment p span {
+    font-weight: 700;
+}

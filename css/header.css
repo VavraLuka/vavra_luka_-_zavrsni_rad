@@ -7,6 +7,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+:root {
+    --main-blue-color: #17a4e5; /* #46B1C9; */
+}
 .page-wrapper {
     width: 100%;
 }
@@ -55,14 +58,14 @@ section {
 
 /* Section 01 */
 .main-logo {
-    padding: 8px;
+    padding: 18px;
     display: flex;
     justify-content: center;
+    transition: 0.3s;
 }
-.search-bar {
-    padding: 8px;
-    display: flex;
-    justify-content: center;
+.main-logo:hover{
+    transform: rotate(-4deg) scale(94%);
+    transition: 0.3s;
 }
 ul {
     list-style-type: none;
@@ -93,7 +96,7 @@ ul.text-white li a {
     transition: 0.15s;
 }
 ul li a:hover {
-    color: #46B1C9;
+    color: var(--main-blue-color);
     transition: 0.15s;
 }
 

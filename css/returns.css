@@ -1,0 +1,16 @@
+.section-wrapper-returns {
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 36px;
+    padding-bottom: 36px;
+}
+.section-wrapper-returns h1 {
+    padding-bottom: 24px;
+}
+.section-wrapper-returns p {
+    text-align: left;
+}
+.section-wrapper-returns p span {
+    font-weight: 700;
+}

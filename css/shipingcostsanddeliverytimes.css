@@ -1,0 +1,16 @@
+.section-wrapper-shiping {
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 36px;
+    padding-bottom: 36px;
+}
+.section-wrapper-shiping h1 {
+    padding-bottom: 24px;
+}
+.section-wrapper-shiping p {
+    text-align: left;
+}
+.section-wrapper-shiping p span {
+    font-weight: 700;
+}
