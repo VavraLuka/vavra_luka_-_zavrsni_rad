@@ -21,8 +21,11 @@ session_start();
                     <ul class="text-black">
                         <li><a href="#productUpload">Unos proizvoda</a></li>
                         <li><a href="#productManagement">Uređivanje proizvoda</a></li>
-                        <li><a href="#usersManagement">Upravljanje korisničkim računima</a></li>
+                        <li><a href="#usersManagement">Korisnički računi</a></li>
                     </ul>
+                </div>
+                <div class="main-logo">
+                    <img src="images/mainLogo.png" width="180">
                 </div>
                 <div class="box">
                     <ul class="float-right text-black">
@@ -69,19 +72,19 @@ session_start();
             } else if ($productCategory == "amplifiers") {
                 $productCategoryTitle = "Pojačala";
             } else if ($productCategory == "mixers") {
-                $productCategoryTitle == "Miksete";
+                $productCategoryTitle = "Miksete";
             } else if ($productCategory == "controlers") {
-                $productCategoryTitle == "Kontroleri";
+                $productCategoryTitle = "Kontroleri";
             } else if ($productCategory == "light") {
-                $productCategoryTitle == "Rasvjeta";
+                $productCategoryTitle = "Rasvjeta";
             } else if ($productCategory == "cables") {
-                $productCategoryTitle == "Kablovi";
+                $productCategoryTitle = "Kablovi";
             } else if ($productCategory == "adapters") {
-                $productCategoryTitle == "Adapters";
+                $productCategoryTitle = "Adapteri";
             } else if ($productCategory == "accessories") {
-                $productCategoryTitle == "Dodatna oprema";
+                $productCategoryTitle = "Dodatna oprema";
             } else {
-                $productCategoryTitle == "Torbe";
+                $productCategoryTitle = "Torbe";
             }
             echo '<h2 class="center-element">Unosite novi proizvod u kategoriji: ' . $productCategoryTitle . '</h2>';
             $includeProductForm = "php/productupload-forms/$productCategory.php";

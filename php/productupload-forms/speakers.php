@@ -16,8 +16,8 @@
             </select><br>
             <input type="text" name="drivers" id="drivers" placeholder="Driveri"><br>
             <div class="three-inputs">
-                <div class="input-div-three"><input type="number" name="RMS" id="RMS" placeholder="RMS"><br></div>
-                <div class="input-div-three"><input type="number" name="maxPower" id="maxPower" placeholder="Maksimalna snaga"><br></div>
+                <div class="input-div-three"><input type="number" name="RMS" id="RMS" placeholder="RMS (W)"><br></div>
+                <div class="input-div-three"><input type="number" name="maxPower" id="maxPower" placeholder="Maksimalna snaga (W)"><br></div>
                 <div class="input-div-three"><input type="number" name="soundPressure" id="soundPressure" placeholder="Maksimalna glasnoća"><br></div>
             </div>
             <div class="two-inputs">
@@ -30,7 +30,7 @@
             </div>
             <input type="text" name="imageURL" id="imageURL" placeholder="URL fotografije"><br>
             <div class="form-buttons">
-                <div class="input-div-two"><input type="submit" name="submit" value="Registracija"></div>
+                <div class="input-div-two"><input type="submit" name="submit" value="Dodaj proizvod"></div>
                 <div class="input-div-two"><input type="reset" value="Očisti podatke"></div>
             </div>
         </form>

@@ -100,4 +100,5 @@ session_start();
                 </ul>
             </div>
         </section>
+        <a href="#" class="back-to-top"><img src="images/DropdownIcon.png" width="24"></a>
         <script type="text/javascript" src="js/main.js"></script>
