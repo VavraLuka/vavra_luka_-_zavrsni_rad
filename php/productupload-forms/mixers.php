@@ -1,6 +1,7 @@
 <section class="newproduct-form">
     <div class="section-wrapper">
         <form method="POST" action="../newproduct-process.php" accept-charset="UTF-8">
+            <input type="hidden" name="category" id="category" value="mixers">
             <input type="text" name="name" id="name" placeholder="Naziv proizvoda"><br>
             <input type="text" name="manufacturer" id="manufacturer" placeholder="Proizvođač"><br>
             <div class="two-inputs">
