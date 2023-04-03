@@ -5,7 +5,7 @@ session_start();
 <html>
 
 <head>
-    <title>Audio trgovina</title>
+    <title>Vokaton - Trgovina audio opreme</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/signin.css">
     <link rel="stylesheet" href="css/signup.css">

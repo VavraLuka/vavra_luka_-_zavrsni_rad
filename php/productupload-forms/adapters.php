@@ -26,7 +26,7 @@
             </div>
             <div class="two-inputs">
                 <div class="input-div-two"><input type="text" name="color" id="color" placeholder="Boja"><br></div>
-                <div class="input-div-two"><input type="number" name="length" id="length" placeholder="Duljina (cm)"><br></div>
+                <div class="input-div-two"><input type="number" name="length" id="length" step="0.1" placeholder="Duljina (cm)"><br></div>
             </div>
             <input type="text" name="imageURL" id="imageURL" placeholder="URL fotografije"><br>
             <div class="form-buttons">

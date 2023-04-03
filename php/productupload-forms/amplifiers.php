@@ -23,7 +23,7 @@
             </div>
             <div class="two-inputs">
                 <div class="input-div-two"><input type="text" name="dimensions" id="dimensions" placeholder="Dimenzije (mm)"><br></div>
-                <div class="input-div-two"><input type="number" name="weight" id="weight" placeholder="Težina (kg)"><br></div>
+                <div class="input-div-two"><input type="number" name="weight" id="weight" step="0.1" placeholder="Težina (kg)"><br></div>
             </div>
             <input type="text" name="imageURL" id="imageURL" placeholder="URL fotografije"><br>
             <div class="form-buttons">

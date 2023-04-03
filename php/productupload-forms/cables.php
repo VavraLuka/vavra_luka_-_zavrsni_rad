@@ -20,7 +20,7 @@
                         <option value="powerCable">Napojni kabel</option>
                         <option value="extendCable">Produžni kabel</option>
                     </select></div>
-                <div class="input-div-three"><input type="" name="length" id="length" placeholder="Duljina kabla (cm)"><br></div>
+                <div class="input-div-three"><input type="" name="length" id="length" step="0.1" placeholder="Duljina kabla (cm)"><br></div>
                 <div class="input-div-three"><input type="text" name="color" id="color" placeholder="Boja"><br></div>
             </div>
             <div class="two-inputs">

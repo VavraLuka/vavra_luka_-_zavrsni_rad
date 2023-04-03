@@ -5,7 +5,7 @@ session_start();
 <html>
 
 <head>
-    <title>Audio trgovina - Administracija</title>
+    <title>Vokaton - Administracija</title>
     <link rel="stylesheet" href="css/administration.css">
     <link rel="stylesheet" href="css/productupload-forms.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,6 +62,14 @@ session_start();
                         <input type="submit" name="submit" value="Dodaj proizvod">
                     </div>
                 </form>
+                <?php
+                if (isset($_GET["error"])) {
+                    if ($_GET["error"] == "none") {
+                        echo "<div class='signup-paragraph'><p>Proizvod je uspješno dodan u bazu podataka!</p></div>";
+                    }
+                    echo "<br>";
+                }
+                ?>
             </div>
         </section>
         <?php

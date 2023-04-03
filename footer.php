@@ -64,7 +64,7 @@
                         <li><img width="50" src="images/socialIcons/LinkedIn.png"></li>
                         <li><img width="50" src="images/socialIcons/YouTube.png"></li>
                     </ul>
-                    <p class="text-dark-grey">© 2023 Vokaton Shop. Sva prava pridržana.</p>
+                    <p class="text-dark-grey">© 2018 - 2023 Vokaton - trgovina audio opreme. Sva prava pridržana.</p>
                 </div>
             </div>
         </section>
