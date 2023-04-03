@@ -30,13 +30,7 @@ if (isset($_POST["submit"])) {
     $channels = isset($_POST["channels"]) ? $_POST["channels"] : NULL;
     $power = isset($_POST["power"]) ? $_POST["power"] : NULL;
 
-    $hostname = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "vavra_luka_-_zavrsni_rad";
-
-    $dbc = mysqli_connect($hostname, $username, $password, $database) or
-        die('Greška prilikom spajanja na bazu podataka.' . mysqli_connect_error());
+    require_once 'databaseconnect.php';
 
     $sql = "INSERT INTO products (category, name, manufacturer, price, quantity, speakerType, drivers, RMS, maxPower, soundPressure, minFrequency, maxFrequency, dimensions, weight, imageURL, salesNumber, faders, inputs, outputs, cableType, length, leftJack, leftJackType, rightJack, rightJackType, color, limiter, channels, power) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($dbc);
