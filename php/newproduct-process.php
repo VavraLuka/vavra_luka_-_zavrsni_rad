@@ -15,7 +15,7 @@ if (isset($_POST["submit"])) {
     $dimensions = isset($_POST["dimensions"]) ? $_POST["dimensions"] : NULL;
     $weight = isset($_POST["weight"]) ? $_POST["weight"] : NULL;
     $imageURL = isset($_POST["imageURL"]) ? $_POST["imageURL"] : NULL;
-    $salesNumber = isset($_POST["salesNumber"]) ? $_POST["salesNumber"] : NULL;
+    $salesNumber = isset($_POST["salesNumber"]) ? $_POST["salesNumber"] : 0;
     $faders = isset($_POST["faders"]) ? $_POST["faders"] : NULL;
     $inputs = isset($_POST["inputs"]) ? $_POST["inputs"] : NULL;
     $outputs = isset($_POST["outputs"]) ? $_POST["outputs"] : NULL;

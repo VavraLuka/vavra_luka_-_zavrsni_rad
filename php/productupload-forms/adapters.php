@@ -5,7 +5,7 @@
             <input type="text" name="name" id="name" placeholder="Naziv proizvoda"><br>
             <input type="text" name="manufacturer" id="manufacturer" placeholder="Proizvođač"><br>
             <div class="two-inputs">
-                <div class="input-div-two"><input type="number" name="price" id="price" placeholder="Cijena"><br></div>
+                <div class="input-div-two"><input type="number" name="price" id="price" step="0.01" placeholder="Cijena"><br></div>
                 <div class="input-div-two"><input type="number" name="quantity" id="quantity" placeholder="Količina"><br></div>
             </div>
             <div class="two-inputs">
