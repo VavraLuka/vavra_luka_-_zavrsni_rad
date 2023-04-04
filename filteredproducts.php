@@ -3,7 +3,39 @@ include_once 'header.php';
 ?>
 <section>
     <div class="filtered-products-top">
-        <h1>Tu ide naslov ovisno o odabranoj kategoriji</h1>
+        <?php
+        if (isset($_GET['productCategory'])) {
+            $productCategory = $_GET['productCategory'];
+            if ($productCategory == "speakerBundle") {
+                $productCategoryTitle = "Kompleti zvučnika";
+            } else if ($productCategory == "activeSpeakers") {
+                $productCategoryTitle = "Aktivni zvučnici";
+            } else if ($productCategory == "passiveSpeakers") {
+                $productCategoryTitle = "Pasivni zvučnici";
+            } else if ($productCategory == "monitorSpeakers") {
+                $productCategoryTitle = "Monitorski zvučnici";
+            } else if ($productCategory == "amplifiers") {
+                $productCategoryTitle = "Pojačala";
+            } else if ($productCategory == "mixers") {
+                $productCategoryTitle = "Miksete";
+            } else if ($productCategory == "controlers") {
+                $productCategoryTitle = "Kontroleri";
+            } else if ($productCategory == "light") {
+                $productCategoryTitle = "Rasvjeta";
+            } else if ($productCategory == "cables") {
+                $productCategoryTitle = "Kablovi";
+            } else if ($productCategory == "adapters") {
+                $productCategoryTitle = "Adapteri";
+            } else if ($productCategory == "accessories") {
+                $productCategoryTitle = "Dodatna oprema";
+            } else {
+                $productCategoryTitle = "Torbe";
+            }
+            echo '<h2 class="center-element">'. $productCategoryTitle . '</h1>';
+        } else {
+            header("location: pagenotfound.php");
+        }
+        ?>
         <div class="sorting-button">
             <form class="sorting-form" action="index.php" method="GET">
                 <label for="sort">Sortiraj proizvode po:</label>
@@ -16,10 +48,11 @@ include_once 'header.php';
                     <option value="nameaz">Nazivu - A-Z</option>
                     <option value="nameza">Nazivu - Z-A</option>
                     <option value="newfirst">Najprije novi proizvodi</option>
+                    <option value="oldfirst">Najprije stari proizvodi</option>
                 </select>
                 <input type="submit" value="Sortiraj">
             </form><br>
-            <p>Uređaji su sortirani po
+            <p>Proizvodi su sortirani po
                 <?php
                 if (isset($_GET['sort'])) {
                     if ($_GET['sort'] == "popularity") {
@@ -42,6 +75,9 @@ include_once 'header.php';
                     }
                     if ($_GET['sort'] == "newfirst") {
                         echo "datumu objave - najprije novi proizvodi";
+                    }
+                    if ($_GET['sort'] == "oldfirst") {
+                        echo "datumu objave - najprije stari proizvodi";
                     }
                 }
                 ?>.</p>
@@ -111,6 +147,6 @@ include_once 'header.php';
             }
         }
         ?>
-<?php
-include_once 'footer.php';
-?>
+        <?php
+        include_once 'footer.php';
+        ?>

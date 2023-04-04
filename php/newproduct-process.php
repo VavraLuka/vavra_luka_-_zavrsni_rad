@@ -15,7 +15,7 @@ if (isset($_POST["submit"])) {
     $dimensions = isset($_POST["dimensions"]) ? $_POST["dimensions"] : NULL;
     $weight = isset($_POST["weight"]) ? $_POST["weight"] : NULL;
     $imageURL = isset($_POST["imageURL"]) ? $_POST["imageURL"] : NULL;
-    $salesNumber = isset($_POST["salesNumber"]) ? $_POST["salesNumber"] : 0;
+    $salesCount = isset($_POST["salesCount"]) ? $_POST["salesCount"] : 0;
     $faders = isset($_POST["faders"]) ? $_POST["faders"] : NULL;
     $inputs = isset($_POST["inputs"]) ? $_POST["inputs"] : NULL;
     $outputs = isset($_POST["outputs"]) ? $_POST["outputs"] : NULL;
@@ -29,15 +29,30 @@ if (isset($_POST["submit"])) {
     $limiter = isset($_POST["limiter"]) ? $_POST["limiter"] : NULL;
     $channels = isset($_POST["channels"]) ? $_POST["channels"] : NULL;
     $power = isset($_POST["power"]) ? $_POST["power"] : NULL;
+    $lightSource = isset($_POST['lightSource']) ? $_POST['lightSource'] : NULL;
+    $powerConsumption = isset($_POST['powerConsumption']) ? $_POST['powerConsumption'] : NULL;
+    $lightType = isset($_POST['lightType']) ? $_POST['lightType'] : NULL;
+    $beamAngle = isset($_POST['beamAngle']) ? $_POST['beamAngle'] : NULL;
+    $discount = isset($_POST['discount']) ? $_POST['discount'] : 0;
+    $caseFor = isset($_POST['caseFor']) ? $_POST['caseFor'] : NULL;
+    $caseType = isset($_POST['caseType']) ? $_POST['caseType'] : NULL;
+    $accessoryType = isset($_POST['accessoryType']) ? $_POST['accessoryType'] : NULL;
+    $description = isset($_POST['description']) ? $_POST['description'] : NULL;
+    $additionalLine1 = isset($_POST['additionalLine1']) ? $_POST['additionalLine1'] : NULL;
+    $additionalLineValue1 = isset($_POST['additionalLineValue1']) ? $_POST['additionalLineValue1'] : NULL;
+    $additionalLine2 = isset($_POST['additionalLine2']) ? $_POST['additionalLine2'] : NULL;
+    $additionalLineValue2 = isset($_POST['additionalLineValue2']) ? $_POST['additionalLineValue2'] : NULL;
+    $additionalLine3 = isset($_POST['additionalLine3']) ? $_POST['additionalLine3'] : NULL;
+    $additionalLineValue3 = isset($_POST['additionalLineValue3']) ? $_POST['additionalLineValue3'] : NULL;
 
     require_once 'databaseconnect.php';
 
-    $sql = "INSERT INTO products (category, name, manufacturer, price, quantity, speakerType, drivers, RMS, maxPower, soundPressure, minFrequency, maxFrequency, dimensions, weight, imageURL, salesNumber, faders, inputs, outputs, cableType, length, leftJack, leftJackType, rightJack, rightJackType, color, limiter, channels, power) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO products (category, name, manufacturer, price, quantity, speakerType, drivers, RMS, maxPower, soundPressure, minFrequency, maxFrequency, dimensions, weight, imageURL, salesNumber, faders, inputs, outputs, cableType, length, leftJack, leftJackType, rightJack, rightJackType, color, limiter, channels, power, lightSource, powerConsumption, lightType, beamAngle, discount, caseFor, caseType, accessoryType, description, additionalLine1, additionalLineValue1, additionalLine2, additionalLineValue2, additionalLine3, additionalLineValue3) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($dbc);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         echo "Greška: SQL statement.";
     } else {
-        mysqli_stmt_bind_param($stmt, "sssiissiiiiisdsiiiisdssssssii", $category, $name, $manufacturer, $price, $quantity, $speakerType, $drivers, $RMS, $maxPower, $soundPressure, $minFrequency, $maxFrequency, $dimensions, $weight, $imageURL, $salesNumber, $faders, $inputs, $outputs, $cableType, $length, $leftJack, $leftJackType, $rightJack, $rightJackType, $color, $limiter, $channels, $power);
+        mysqli_stmt_bind_param($stmt, "sssiissiiiiisdsiiiisdssssssiisississss", $category, $name, $manufacturer, $price, $quantity, $speakerType, $drivers, $RMS, $maxPower, $soundPressure, $minFrequency, $maxFrequency, $dimensions, $weight, $imageURL, $salesNumber, $faders, $inputs, $outputs, $cableType, $length, $leftJack, $leftJackType, $rightJack, $rightJackType, $color, $limiter, $channels, $power, $lightSource, $powerConsumption, $lightType, $beamAngle, $discount, $caseFor, $caseType, $accessoryType, $description, $additionalLine1, $additionalLineValue1, $additionalLine2, $additionalLineValue2, $additionalLine3, $additionalLineValue3);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }

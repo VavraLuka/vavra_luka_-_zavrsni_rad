@@ -24,9 +24,10 @@
             $imageURL = $row['imageURL'];
 
             echo "<div class='product'>
-            <a><div class='image' style='background-image: url($imageURL)'></div></a>
-            <a><h3>$manufacturer $name</h3></a>
-            <a><h1>€$price</h1></a>
+            <div class='image' style='background-image: url($imageURL)'></div>
+            <h3>$manufacturer</h3>
+            <h2>$name</h2>
+            <h1>€$price</h1>
             </div>";
         }
     }

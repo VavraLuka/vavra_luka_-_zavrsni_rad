@@ -25,6 +25,16 @@ section.newproduct-form form {
     color: grey;
 }
 
+textarea {
+    width: 100%;
+    min-height: 24px;
+    max-width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: grey;
+}
+
 .two-inputs {
     width: 100%;
     gap: 2%;
@@ -64,10 +74,27 @@ input[type=reset] {
     transition: 0.3s;
     font-weight: 700;
 }
+
 select {
     cursor: pointer;
 }
+
 input[type=reset]:hover {
     background-color: #f3f3f3;
     transition: 0.3s;
+}
+
+#add-extra-inputs img {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    transition: 0.15s;
+    opacity: 100%;
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+#add-extra-inputs img:hover {
+    opacity: 90%;
+    transition: 0.15s;
 }

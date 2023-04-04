@@ -20,6 +20,7 @@ session_start();
     <link rel="stylesheet" href="css/shipingcostsanddeliverytimes.css">
     <link rel="stylesheet" href="css/paymentoptions.css">
     <link rel="stylesheet" href="css/highlightedproducts.css">
+    <link rel="stylesheet" href="css/pagenotfound.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
 </head>
@@ -86,18 +87,18 @@ session_start();
         <section class="background-black">
             <div class="section-wrapper">
                 <ul class="text-white space-between">
-                    <li><a href="#activespeakers">Kompleti razglasa</a></li>
-                    <li><a href="#activespeakers">Aktivni zvučnici</a></li>
-                    <li><a href="#activespeakers">Pasivni zvučnici</a></li>
-                    <li><a href="#activespeakers">Monitorski zvučnici</a></li>
-                    <li><a href="#activespeakers">Pojačala</a></li>
-                    <li><a href="#activespeakers">Miksete</a></li>
-                    <li><a href="#activespeakers">Kontroleri</a></li>
-                    <li><a href="#activespeakers">Rasvjeta</a></li>
-                    <li><a href="#activespeakers">Kablovi</a></li>
-                    <li><a href="#activespeakers">Adapteri</a></li>
-                    <li><a href="#activespeakers">Dodatna oprema</a></li>
-                    <li><a href="#activespeakers">Torbe</a></li>
+                    <li><a href="filteredproducts.php?productCategory=speakerBundle">Kompleti razglasa</a></li>
+                    <li><a href="filteredproducts.php?productCategory=activeSpeakers">Aktivni zvučnici</a></li>
+                    <li><a href="filteredproducts.php?productCategory=passiveSpeakers">Pasivni zvučnici</a></li>
+                    <li><a href="filteredproducts.php?productCategory=monitorSpeakers">Monitorski zvučnici</a></li>
+                    <li><a href="filteredproducts.php?productCategory=amplifiers">Pojačala</a></li>
+                    <li><a href="filteredproducts.php?productCategory=mixers">Miksete</a></li>
+                    <li><a href="filteredproducts.php?productCategory=controllers">Kontroleri</a></li>
+                    <li><a href="filteredproducts.php?productCategory=light">Rasvjeta</a></li>
+                    <li><a href="filteredproducts.php?productCategory=cables">Kablovi</a></li>
+                    <li><a href="filteredproducts.php?productCategory=adapters">Adapteri</a></li>
+                    <li><a href="filteredproducts.php?productCategory=accessories">Dodatna oprema</a></li>
+                    <li><a href="filteredproducts.php?productCategory=covers">Torbe</a></li>
                 </ul>
             </div>
         </section>

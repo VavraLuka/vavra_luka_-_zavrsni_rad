@@ -39,13 +39,13 @@
             <div class="section-wrapper">
                 <div class="box">
                     <ul class="text-dark-grey footer-ul">
-                        <li><a href="#">Kompleti razglasa</a></li>
-                        <li><a href="#">Aktivni zvučnici</a> / <a href="#">Pasivni zvučnici</a></li>
-                        <li><a href="#">Monitorski zvučnici</a></li>
-                        <li><a href="#">Pojačala</a> / <a href="#">Miksete</a></li>
-                        <li><a href="#">Rasvjeta</a></li>
-                        <li><a href="#">Kablovi</a> / <a href="#">Adapteri</a></li>
-                        <li><a href="#">Dodatna oprema</a> / <a href="#">Torbe</a></li>
+                        <li><a href="filteredproducts.php?productCategory=speakerBundle">Kompleti razglasa</a></li>
+                        <li><a href="filteredproducts.php?productCategory=activeSpeakers">Aktivni zvučnici</a> / <a href="filteredproducts.php?productCategory=passiveSpeakers">Pasivni zvučnici</a></li>
+                        <li><a href="filteredproducts.php?productCategory=monitorSpeakers">Monitorski zvučnici</a></li>
+                        <li><a href="filteredproducts.php?productCategory=amplifiers">Pojačala</a> / <a href="filteredproducts.php?productCategory=mixers">Miksete</a></li>
+                        <li><a href="filteredproducts.php?productCategory=light">Rasvjeta</a></li>
+                        <li><a href="filteredproducts.php?productCategory=cables">Kablovi</a> / <a href="filteredproducts.php?productCategory=adapters">Adapteri</a></li>
+                        <li><a href="filteredproducts.php?productCategory=accessories">Dodatna oprema</a> / <a href="filteredproducts.php?productCategory=covers">Torbe</a></li>
                     </ul>
                 </div>
                 <div class="box">

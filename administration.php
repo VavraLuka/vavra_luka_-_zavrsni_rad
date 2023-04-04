@@ -81,7 +81,7 @@ session_start();
                 $productCategoryTitle = "Pojačala";
             } else if ($productCategory == "mixers") {
                 $productCategoryTitle = "Miksete";
-            } else if ($productCategory == "controlers") {
+            } else if ($productCategory == "controllers") {
                 $productCategoryTitle = "Kontroleri";
             } else if ($productCategory == "light") {
                 $productCategoryTitle = "Rasvjeta";
