@@ -11,3 +11,5 @@ Akademska godina: 2022./2023.
 Tema završnog rada: Online trgovina audio opreme
 
 Tehnologije: HTML, CSS, JavaScript, php, MySQL
+
+Email: lvavra@tvz.hr
