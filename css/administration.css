@@ -23,8 +23,8 @@
 
 .section-wrapper {
     width: 75%;
-    margin: 0 auto;
     text-align: center;
+    margin: 0 auto;
 }
 
 .vertical-padding {
@@ -117,7 +117,7 @@ h1.welcome-message {
 
 /* Product upload */
 form {
-    width: 30%;
+    width: 100%;
     padding-bottom: 24px;
     margin: 0 auto;
 }
@@ -160,6 +160,38 @@ input[type=submit]:hover {
     background-size: 4%;
     background-repeat: no-repeat;
     appearance: none;
+}
+
+.two-elements {
+    display: flex;
+    gap: 5%;
+    margin-top: 24px;
+}
+.single-element-left {
+    flex-basis: 33.3333%;
+}
+.single-element-left h2 {
+    text-align: left;
+    font-weight: 500;
+    font-size: 24px;
+}
+.single-element-right {
+    flex-basis: 66.6666%;
+}
+.single-element-right h2 {
+    text-align: left;
+    font-weight: 500;
+    font-size: 24px;
+}
+.main-logo {
+    display: flex;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.main-logo:hover {
+    transform: rotate(-4deg) scale(94%);
+    transition: 0.3s;
 }
 
 /* Product management */

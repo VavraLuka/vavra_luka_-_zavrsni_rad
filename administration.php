@@ -25,7 +25,7 @@ session_start();
                     </ul>
                 </div>
                 <div class="main-logo">
-                    <img src="images/mainLogo.png" width="180">
+                    <img src="images/mainLogo.png" width="160">
                 </div>
                 <div class="box">
                     <ul class="float-right text-black">
@@ -35,70 +35,72 @@ session_start();
                 </div>
             </div>
         </section>
-        <!-- Welcome message -->
         <section class="background-black text-white">
             <div class="section-wrapper">
                 <h1 class="welcome-message">Administracijski sustav web trgovine</h1>
             </div>
         </section>
-        <!-- Product upload -->
         <section id="productUpload">
             <div class="section-wrapper">
-                <h2>Unos novog proizvoda u bazu podataka</h2>
-                <form method="GET" action="administration.php">
-                    <select class="input-product-category" name="productCategory" id="productCategory">
-                        <option value="" disabled selected hidden>Kategorija proizvoda</option>
-                        <option value="speakers">Zvučnici</option>
-                        <option value="amplifiers">Pojačala</option>
-                        <option value="mixers">Miksete</option>
-                        <option value="controllers">Kontroleri</option>
-                        <option value="light">Rasvjeta</option>
-                        <option value="cables">Kablovi</option>
-                        <option value="adapters">Adapteri</option>
-                        <option value="accessories">Dodatna oprema</option>
-                        <option value="covers">Torbe</option>
-                    </select>
-                    <div class="form-button">
-                        <input type="submit" name="submit" value="Dodaj proizvod">
+                <div class="two-elements">
+                    <div class="single-element-left">
+                        <h2>Unos novog proizvoda u bazu podataka</h2>
+                        <form method="GET" action="administration.php">
+                            <select class="input-product-category" name="productCategory" id="productCategory">
+                                <option value="" disabled selected hidden>Kategorija proizvoda</option>
+                                <option value="speakers">Zvučnici</option>
+                                <option value="amplifiers">Pojačala</option>
+                                <option value="mixers">Miksete</option>
+                                <option value="controllers">Kontroleri</option>
+                                <option value="light">Rasvjeta</option>
+                                <option value="cables">Kablovi</option>
+                                <option value="adapters">Adapteri</option>
+                                <option value="accessories">Dodatna oprema</option>
+                                <option value="covers">Torbe</option>
+                            </select>
+                            <div class="form-button">
+                                <input type="submit" name="submit" value="Dodaj proizvod">
+                            </div>
+                        </form>
                     </div>
-                </form>
-                <?php
-                if (isset($_GET["error"])) {
-                    if ($_GET["error"] == "none") {
-                        echo "<div class='signup-paragraph'><p>Proizvod je uspješno dodan u bazu podataka!</p></div>";
-                    }
-                    echo "<br>";
-                }
-                ?>
+                    <div class="single-element-right">
+                        <?php
+                        if (isset($_GET["error"])) {
+                            if ($_GET["error"] == "none") {
+                                echo "<div class='signup-paragraph'><p>Proizvod je uspješno dodan u bazu podataka!</p></div>";
+                            }
+                            echo "<br>";
+                        }
+                        if (isset($_GET['productCategory'])) {
+                            $productCategory = $_GET['productCategory'];
+                            if ($productCategory == "speakers") {
+                                $productCategoryTitle = "Zvučnici";
+                            } else if ($productCategory == "amplifiers") {
+                                $productCategoryTitle = "Pojačala";
+                            } else if ($productCategory == "mixers") {
+                                $productCategoryTitle = "Miksete";
+                            } else if ($productCategory == "controllers") {
+                                $productCategoryTitle = "Kontroleri";
+                            } else if ($productCategory == "light") {
+                                $productCategoryTitle = "Rasvjeta";
+                            } else if ($productCategory == "cables") {
+                                $productCategoryTitle = "Kablovi";
+                            } else if ($productCategory == "adapters") {
+                                $productCategoryTitle = "Adapteri";
+                            } else if ($productCategory == "accessories") {
+                                $productCategoryTitle = "Dodatna oprema";
+                            } else {
+                                $productCategoryTitle = "Torbe";
+                            }
+                            echo '<h2 class="center-element">Unosite novi proizvod u kategoriji: ' . $productCategoryTitle . '</h2>';
+                            $includeProductForm = "php/productupload-forms/$productCategory.php";
+                            include_once $includeProductForm;
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
         </section>
-        <?php
-        if (isset($_GET['productCategory'])) {
-            $productCategory = $_GET['productCategory'];
-            if ($productCategory == "speakers") {
-                $productCategoryTitle = "Zvučnici";
-            } else if ($productCategory == "amplifiers") {
-                $productCategoryTitle = "Pojačala";
-            } else if ($productCategory == "mixers") {
-                $productCategoryTitle = "Miksete";
-            } else if ($productCategory == "controllers") {
-                $productCategoryTitle = "Kontroleri";
-            } else if ($productCategory == "light") {
-                $productCategoryTitle = "Rasvjeta";
-            } else if ($productCategory == "cables") {
-                $productCategoryTitle = "Kablovi";
-            } else if ($productCategory == "adapters") {
-                $productCategoryTitle = "Adapteri";
-            } else if ($productCategory == "accessories") {
-                $productCategoryTitle = "Dodatna oprema";
-            } else {
-                $productCategoryTitle = "Torbe";
-            }
-            echo '<h2 class="center-element">Unosite novi proizvod u kategoriji: ' . $productCategoryTitle . '</h2>';
-            $includeProductForm = "php/productupload-forms/$productCategory.php";
-            include_once $includeProductForm;
-        }
-        ?>
 
         <!-- Product management -->
         <section id="productManagement">

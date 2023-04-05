@@ -1,7 +1,6 @@
 .newproduct-form {
     width: 100%;
-    padding: 24px;
-    margin: 0 auto;
+    padding: 0px;
 }
 
 .center-element {
@@ -9,7 +8,7 @@
 }
 
 section.newproduct-form form {
-    width: 50%;
+    width: 100%;
 }
 
 .input-type {

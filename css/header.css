@@ -201,3 +201,14 @@ h1 {
     margin-top: 10px;
     margin-left: 12px;
 }
+
+a.back-to-main {
+    text-decoration: none;
+    color: var(--main-blue-color);
+    transition: 0.15s;
+    opacity: 100%;
+}
+a.back-to-main:hover {
+    transition: 0.15s;
+    opacity: 90%;
+}

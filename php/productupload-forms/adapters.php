@@ -1,5 +1,4 @@
 <section class="newproduct-form">
-    <div class="section-wrapper">
         <form method="POST" action="php/newproduct-process.php" accept-charset="UTF-8">
             <input type="hidden" name="category" id="category" value="adapters">
             <input type="text" name="name" id="name" placeholder="Naziv proizvoda" required oninvalid="this.setCustomValidity('Obavezan naziv proizvoda')"><br>
@@ -29,11 +28,14 @@
                 <div class="input-div-two"><input type="number" name="length" id="length" step="0.1" placeholder="Duljina (cm)"><br></div>
             </div>
             <input type="text" name="imageURL" id="imageURL" placeholder="URL fotografije" required oninvalid="this.setCustomValidity('Obavezna fotografija proizvoda')"><br>
+            <div id="extra-inputs"></div>
+            <p>Za dodavanje do 3 dodatne informacije o proizvodu, pritisnite '+' ikonu ispod.</p>
+            <div id="add-extra-inputs">
+                <img src="images/addIcon.png">
+            </div>
             <div class="form-buttons">
                 <div class="input-div-two"><input type="submit" name="submit" value="Dodaj proizvod"></div>
                 <div class="input-div-two"><input type="reset" value="Očisti podatke"></div>
             </div>
         </form>
-        </form>
-    </div>
 </section>
