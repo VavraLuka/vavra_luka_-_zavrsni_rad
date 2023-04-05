@@ -25,7 +25,7 @@ session_start();
                     </ul>
                 </div>
                 <div class="main-logo">
-                    <img src="images/mainLogo.png" width="160">
+                    <a href="index.php"><img src="images/mainLogo.png" width="160"></a>
                 </div>
                 <div class="box">
                     <ul class="float-right text-black">
@@ -99,6 +99,7 @@ session_start();
                         ?>
                     </div>
                 </div>
+            <hr>
             </div>
         </section>
 
@@ -106,18 +107,21 @@ session_start();
         <section id="productManagement">
             <div class="section-wrapper">
                 <h2>Uređivanje proizvoda u bazi podataka</h2>
+                <hr>
             </div>
         </section>
         <!-- Users management -->
         <section id="usersManagement">
             <div class="section-wrapper">
                 <h2>Upravljanje korisničkim računima iz baze podataka</h2>
+                <hr>
             </div>
         </section>
         <!-- Footer -->
         <section>
-            <button>Povratak na vrh</button>
         </section>
+        <a href="#" class="back-to-top"><img src="images/DropdownIcon.png" width="24"></a>
+        <script type="text/javascript" src="js/main.js"></script>
     </div>
 </body>
 

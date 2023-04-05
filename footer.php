@@ -39,9 +39,9 @@
             <div class="section-wrapper">
                 <div class="box">
                     <ul class="text-dark-grey footer-ul">
-                        <li><a href="filteredproducts.php?productCategory=speakerBundle">Kompleti razglasa</a></li>
-                        <li><a href="filteredproducts.php?productCategory=activeSpeakers">Aktivni zvučnici</a> / <a href="filteredproducts.php?productCategory=passiveSpeakers">Pasivni zvučnici</a></li>
-                        <li><a href="filteredproducts.php?productCategory=monitorSpeakers">Monitorski zvučnici</a></li>
+                        <li><a href="filteredproducts.php?productCategory=speakers&speakerType=speakerBundle">Kompleti razglasa</a></li>
+                        <li><a href="filteredproducts.php?productCategory=speakers&speakerType=activeSpeaker">Aktivni zvučnici</a> / <a href="filteredproducts.php?productCategory=speakers&speakerType=passiveSpeaker">Pasivni zvučnici</a></li>
+                        <li><a href="filteredproducts.php?productCategory=speakers&speakerType=monitorSpeaker">Monitorski zvučnici</a></li>
                         <li><a href="filteredproducts.php?productCategory=amplifiers">Pojačala</a> / <a href="filteredproducts.php?productCategory=mixers">Miksete</a></li>
                         <li><a href="filteredproducts.php?productCategory=light">Rasvjeta</a></li>
                         <li><a href="filteredproducts.php?productCategory=cables">Kablovi</a> / <a href="filteredproducts.php?productCategory=adapters">Adapteri</a></li>

@@ -95,12 +95,6 @@ section {
     padding: 18px;
     display: flex;
     justify-content: center;
-    transition: 0.3s;
-}
-
-.main-logo:hover {
-    transform: rotate(-4deg) scale(94%);
-    transition: 0.3s;
 }
 
 ul {
