@@ -60,8 +60,9 @@ hr {
 /* Catalog Products */
 .filtered-product {
     width: 100%;
-    background-color: #f3f3f3;
-    height: 180px;
+    opacity: 100%;
+    background-color: #f3f3f3c0;
+    height: 200px;
     padding: 16px;
     margin-bottom: 16px;
     display: flex;
@@ -83,12 +84,14 @@ hr {
     flex-grow: 3;
     text-align: left;
 }
+
 .filtered-product-info h2 {
     font-weight: 300;
     font-size: 18px;
 }
+
 .filtered-product-info h1 {
-    font-size: 24px;
+    font-size: 18px;
     font-size: 700;
 }
 
@@ -104,11 +107,36 @@ hr {
 }
 
 .filtered-available {
-    color: green;
+    color: #16b888;
 }
 
 .filtered-not-available {
-    color: red;
+    color: #ff726f;
+}
+
+.inline-block {
+    display: inline-block;
 }
 
 .filtered-buttons {}
+
+.sorting-title {
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.manufacturers {
+    text-align: left;
+}
+
+.manufacturer-checkbox {
+    width: 24px;
+}
+
+.display-flex {
+    display: flex;
+}
+
+ul.manufacturer-list {
+    all: unset;
+}
