@@ -10,11 +10,12 @@
 .filtered-products-left {
     float: left;
     width: 30%;
+    margin-right: 4%;
 }
 
 .filtered-products-right {
     float: right;
-    width: 70%;
+    width: 66%;
 }
 
 .sorting-button {
@@ -27,14 +28,14 @@
 }
 
 .product-category-title {
-    font-weight: 500;
+    font-weight: 700;
     font-size: 36px;
     padding-right: 24px;
 }
 
 .product-category-count {
     color: gray;
-    font-weight: 500;
+    font-weight: 300;
     font-size: 36px;
 }
 
@@ -55,3 +56,59 @@ hr {
     margin: 24px 0px;
     width: 100%;
 }
+
+/* Catalog Products */
+.filtered-product {
+    width: 100%;
+    background-color: #f3f3f3;
+    height: 180px;
+    padding: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 4%;
+}
+
+.filtered-product-image {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+    min-width: 180px;
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.filtered-product-info {
+    flex-basis: 0;
+    flex-grow: 3;
+    text-align: left;
+}
+.filtered-product-info h2 {
+    font-weight: 300;
+    font-size: 18px;
+}
+.filtered-product-info h1 {
+    font-size: 24px;
+    font-size: 700;
+}
+
+.filtered-actions {
+    flex-basis: 0;
+    flex-grow: 3;
+    text-align: right;
+}
+
+.filtered-price h1 {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.filtered-available {
+    color: green;
+}
+
+.filtered-not-available {
+    color: red;
+}
+
+.filtered-buttons {}

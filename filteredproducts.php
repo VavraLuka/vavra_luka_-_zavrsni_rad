@@ -67,6 +67,16 @@ include_once 'header.php';
                         <option value="newfirst">Najprije novi proizvodi</option>
                         <option value="oldfirst">Najprije stari proizvodi</option>
                     </select>
+                    <?php
+                    if(isset($_GET['productCategory'])) {
+                        $productCategory = $_GET['productCategory'];
+                        echo '<input type="hidden" name="productCategory" value="' . $productCategory . '">';
+                    }
+                    if(isset($_GET['speakerType'])) {
+                        $speakerType = $_GET['speakerType'];
+                        echo '<input type="hidden" name="speakerType" value="' . $speakerType . '">';
+                    }
+                    ?>
                     <input type="submit" value="Sortiraj">
                 </form><br>
             </div>
@@ -95,16 +105,18 @@ include_once 'header.php';
             if (isset($_GET['productCategory'])) {
                 $productCategory = $_GET['productCategory'];
                 if (isset($_GET['speakerType'])) {
-                    $productCategoryType = $_GET['speakerType'];
-                    $sql = "SELECT * FROM products WHERE speakerType=$productCategoryType ORDER BY $sorting";
+                    $productCategory = $_GET['speakerType'];
+                    $sql = "SELECT * FROM products WHERE speakerType='$productCategory' ORDER BY $sorting";
                 } else {
-                    $sql = "SELECT * FROM products WHERE category=$productCategory ORDER BY $sorting";
+                    $sql = "SELECT * FROM products WHERE category='$productCategory' ORDER BY $sorting";
                 }
             } else {
-                $sql = "SELECT * FROM products WHERE category=$productCategory ORDER BY id DESC";
+                $sql = "SELECT * FROM products WHERE category='$productCategory' ORDER BY id DESC";
             }
             $stmt = mysqli_stmt_init($dbc);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
+                $error = mysqli_stmt_error($stmt);
+                echo "Error: " . $error;
                 echo "Greška: SQL statement.";
             } else {
                 mysqli_stmt_execute($stmt);
@@ -117,13 +129,33 @@ include_once 'header.php';
                     $quantity = $row['quantity'];
                     $imageURL = $row['imageURL'];
 
-                    echo "
-                <div class='photo'>
-                    <a class='image-link'><div id='planina$row_mountain_id' class='image' style='background-image: url($row_photo_url)'></div></a>
-                    <a class='mountain-link'><h2>$row_photo_title</h2></a>
-                    <a class='author-link'><h3>$row_photo_author</h3></a>
-                </div>
-                ";
+                    if ($quantity > 0) {
+                        $availability = "Dostupno na stanju";
+                        $availabilityStyle = "filtered-available";
+                    } else {
+                        $availability = "Trenutno nije dostupno";
+                        $availabilityStyle = "filtered-not-available";
+                    }
+                    echo '
+                    <div class="filtered-product">
+                        <div class="filtered-product-image" style="background-image:url(' . $imageURL . ');">
+                        </div>
+                        <div class="filtered-product-info">
+                            <h2>' . $manufacturer . '</h2>
+                            <h1>' . $name . '</h1>
+                        </div>
+                        <div class="filtered-actions">
+                            <div class="filtered-price">
+                                <h1>€' . $price . '</h1>
+                                <p class="' . $availabilityStyle . '">' . $availability . '</p>
+                            </div>
+                            <div class="filtered-buttons">
+                                <p>Dodaj u košaricu</p>
+                                <p>Dodaj u favorite</p>
+                            </div>
+                        </div>
+                    </div>
+                    ';
                 }
             }
             ?>
