@@ -50,3 +50,4 @@
         </div>
     </form>
 </section>
+<script type="text/javascript" src="js/addextrainputs.js"></script>
