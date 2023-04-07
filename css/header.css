@@ -10,28 +10,6 @@
     text-decoration: none;
 }
 
-:root {
-    --main-blue-color: #17a4e5;
-    /* #46B1C9; */
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-
-::-webkit-scrollbar-thumb {
-    background: var(--main-blue-color);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--main-blue-color);
-}
-
 .page-wrapper {
     width: 100%;
 }
@@ -90,18 +68,43 @@ section {
     font-weight: 700;
 }
 
+:root {
+    --main-blue-color: #17a4e5;
+}
+
+/* Scrollbar adjustement */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-blue-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--main-blue-color);
+}
+
 /* Section 01 */
-.main-logo {
+div.main-logo {
     padding: 18px;
     display: flex;
     justify-content: center;
 }
 
-ul {
+ul.navigation-bar {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
+}
+
+ul.navigation-bar li {
+    float: left;
 }
 
 ul.space-between {
@@ -110,7 +113,7 @@ ul.space-between {
     justify-content: space-between;
 }
 
-li {
+ul.space-between li {
     float: left;
 }
 
@@ -135,14 +138,12 @@ ul li a:hover {
     transition: 0.15s;
 }
 
-/* Section 02 */
-
-/* Section 03 */
-h1 {
+h1.main-title {
     font-size: 36px;
+    letter-spacing: -1px;
 }
 
-.greeting-message {
+div.greeting-message {
     position: relative;
     width: 50%;
     text-align: center;
@@ -163,10 +164,6 @@ h1 {
 
 .padding-left {
     padding-left: 16px;
-}
-
-.welcome-title {
-    font-size: 32px;
 }
 
 /* back-to-top button */
@@ -202,6 +199,7 @@ a.back-to-main {
     transition: 0.15s;
     opacity: 100%;
 }
+
 a.back-to-main:hover {
     transition: 0.15s;
     opacity: 90%;

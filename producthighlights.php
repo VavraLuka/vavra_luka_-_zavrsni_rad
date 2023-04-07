@@ -1,7 +1,7 @@
 <section class="products-section">
     <div class="products-title">
         <h1>Istaknuti proizvodi</h1>
-        <p>Najprodavaniji proizvodi</p>
+        <p>Najbolje ocijenjeni proizvodi</p>
     </div>
 </section>
 <section class="products-section">
@@ -24,12 +24,12 @@
             $imageURL = $row['imageURL'];
             $salesCount = $row['salesCount'];
 
-            echo "<div class='product'>
-            <div class='image' style='background-image: url($imageURL)'></div>
-            <h3 class='salesCount'>$salesCount prodaja</h3>
+            echo "<div class='product-highlight'>
+            <div class='product-highlight-image' style='background-image: url($imageURL)'></div>
             <h3>$manufacturer</h3>
             <h2>$name</h2>
             <h1>€$price</h1>
+            <h3 class='salesCount'>5 zvijezdica</h3>
             </div>";
         }
     }

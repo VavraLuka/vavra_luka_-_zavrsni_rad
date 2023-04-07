@@ -1,51 +1,60 @@
-.footer-padding {
+div.footer-padding {
     padding-top: 8px;
     padding-bottom: 8px;
 }
+
 footer li {
     float: none;
     padding: 2px;
 }
+
 footer ul li a {
     text-decoration-line: none;
     padding: 0px;
     color: grey;
     transition: 0.15s;
 }
+
 footer ul li a:hover {
     color: var(--main-blue-color);
     transition: 0.15s;
 }
+
 .text-dark-grey {
     color: grey;
 }
+
 .footer-padding {
     padding-top: 46px;
     padding-bottom: 46px;
 }
+
 ul.payingmethods li {
     float: left;
     padding: 0px;
     margin-right: 24px;
     margin-bottom: 16px;
-}
-footer h3 {
-    padding-bottom: 16px;
-}
-.yourbenefits img {
-    padding-right: 6px;
-}
-ul.payingmethods li {
     cursor: pointer;
 }
+
 ul.payingmethods li img {
     filter: grayscale(100%);
     transition: 0.15s;
 }
+
 ul.payingmethods li:hover img {
     filter: grayscale(0%);
     transition: 0.15s;
 }
+
+footer h3 {
+    padding-bottom: 16px;
+}
+
+.yourbenefits img {
+    padding-right: 6px;
+}
+
 ul.socialIcons li {
     float: left;
     padding: 0px;
@@ -53,11 +62,16 @@ ul.socialIcons li {
     margin-bottom: 16px;
     cursor: pointer;
 }
+
 ul.socialIcons li img {
     filter: grayscale(100%);
     transition: 0.15s;
 }
+
 ul.socialIcons li:hover img {
     filter: grayscale(0%);
     transition: 0.15s;
+}
+p.footer-copyright-text {
+    clear: both;
 }

@@ -25,8 +25,8 @@
                 $discountPrice = $regularPrice - ($regularPrice * $discount / 100);
                 $imageURL = $row['imageURL'];
 
-                echo "<div class='product'>
-            <div class='image' style='background-image: url($imageURL)'></div>
+                echo "<div class='product-highlight'>
+            <div class='product-highlight-image' style='background-image: url($imageURL)'></div>
             <h3>$manufacturer</h3>
             <h2>$name</h2>
             <h1 class='text-decoration-line right'>€$regularPrice</h1>

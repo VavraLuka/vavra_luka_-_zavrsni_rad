@@ -22,22 +22,25 @@ session_start();
     <link rel="stylesheet" href="css/highlightedproducts.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
+    <meta name="description" content="Usavršite svoj doživljaj zvuka uz Vokaton. Istražite naš odabrani izbor vrhunske audio opreme i dodataka, dostupnih za jednostavnu online kupnju.">
+    <meta name="keywords" content="Audio oprema, Vrhunska tehnologija, Online kupovina, Kvaliteta zvuka">
+    <meta name="author" content="Luka Vavra">
 </head>
 
 <body>
     <div class="page-wrapper">
-        <!-- Section 01 -->
+        <!-- Section 01 - navigation bar -->
         <section class="background-grey">
             <div class="section-wrapper">
                 <div class="box">
                     <div class="inner-box">
-                        <ul class="text-black">
+                        <ul class="navigation-bar text-black">
                             <li><a href="contactus.php">Kontaktiraj nas</a></li>
                             <li><a href="aboutus.php">O nama</a></li>
                         </ul>
                     </div>
                     <div class="inner-box">
-                        <ul class="bold-text text-black">
+                        <ul class="navigation-bar bold-text text-black">
                             <li><a href="#topdeals">Top ponude</a></li>
                             <li><a href="#new">Novo</a></li>
                             <li><a href="#mostpopular">Najprodavanije</a></li>
@@ -49,13 +52,13 @@ session_start();
                 </div>
                 <div class="box">
                     <div class="inner-box">
-                        <ul class="float-right text-black">
+                        <ul class="navigation-bar float-right text-black">
                             <li><a href="warranty.php">3 godine jamstva</a></li>
                             <li><a href="returns.php">Povrat robe</a></li>
                         </ul>
                     </div>
                     <div class="inner-box">
-                        <ul class="float-right text-black">
+                        <ul class="navigation-bar float-right text-black">
                             <li><a href="#currencychange">Odabir valute</a></li>
                             <li><a href="#cart">Košarica</a></li>
                             <?php
@@ -81,8 +84,6 @@ session_start();
                 </div>
             </div>
         </section>
-
-        <!-- Section 02 -->
         <section class="background-black">
             <div class="section-wrapper">
                 <ul class="text-white space-between">
