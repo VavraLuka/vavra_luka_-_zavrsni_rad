@@ -12,6 +12,7 @@
             <option value="stands">Stalci</option>
             <option value="headphones">Slušalice</option>
             <option value="storageUnits">Prostor za pohranu</option>
+            <option value="storageUnits">Ostalo</option>
         </select><br>
         <input type="text" name="imageURL" id="imageURL" placeholder="URL fotografije" required oninvalid="this.setCustomValidity('Obavezna fotografija proizvoda')"><br>
         <div id="extra-inputs"></div>
