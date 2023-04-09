@@ -9,7 +9,7 @@
         <?php
         require_once 'php/databaseconnect.php';
 
-        $sql = "SELECT * FROM products ORDER BY discount DESC WHERE discount>0 LIMIT 5";
+        $sql = "SELECT * FROM products WHERE discount > 0 ORDER BY discount DESC LIMIT 5";
         $stmt = mysqli_stmt_init($dbc);
 
         if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -23,14 +23,16 @@
                 $regularPrice = $row['price'];
                 $discount = $row['discount'];
                 $discountPrice = $regularPrice - ($regularPrice * $discount / 100);
+                $discountPrice = number_format($discountPrice, 2, '.', ',');
                 $imageURL = $row['imageURL'];
 
                 echo "<div class='product-highlight'>
             <div class='product-highlight-image' style='background-image: url($imageURL)'></div>
+            <p class='discount-text'>$discount% popust</p>
             <h3>$manufacturer</h3>
             <h2>$name</h2>
             <h1 class='text-decoration-line right'>€$regularPrice</h1>
-            <h1 class='left'>€$discountPrice</h1>
+            <h1>€$discountPrice</h1>
             </div>";
             }
         }

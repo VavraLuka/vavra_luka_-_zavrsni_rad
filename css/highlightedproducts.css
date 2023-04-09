@@ -70,3 +70,7 @@ h1.left {
 h1.right {
     float: right;
 }
+p.discount-text {
+    color: var(--main-blue-color);
+    font-weight: 400;
+}
