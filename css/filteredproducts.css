@@ -117,9 +117,6 @@ hr {
 .inline-block {
     display: inline-block;
 }
-
-.filtered-buttons {}
-
 .sorting-title {
     font-weight: 700;
     font-size: 36px;
@@ -129,14 +126,16 @@ hr {
     text-align: left;
 }
 
-.manufacturer-checkbox {
-    width: 24px;
-}
-
 .display-flex {
     display: flex;
 }
 
-ul.manufacturer-list {
-    all: unset;
+input[type=checkbox] {
+    width: 24px;
+    margin-bottom: 0px;
+    display: inline-block;
+}
+
+p.checkbox-input-text {
+    display: inline-block;
 }

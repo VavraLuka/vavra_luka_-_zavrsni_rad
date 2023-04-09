@@ -99,22 +99,38 @@ include_once 'header.php';
             <div class="manufacturers">
                 <h1 class="sorting-title">Brand-ovi</h1>
                 <?php
-                $sql = "SELECT manufacturer, COUNT(*) as count FROM products GROUP BY manufacturer";
+                if (isset($_GET['speakerType'])) {
+                    $speakerType = $_GET['speakerType'];
+                    $sql = "SELECT manufacturer, COUNT(*) as count FROM products WHERE speakerType='$speakerType' GROUP BY manufacturer";
+                } else {
+                    $productCategory = $_GET['productCategory'];
+                    $sql = "SELECT manufacturer, COUNT(*) as count FROM products WHERE category='$productCategory' GROUP BY manufacturer";
+                }
                 $result = mysqli_query($dbc, $sql);
-                echo "<ul class='manufacturer-list'>";
+                echo "<form method='GET' action='filteredproducts.php'>";
                 while ($row = mysqli_fetch_assoc($result)) {
                     $manufacturer = $row['manufacturer'];
                     $count = $row['count'];
-                    # echo "<li>
-                    # <input type='checkbox' id='{$manufacturer}' name='{$manufacturer}'>
-                    # <label for='{$manufacturer}'>{$manufacturer} ({$count})</label>
-                    # </li>";
-                    echo "<li>{$manufacturer} ({$count})</li>";
+                    echo "<input type='checkbox' class='checkbox-input' name='categories[]' value='{$manufacturer}'><p class='checkbox-input-text'>{$manufacturer} ({$count})</p><br>";
                 }
-                echo "</ul>";
+                if (isset($_GET['productCategory'])) {
+                    $productCategory = $_GET['productCategory'];
+                    echo '<input type="hidden" name="productCategory" value="' . $productCategory . '">';
+                }
+                if (isset($_GET['speakerType'])) {
+                    $speakerType = $_GET['speakerType'];
+                    echo '<input type="hidden" name="speakerType" value="' . $speakerType . '">';
+                }
+                if (isset($_GET['sort'])) {
+                    $sort = $_GET['sort'];
+                    echo '<input type="hidden" name="sort" value="' . $sort . '">';
+                }
+                echo "<br>";
+                echo "<input type='submit' value='Odaberi'></form>";
                 ?>
             </div>
         </div>
+        <!-- Products sorting -->
         <div class="filtered-products-right">
             <?php
             if (isset($_GET['sort'])) {
@@ -142,13 +158,22 @@ include_once 'header.php';
                 $productCategory = $_GET['productCategory'];
                 if (isset($_GET['speakerType'])) {
                     $productCategory = $_GET['speakerType'];
-                    $sql = "SELECT * FROM products WHERE speakerType='$productCategory' ORDER BY $sorting";
+                    $productCategory = "speakerType='$productCategory'";
                 } else {
-                    $sql = "SELECT * FROM products WHERE category='$productCategory' ORDER BY $sorting";
+                    $productCategory = "category='$productCategory'";
                 }
             } else {
-                $sql = "SELECT * FROM products WHERE category='$productCategory' ORDER BY id DESC";
+                $productCategory = "category='$productCategory'";
             }
+            if (isset($_GET['categories'])) {
+                $selected_categories = $_GET['categories'];
+                $selected_categories_string = implode('", "', $selected_categories);
+                $selected_categories_string = '("' . $selected_categories_string . '")';
+                $categories = "AND manufacturer IN $selected_categories_string";
+            } else {
+                $categories = "";
+            }
+            $sql = "SELECT * from products WHERE $productCategory $categories ORDER BY $sorting";
             $stmt = mysqli_stmt_init($dbc);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                 $error = mysqli_stmt_error($stmt);
