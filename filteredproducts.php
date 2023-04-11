@@ -179,8 +179,12 @@ include_once 'header.php';
             } else {
                 $categories = "";
             }
-            if ($_GET['sort'] == "availability") {
-                $sql = "SELECT * from products WHERE $productCategory $categories AND $sorting";
+            if (isset($_GET['sort'])) {
+                if ($_GET['sort'] == "availability") {
+                    $sql = "SELECT * from products WHERE $productCategory $categories AND $sorting";
+                } else {
+                    $sql = "SELECT * from products WHERE $productCategory $categories ORDER BY $sorting";
+                }
             } else {
                 $sql = "SELECT * from products WHERE $productCategory $categories ORDER BY $sorting";
             }
@@ -225,10 +229,10 @@ include_once 'header.php';
                                 <h1>€' . $price . '</h1>
                             </div>
                             <div class="filtered-buttons bottom-div">';
-                            if ($quantity > 0) {
-                                echo '<img class="action-buttons" src="images/cartIcon.svg" width="36">';
-                            }
-                            echo '<img class="action-buttons" src="images/favoriteIcon.svg" width="36">
+                    if ($quantity > 0) {
+                        echo '<img class="action-buttons" src="images/cartIcon.svg" width="36">';
+                    }
+                    echo '<img class="action-buttons" src="images/favoriteIcon.svg" width="36">
                             </div>
                         </div>
                     </div>
