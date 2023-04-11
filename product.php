@@ -56,6 +56,7 @@ $additionalLine2 = $row["additionalLine2"];
 $additionalLineValue2 = $row["additionalLineValue2"];
 $additionalLine3 = $row["additionalLine3"];
 $additionalLineValue3 = $row["additionalLineValue3"];
+$review = $row['review'];
 
 ?>
 <section class="product-section">
@@ -63,13 +64,18 @@ $additionalLineValue3 = $row["additionalLineValue3"];
         <div class="product-title-image">
             <div class="product-title">
                 <div>
-                    <h1 class="manufacturer inline-block"><?php echo $manufacturer;?></h1>
-                    <h1 class="name inline-block"><?php echo $name;?></h1>
+                    <h1 class="manufacturer inline-block"><?php echo $manufacturer; ?></h1>
+                    <h1 class="name inline-block"><?php echo $name; ?></h1>
                 </div>
                 <div>
-                    ocijena
+                    <?php if ($review > 0) {
+                        include 'php/reviews.php';
+                        echo "<p class='inline-block'>($review)</p>";
+                    } else {
+                        echo "<p>Ovaj proizvod još nije ocijenjen</p>";
+                    } ?>
                 </div>
-                <div class="manufacturer-logo" style="background-image: url('<?php echo $imageURL;?>');">
+                <div class="manufacturer-logo" style="background-image: url('<?php echo $imageURL; ?>');">
                 </div>
             </div>
             <div class="product-image">
@@ -77,14 +83,29 @@ $additionalLineValue3 = $row["additionalLineValue3"];
             </div>
         </div>
         <div class="product-action-price">
-            <h1 class="price">€<?php echo $price?></h1>
+            <?php
+            if ($discount > 0) {
+                echo "<p class='discount-text'>$discount% popusta</p>";
+            }
+            $regularPrice = $price;
+            $regularPrice = number_format($regularPrice, 2, '.', ',');
+            if ($discount > 0) {
+                $discountPrice = $regularPrice - ($regularPrice * $discount / 100);
+                $discountPrice = number_format($discountPrice, 2, '.', ',');
+                echo "<div class='two-prices'>
+                <h1 class='text-decoration-line'>€$discountPrice</h1>
+                <h1>€$regularPrice</h1></div>";
+            } else {
+                echo "<h1>€$regularPrice</h1>";
+            }
+            ?>
             <p>U cijenu je uključen PDV</p>
             <?php
-                if($quantity>0){
-                    echo "<p class='filtered-available'>Proizvod je dostupan</p>";
-                } else {
-                    echo "<p class='filtered-not-available'>Proizvod trenutno nije dostupan</p>";
-                }
+            if ($quantity > 0) {
+                echo "<p class='filtered-available'>Proizvod je dostupan</p>";
+            } else {
+                echo "<p class='filtered-not-available'>Proizvod trenutno nije dostupan</p>";
+            }
             ?>
             <form>
                 <quantity select></quantity>

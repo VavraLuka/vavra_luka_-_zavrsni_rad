@@ -18,6 +18,7 @@
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
             while ($row = mysqli_fetch_array($result)) {
+                $id = $row['id'];
                 $name = $row['name'];
                 $manufacturer = $row['manufacturer'];
                 $regularPrice = $row['price'];
@@ -27,7 +28,7 @@
                 $imageURL = $row['imageURL'];
 
                 echo "<div class='product-highlight'>
-            <div class='product-highlight-image' style='background-image: url($imageURL)'></div>
+                <a href='product.php?id=$id'><div class='product-highlight-image' style='background-image: url($imageURL)'></div></a>
             <p class='discount-text'>$discount% popust</p>
             <h3>$manufacturer</h3>
             <h2>$name</h2>

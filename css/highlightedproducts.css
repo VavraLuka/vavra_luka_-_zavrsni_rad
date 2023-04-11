@@ -10,6 +10,12 @@ div.products-wrapper {
 div.product-highlight {
     flex: 1;
     text-align: left;
+    transition: 0.15s;
+    opacity: 100%;
+}
+div.product-highlight:hover {
+    opacity: 85%;
+    transition: 0.15s;
 }
 
 div.product-highlight-image {
@@ -39,13 +45,11 @@ div.product-highlight h1 {
 }
 
 div.product-highlight h2 {
-    display: inline-block;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
 }
 div.product-highlight h3 {
-    display: inline-block;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
 }
 
@@ -73,4 +77,7 @@ h1.right {
 p.discount-text {
     color: var(--main-blue-color);
     font-weight: 400;
+}
+div.star-reviews {
+    width: 100%;
 }

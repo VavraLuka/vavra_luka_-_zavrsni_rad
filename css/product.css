@@ -31,6 +31,6 @@ div.manufacturer-logo {
     width: 100%;
     height: 480px;
 }
-div.product-action-price h1.price {
-    font-size: 60px;
+div.product-action-price h1 {
+    font-size: 36px;
 }
