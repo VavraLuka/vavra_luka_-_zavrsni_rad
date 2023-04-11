@@ -62,6 +62,7 @@ include_once 'header.php';
                             if (isset($_GET['sort'])) {
                                 $sortingTitle = $_GET['sort'];
                                 if ($sortingTitle == "popularity") echo "Popularnost";
+                                if ($sortingTitle == "availability") echo "Dostupnost";
                                 if ($sortingTitle == "pricedecrease") echo "Cijena - viša prema nižoj";
                                 if ($sortingTitle == "priceincrease") echo "Cijena - niža prema višoj";
                                 if ($sortingTitle == "bestrated") echo "Najbolje ocijenjeno";
@@ -75,6 +76,7 @@ include_once 'header.php';
                             ?>
                         </option>
                         <option value="popularity">Popularnost</option>
+                        <option value="availability">Dostupnost</option>
                         <option value="pricedecrease">Cijena - viša prema nižoj</option>
                         <option value="priceincrease">Cijena - niža prema višoj</option>
                         <option value="bestrated">Najbolje ocijenjeno</option>
@@ -138,6 +140,8 @@ include_once 'header.php';
             if (isset($_GET['sort'])) {
                 if ($_GET['sort'] == 'popularity') {
                     $sorting = "id DESC"; // sada prikazuje najnovije
+                } else if ($_GET['sort'] == 'availability') {
+                    $sorting = "quantity>0";
                 } else if ($_GET['sort'] == 'pricedecrease') {
                     $sorting = "price DESC";
                 } else if ($_GET['sort'] == 'priceincrease') {
@@ -175,7 +179,11 @@ include_once 'header.php';
             } else {
                 $categories = "";
             }
-            $sql = "SELECT * from products WHERE $productCategory $categories ORDER BY $sorting";
+            if ($_GET['sort'] == "availability") {
+                $sql = "SELECT * from products WHERE $productCategory $categories AND $sorting";
+            } else {
+                $sql = "SELECT * from products WHERE $productCategory $categories ORDER BY $sorting";
+            }
             $stmt = mysqli_stmt_init($dbc);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                 $error = mysqli_stmt_error($stmt);
@@ -201,24 +209,26 @@ include_once 'header.php';
                     }
                     echo '
                     <div class="filtered-product">
-                        <div class="filtered-product-image" style="background-image:url(' . $imageURL . ');">
+                    <div class="filtered-product-image" style="background-image:url(' . $imageURL . ');">
                         </div>
-                        <div class="filtered-product-info">
-                        <div>
+                        <div class="filtered-product-info position-relative">
+                        <a class="product-link" href="product.php?id=' . $id . '"><div class="filtered-products-title">
                             <h1 class="inline-block">' . $manufacturer . '</h1>
                             <h2 class="inline-block">' . $name . '</h2>
-                        </div>
-                        <div>
+                        </div></a>
+                        <div class="bottom-div">
                         <p class="' . $availabilityStyle . '">' . $availability . '</p>
                         </div>
                             </div>
-                        <div class="filtered-actions">
+                        <div class="filtered-actions position-relative">
                             <div class="filtered-price">
                                 <h1>€' . $price . '</h1>
                             </div>
-                            <div class="filtered-buttons">
-                                <p>Dodaj u košaricu</p>
-                                <p>Dodaj u favorite</p>
+                            <div class="filtered-buttons bottom-div">';
+                            if ($quantity > 0) {
+                                echo '<img class="action-buttons" src="images/cartIcon.svg" width="36">';
+                            }
+                            echo '<img class="action-buttons" src="images/favoriteIcon.svg" width="36">
                             </div>
                         </div>
                     </div>

@@ -87,11 +87,11 @@ hr {
 
 .filtered-product-info h2 {
     font-weight: 300;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .filtered-product-info h1 {
-    font-size: 18px;
+    font-size: 20px;
     font-size: 700;
 }
 
@@ -144,7 +144,8 @@ p.checkbox-input-text {
     font-size: 18px;
     user-select: none;
     margin-bottom: 6px;
-  }
+}
+
 input[type=checkbox] {
     position: absolute;
     opacity: 0;
@@ -152,6 +153,7 @@ input[type=checkbox] {
     height: 0;
     width: 0;
 }
+
 .custom-checkbox {
     position: absolute;
     top: 0;
@@ -159,21 +161,28 @@ input[type=checkbox] {
     height: 22px;
     width: 22px;
     background-color: #eee;
+    transition: 0.15s;
 }
+
 .checkbox-container:hover input~.custom-checkbox {
     background-color: #dfdfdf;
+    transition: 0.15s;
 }
+
 .checkbox-container input:checked~.custom-checkbox {
     background-color: var(--main-blue-color);
 }
+
 .custom-checkbox:after {
     content: "";
     position: absolute;
     display: none;
 }
+
 .checkbox-container input:checked~.custom-checkbox:after {
     display: block;
 }
+
 .checkbox-container .custom-checkbox:after {
     left: 8px;
     top: 4px;
@@ -182,4 +191,35 @@ input[type=checkbox] {
     border: solid white;
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
+    transition: 0.15s;
+}
+
+a.product-link {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.15s;
+}
+
+a.product-link:hover .filtered-products-title {
+    color: var(--main-blue-color);
+    transition: 0.15s;
+}
+
+div.position-relative {
+    position: relative;
+}
+div.bottom-div {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+img.action-buttons {
+    transition: 0.15s;
+    cursor: pointer;
+    margin-left: 8px;
+    filter: grayscale(100);
+}
+img.action-buttons:hover {
+    transition: 0.15s;
+    filter: grayscale(0);
 }
