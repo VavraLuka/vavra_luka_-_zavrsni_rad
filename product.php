@@ -63,14 +63,13 @@ $additionalLineValue3 = $row["additionalLineValue3"];
         <div class="product-title-image">
             <div class="product-title">
                 <div>
-                    <h1 class="manufaturer"></h1>
-                    <h1 class="name"></h1>
+                    <h1 class="manufacturer inline-block"><?php echo $manufacturer;?></h1>
+                    <h1 class="name inline-block"><?php echo $name;?></h1>
                 </div>
                 <div>
                     ocijena
                 </div>
-                <div class="manufacturer-logo">
-                    <img src="logo">
+                <div class="manufacturer-logo" style="background-image: url('<?php echo $imageURL;?>');">
                 </div>
             </div>
             <div class="product-image">
@@ -78,8 +77,15 @@ $additionalLineValue3 = $row["additionalLineValue3"];
             </div>
         </div>
         <div class="product-action-price">
-            <h1>Price</h1>
-            <p>Availabaility</p>
+            <h1 class="price">€<?php echo $price?></h1>
+            <p>U cijenu je uključen PDV</p>
+            <?php
+                if($quantity>0){
+                    echo "<p class='filtered-available'>Proizvod je dostupan</p>";
+                } else {
+                    echo "<p class='filtered-not-available'>Proizvod trenutno nije dostupan</p>";
+                }
+            ?>
             <form>
                 <quantity select></quantity>
                 <submit>
