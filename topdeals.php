@@ -1,4 +1,4 @@
-<section class="products-section">
+<section class="products-section" id="topdeals">
     <div class="products-title">
         <h1>Top ponude</h1>
         <p>Izvanredne cijene za izvanredne proizvode</p>

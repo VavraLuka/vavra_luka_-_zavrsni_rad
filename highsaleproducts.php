@@ -1,7 +1,7 @@
-<section class="products-section" id="mostpopular">
+<section class="products-section" id="mostsales">
     <div class="products-title">
-        <h1>Top proizvodi</h1>
-        <p>Najbolje ocijenjeni proizvodi</p>
+        <h1>Najprodavaniji proizvodi</h1>
+        <p>Povjerenje naših kupaca</p>
     </div>
 </section>
 <section class="products-section">
@@ -9,7 +9,7 @@
     <?php
     require_once 'php/databaseconnect.php';
 
-    $sql = "SELECT * FROM products ORDER BY review DESC LIMIT 5";
+    $sql = "SELECT * FROM products ORDER BY salesCount DESC LIMIT 5";
     $stmt = mysqli_stmt_init($dbc);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -22,13 +22,14 @@
             $manufacturer = $row['manufacturer'];
             $price = $row['price'];
             $imageURL = $row['imageURL'];
-            $review = $row['review'];
+            $salesCount = $row['salesCount'];
 
             echo "<div class='product-highlight'>
             <div class='product-highlight-image' style='background-image: url($imageURL)'></div>
             <h3>$manufacturer</h3>
             <h2>$name</h2>
             <h1>€$price</h1>
+            <h3 class='salesCount'>$salesCount</h3>
             </div>";
         }
     }

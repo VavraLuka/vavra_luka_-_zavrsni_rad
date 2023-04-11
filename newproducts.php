@@ -1,4 +1,4 @@
-<section class="products-section">
+<section class="products-section" id="new">
     <div class="products-title">
         <h1>Novi proizvodi</h1>
         <p>Noviteti u našoj ponudi</p>
