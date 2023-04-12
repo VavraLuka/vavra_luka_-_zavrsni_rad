@@ -9,7 +9,7 @@
         <?php
         require_once 'php/databaseconnect.php';
 
-        $sql = "SELECT * FROM products ORDER BY id DESC LIMIT 5";
+        $sql = "SELECT * FROM products ORDER BY id DESC LIMIT 4";
         $stmt = mysqli_stmt_init($dbc);
 
         if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -32,14 +32,12 @@
 
                 echo "<div class='product-highlight'>
             <a href='product.php?id=$id'><div class='product-highlight-image' style='background-image: url($imageURL)'></div></a>";
-                if ($discount > 0) {
-                    echo "<p class='discount-text'>$discount% popusta</p>";
-                }
                 echo "<h3>$manufacturer</h3>
             <h2>$name</h2>";
                 if ($discount > 0) {
                     echo "<h1 class='text-decoration-line right'>€$regularPrice</h1>
                 <h1>€$discountPrice</h1>";
+                echo "<p class='discount-text float-right'>$discount% popusta</p>";
                 } else {
                     echo "<h1>€$regularPrice</h1>";
                 }

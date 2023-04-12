@@ -229,3 +229,11 @@ img.action-buttons:hover {
     transition: 0.15s;
     filter: grayscale(0);
 }
+
+div.star-reviews {
+    padding: 6px 0px;
+}
+div.star-reviews p {
+    position: relative;
+    top: -2px;
+}

@@ -203,6 +203,7 @@ include_once 'header.php';
                     $price = $row['price'];
                     $quantity = $row['quantity'];
                     $imageURL = $row['imageURL'];
+                    $review = $row['review'];
 
                     if ($quantity > 0) {
                         $availability = "Dostupno na stanju";
@@ -219,8 +220,9 @@ include_once 'header.php';
                         <a class="product-link" href="product.php?id=' . $id . '"><div class="filtered-products-title">
                             <h1 class="inline-block">' . $manufacturer . '</h1>
                             <h2 class="inline-block">' . $name . '</h2>
-                        </div></a>
-                        <div class="bottom-div">
+                        </div></a>';
+                        include 'php/reviews.php';
+                        echo '<div class="bottom-div">
                         <p class="' . $availabilityStyle . '">' . $availability . '</p>
                         </div>
                             </div>

@@ -9,7 +9,7 @@
         <?php
         require_once 'php/databaseconnect.php';
 
-        $sql = "SELECT * FROM products ORDER BY review DESC LIMIT 5";
+        $sql = "SELECT * FROM products ORDER BY review DESC LIMIT 4";
         $stmt = mysqli_stmt_init($dbc);
 
         if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -39,6 +39,7 @@
                 if ($discount > 0) {
                     echo "<h1 class='text-decoration-line right'>€$regularPrice</h1>
                 <h1>€$discountPrice</h1>";
+                    echo "<p class='discount-text float-right'>$discount% popusta</p>";
                 } else {
                     echo "<h1>€$regularPrice</h1>";
                 }
