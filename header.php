@@ -43,10 +43,10 @@ session_start();
                     </div>
                     <div class="inner-box">
                         <ul class="navigation-bar bold-text text-black">
-                            <li><a href="#topdeals">Top ponude</a></li>
-                            <li><a href="#new">Novo</a></li>
-                            <li><a href="#mostsales">Najprodavanije</a></li>
-                            <li><a href="#mostpopular">Top proizvodi</a></li>
+                            <li><a href="index.php#topdeals">Top ponude</a></li>
+                            <li><a href="index.php#new">Novo</a></li>
+                            <li><a href="index.php#mostsales">Najprodavanije</a></li>
+                            <li><a href="index.php#mostpopular">Top proizvodi</a></li>
                         </ul>
                     </div>
                 </div>

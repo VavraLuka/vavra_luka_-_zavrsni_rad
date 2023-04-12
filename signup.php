@@ -8,7 +8,7 @@ include_once 'header.php';
         if (isset($_GET["error"])) {
             if ($_GET["error"] == "none") {
                 echo '<div class="signup-image">
-                    <img src="images/SignUpSuccesfull.svg" width="240">
+                    <div style="width: 240px;"><img src="images/SignUpSuccesfull.svg" width="180"></div>
                 </div>';
             } else {
                 echo '<div class="signup-image">

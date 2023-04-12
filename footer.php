@@ -1,6 +1,6 @@
 <footer>
     <section class="background-grey">
-        <div class="section-wrapper footer-padding">
+        <div class="section-wrapper" style="padding-top: 36px;">
             <div class="box">
                 <h3>Kupujte i plaćajte sigurno</h3>
                 <ul class="payingmethods">
@@ -19,6 +19,7 @@
                 <ul class="yourbenefits">
                     <li><img src="images/Tick.png" width="14">3 godine garancije</li>
                     <li><img src="images/Tick.png" width="14">30 dana rok povrata novca</li>
+                    <li><img src="images/Tick.png" width="14">Raznolika ponuda proizvoda</li>
                     <li><img src="images/Tick.png" width="14">Usluge popravka</li>
                     <li><img src="images/Tick.png" width="14">Korisnička podrška</li>
                     <li><img src="images/Tick.png" width="14">Jamstvo zadovoljstva</li>
