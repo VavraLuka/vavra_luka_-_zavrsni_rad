@@ -1,56 +1,82 @@
 <?php
-include_once 'header.php';
-?>
-<section>
-    <div class="filtered-products-top">
-        <?php
-        require_once 'php/databaseconnect.php';
-        if (isset($_GET['productCategory'])) {
-            $productCategory = $_GET['productCategory'];
-            $category = $productCategory;
-            if ($productCategory == "speakers") {
-                if (isset($_GET['speakerType'])) {
-                    $speakerType = $_GET['speakerType'];
-                    $categoryType = $speakerType;
-                    if ($speakerType == "speakerBundle") {
+require_once 'php/databaseconnect.php';
+if (isset($_GET['productCategory'])) {
+    $productCategory = $_GET['productCategory'];
+    $category = $productCategory;
+    switch ($productCategory) {
+        case "speakers":
+            if (isset($_GET['speakerType'])) {
+                $speakerType = $_GET['speakerType'];
+                $categoryType = $speakerType;
+                switch ($speakerType) {
+                    case "speakerBundle":
                         $productCategoryTitle = "Kompleti zvučnika";
-                    } else if ($speakerType == "activeSpeaker") {
+                        break;
+                    case "activeSpeaker":
                         $productCategoryTitle = "Aktivni zvučnici";
-                    } else if ($speakerType == "passiveSpeaker") {
+                        break;
+                    case "passiveSpeaker":
                         $productCategoryTitle = "Pasivni zvučnici";
-                    } else if ($speakerType == "monitorSpeaker") {
+                        break;
+                    case "monitorSpeaker":
                         $productCategoryTitle = "Monitorski zvučnici";
-                    }
+                        break;
+                    default:
+                        header("location: pagenotfound.php");
                 }
-            } else if ($productCategory == "amplifiers") {
-                $productCategoryTitle = "Pojačala";
-            } else if ($productCategory == "mixers") {
-                $productCategoryTitle = "Miksete";
-            } else if ($productCategory == "controllers") {
-                $productCategoryTitle = "Kontroleri";
-            } else if ($productCategory == "light") {
-                $productCategoryTitle = "Rasvjeta";
-            } else if ($productCategory == "cables") {
-                $productCategoryTitle = "Kablovi";
-            } else if ($productCategory == "adapters") {
-                $productCategoryTitle = "Adapteri";
-            } else if ($productCategory == "accessories") {
-                $productCategoryTitle = "Dodatna oprema";
-            } else if ($productCategory == "covers") {
-                $productCategoryTitle = "Torbe";
             } else {
                 header("location: pagenotfound.php");
             }
-            if (isset($categoryType)) {
-                $result = mysqli_query($dbc, "SELECT COUNT(*) as count FROM products WHERE speakerType='$categoryType'");
-            } else {
-                $result = mysqli_query($dbc, "SELECT COUNT(*) as count FROM products WHERE category='$category'");
-            }
-            $row = mysqli_fetch_assoc($result);
-            $productCategoryCount = $row['count'];
+            break;
+        case "amplifiers":
+            $productCategoryTitle = "Pojačala";
+            break;
+        case "mixers":
+            $productCategoryTitle = "Miksete";
+            break;
+        case "controllers":
+            $productCategoryTitle = "Kontroleri";
+            break;
+        case "light":
+            $productCategoryTitle = "Rasvjeta";
+            break;
+        case "cables":
+            $productCategoryTitle = "Kablovi";
+            break;
+        case "adapters":
+            $productCategoryTitle = "Adapteri";
+            break;
+        case "accessories":
+            $productCategoryTitle = "Dodatna oprema";
+            break;
+        case "covers":
+            $productCategoryTitle = "Torbe";
+            break;
+        case "all":
+            $productCategoryTitle = "Svi proizvodi";
+            break;
+        default:
+            header("location: pagenotfound.php");
+    }
+    if (isset($categoryType)) {
+        $result = mysqli_query($dbc, "SELECT COUNT(*) as count FROM products WHERE speakerType='$categoryType'");
+    } else if ($productCategory == "all") {
+        $result = mysqli_query($dbc, "SELECT COUNT(*) as count FROM products");
+    } else {
+        $result = mysqli_query($dbc, "SELECT COUNT(*) as count FROM products WHERE category='$category'");
+    }
+    $row = mysqli_fetch_assoc($result);
+    $productCategoryCount = $row['count'];
+} else {
+    header("location: pagenotfound.php");
+}
+include_once 'header.php';
+?>
 
-            echo '<div class="product-category-div"><h1 class="product-category-title">' . $productCategoryTitle . '</h1><h1 class="product-category-count">' . $productCategoryCount . '</h1></div>';
-        }
+<section>
+    <div class="filtered-products-top">
+        <?php
+        echo '<div class="product-category-div"><h1 class="product-category-title" style="letter-spacing: -1px;">' . $productCategoryTitle . '</h1><h1 class="product-category-count">' . $productCategoryCount . '</h1></div>';
         ?>
         <hr>
         <div class="filtered-products-left">
@@ -87,23 +113,23 @@ include_once 'header.php';
                     </select>
                     <?php
                     if (isset($_GET['productCategory'])) {
-                        $productCategory = $_GET['productCategory'];
-                        echo '<input type="hidden" name="productCategory" value="' . $productCategory . '">';
+                        echo '<input type="hidden" name="productCategory" value="' . $_GET['productCategory'] . '">';
                     }
                     if (isset($_GET['speakerType'])) {
-                        $speakerType = $_GET['speakerType'];
-                        echo '<input type="hidden" name="speakerType" value="' . $speakerType . '">';
+                        echo '<input type="hidden" name="speakerType" value="' . $_GET['speakerType'] . '">';
                     }
                     ?>
                     <input type="submit" value="Sortiraj">
                 </form><br>
             </div>
             <div class="manufacturers">
-                <h1 class="sorting-title">Brand-ovi</h1><br>
+                <h1 class="sorting-title" style="letter-spacing: -1px;">Brand-ovi</h1><br>
                 <?php
                 if (isset($_GET['speakerType'])) {
                     $speakerType = $_GET['speakerType'];
                     $sql = "SELECT manufacturer, COUNT(*) as count FROM products WHERE speakerType='$speakerType' GROUP BY manufacturer";
+                } else if ($_GET['productCategory'] == "all") {
+                    $sql = "SELECT manufacturer, COUNT(*) as count FROM products GROUP BY manufacturer";
                 } else {
                     $productCategory = $_GET['productCategory'];
                     $sql = "SELECT manufacturer, COUNT(*) as count FROM products WHERE category='$productCategory' GROUP BY manufacturer";
@@ -113,8 +139,7 @@ include_once 'header.php';
                 while ($row = mysqli_fetch_assoc($result)) {
                     $manufacturer = $row['manufacturer'];
                     $count = $row['count'];
-
-                    echo "<label class='checkbox-container'><input type='checkbox' name='categories[]' value='{$manufacturer}'>
+                    echo "<label class='checkbox-container'><input type='checkbox' name='manufacturer[]' value='{$manufacturer}'>
                     <span class='custom-checkbox'></span>
                     <p class='checkbox-input-text'>{$manufacturer} ({$count})</p></label>";
                 }
@@ -134,60 +159,82 @@ include_once 'header.php';
                 ?>
             </div>
         </div>
-        <!-- Products sorting -->
         <div class="filtered-products-right">
             <?php
-            if (isset($_GET['sort'])) {
-                if ($_GET['sort'] == 'popularity') {
-                    $sorting = "id DESC"; // sada prikazuje najnovije
-                } else if ($_GET['sort'] == 'availability') {
-                    $sorting = "quantity>0";
-                } else if ($_GET['sort'] == 'pricedecrease') {
-                    $sorting = "price DESC";
-                } else if ($_GET['sort'] == 'priceincrease') {
-                    $sorting = "price ASC";
-                } else if ($_GET['sort'] == 'nameaz') {
-                    $sorting = "name ASC";
-                } else if ($_GET['sort'] == 'nameza') {
-                    $sorting = "name DESC";
-                } else if ($_GET['sort'] == 'newfirst') {
-                    $sorting = "id DESC";
-                } else if ($_GET['sort'] == 'oldfirst') {
-                    $sorting = "id ASC";
-                } else if ($_GET['sort'] == 'bestrated') {
-                    $sorting = "id DESC";
-                }
-            } else {
-                $sorting = "id DESC";
-            }
+            $sortingOptions = array(
+                'popularity' => 'salesCount DESC',
+                'availability' => 'quantity > 0',
+                'pricedecrease' => 'price DESC',
+                'priceincrease' => 'price ASC',
+                'nameaz' => 'name ASC',
+                'nameza' => 'name DESC',
+                'newfirst' => 'id DESC',
+                'oldfirst' => 'id ASC',
+                'bestrated' => 'review DESC'
+            );
+            $sorting = isset($_GET['sort']) && isset($sortingOptions[$_GET['sort']]) ? $sortingOptions[$_GET['sort']] : 'id DESC';
+
+            // Postavljanje kategorije
+            $productCategory = "category='all'";
             if (isset($_GET['productCategory'])) {
-                $productCategory = $_GET['productCategory'];
-                if (isset($_GET['speakerType'])) {
-                    $productCategory = $_GET['speakerType'];
-                    $productCategory = "speakerType='$productCategory'";
+                $productCategory = isset($_GET['speakerType']) ? "speakerType='{$_GET['speakerType']}'" : "category='{$_GET['productCategory']}'";
+            }
+            // Postavljanje proizvođača
+            if (isset($_GET['manufacturer'])) {
+                $manufacturer = $_GET['manufacturer'];
+                $manufacturer_string = implode('", "', $manufacturer);
+                $manufacturer_string = '("' . $manufacturer_string . '")';
+                $manufacturer = "manufacturer IN $manufacturer_string";
+            } else {
+                $manufacturer = "";
+            }
+            // Postavljanje finalnog statement-a
+            if ($_GET['productCategory'] == "all") {
+                if (isset($_GET['sort'])) {
+                    if ($_GET['sort'] == "availability") {
+                        if (isset($_GET['manufacturer'])) {
+                            $sql = "SELECT * FROM products WHERE $manufacturer AND $sorting";
+                        } else {
+                            $sql = "SELECT * FROM products WHERE $sorting";
+                        }
+                    } else {
+                        if (isset($_GET['manufacturer'])) {
+                            $sql = "SELECT * FROM products WHERE $manufacturer ORDER BY $sorting";
+                        } else {
+                            $sql = "SELECT * FROM products ORDER BY $sorting";
+                        }
+                    }
                 } else {
-                    $productCategory = "category='$productCategory'";
+                    if (isset($_GET['manufacturer'])) {
+                        $sql = "SELECT * FROM products WHERE $manufacturer ORDER BY $sorting";
+                    } else {
+                        $sql = "SELECT * FROM products ORDER BY $sorting";
+                    }
                 }
             } else {
-                $productCategory = "category='$productCategory'";
-            }
-            if (isset($_GET['categories'])) {
-                $selected_categories = $_GET['categories'];
-                $selected_categories_string = implode('", "', $selected_categories);
-                $selected_categories_string = '("' . $selected_categories_string . '")';
-                $categories = "AND manufacturer IN $selected_categories_string";
-            } else {
-                $categories = "";
-            }
-            if (isset($_GET['sort'])) {
-                if ($_GET['sort'] == "availability") {
-                    $sql = "SELECT * from products WHERE $productCategory $categories AND $sorting";
+                if (isset($_GET['sort'])) {
+                    if ($_GET['sort'] == "availability") {
+                        if (isset($_GET['manufacturer'])) {
+                            $sql = "SELECT * FROM products WHERE $productCategory AND $manufacturer AND $sorting";
+                        } else {
+                            $sql = "SELECT * FROM products WHERE $productCategory AND $sorting";
+                        }
+                    } else {
+                        if (isset($_GET['manufacturer'])) {
+                            $sql = "SELECT * FROM products WHERE $productCategory AND $manufacturer ORDER BY $sorting";
+                        } else {
+                            $sql = "SELECT * FROM products WHERE $productCategory ORDER BY $sorting";
+                        }
+                    }
                 } else {
-                    $sql = "SELECT * from products WHERE $productCategory $categories ORDER BY $sorting";
+                    if (isset($_GET['manufacturer'])) {
+                        $sql = "SELECT * FROM products WHERE $productCategory AND $manufacturer ORDER BY $sorting";
+                    } else {
+                        $sql = "SELECT * FROM products WHERE $productCategory ORDER BY $sorting";
+                    }
                 }
-            } else {
-                $sql = "SELECT * from products WHERE $productCategory $categories ORDER BY $sorting";
             }
+
             $stmt = mysqli_stmt_init($dbc);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                 $error = mysqli_stmt_error($stmt);
@@ -221,8 +268,8 @@ include_once 'header.php';
                             <h1 class="inline-block">' . $manufacturer . '</h1>
                             <h2 class="inline-block">' . $name . '</h2>
                         </div></a>';
-                        include 'php/reviews.php';
-                        echo '<div class="bottom-div">
+                    include 'php/reviews.php';
+                    echo '<div class="bottom-div">
                         <p class="' . $availabilityStyle . '">' . $availability . '</p>
                         </div>
                             </div>

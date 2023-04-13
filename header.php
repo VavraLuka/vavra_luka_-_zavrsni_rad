@@ -102,6 +102,7 @@ session_start();
                     <li><a href="filteredproducts.php?productCategory=adapters">Adapteri</a></li>
                     <li><a href="filteredproducts.php?productCategory=accessories">Dodatna oprema</a></li>
                     <li><a href="filteredproducts.php?productCategory=covers">Torbe</a></li>
+                    <li><a href="filteredproducts.php?productCategory=all">Svi proizvodi</a></li>
                 </ul>
             </div>
         </section>
