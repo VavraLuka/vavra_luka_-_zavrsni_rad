@@ -1,66 +1,32 @@
 <?php
 $starWidth = 18;
 echo "<div class='star-reviews inline-block'>";
-if ($review > 0 and $review <= 0.5) {
-    echo "<img src='images/halfStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'><p class='inline-block' style='margin-left: 6px; color: grey; font-weight: 300;'>($review)</p>";
-} else if ($review > 0.5 and $review <= 1) {
-    echo "<img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'><p class='inline-block' style='margin-left: 6px; color: grey; font-weight: 300;'>($review)</p>";
-} else if ($review > 1 and $review <= 1.5) {
-    echo "<img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/halfStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'><p class='inline-block' style='margin-left: 6px; color: grey; font-weight: 300;'>($review)</p>";
-} else if ($review > 1.5 and $review <= 2) {
-    echo "<img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'><p class='inline-block' style='margin-left: 6px; color: grey; font-weight: 300;'>($review)</p>";
-} else if ($review > 2 and $review <= 2.5) {
-    echo "<img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/halfStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'><p class='inline-block' style='margin-left: 6px; color: grey; font-weight: 300;'>($review)</p>";
-} else if ($review > 2.5 and $review <= 3) {
-    echo "<img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'><p class='inline-block' style='margin-left: 6px; color: grey; font-weight: 300;'>($review)</p>";
-} else if ($review > 3 and $review <= 3.5) {
-    echo "<img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/halfStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'><p class='inline-block' style='margin-left: 6px; color: grey; font-weight: 300;'>($review)</p>";
-} else if ($review > 3.5 and $review <= 4) {
-    echo "<img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'><p class='inline-block' style='margin-left: 6px; color: grey; font-weight: 300;'>($review)</p>";
-} else if ($review > 4 and $review <= 4.5) {
-    echo "<img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/halfStarIcon.png' class='inline-block' width='$starWidth'><p class='inline-block' style='margin-left: 6px; color: grey; font-weight: 300;'>($review)</p>";
-} else if ($review > 4.5) {
-    echo "<img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>
-        <img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'><p class='inline-block' style='margin-left: 6px; color: grey; font-weight: 300;'>($review)</p>";
+
+$half_stars = 0;
+
+if ($review > 0) {
+    $full_stars = floor($review);
+    $decimal = fmod($review, 1);
+    $decimal = intval($decimal * 10);
+
+    for ($i = 1; $i <= $full_stars; $i++) {
+        echo "<img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>";
+    }
+    if ($decimal != 0) {
+        if ($decimal > 0 && $decimal < 5) {
+            echo "<img src='images/quarterStarIcon.png' class='inline-block' width='$starWidth'>";
+        } else if ($decimal == 5) {
+            echo "<img src='images/halfStarIcon.png' class='inline-block' width='$starWidth'>";
+        } else if ($decimal > 5 && $decimal <= 9) {
+            echo "<img src='images/halfQuarterStarIcon.png' class='inline-block' width='$starWidth'>";
+        }
+        $half_stars = 1;
+    }
+    $empty_stars = 5 - $full_stars - $half_stars;
+    for ($i = 1; $i <= $empty_stars; $i++) {
+        echo "<img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>";
+    }
+    echo "<p class='inline-block' style='margin-left: 6px; color: grey; font-weight: 300;'>($reviewCount)</p>";
 } else {
     echo "<p style='color: grey; font-weight: 300;'>Ovaj proizvod još nije ocijenjen</p>";
 }

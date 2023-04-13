@@ -28,7 +28,9 @@ footer ul li a:hover {
     padding-top: 46px;
     padding-bottom: 46px;
 }
-
+ul.payingmethods {
+    display: flex;
+}
 ul.payingmethods li {
     float: left;
     padding: 0px;

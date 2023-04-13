@@ -25,6 +25,7 @@
                 $discount = $row['discount'];
                 $imageURL = $row['imageURL'];
                 $review = $row['review'];
+                $reviewCount = $row['reviewCount'];
 
                 include 'php/priceformatting.php';
 
