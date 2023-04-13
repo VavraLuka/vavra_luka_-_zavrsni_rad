@@ -251,6 +251,7 @@ include_once 'header.php';
                     $quantity = $row['quantity'];
                     $imageURL = $row['imageURL'];
                     $review = $row['review'];
+                    $reviewCount = $row['reviewCount'];
 
                     if ($quantity > 0) {
                         $availability = "Dostupno na stanju";

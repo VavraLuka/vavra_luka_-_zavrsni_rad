@@ -4,7 +4,7 @@ include_once "header.php";
 <section class="background-white">
     <div class="section-wrapper-returns">
         <img src="images/PageNotFound.svg" width="240">
-        <h1>Stranice ne postoji</h1>
+        <h1>Stranica ne postoji</h1>
         <?php
         $pageNotFoundMessage = array(
             "Ups! Čini se da ne možemo pronaći ono što tražite. To je kao da tražite jednoroga - oni su čarobni, ali nažalost, ne postoje. Ne brinite, mi ćemo Vam pomoći brzo se vratiti na pravi put!",
@@ -13,14 +13,14 @@ include_once "header.php";
         );
         $random_number = rand(0, 2);
         if ($random_number == 0) {
-            echo '<p>' . $pageNotFoundMessage[0] . '</p>';
+            echo '<p style="text-align: center;">' . $pageNotFoundMessage[0] . '</p>';
         } elseif ($random_number == 1) {
-            echo '<p>' . $pageNotFoundMessage[1] . '</p>';
+            echo '<p style="text-align: center;">' . $pageNotFoundMessage[1] . '</p>';
         } else {
-            echo '<p>' . $pageNotFoundMessage[2] . '</p>';
+            echo '<p style="text-align: center;">' . $pageNotFoundMessage[2] . '</p>';
         }
         ?>
-        <a class="back-to-main" href="index.php"><p>Povratak na glavnu stranicu</p></a>
+        <a class="back-to-main" href="index.php"><p style="text-align: center;">Povratak na glavnu stranicu</p></a>
     </div>
 </section>
 <?php
