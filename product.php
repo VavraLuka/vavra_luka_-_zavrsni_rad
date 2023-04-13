@@ -1,12 +1,12 @@
 <?php
-include_once "header.php";
-require_once "php/databaseconnect.php";
-
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 } else {
     header("location: pagenotfound.php");
 }
+
+include_once "header.php";
+require_once "php/databaseconnect.php";
 
 $sql = "SELECT * FROM products WHERE id = $id";
 $result = mysqli_query($dbc, $sql);
@@ -57,6 +57,27 @@ $additionalLineValue2 = $row["additionalLineValue2"];
 $additionalLine3 = $row["additionalLine3"];
 $additionalLineValue3 = $row["additionalLineValue3"];
 $review = $row['review'];
+$reviewCount = $row['reviewCount'];
+
+$manufacturer_logos = array(
+    "Behringer" => "behringer.gif",
+    "Bose" => "bose.gif",
+    "EV" => "ev.gif",
+    "JBL" => "jbl.gif",
+    "LD Systems" => "ldsystems.gif",
+    "Millenium" => "millenium.gif",
+    "pro snake" => "prosnake.gif",
+    "QSC" => "qsc.gif",
+    "Stairville" => "stairville.gif",
+    "the box" => "thebox.gif",
+    "the box pro" => "theboxpro.gif",
+    "the sssnake" => "thesssnake.gif",
+    "the t.bone" => "thetbone.gif",
+    "Thomann" => "thomann.gif",
+);
+if (array_key_exists($manufacturer, $manufacturer_logos)) {
+    $logo_file = $manufacturer_logos[$manufacturer];
+}
 
 ?>
 <section class="product-section">
@@ -67,19 +88,22 @@ $review = $row['review'];
                     <h1 class="manufacturer inline-block"><?php echo $manufacturer; ?></h1>
                     <h1 class="name inline-block"><?php echo $name; ?></h1>
                 </div>
-                <div>
+                <div class="reviews">
                     <?php if ($review > 0) {
                         include 'php/reviews.php';
-                        echo "<p class='inline-block'>($review)</p>";
                     } else {
                         echo "<p>Ovaj proizvod još nije ocijenjen</p>";
                     } ?>
                 </div>
-                <div class="manufacturer-logo" style="background-image: url('<?php echo $imageURL; ?>');">
-                </div>
+                <?php
+                    if(isset($logo_file)){
+                        echo "<div class='manufacturer-logo'>
+                            <img src='images/manufacturerLogos/$logo_file' width='100'>
+                        </div>";
+                    }
+                ?>
             </div>
-            <div class="product-image">
-
+            <div class="product-image" style="background-image: url('<?php echo $imageURL; ?>');">
             </div>
         </div>
         <div class="product-action-price">

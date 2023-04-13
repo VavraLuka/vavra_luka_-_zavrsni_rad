@@ -17,6 +17,7 @@
                     <option value="covers">Presvlake</option>
                 </select><br></div>
         </div>
+        <textarea name="description" id="description" placeholder="Opis proizvoda (neobavezno)"></textarea>
         <input type="text" name="imageURL" id="imageURL" placeholder="URL fotografije" required oninvalid="this.setCustomValidity('Obavezna fotografija proizvoda')"><br>
         <div id="extra-inputs"></div>
         <p>Za dodavanje do 3 dodatne informacije o proizvodu, pritisnite '+' ikonu ispod.</p>
