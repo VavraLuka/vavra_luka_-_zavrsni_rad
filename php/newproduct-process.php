@@ -44,15 +44,18 @@ if (isset($_POST["submit"])) {
     $additionalLineValue2 = isset($_POST['additionalLineValue2']) ? $_POST['additionalLineValue2'] : NULL;
     $additionalLine3 = isset($_POST['additionalLine3']) ? $_POST['additionalLine3'] : NULL;
     $additionalLineValue3 = isset($_POST['additionalLineValue3']) ? $_POST['additionalLineValue3'] : NULL;
+    $softwareSupport = isset($_POST['softwareSupport']) ? $_POST['softwareSupport'] : NULL;
+    $deckNumber = isset($_POST['deckNumber']) ? $_POST['deckNumber'] : NULL;
+    $externalPowerSource = isset($_POST['externalPowerSource']) ? $_POST['externalPowerSource'] : NULL;    
 
     require_once 'databaseconnect.php';
 
-    $sql = "INSERT INTO products (category, name, manufacturer, price, quantity, speakerType, drivers, RMS, maxPower, soundPressure, minFrequency, maxFrequency, dimensions, weight, imageURL, salesCount, faders, inputs, outputs, cableType, length, leftJack, leftJackType, rightJack, rightJackType, color, limiter, channels, power, lightSource, powerConsumption, lightType, beamAngle, discount, caseFor, caseType, accessoryType, description, additionalLine1, additionalLineValue1, additionalLine2, additionalLineValue2, additionalLine3, additionalLineValue3) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO products (category, name, manufacturer, price, quantity, speakerType, drivers, RMS, maxPower, soundPressure, minFrequency, maxFrequency, dimensions, weight, imageURL, salesCount, faders, inputs, outputs, cableType, length, leftJack, leftJackType, rightJack, rightJackType, color, limiter, channels, power, lightSource, powerConsumption, lightType, beamAngle, discount, caseFor, caseType, accessoryType, description, additionalLine1, additionalLineValue1, additionalLine2, additionalLineValue2, additionalLine3, additionalLineValue3, softwareSupport, deckNumber, externalPowerSource) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($dbc);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         echo "Greška: SQL statement.";
     } else {
-        mysqli_stmt_bind_param($stmt, "sssdissiiiiisdsiiiisdssssssiisississssssssss", $category, $name, $manufacturer, $price, $quantity, $speakerType, $drivers, $RMS, $maxPower, $soundPressure, $minFrequency, $maxFrequency, $dimensions, $weight, $imageURL, $salesCount, $faders, $inputs, $outputs, $cableType, $length, $leftJack, $leftJackType, $rightJack, $rightJackType, $color, $limiter, $channels, $power, $lightSource, $powerConsumption, $lightType, $beamAngle, $discount, $caseFor, $caseType, $accessoryType, $description, $additionalLine1, $additionalLineValue1, $additionalLine2, $additionalLineValue2, $additionalLine3, $additionalLineValue3);
+        mysqli_stmt_bind_param($stmt, "sssdissiiiiisdsiiiisdssssssiisississsssssssssis", $category, $name, $manufacturer, $price, $quantity, $speakerType, $drivers, $RMS, $maxPower, $soundPressure, $minFrequency, $maxFrequency, $dimensions, $weight, $imageURL, $salesCount, $faders, $inputs, $outputs, $cableType, $length, $leftJack, $leftJackType, $rightJack, $rightJackType, $color, $limiter, $channels, $power, $lightSource, $powerConsumption, $lightType, $beamAngle, $discount, $caseFor, $caseType, $accessoryType, $description, $additionalLine1, $additionalLineValue1, $additionalLine2, $additionalLineValue2, $additionalLine3, $additionalLineValue3, $softwareSupport, $deckNumber, $externalPowerSource);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }

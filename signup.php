@@ -29,19 +29,19 @@ include_once 'header.php';
         <div class="signup-form">
             <form action="php/signup-process.php" method="post" accept-charset="UTF-8" autocomplete="off">
                 <div class="two-inputs">
-                    <div class="input-div"><input type="text" name="name" id="name" placeholder="Ime"><br></div>
-                    <div class="input-div"><input type="text" name="surname" id="surname" placeholder="Prezime"><br></div>
+                    <div class="input-div"><input type="text" maxlength="24" name="name" id="name" placeholder="Ime"><br></div>
+                    <div class="input-div"><input type="text" maxlength="24" name="surname" id="surname" placeholder="Prezime"><br></div>
                 </div>
                 <div class="two-inputs">
                     <div class="address">
-                        <input type="text" name="address" id="address" placeholder="Adresa"><br>
+                        <input type="text" name="address" id="address" maxlength="60" placeholder="Adresa"><br>
                     </div>
                     <div class="postal-code">
-                        <input type="text" name="postalCode" id="postalCode" placeholder="Poštanski broj"><br>
+                        <input type="text" name="postalCode" id="postalCode" maxlength="8" placeholder="Poštanski broj"><br>
                     </div>
                 </div>
                 <div class="two-inputs">
-                    <div class="input-div"><input type="text" name="city" id="city" placeholder="Grad"><br></div>
+                    <div class="input-div"><input type="text" name="city" id="city" maxlength="24" placeholder="Grad"><br></div>
                     <div class="input-div">
                         <select class="input-state" name="state" id="state">
                             <option value="" disabled selected hidden>Država</option>
@@ -55,10 +55,10 @@ include_once 'header.php';
                         </select><br>
                     </div>
                 </div>
-                <input type="text" name="contactNumber" id="contactNumber" placeholder="Kontakt broj"><br>
-                <input type="email" name="email" id="email" placeholder="Email"><br>
-                <input type="password" name="passwordUser" id="passwordUser" placeholder="Lozinka"><br>
-                <input type="password" name="passwordRepeatUser" id="passwordRepeatUser" placeholder="Ponovite lozinku"><br>
+                <input type="text" name="contactNumber" id="contactNumber" maxlength="20" placeholder="Kontakt broj"><br>
+                <input type="email" name="email" id="email" maxlength="34" placeholder="Email"><br>
+                <input type="password" name="passwordUser" maxlength="28" minlength="8" id="passwordUser" placeholder="Lozinka"><br>
+                <input type="password" name="passwordRepeatUser" maxlength="28" minlength="8" id="passwordRepeatUser" placeholder="Ponovite lozinku"><br>
                 <div style="display: flex; justify-content: center; width: 50%; margin: 0 auto;">
                     <input class="inline-block" type="checkbox" id="showPassword" onclick="togglePassword()">
                     <p class="inline-block">Prikaži lozinku</p>

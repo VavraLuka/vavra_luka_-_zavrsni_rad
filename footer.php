@@ -59,7 +59,7 @@
                 </ul>
                 <div class="newsletter" id="newsletter">
                     <form method="POST" action="php/newsletter-process.php" autocomplete="off" accept-charset="UTF-8">
-                        <input type="email" name="email" id="email" class="inline-block" required oninvalid="this.setCustomValidity('Unesite email adresu')" placeholder="Prijavite se na naš newsletter!">
+                        <input maxlength="60" type="email" name="email" id="email" class="inline-block" required oninvalid="this.setCustomValidity('Unesite email adresu')" placeholder="Prijavite se na naš newsletter!">
                         <input type="submit" name="submit" class="inline-block" value="Prijava">
                     </form>
                 </div>

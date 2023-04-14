@@ -34,7 +34,7 @@
                 if ($discount > 0) {
                     echo "<h1 class='text-decoration-line right'>€$regularPrice</h1>
                 <h1>€$discountPrice</h1>";
-                echo "<p class='discount-text float-right'>$discount% popusta</p>";
+                    echo "<p class='discount-text float-right'>$discount% popusta</p>";
                 } else {
                     echo "<h1>€$regularPrice</h1>";
                 }

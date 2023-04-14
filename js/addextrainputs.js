@@ -1,6 +1,7 @@
 var form = document.getElementById("productForm");
 var extraInputs = document.getElementById("extra-inputs");
 var addExtraInputs = document.getElementById("add-extra-inputs");
+var breakLine = document.getElementById("break-line");
 
 var inputIndex = 1;
 var maxInputs = 3;
@@ -15,19 +16,25 @@ addExtraInputs.onclick = function() {
     newInputName.name = "additionalLine" + inputIndex;
     newInputName.id = "additionalLine" + inputIndex;
     newInputName.placeholder = "Opis";
+    newInputName.maxlength = "30";
 
     var newInputValue = document.createElement("input");
     newInputValue.type = "text";
     newInputValue.name = "additionalLineValue" + inputIndex;
     newInputValue.id = "additionalLineValue" + inputIndex;
     newInputValue.placeholder = "Podatak";
+    newInputValue.maxlength = "200";
 
     newInputDiv.appendChild(newInputName);
     newInputDiv.appendChild(newInputValue);
     extraInputs.appendChild(newInputDiv);
 
     inputIndex++;
-  } else {
-    addInputButton.disabled = true;
+
+    if (inputIndex > maxInputs) {
+      addExtraInputs.disabled = true;
+      addExtraInputs.style.display = "none";
+      breakLine.style.display = "block";
+    }
   }
 };

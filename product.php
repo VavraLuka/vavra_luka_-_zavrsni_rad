@@ -58,6 +58,9 @@ $additionalLine3 = $row["additionalLine3"];
 $additionalLineValue3 = $row["additionalLineValue3"];
 $review = $row['review'];
 $reviewCount = $row['reviewCount'];
+$softwareSupport = $row['softwareSupport'];
+$deckNumber = $row['deckNumber'];
+$externalPowerSource = $row['externalPowerSource'];
 
 $manufacturer_logos = array(
     "Behringer" => "behringer.gif",

@@ -1,5 +1,14 @@
 <?php
 session_start();
+if (!isset($_SESSION["currentUserStatus"])) {
+    header("location: pagenotfound.php");
+    exit();
+} else {
+    if ($_SESSION["currentUserStatus"] != 1) {
+        header("location: pagenotfound.php");
+        exit();
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -99,7 +108,7 @@ session_start();
                         ?>
                     </div>
                 </div>
-            <hr>
+                <hr>
             </div>
         </section>
 
