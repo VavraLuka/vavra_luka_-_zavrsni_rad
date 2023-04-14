@@ -50,14 +50,6 @@
                 </ul>
             </div>
             <div class="box">
-                <ul class="text-dark-grey footer-ul">
-                    <li><a href="aboutus.php">O nama</a></li>
-                    <li><a href="contactus.php">Kontaktiraj nas</a></li>
-                    <li><a href="warranty.php">3 godine jamstva</a></li>
-                    <li><a href="returns.php">Povrat robe</a></li>
-                </ul>
-            </div>
-            <div class="box">
                 <h3 style="color:grey;">Pratite nas i na društvenim mrežama!</h3>
                 <ul class="socialIcons">
                     <li><img width="50" src="images/socialIcons/Facebook.png"></li>
@@ -65,7 +57,30 @@
                     <li><img width="50" src="images/socialIcons/LinkedIn.png"></li>
                     <li><img width="50" src="images/socialIcons/YouTube.png"></li>
                 </ul>
-                <p class="footer-copyright-text text-dark-grey">© 2018 - 2023 Vokaton - trgovina audio opreme. Sva prava pridržana.</p>
+                <div class="newsletter" id="newsletter">
+                    <form method="POST" action="php/newsletter-process.php" autocomplete="off" accept-charset="UTF-8">
+                        <input type="email" name="email" id="email" class="inline-block" required oninvalid="this.setCustomValidity('Unesite email adresu')" placeholder="Prijavite se na naš newsletter!">
+                        <input type="submit" name="submit" class="inline-block" value="Prijava">
+                    </form>
+                </div>
+                <?php
+                if (isset($_GET['newsletter'])) {
+                    if ($_GET['newsletter'] == 'success') {
+                        echo "<p style='width: 85%; color: grey;'>Uspješno ste prijavljeni na newsletter!</p>";
+                    } else {
+                        header("location: pagenotfound.php");
+                    }
+                }
+                ?>
+            </div>
+            <div class="box">
+                <ul class="text-dark-grey footer-ul">
+                    <li><a href="aboutus.php">O nama</a></li>
+                    <li><a href="contactus.php">Kontaktiraj nas</a></li>
+                    <li><a href="warranty.php">3 godine jamstva</a></li>
+                    <li><a href="returns.php">Povrat robe</a></li>
+                </ul>
+                <p class="footer-copyright-text text-dark-grey" style="margin-top: 24px; font-weight: 300;">© 2018 - 2023 Vokaton - trgovina audio opreme. Sva prava pridržana.</p>
             </div>
         </div>
     </section>

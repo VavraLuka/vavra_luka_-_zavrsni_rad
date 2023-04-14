@@ -6,6 +6,7 @@ session_start();
 
 <head>
     <title>Vokaton - Trgovina audio opreme</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32 64x64">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/signin.css">
     <link rel="stylesheet" href="css/signup.css">

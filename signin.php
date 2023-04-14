@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (isset($_SESSION["currentUserName"])) {
+    header("location: pagenotfound.php");
+    exit();
+}
+
 include_once 'header.php';
 ?>
 <section class="section-signin">
@@ -8,9 +14,13 @@ include_once 'header.php';
             <img src="images/SignIn.svg" width="240">
         </div>
         <div class="signin-form">
-            <form action="php/signin-process.php" method="post">
+            <form action="php/signin-process.php" method="post" autocomplete="off">
                 <div class="input-div-full"><input class="input-text" type="text" name="email" id="email" placeholder="Email adresa"><br></div>
                 <div class="input-div-full"><input class="input-text" type="password" name="passwordUser" id="passwordUser" placeholder="Lozinka"><br></div>
+                <div style="display: flex; justify-content: center; width: 50%; margin: 0 auto;">
+                    <input class="inline-block" type="checkbox" id="showPassword" onclick="togglePassword()">
+                    <p class="inline-block">Prikaži lozinku</p>
+                </div>
                 <div class="form-buttons"><input type="submit" name="submit" value="Prijava">
                     <input type="reset" value="Očisti podatke">
                 </div>

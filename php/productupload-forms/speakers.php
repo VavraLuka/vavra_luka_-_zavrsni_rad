@@ -1,5 +1,5 @@
 <section class="newproduct-form">
-    <form method="POST" action="php/newproduct-process.php" accept-charset="UTF-8" id="productForm">
+    <form method="POST" action="php/newproduct-process.php" accept-charset="UTF-8" id="productForm" autocomplete="off">
         <input type="hidden" name="category" id="category" value="speakers">
         <input type="text" name="name" id="name" placeholder="Naziv proizvoda" required oninvalid="this.setCustomValidity('Obavezan naziv proizvoda')"><br>
         <input type="text" name="manufacturer" id="manufacturer" placeholder="Proizvođač" required oninvalid="this.setCustomValidity('Obavezan naziv proizvođača')"><br>

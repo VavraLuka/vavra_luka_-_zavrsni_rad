@@ -109,3 +109,9 @@ input[type=reset]:hover {
 .signin-link {
     color: black;
 }
+
+#showPassword {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+}

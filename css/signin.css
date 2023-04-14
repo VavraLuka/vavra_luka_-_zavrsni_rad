@@ -15,3 +15,9 @@
 .signin-form {
     width: 100%;
 }
+
+#showPassword {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+}

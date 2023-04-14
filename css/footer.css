@@ -77,3 +77,22 @@ ul.socialIcons li:hover img {
 p.footer-copyright-text {
     clear: both;
 }
+div.newsletter {
+    width: 85%;
+    margin-top: 30px;
+    display: flex;
+}
+div.newsletter form {
+    width: 100%;
+}
+div.newsletter input[type=email] {
+    width: 70%;
+    margin-right: 6px;
+}
+div.newsletter input[type=submit] {
+    border-radius: 0;
+    background-color: var(--main-blue-color);
+    width: 25%;
+    font-weight: 400;
+    font-size: 14px;
+}

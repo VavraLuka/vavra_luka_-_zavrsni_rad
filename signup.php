@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (isset($_SESSION["currentUserName"])) {
+    header("location: pagenotfound.php");
+    exit();
+}
 include_once 'header.php';
 ?>
 <section class="section-signup">
@@ -22,7 +27,7 @@ include_once 'header.php';
         };
         ?>
         <div class="signup-form">
-            <form action="php/signup-process.php" method="post" accept-charset="UTF-8">
+            <form action="php/signup-process.php" method="post" accept-charset="UTF-8" autocomplete="off">
                 <div class="two-inputs">
                     <div class="input-div"><input type="text" name="name" id="name" placeholder="Ime"><br></div>
                     <div class="input-div"><input type="text" name="surname" id="surname" placeholder="Prezime"><br></div>
@@ -54,6 +59,10 @@ include_once 'header.php';
                 <input type="email" name="email" id="email" placeholder="Email"><br>
                 <input type="password" name="passwordUser" id="passwordUser" placeholder="Lozinka"><br>
                 <input type="password" name="passwordRepeatUser" id="passwordRepeatUser" placeholder="Ponovite lozinku"><br>
+                <div style="display: flex; justify-content: center; width: 50%; margin: 0 auto;">
+                    <input class="inline-block" type="checkbox" id="showPassword" onclick="togglePassword()">
+                    <p class="inline-block">Prikaži lozinku</p>
+                </div>
                 <div class="form-buttons">
                     <input type="submit" name="submit" value="Registracija">
                     <input type="reset" value="Očisti podatke">

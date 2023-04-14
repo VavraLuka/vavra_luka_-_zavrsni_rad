@@ -15,3 +15,15 @@ backToTop.addEventListener('click', function (e) {
         behavior: 'smooth'
     });
 });
+
+function togglePassword() {
+    var passwordField = document.getElementById("passwordUser");
+    var passwordRepeatField = document.getElementById("passwordRepeatUser");
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        passwordRepeatField.type = "text";
+    } else {
+        passwordField.type = "password";
+        passwordRepeatField.type = "password";
+    }
+}
