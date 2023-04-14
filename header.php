@@ -25,6 +25,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <link rel="stylesheet" href="css/highlightedproducts.css">
     <link rel="stylesheet" href="css/product.css">
     <link rel="stylesheet" href="css/passwordrecovery.css">
+    <link rel="stylesheet" href="css/help.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-Si7wKphCgEtk8nI+jyPj/KgJ9D9R4W8Mv4D4Jg3qdi15QzSd8HvLkySsQrlYq/l3qZaJ+xHg8FyU6RbU6TVrTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">

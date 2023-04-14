@@ -1,0 +1,16 @@
+.section-wrapper-help {
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 36px;
+    padding-bottom: 36px;
+}
+.section-wrapper-help h1 {
+    padding-bottom: 24px;
+}
+.section-wrapper-help p {
+    text-align: left;
+}
+.section-wrapper-help p span {
+    font-weight: 700;
+}
