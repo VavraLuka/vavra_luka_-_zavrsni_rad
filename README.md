@@ -13,3 +13,5 @@ Tema završnog rada: Online trgovina audio opreme
 Tehnologije: HTML, CSS, JavaScript, php, MySQL
 
 Email: lvavra@tvz.hr
+
+Folder s ostalim materijalima: https://drive.google.com/drive/folders/1nkKKlnOVHe5nHdzvV2tyOyy27ylcej-z?usp=share_link
