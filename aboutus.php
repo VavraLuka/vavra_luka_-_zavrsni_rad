@@ -3,8 +3,8 @@ include_once 'header.php';
 ?>
 <section>
     <div class="aboutus-section">
-        <h1>Priča o Vokatonu</h1>
-        <h2>Online trgovina audio opreme</h2>
+        <h1 style="letter-spacing: -1px;">Priča o Vokatonu</h1>
+        <h2 style="letter-spacing: -1px;">Online trgovina audio opreme</h2>
         <div class="aboutus-container">
             <div class="aboutus-text">
                 <p>Davne 2018. godine, našu strast prema glazbi i tehnologiji odlučili smo podijeliti sa Vama te smo osnovali Vokaton, online trgovinu audio opreme. Počevši od malog skladišta u predgrađu, no brzo shvativši da smo našom strasti privukli mnoge kupce, sa velikim zadovoljstvom morali smo se preseliti u veći prostor. I to je samo početak jedne vesele glazbene priče.<br><br>

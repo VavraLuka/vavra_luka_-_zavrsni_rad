@@ -4,7 +4,7 @@ include_once "header.php";
 <section class="background-white">
     <div class="section-wrapper-returns">
         <img src="images/PageNotFound.svg" width="240">
-        <h1>Stranica ne postoji</h1>
+        <h1 style="letter-spacing: -1px;">Stranica ne postoji</h1>
         <?php
         $pageNotFoundMessage = array(
             "Ups! Čini se da ne možemo pronaći ono što tražite. To je kao da tražite jednoroga - oni su čarobni, ali nažalost, ne postoje. Ne brinite, mi ćemo Vam pomoći brzo se vratiti na pravi put!",

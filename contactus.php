@@ -8,7 +8,7 @@ include_once 'header.php';
                 <img src="images/ContactUs.svg" width="360">
             </div>
             <div class="contact-title-text">
-                <h1>Kontaktiraj nas</h1>
+                <h1 style="letter-spacing: -1px;">Kontaktiraj nas</h1>
                 <p>Kao klijent online trgovine Vokaton možete kontaktirati naše odjele, stručnjake i administrativni tim putem telefona ili email adresa. Ovdje se nalazi popis svih email adresa i telefonskih brojeva za sve naše odjele.</p>
             </div>
         </div>
