@@ -4,6 +4,12 @@ if (isset($_GET['id'])) {
 } else {
     header("location: pagenotfound.php");
 }
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = array();
+}
 
 include_once "header.php";
 require_once "php/databaseconnect.php";
@@ -157,16 +163,28 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                 </form>
             </div>
             <?php
-                if($description != NULL) {
-                    echo "<div class='product-description'>
+            if ($description != NULL) {
+                echo "<div class='product-description'>
                     <h1>Opis proizvoda</h1>    
                     <p>$description</p>
                     </div>";
-                };
+            };
             ?>
             <div class="product-specifications">
                 <?php include_once "php/productdescription.php"; ?>
             </div>
+            <form method="post" action="php/addtocart-process.php">
+                <input type="hidden" name="product_id" value="<?php echo $id; ?>">
+                <input type="hidden" name="product_name" value="<?php echo $name; ?>">
+                <input type="hidden" name="product_price" value="
+                <?php if ($discount > 0) {
+                    echo $discountPrice;
+                } else {
+                    echo $regularPrice;
+                }; ?>">
+                <input type="number" name="quantity" value="1">
+                <input type="submit" name="add_to_cart" value="Dodaj u košaricu">
+            </form>
         </div>
     </div>
 </section>

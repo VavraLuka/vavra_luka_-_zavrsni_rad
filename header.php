@@ -2,6 +2,9 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = array();
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +29,9 @@ if (session_status() == PHP_SESSION_NONE) {
     <link rel="stylesheet" href="css/product.css">
     <link rel="stylesheet" href="css/passwordrecovery.css">
     <link rel="stylesheet" href="css/help.css">
+    <link rel="stylesheet" href="css/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-Si7wKphCgEtk8nI+jyPj/KgJ9D9R4W8Mv4D4Jg3qdi15QzSd8HvLkySsQrlYq/l3qZaJ+xHg8FyU6RbU6TVrTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-D5H+bZDzFngvfu9gMz8JfwhCgeY6zlBfb6Uonb6U0nk7c0r1rHvAlhXm2iE7yFXC6YB+6UNgU6hD8rZBn1bC/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <meta name="description" content="Usavršite svoj doživljaj zvuka uz Vokaton. Istražite naš odabrani izbor vrhunske audio opreme i dodataka, dostupnih za jednostavnu online kupnju.">
