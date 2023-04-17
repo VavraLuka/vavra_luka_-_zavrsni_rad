@@ -1,24 +1,28 @@
 div.products-wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 4%;
+    gap: 2%;
     width: 75%;
     margin: 0 auto;
     margin-bottom: 48px;
 }
 
 div.product-highlight {
+    padding: 18px;
     flex: 1;
     text-align: left;
     transition: 0.15s;
     opacity: 100%;
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.12);
 }
+
 div.product-highlight:hover {
-    opacity: 85%;
     transition: 0.15s;
+    box-shadow: 0px 0px 18px 0px var(--main-blue-color);
 }
 
 div.product-highlight-image {
+    transition: 0.15s;
     height: 250px;
     background-position: center center;
     background-repeat: no-repeat;
@@ -34,11 +38,14 @@ div.product-highlight-image {
 div.products-title {
     width: 50%;
     margin: 0 auto;
+    padding-bottom: 12px;
 }
+
 div.products-title h1 {
     font-size: 36px;
     letter-spacing: -1px;
 }
+
 div.product-highlight h1 {
     text-align: left;
     font-size: 26px;
@@ -48,6 +55,7 @@ div.product-highlight h2 {
     font-size: 18px;
     font-weight: 700;
 }
+
 div.product-highlight h3 {
     font-size: 18px;
     font-weight: 300;
@@ -74,10 +82,12 @@ h1.left {
 h1.right {
     float: right;
 }
+
 p.discount-text {
     color: var(--main-blue-color);
     font-weight: 400;
 }
+
 div.star-reviews {
     width: 100%;
 }

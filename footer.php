@@ -67,6 +67,8 @@
                 if (isset($_GET['newsletter'])) {
                     if ($_GET['newsletter'] == 'success') {
                         echo "<p style='width: 85%; color: grey;'>Uspješno ste prijavljeni na newsletter!</p>";
+                    } else if ($_GET['newsletter']) {
+                        echo "<p style='width: 85%; color: grey;'>Email je već registriran u našoj bazi podataka.</p>";
                     } else {
                         header("location: pagenotfound.php");
                     }

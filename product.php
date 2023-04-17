@@ -62,6 +62,18 @@ $softwareSupport = $row['softwareSupport'];
 $deckNumber = $row['deckNumber'];
 $externalPowerSource = $row['externalPowerSource'];
 
+$repetitiveSpecificationsStart = array('name', 'manufacturer');
+$repetitiveSpecificationEnd = array('description', 'additionalLine1', 'additionalLineValue1', 'additionalLine2', 'additionalLineValue2', 'additionalLine3', 'additionalLineValue3');
+$specificationsspeakers = array('speakerType', 'drivers', 'RMS', 'maxPower', 'soundPressure', 'minFrequency', 'maxFrequency', 'dimensions', 'weight');
+$specificationamplifiers = array('limiter', 'channels', 'power', 'dimensions', 'weight');
+$specificationmixers = array('faders', 'inputs', 'outputs', 'dimensions', 'weight');
+$specificationcontrollers = array('softwareSupport', 'deckNumber', 'externalPowerSource', 'dimensions', 'weight');
+$specificationlight = array('lightSource', 'lightType', 'beamAngle', 'powerConsumption', 'dimensions', 'weight');
+$specificationcables = array('cableType', 'length', 'color', 'leftJack', 'leftJackType', 'rightJack', 'rightJackType');
+$specificationadapters = array('length', 'color', 'leftJack', 'leftJackType', 'rightJack', 'rightJackType');
+$specificationaccessories = array('accessoryType');
+$specificationcovers = array('caseFor', 'color', 'caseType');
+
 $manufacturer_logos = array(
     "Behringer" => "behringer.gif",
     "Bose" => "bose.gif",
@@ -99,45 +111,79 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                     } ?>
                 </div>
                 <?php
-                    if(isset($logo_file)){
-                        echo "<div class='manufacturer-logo'>
+                if (isset($logo_file)) {
+                    echo "<div class='manufacturer-logo'>
                             <img src='images/manufacturerLogos/$logo_file' width='100'>
                         </div>";
-                    }
+                }
                 ?>
             </div>
             <div class="product-image" style="background-image: url('<?php echo $imageURL; ?>');">
             </div>
         </div>
         <div class="product-action-price">
-            <?php
-            if ($discount > 0) {
-                echo "<p class='discount-text'>$discount% popusta</p>";
-            }
-            $regularPrice = $price;
-            $regularPrice = number_format($regularPrice, 2, '.', ',');
-            if ($discount > 0) {
-                $discountPrice = $regularPrice - ($regularPrice * $discount / 100);
-                $discountPrice = number_format($discountPrice, 2, '.', ',');
-                echo "<div class='two-prices'>
+            <div>
+                <?php
+                if ($discount > 0) {
+                    echo "<p class='discount-text'>$discount% popusta</p>";
+                }
+                $regularPrice = $price;
+                $regularPrice = number_format($regularPrice, 2, '.', ',');
+                if ($discount > 0) {
+                    $discountPrice = $regularPrice - ($regularPrice * $discount / 100);
+                    $discountPrice = number_format($discountPrice, 2, '.', ',');
+                    echo "<div class='two-prices'>
                 <h1 class='text-decoration-line'>€$discountPrice</h1>
                 <h1>€$regularPrice</h1></div>";
-            } else {
-                echo "<h1>€$regularPrice</h1>";
-            }
-            ?>
-            <p>U cijenu je uključen PDV</p>
+                } else {
+                    echo "<h1>€$regularPrice</h1>";
+                }
+                ?>
+                <p>U cijenu je uključen PDV</p>
+                <?php
+                if ($quantity > 0) {
+                    echo "<p class='filtered-available'>Proizvod je dostupan</p>";
+                } else {
+                    echo "<p class='filtered-not-available'>Proizvod trenutno nije dostupan</p>";
+                }
+                ?>
+                <form>
+                    <quantity select></quantity>
+                    <submit>
+                </form>
+            </div>
             <?php
-            if ($quantity > 0) {
-                echo "<p class='filtered-available'>Proizvod je dostupan</p>";
-            } else {
-                echo "<p class='filtered-not-available'>Proizvod trenutno nije dostupan</p>";
-            }
+                if($description != NULL) {
+                    echo "<div class='product-description'>
+                    <h1>Opis proizvoda</h1>    
+                    <p>$description</p>
+                    </div>";
+                };
             ?>
-            <form>
-                <quantity select></quantity>
-                <submit>
-            </form>
+            <div class="product-specifications">
+                <?php
+                $prefix = "specifications";
+                $category = "speakers";
+                $specificationVariable = $prefix . $category;
+                $specifications = $$specificationVariable;
+                $specifications = array_merge($repetitiveSpecificationsStart, $specifications, $repetitiveSpecificationEnd);
+
+                echo "<table class='specifications-table'>";
+                $sql = "SELECT " . implode(',', $specifications) . " FROM products WHERE id = $id";
+                $result = mysqli_query($dbc, $sql);
+                while ($row = mysqli_fetch_array($result)) {
+                    foreach ($specifications as $column) {
+                        echo "<tr>";
+                        if (isset($row[$column])) {
+                            echo "<td>" . $column . "</td>";
+                            echo "<td>" . $row[$column] . "</td>";
+                        }
+                        echo "</tr>";
+                    }
+                }
+                echo "</table>";
+                ?>
+            </div>
         </div>
     </div>
 </section>
