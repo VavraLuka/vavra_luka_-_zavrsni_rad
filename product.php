@@ -92,6 +92,7 @@ $manufacturer_logos = array(
     "Numark" => "numark.gif",
     "Fun Generation" => "fungeneration",
     "the t.amp" => "thetamp.gif",
+    "Allen & Heath" => "allenheath.gif",
 );
 if (array_key_exists($manufacturer, $manufacturer_logos)) {
     $logo_file = $manufacturer_logos[$manufacturer];

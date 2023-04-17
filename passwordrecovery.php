@@ -1,4 +1,11 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (isset($_SESSION["currentUserName"])) {
+    header("location: pagenotfound.php");
+    exit();
+}
 include_once "header.php";
 ?>
 <section class="products-section">
