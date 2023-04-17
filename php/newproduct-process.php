@@ -10,8 +10,8 @@ if (isset($_POST["submit"])) {
     $RMS = isset($_POST["RMS"]) ? $_POST["RMS"] : NULL;
     $maxPower = isset($_POST["maxPower"]) ? $_POST["maxPower"] : NULL;
     $soundPressure = isset($_POST["soundPressure"]) ? $_POST["soundPressure"] : NULL;
-    $minFrequency = isset($_POST["maxFrequency"]) ? $_POST["maxFrequency"] : NULL;
-    $maxFrequency = isset($_POST["maxFrequency"]) ? $_POST["minFrequency"] : NULL;
+    $minFrequency = isset($_POST["minFrequency"]) ? $_POST["minFrequency"] : NULL;
+    $maxFrequency = isset($_POST["maxFrequency"]) ? $_POST["maxFrequency"] : NULL;
     $dimensions = isset($_POST["dimensions"]) ? $_POST["dimensions"] : NULL;
     $weight = isset($_POST["weight"]) ? $_POST["weight"] : NULL;
     $imageURL = isset($_POST["imageURL"]) ? $_POST["imageURL"] : NULL;

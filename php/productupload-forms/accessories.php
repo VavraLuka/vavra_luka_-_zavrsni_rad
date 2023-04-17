@@ -11,7 +11,7 @@
             <option value="" disabled selected hidden>Vrsta dodatne opreme</option>
             <option value="stands">Stalci</option>
             <option value="headphones">Slušalice</option>
-            <option value="storageUnits">Prostor za pohranu</option>
+            <option value="storageUnits">Mediji za pohranu</option>
             <option value="other">Ostalo</option>
         </select><br>
         <textarea name="description" id="description" maxlength="800" placeholder="Opis proizvoda (neobavezno)"></textarea>

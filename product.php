@@ -89,6 +89,9 @@ $manufacturer_logos = array(
     "the sssnake" => "thesssnake.gif",
     "the t.bone" => "thetbone.gif",
     "Thomann" => "thomann.gif",
+    "Numark" => "numark.gif",
+    "Fun Generation" => "fungeneration",
+    "the t.amp" => "thetamp.gif",
 );
 if (array_key_exists($manufacturer, $manufacturer_logos)) {
     $logo_file = $manufacturer_logos[$manufacturer];
@@ -133,8 +136,8 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                     $discountPrice = $regularPrice - ($regularPrice * $discount / 100);
                     $discountPrice = number_format($discountPrice, 2, '.', ',');
                     echo "<div class='two-prices'>
-                <h1 class='text-decoration-line'>€$discountPrice</h1>
-                <h1>€$regularPrice</h1></div>";
+                <h1 class='text-decoration-line'>€$regularPrice</h1>
+                <h1>€$discountPrice</h1></div>";
                 } else {
                     echo "<h1>€$regularPrice</h1>";
                 }
@@ -161,28 +164,7 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                 };
             ?>
             <div class="product-specifications">
-                <?php
-                $prefix = "specifications";
-                $category = "speakers";
-                $specificationVariable = $prefix . $category;
-                $specifications = $$specificationVariable;
-                $specifications = array_merge($repetitiveSpecificationsStart, $specifications, $repetitiveSpecificationEnd);
-
-                echo "<table class='specifications-table'>";
-                $sql = "SELECT " . implode(',', $specifications) . " FROM products WHERE id = $id";
-                $result = mysqli_query($dbc, $sql);
-                while ($row = mysqli_fetch_array($result)) {
-                    foreach ($specifications as $column) {
-                        echo "<tr>";
-                        if (isset($row[$column])) {
-                            echo "<td>" . $column . "</td>";
-                            echo "<td>" . $row[$column] . "</td>";
-                        }
-                        echo "</tr>";
-                    }
-                }
-                echo "</table>";
-                ?>
+                <?php include_once "php/productdescription.php"; ?>
             </div>
         </div>
     </div>

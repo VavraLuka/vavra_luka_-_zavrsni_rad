@@ -12,8 +12,8 @@
             <div class="input-div-two"><input type="number" maxlength="4" name="deckNumber" id="deckNumber" placeholder="Broj deck-ova" required oninvalid="this.setCustomValidity('Obavezno polje')"><br></div>
             <div class="input-div-two"><select class="input-type" name="externalPowerSource" id="externalPowerSource" required oninvalid="this.setCustomValidity('Obavezno polje')">
                     <option value="" disabled selected hidden>Dodatno napajanje</option>
-                    <option value="yes">Da</option>
-                    <option value="no">Ne</option>
+                    <option value="Da">Da</option>
+                    <option value="Ne">Ne</option>
                 </select><br></div>
         </div>
         <div class="two-inputs">

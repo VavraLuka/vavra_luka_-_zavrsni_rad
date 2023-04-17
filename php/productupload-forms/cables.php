@@ -26,16 +26,16 @@
             <div class="input-div-two"><input type="text" maxlength="12" name="rightJack" id="rightJack" placeholder="Konektor (desni kraj)" required oninvalid="this.setCustomValidity('Obavezno polje')"><br></div>
             <div class="input-div-two"><select class="input-type" name="rightJackType" id="rightJackType" required oninvalid="this.setCustomValidity('Obavezno polje')">
                     <option value="" disabled selected hidden>Tip</option>
-                    <option value="Da">Muški</option>
-                    <option value="Ne">Ženski</option>
+                    <option value="male">Muški</option>
+                    <option value="female">Ženski</option>
                 </select><br></div>
         </div>
         <div class="two-inputs">
             <div class="input-div-two"><input type="text" maxlength="12" name="leftJack" id="leftJack" placeholder="Konektor (lijevi kraj)" required oninvalid="this.setCustomValidity('Obavezno polje')"><br></div>
             <div class="input-div-two"><select class="input-type" name="leftJackType" id="leftJackType" required oninvalid="this.setCustomValidity('Obavezno polje')">
                     <option value="" disabled selected hidden>Tip</option>
-                    <option value="Da">Muški</option>
-                    <option value="Ne">Ženski</option>
+                    <option value="male">Muški</option>
+                    <option value="female">Ženski</option>
                 </select><br></div>
         </div>
         <textarea name="description" id="description" maxlength="800" placeholder="Opis proizvoda (neobavezno)"></textarea>
