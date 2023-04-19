@@ -157,19 +157,7 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                     echo "<p class='filtered-not-available'>Proizvod trenutno nije dostupan</p>";
                 }
                 ?>
-                <form>
-                    <quantity select></quantity>
-                    <submit>
-                </form>
             </div>
-            <?php
-            if ($description != NULL) {
-                echo "<div class='product-description'>
-                    <h1>Opis proizvoda</h1>    
-                    <p>$description</p>
-                    </div>";
-            };
-            ?>
             <div class="product-specifications">
                 <?php include_once "php/productdescription.php"; ?>
             </div>
@@ -187,6 +175,14 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
             </form>
         </div>
     </div>
+    <?php
+    if ($description != NULL) {
+        echo "<div class='product-description' style='width: 50%, margin: 0 auto; text-align: left;'>
+                    <h1>Opis proizvoda</h1>    
+                    <p>$description</p>
+                    </div>";
+    };
+    ?>
 </section>
 <?php
 include_once "footer.php";

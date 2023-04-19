@@ -87,16 +87,16 @@ switch ($category) {
         );
         echo "<tr><td>Vrsta kabla</td><td>$cableTypes[$cableType]</td></tr>
         <tr><td>Dužina</td><td>$length cm</td></tr>
-        <tr><td>Boja</td><td>$boja</td></tr>
-        <tr><td>Konektor (lijevi kraj)</td><td>$leftJack";
+        <tr><td>Boja</td><td>$color</td></tr>
+        <tr><td>Konektor (lijevi kraj)</td><td>$leftJack ";
         if ($leftJackType == "male") {
             echo "muški";
         } else {
             echo "ženski";
         }
         echo "</td></tr>";
-        echo "<tr><td>Konektor (lijevi kraj)</td><td>$leftJack";
-        if ($leftJackType == "male") {
+        echo "<tr><td>Konektor (desni kraj)</td><td>$rightJack ";
+        if ($rightJackType == "male") {
             echo "muški";
         } else {
             echo "ženski";
@@ -105,16 +105,16 @@ switch ($category) {
         break;
     case "adapters":
         echo "<tr><td>Dužina</td><td>$length cm</td></tr>
-        <tr><td>Boja</td><td>$boja</td></tr>
-        <tr><td>Konektor (lijevi kraj)</td><td>$leftJack";
+        <tr><td>Boja</td><td>$color</td></tr>
+        <tr><td>Konektor (lijevi kraj)</td><td>$leftJack ";
         if ($leftJackType == "male") {
             echo "muški";
         } else {
             echo "ženski";
         }
         echo "</td></tr>";
-        echo "<tr><td>Konektor (lijevi kraj)</td><td>$leftJack";
-        if ($leftJackType == "male") {
+        echo "<tr><td>Konektor (desni kraj)</td><td>$rightJack ";
+        if ($rightJackType == "male") {
             echo "muški";
         } else {
             echo "ženski";
