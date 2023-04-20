@@ -16,6 +16,8 @@ Email: lvavra@tvz.hr
 
 Folder s ostalim materijalima: https://drive.google.com/drive/folders/1nkKKlnOVHe5nHdzvV2tyOyy27ylcej-z?usp=share_link
 
+Baza podataka nalazi se u folder-u "database" s nazivom "vavra_luka_-_zavrsni_rad.sql"
+
 Za dovršiti:
 - responzivnost (za tablete i mobilne uređaje)
 - mogućnost uređivanja proizvoda (administration.php) - mijenjanje cijene, davanje popusta...
