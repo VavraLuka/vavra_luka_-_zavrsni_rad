@@ -1,9 +1,7 @@
-<section class="products-section" id="mostpopular">
-    <div class="products-title">
-        <h1>Top proizvodi</h1>
-        <p>Najbolje ocijenjeni proizvodi</p>
-    </div>
-</section>
+<div class="products-title" id="mostpopular">
+    <h1>Top proizvodi</h1>
+    <p>Najbolje ocijenjeni proizvodi</p>
+</div>
 <section class="products-section">
     <div class="products-wrapper">
         <?php
@@ -30,13 +28,13 @@
                 include 'php/priceformatting.php';
 
                 echo "<div class='product-highlight'>
-                <a href='product.php?id=$id'><div class='product-highlight-image' style='background-image: url($imageURL)'></div></a>";
+            <a href='product.php?id=$id'><div class='product-highlight-image' style='background-image: url($imageURL)'></div></a>";
                 include 'php/reviews.php';
                 echo "<h3>$manufacturer</h3>
-            <h2>$name</h2>";
+        <h2>$name</h2>";
                 if ($discount > 0) {
                     echo "<h1 class='text-decoration-line right'>€$regularPrice</h1>
-                <h1>€$discountPrice</h1>";
+            <h1>€$discountPrice</h1>";
                     echo "<p class='discount-text float-right'>$discount% popusta</p>";
                 } else {
                     echo "<h1>€$regularPrice</h1>";

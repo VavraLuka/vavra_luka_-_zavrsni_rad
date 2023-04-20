@@ -1,8 +1,8 @@
 <footer>
     <section class="background-grey">
-        <div class="section-wrapper" style="padding-top: 36px;">
+        <div class="footer-section-wrapper" style="padding-top: 36px;">
             <div class="box">
-                <h3>Kupujte i plaćajte sigurno</h3>
+                <h2>Kupujte i plaćajte sigurno</h2>
                 <ul class="payingmethods">
                     <li><a href="paymentoptions.php"><img width="75" class="grayscale" src="images/PaymentMethods/PayPal.png"></a></li>
                     <li><a href="paymentoptions.php"><img width="75" src="images/PaymentMethods/Visa.png"></a></li>
@@ -15,7 +15,7 @@
                 </ul>
             </div>
             <div class="box">
-                <h3>Vaše pogodnosti</h3>
+                <h2>Vaše pogodnosti</h2>
                 <ul class="yourbenefits">
                     <li><img src="images/Tick.png" width="14">3 godine garancije</li>
                     <li><img src="images/Tick.png" width="14">30 dana rok povrata novca</li>
@@ -26,7 +26,7 @@
                 </ul>
             </div>
             <div class="box">
-                <h3>Usluge</h3>
+                <h2>Usluge</h2>
                 <ul>
                     <li><a href="catalog.php">Katalog proizvoda</a></li>
                     <li><a href="shipingcostsanddeliverytimes.php">Cijena i vrijeme dostave</a></li>
@@ -37,7 +37,7 @@
         </div>
     </section>
     <section class="background-black footer-padding">
-        <div class="section-wrapper">
+        <div class="footer-section-wrapper">
             <div class="box">
                 <ul class="text-dark-grey footer-ul">
                     <li><a href="filteredproducts.php?productCategory=speakers&speakerType=speakerBundle">Kompleti razglasa</a></li>
@@ -50,7 +50,7 @@
                 </ul>
             </div>
             <div class="box">
-                <h3 style="color:grey;">Pratite nas i na društvenim mrežama!</h3>
+                <h2 style="color:grey;">Pratite nas i na društvenim mrežama!</h2>
                 <ul class="socialIcons">
                     <li><img width="50" src="images/socialIcons/Facebook.png"></li>
                     <li><img width="50" src="images/socialIcons/Instagram.png"></li>

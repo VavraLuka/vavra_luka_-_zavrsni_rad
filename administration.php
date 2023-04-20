@@ -19,6 +19,9 @@ if (!isset($_SESSION["currentUserStatus"])) {
     <link rel="stylesheet" href="css/productupload-forms.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
+    <meta name="description" content="Usavršite svoj doživljaj zvuka uz Vokaton. Istražite naš odabrani izbor vrhunske audio opreme i dodataka, dostupnih za jednostavnu online kupnju.">
+    <meta name="keywords" content="Audio oprema, Vrhunska tehnologija, Online kupovina, Kvaliteta zvuka">
+    <meta name="author" content="Luka Vavra">
 </head>
 
 <body>

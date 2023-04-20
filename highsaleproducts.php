@@ -1,9 +1,7 @@
-<section class="products-section" id="mostsales">
-    <div class="products-title">
-        <h1>Najprodavaniji proizvodi</h1>
-        <p>Povjerenje naših kupaca</p>
-    </div>
-</section>
+<div class="products-title" id="mostsales">
+    <h1>Najprodavaniji proizvodi</h1>
+    <p>Povjerenje naših kupaca</p>
+</div>
 <section class="products-section">
     <div class="products-wrapper">
         <?php
@@ -27,7 +25,7 @@
                 $salesCount = $row['salesCount'];
 
                 include 'php/priceformatting.php';
-                
+
                 echo "<div class='product-highlight'>
             <a href='product.php?id=$id'><div class='product-highlight-image' style='background-image: url($imageURL)'></div></a>
             <h3 class='salesCount'>$salesCount prodanih uređaja</h3>";

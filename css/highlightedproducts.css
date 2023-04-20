@@ -4,7 +4,7 @@ div.products-wrapper {
     gap: 2%;
     width: 75%;
     margin: 0 auto;
-    margin-bottom: 48px;
+    padding: 36px 0px;
 }
 
 div.product-highlight {
@@ -38,31 +38,35 @@ div.product-highlight-image {
 div.products-title {
     width: 50%;
     margin: 0 auto;
-    padding-bottom: 12px;
+    text-align: center;
+    padding-top: 24px; 
 }
 
 div.products-title h1 {
-    font-size: 36px;
+    font-size: var(--h1-laptop);
     letter-spacing: -1px;
+}
+div.products-title p {
+    font-size: var(--p-laptop);
 }
 
 div.product-highlight h1 {
     text-align: left;
-    font-size: 26px;
+    font-size: var(--h1-laptop);
 }
 
 div.product-highlight h2 {
-    font-size: 18px;
+    font-size: var(--p-laptop);
     font-weight: 700;
 }
 
 div.product-highlight h3 {
-    font-size: 18px;
+    font-size: var(--p-laptop);
     font-weight: 300;
 }
 
 div.product-highlight h3.salesCount {
-    font-size: 14px;
+    font-size: var(--p-laptop);
     text-align: left;
     font-weight: 400;
     color: grey;
@@ -90,4 +94,69 @@ p.discount-text {
 
 div.star-reviews {
     width: 100%;
+}
+
+/* Mobile phones */
+@media screen and (max-width: 767px) {
+    div.products-title h1 {
+        font-size: var(--h1-mobile);
+    }
+    div.products-title p {
+        font-size: var(--p-mobile);
+    }
+
+    div.product-highlight h1 {
+        font-size: var(--h1-mobile);
+    }
+    
+    div.product-highlight h2 {
+        font-size: var(--p-mobile);
+    }
+    
+    div.product-highlight h3 {
+        font-size: var(--p-mobile);
+    }
+    
+    div.product-highlight h3.salesCount {
+        font-size: var(--p-mobile);
+    }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1199px) {
+    div.products-wrapper {
+        width: 90%;
+        flex-wrap: wrap;
+    }
+    div.products-title {
+        padding: 0px;
+    }
+    div.products-title h1 {
+        font-size: var(--h1-tablet);
+    }
+    div.products-title p {
+        font-size: var(--p-tablet);
+    }
+
+    div.product-highlight h1 {
+        font-size: var(--h1-tablet);
+    }
+    
+    div.product-highlight h2 {
+        font-size: var(--p-tablet);
+    }
+    
+    div.product-highlight h3 {
+        font-size: var(--p-tablet);
+    }
+    
+    div.product-highlight h3.salesCount {
+        font-size: var(--p-tablet);
+    }
+    div.product-highlight {
+        flex-basis: 40%;
+    }
+    div.product-highlight:nth-last-child(-n+2) {
+        margin-top: 2%;
+    }
 }

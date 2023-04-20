@@ -1,9 +1,7 @@
-<section class="products-section" id="topdeals">
-    <div class="products-title">
+    <div class="products-title" id="topdeals">
         <h1>Top ponude</h1>
         <p>Izvanredne cijene za izvanredne proizvode</p>
     </div>
-</section>
 <section class="products-section">
     <div class="products-wrapper">
         <?php

@@ -13,7 +13,7 @@ include_once 'header.php';
             </div>
         </div>
     </div>
-    <div class="section-wrapper">
+    <div class="contactus-section-wrapper">
         <div class="phone-numbers full-width">
             <h2>Možete nas kontaktirati na slijedeće brojeve</h2>
             <table class="contactus-table">

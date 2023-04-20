@@ -2,18 +2,33 @@
     padding-top: 36px;
     text-align: center;
 }
-.signin-section {
+
+.signin-section h2 {
+    font-size: var(--h2-laptop);
+    padding-bottom: 12px;
+}
+
+div.signin-section {
     width: 38%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     gap: 4%;
 }
+
+div.signin-image {
+    margin-top: 36px;
+}
+
 .input-div-full {
     width: 100%;
 }
+
 .signin-form {
     width: 100%;
+}
+.signin-form h2 {
+    letter-spacing: -1px;
 }
 
 #showPassword {

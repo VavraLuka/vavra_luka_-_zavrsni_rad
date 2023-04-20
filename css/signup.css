@@ -7,8 +7,16 @@
     text-align: center;
 }
 
+div.signup-image {
+    margin-top: 36px;
+}
+
 .signup-form {
     width: 100%;
+}
+
+.signup-form h2 {
+    letter-spacing: -1px;
 }
 
 .signup-section {
@@ -17,6 +25,11 @@
     display: flex;
     justify-content: space-between;
     gap: 4%;
+}
+
+.signup-section h2 {
+    font-size: var(--h2-laptop);
+    padding-bottom: 12px;
 }
 
 input {
@@ -54,6 +67,7 @@ form h2 {
     display: flex;
     justify-content: space-between;
 }
+
 .input-div {
     width: 49%;
 }
