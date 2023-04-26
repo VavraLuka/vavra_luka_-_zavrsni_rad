@@ -28,7 +28,7 @@
 
                 echo "<div class='product-highlight'>
             <a href='product.php?id=$id'><div class='product-highlight-image' style='background-image: url($imageURL)'></div></a>
-            <h3 class='salesCount'>$salesCount prodanih uređaja</h3>";
+            <h3 class='salesCount'>$salesCount prodaja</h3>";
                 echo "<h3>$manufacturer</h3>
             <h2>$name</h2>";
                 if ($discount > 0) {

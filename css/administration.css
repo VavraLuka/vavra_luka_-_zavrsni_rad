@@ -15,7 +15,7 @@
 
 ::-webkit-scrollbar-track {
     background-color: transparent;
-  }
+}
 
 ::-webkit-scrollbar-thumb {
     background: var(--main-blue-color);
@@ -241,4 +241,43 @@ input[type=submit]:hover {
 }
 
 /* Product management */
+table.product-edit th,
+td {
+    text-align: left;
+    padding-right: 6px;
+}
+
+table.product-edit {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.product-edit thead th {
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+div.product-table-div {
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+table.product-edit a {
+    text-decoration-line: none;
+    display: block;
+    color: #1c1c1c;
+    transition: 0.15s;
+}
+table.product-edit td {
+    padding: 8px 0px;
+}
+table.product-edit tr {
+    border-bottom: 1px solid #1c1c1c;
+}
+
+table.product-edit a:hover {
+    color: #17a4e5;
+}
+
 /* Users management */

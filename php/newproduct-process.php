@@ -46,7 +46,7 @@ if (isset($_POST["submit"])) {
     $additionalLineValue3 = isset($_POST['additionalLineValue3']) ? $_POST['additionalLineValue3'] : NULL;
     $softwareSupport = isset($_POST['softwareSupport']) ? $_POST['softwareSupport'] : NULL;
     $deckNumber = isset($_POST['deckNumber']) ? $_POST['deckNumber'] : NULL;
-    $externalPowerSource = isset($_POST['externalPowerSource']) ? $_POST['externalPowerSource'] : NULL;    
+    $externalPowerSource = isset($_POST['externalPowerSource']) ? $_POST['externalPowerSource'] : NULL;
 
     require_once 'databaseconnect.php';
 
@@ -59,5 +59,6 @@ if (isset($_POST["submit"])) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }
-    header("location: ../administration.php?error=none");
+    header("location: ../administration.php?uploaderror=none");
 }
+mysqli_close($dbc);

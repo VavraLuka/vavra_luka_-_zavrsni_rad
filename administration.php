@@ -77,8 +77,8 @@ if (!isset($_SESSION["currentUserStatus"])) {
                     </div>
                     <div class="single-element-right">
                         <?php
-                        if (isset($_GET["error"])) {
-                            if ($_GET["error"] == "none") {
+                        if (isset($_GET["uploaderror"])) {
+                            if ($_GET["uploaderror"] == "none") {
                                 echo "<div class='signup-paragraph'><p>Proizvod je uspješno dodan u bazu podataka!</p></div>";
                             }
                             echo "<br>";
@@ -118,10 +118,55 @@ if (!isset($_SESSION["currentUserStatus"])) {
         <!-- Product management -->
         <section id="productManagement">
             <div class="section-wrapper">
-                <h2>Uređivanje proizvoda u bazi podataka</h2>
-                <hr>
-            </div>
+                <div class="two-elements">
+                    <div class="single-element-left">
+                        <h2>Uređivanje proizvoda u bazi podataka</h2>
+                        <?php
+                        include_once "php/databaseconnect.php";
+                        $sql = "SELECT * FROM products";
+                        $result = mysqli_query($dbc, $sql);
+
+                        echo "<div class='product-table-div'><table class='product-edit'><thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Proizvod</th>
+                                <th>Uredi</th>
+                            </tr></thead><tbody>";
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>
+                                <td>{$row['id']}</td>
+                                <td>{$row['manufacturer']} {$row['name']}</td>
+                                <td><a href='administration.php?id={$row['id']}'>Uredi</a></td>
+                            </tr>";
+                        }
+                        echo "</tbody></table></div>";
+                        ?>
+                    </div>
+                    <div class="single-element-right">
+                        <?php
+                        if (isset($_GET["editerror"])) {
+                            if ($_GET["editerror"] == "none") {
+                                echo "<div class='signup-paragraph'><p>Proizvod je uspješno ažuriran!</p></div>";
+                            }
+                            echo "<br>";
+                        }
+                        if (isset($_GET['id'])) {
+                            $id = $_GET['id'];
+                            $sql = "SELECT * FROM products WHERE id = $id";
+                            $result = mysqli_query($dbc, $sql);
+                            $row = mysqli_fetch_assoc($result);
+                            if (isset($row['category'])) {
+                                $productCategory = $row['category'];
+                                echo "<h2 class='center-element'>Trenutno uređujete proizvod: {$row['manufacturer']} {$row['name']}</h2>";
+                                $includeProductForm = "php/productedit-forms/$productCategory.php";
+                                include_once $includeProductForm;
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>
         </section>
+
         <!-- Users management -->
         <section id="usersManagement">
             <div class="section-wrapper">

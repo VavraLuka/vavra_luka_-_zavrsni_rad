@@ -68,7 +68,7 @@ div.product-highlight h3 {
 div.product-highlight h3.salesCount {
     font-size: var(--p-laptop);
     text-align: left;
-    font-weight: 400;
+    font-weight: 300;
     color: grey;
 }
 
