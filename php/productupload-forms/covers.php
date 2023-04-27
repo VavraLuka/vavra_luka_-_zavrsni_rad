@@ -4,8 +4,8 @@
         <input type="text" name="name" id="name" maxlength="60" placeholder="Naziv proizvoda" required oninvalid="this.setCustomValidity('Obavezan naziv proizvoda')"><br>
         <input type="text" name="manufacturer" id="manufacturer" maxlength="30" placeholder="Proizvođač" required oninvalid="this.setCustomValidity('Obavezan naziv proizvođača')"><br>
         <div class="two-inputs">
-            <div class="input-div-two"><input type="number" name="price" maxlength="14" id="price" step="0.01" placeholder="Cijena" required oninvalid="this.setCustomValidity('Obavezna cijena proizvoda')"><br></div>
-            <div class="input-div-two"><input type="number" name="quantity" maxlength="4" id="quantity" placeholder="Količina" required oninvalid="this.setCustomValidity('Obavezna količina na stanju')"><br></div>
+            <div class="input-div-two"><input type="number" name="price" maxlength="14" id="price" step="0.01" placeholder="Cijena (€)" required oninvalid="this.setCustomValidity('Obavezna cijena proizvoda')"><br></div>
+            <div class="input-div-two"><input type="number" name="quantity" maxlength="4" id="quantity" placeholder="Količina na stanju" required oninvalid="this.setCustomValidity('Obavezna količina na stanju')"><br></div>
         </div>
         <input type="text" name="caseFor" id="caseFor" maxlength="60" placeholder="Namijenjeno za" required oninvalid="this.setCustomValidity('Obavezno polje')"><br>
         <div class="two-inputs">

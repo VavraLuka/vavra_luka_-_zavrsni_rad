@@ -20,7 +20,6 @@ Baza podataka nalazi se u folder-u "database" s nazivom "vavra_luka_-_zavrsni_ra
 
 Za dovršiti:
 - responzivnost (za tablete i mobilne uređaje)
-- mogućnost uređivanja proizvoda (administration.php) - mijenjanje cijene, davanje popusta...
 - mogućnost uređivanja korisničkih računa (administration.php) - brisanje korisničkih računa, uvid u narudžbe...
 - prilikom sortiranja proizvoda po proizvođaču, checkbox-i označenih proizvođača trebaju ostati aktivni nakon sortiranja
 - "Remember me" opcija prilikom prijave korisnika

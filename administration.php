@@ -136,7 +136,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                             echo "<tr>
                                 <td>{$row['id']}</td>
                                 <td>{$row['manufacturer']} {$row['name']}</td>
-                                <td><a href='administration.php?id={$row['id']}'>Uredi</a></td>
+                                <td><a href='administration.php?productid={$row['id']}'>Uredi</a></td>
                             </tr>";
                         }
                         echo "</tbody></table></div>";
@@ -144,14 +144,14 @@ if (!isset($_SESSION["currentUserStatus"])) {
                     </div>
                     <div class="single-element-right">
                         <?php
-                        if (isset($_GET["editerror"])) {
-                            if ($_GET["editerror"] == "none") {
+                        if (isset($_GET["productediterror"])) {
+                            if ($_GET["productediterror"] == "none") {
                                 echo "<div class='signup-paragraph'><p>Proizvod je uspješno ažuriran!</p></div>";
                             }
                             echo "<br>";
                         }
-                        if (isset($_GET['id'])) {
-                            $id = $_GET['id'];
+                        if (isset($_GET['productid'])) {
+                            $id = $_GET['productid'];
                             $sql = "SELECT * FROM products WHERE id = $id";
                             $result = mysqli_query($dbc, $sql);
                             $row = mysqli_fetch_assoc($result);
@@ -170,10 +170,53 @@ if (!isset($_SESSION["currentUserStatus"])) {
         <!-- Users management -->
         <section id="usersManagement">
             <div class="section-wrapper">
-                <h2>Upravljanje korisničkim računima iz baze podataka</h2>
                 <hr>
+                <div class="two-elements">
+                    <div class="single-element-left">
+                        <h2>Upravljanje korisničkim računima iz baze podataka</h2>
+                        <?php
+                        include_once "php/databaseconnect.php";
+                        $sql = "SELECT * FROM users";
+                        $result = mysqli_query($dbc, $sql);
+
+                        echo "<div class='user-table-div'><table class='user-edit'><thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Korisnik</th>
+                                <th>Uredi</th>
+                            </tr></thead><tbody>";
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>
+                                <td>{$row['id']}</td>
+                                <td>{$row['name']} {$row['surname']}</td>
+                                <td><a href='administration.php?userid={$row['id']}'>Uredi</a></td>
+                            </tr>";
+                        }
+                        echo "</tbody></table></div>";
+                        ?>
+                    </div>
+                    <div class="single-element-right">
+                        <?php
+                        if (isset($_GET["userediterror"])) {
+                            if ($_GET["userediterror"] == "none") {
+                                echo "<div class='signup-paragraph'><p>Korisnički račun je uspješno ažuriran!</p></div>";
+                            }
+                            echo "<br>";
+                        }
+                        if (isset($_GET['userid'])) {
+                            $id = $_GET['userid'];
+                            $sql = "SELECT * FROM user WHERE id = $id";
+                            $result = mysqli_query($dbc, $sql);
+                            $row = mysqli_fetch_assoc($result);
+                            echo "<h2 class='center-element'>Trenutno uređujete korisnički račun: {$row['name']} {$row['surname']}</h2>";
+                            include_once "php/edituserform.php";
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
         </section>
+
         <!-- Footer -->
         <section>
         </section>

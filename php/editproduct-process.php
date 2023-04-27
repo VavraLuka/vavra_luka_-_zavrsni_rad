@@ -53,8 +53,8 @@ $sql = "UPDATE products SET category = '$category', name='$name', manufacturer='
 $result = mysqli_query($dbc, $sql);
 
 if ($result) {
-    header("location: ../administration.php?editerror=none");
+    header("location: ../administration.php?productediterror=none");
 } else {
-    echo "Greška prilikom ažuriranja proizvoda: " . mysqli_error($dbc);
+    echo "Greška prilikom ažuriranja podataka proizvoda: " . mysqli_error($dbc);
 }
 mysqli_close($dbc);

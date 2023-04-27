@@ -6,6 +6,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Scrollbar */
@@ -27,7 +28,6 @@
 
 :root {
     --main-blue-color: #17a4e5;
-    /* #46B1C9; */
 }
 
 .page-wrapper {
@@ -67,6 +67,7 @@
 section {
     width: 100%;
     padding: 12px;
+    margin-bottom: 36px;
 }
 
 .background-grey {
@@ -259,7 +260,7 @@ table.product-edit thead th {
 }
 
 div.product-table-div {
-    max-height: 300px;
+    max-height: 360px;
     overflow-y: scroll;
 }
 
@@ -269,15 +270,65 @@ table.product-edit a {
     color: #1c1c1c;
     transition: 0.15s;
 }
+
 table.product-edit td {
     padding: 8px 0px;
 }
+
 table.product-edit tr {
-    border-bottom: 1px solid #1c1c1c;
+    border-bottom: 1px solid grey;
 }
 
 table.product-edit a:hover {
     color: #17a4e5;
 }
 
+label {
+    float: left;
+    padding-bottom: 4px;
+    color: #1c1c1c;
+    font-weight: 300;
+}
+
 /* Users management */
+
+table.user-edit th,
+td {
+    text-align: left;
+    padding-right: 6px;
+}
+
+table.user-edit {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.user-edit thead th {
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+div.user-table-div {
+    max-height: 360px;
+    overflow-y: scroll;
+}
+
+table.user-edit a {
+    text-decoration-line: none;
+    display: block;
+    color: #1c1c1c;
+    transition: 0.15s;
+}
+
+table.user-edit td {
+    padding: 8px 0px;
+}
+
+table.user-edit tr {
+    border-bottom: 1px solid grey;
+}
+
+table.user-edit a:hover {
+    color: #17a4e5;
+}
