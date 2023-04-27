@@ -247,23 +247,39 @@ input[type=submit]:hover {
     margin-top: 8px;
     margin-right: 8px;
     cursor: pointer;
-    opacity: 100%;
-    transition: 0.15s;
+}
+
+.close-icon {
+    height: 36px;
+    margin-top: 8px;
+    margin-right: 8px;
+    cursor: pointer;
 }
 
 .remove-icon:hover {
     animation: shake 0.5s ease-in-out;
     animation-iteration-count: 1;
 }
+
 .add-icon:hover {
     animation: rotate 0.5s ease-in-out;
     animation-iteration-count: 1;
+}
+
+.close-icon:hover {
+    animation: rotate 0.5s ease-in-out;
+    animation-iteration-count: 1;
+}
+
+.clear-link {
+    all: unset;
 }
 
 @keyframes rotate {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(90deg);
     }

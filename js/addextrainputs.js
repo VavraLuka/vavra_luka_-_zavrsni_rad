@@ -27,7 +27,7 @@ addExtraInputs.onclick = function () {
 
     var removeIcon = document.createElement("img");
     removeIcon.className = "remove-icon";
-    removeIcon.src = "images/removeIcon.svg";
+    removeIcon.src = "images/trashIcon.svg";
     removeIcon.onclick = function () {
       newInputDiv.remove();
       inputIndex--;

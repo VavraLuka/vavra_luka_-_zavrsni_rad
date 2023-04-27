@@ -170,7 +170,7 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                 } else {
                     echo $regularPrice;
                 }; ?>">
-                <input type="number" name="quantity" value="1">
+                <input type="number" name="quantity" value="1" min="1" max="<?php echo $quantity; ?>" oninvalid="this.setCustomValidity('Trenutno raspoloživa količina ovog proizvoda: <?php echo $quantity; ?>')" oninput="this.setCustomValidity('')">
                 <input type="submit" name="add_to_cart" value="Dodaj u košaricu">
             </form>
         </div>

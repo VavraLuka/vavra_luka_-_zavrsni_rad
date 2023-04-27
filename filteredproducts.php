@@ -280,13 +280,13 @@ include_once 'header.php';
                             </div>
                             <div class="filtered-buttons bottom-div">';
                     if ($quantity > 0) {
-                        echo '<img class="action-buttons" src="images/cartIcon.svg" width="36">';
+                        echo "<img class='action-buttons' src='images/cartIcon.svg' width='36'>";
                     }
-                    echo '<img class="action-buttons" src="images/favoriteIcon.svg" width="36">
+                    echo "<img class='action-buttons' src='images/favoriteIcon.svg' width='36'>
                             </div>
                         </div>
                     </div>
-                    ';
+                    ";
                 }
             }
             ?>
@@ -294,5 +294,5 @@ include_once 'header.php';
     </div>
 </section>
 <?php
-include_once 'footer.php';
+include_once "footer.php";
 ?>

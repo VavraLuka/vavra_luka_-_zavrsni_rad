@@ -219,20 +219,45 @@ div.bottom-div {
 }
 
 img.action-buttons {
-    transition: 0.15s;
     cursor: pointer;
-    margin-left: 8px;
-    filter: grayscale(100);
+    margin-left: 12px;
 }
 
 img.action-buttons:hover {
-    transition: 0.15s;
-    filter: grayscale(0);
+    animation: shake 0.5s ease-in-out;
+    animation-iteration-count: 1;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-5px) rotate(-10deg);
+    }
+
+    40% {
+        transform: translateX(4px) rotate(8deg);
+    }
+
+    60% {
+        transform: translateX(-3px) rotate(-5deg);
+    }
+
+    80% {
+        transform: translateX(2px) rotate(3deg);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 div.star-reviews {
     padding: 6px 0px;
 }
+
 div.star-reviews p {
     position: relative;
     top: -2px;

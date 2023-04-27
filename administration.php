@@ -27,7 +27,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
 <body>
     <div class="page-wrapper">
         <!-- Navigation bar -->
-        <section class="background-grey" id="navigationBar">
+        <section class="background-grey" style="margin-bottom: 0px;" id="navigationBar">
             <div class="section-wrapper-navigation">
                 <div class="box">
                     <ul class="text-black">
@@ -104,7 +104,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                             } else {
                                 $productCategoryTitle = "Torbe";
                             }
-                            echo '<h2 class="center-element">Unosite novi proizvod u kategoriji: ' . $productCategoryTitle . '</h2>';
+                            echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2>Unosite novi proizvod u kategoriji: <span style='font-weight: 600; color: var(--main-blue-color);'>" . $productCategoryTitle . "</span></h2><a href='administration.php#productUpload' class='clear-link'><img class='close-icon' src='images/closeIcon.svg'></a></div>";
                             $includeProductForm = "php/productupload-forms/$productCategory.php";
                             include_once $includeProductForm;
                         }
@@ -136,7 +136,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                             echo "<tr>
                                 <td>{$row['id']}</td>
                                 <td>{$row['manufacturer']} {$row['name']}</td>
-                                <td><a href='administration.php?productid={$row['id']}'>Uredi</a></td>
+                                <td><a href='administration.php?productid={$row['id']}#productManagement'>Uredi</a></td>
                             </tr>";
                         }
                         echo "</tbody></table></div>";
@@ -157,7 +157,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                             $row = mysqli_fetch_assoc($result);
                             if (isset($row['category'])) {
                                 $productCategory = $row['category'];
-                                echo "<h2 class='center-element'>Trenutno uređujete proizvod: {$row['manufacturer']} {$row['name']}</h2>";
+                                echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete proizvod: <span style='font-weight: 600; color: var(--main-blue-color);'>{$row['manufacturer']} {$row['name']}</span></h2><a href='administration.php#productManagement' class='clear-link'><img class='close-icon' src='images/closeIcon.svg'></a></div>";
                                 $includeProductForm = "php/productedit-forms/$productCategory.php";
                                 include_once $includeProductForm;
                             }
@@ -189,7 +189,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                             echo "<tr>
                                 <td>{$row['id']}</td>
                                 <td>{$row['name']} {$row['surname']}</td>
-                                <td><a href='administration.php?userid={$row['id']}'>Uredi</a></td>
+                                <td><a href='administration.php?userid={$row['id']}#usersManagement'>Uredi</a></td>
                             </tr>";
                         }
                         echo "</tbody></table></div>";
@@ -205,10 +205,10 @@ if (!isset($_SESSION["currentUserStatus"])) {
                         }
                         if (isset($_GET['userid'])) {
                             $id = $_GET['userid'];
-                            $sql = "SELECT * FROM user WHERE id = $id";
+                            $sql = "SELECT * FROM users WHERE id = $id";
                             $result = mysqli_query($dbc, $sql);
                             $row = mysqli_fetch_assoc($result);
-                            echo "<h2 class='center-element'>Trenutno uređujete korisnički račun: {$row['name']} {$row['surname']}</h2>";
+                            echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete korisnički račun: <span style='font-weight: 600; color: var(--main-blue-color);'>{$row['name']} {$row['surname']}</span></h2><a href='administration.php#productManagement' class='clear-link'><img class='close-icon' src='images/closeIcon.svg'></a></div>";
                             include_once "php/edituserform.php";
                         }
                         ?>
