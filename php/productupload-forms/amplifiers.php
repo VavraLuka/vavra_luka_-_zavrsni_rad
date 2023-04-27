@@ -29,7 +29,7 @@
         <div id="extra-inputs"></div>
         <div id="add-extra-inputs">
             <p>Za dodavanje do 3 dodatne informacije o proizvodu, pritisnite '+' ikonu ispod.</p>
-            <img src="images/addIcon.png">
+            <img class="add-icon" src="images/addIcon.svg">
         </div><br id="break-line" style="display: none;">
         <div class="form-buttons">
             <div class="input-div-two"><input type="submit" name="submit" value="Dodaj proizvod"></div>

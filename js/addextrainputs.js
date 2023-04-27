@@ -6,7 +6,7 @@ var breakLine = document.getElementById("break-line");
 var inputIndex = 1;
 var maxInputs = 3;
 
-addExtraInputs.onclick = function() {
+addExtraInputs.onclick = function () {
   if (inputIndex <= maxInputs) {
     var newInputDiv = document.createElement("div");
     newInputDiv.className = "two-inputs";
@@ -25,8 +25,20 @@ addExtraInputs.onclick = function() {
     newInputValue.placeholder = "Podatak";
     newInputValue.maxlength = "200";
 
+    var removeIcon = document.createElement("img");
+    removeIcon.className = "remove-icon";
+    removeIcon.src = "images/removeIcon.svg";
+    removeIcon.onclick = function () {
+      newInputDiv.remove();
+      inputIndex--;
+      addExtraInputs.disabled = false;
+      addExtraInputs.style.display = "block";
+      breakLine.style.display = "none";
+    };
+
     newInputDiv.appendChild(newInputName);
     newInputDiv.appendChild(newInputValue);
+    newInputDiv.appendChild(removeIcon);
     extraInputs.appendChild(newInputDiv);
 
     inputIndex++;
