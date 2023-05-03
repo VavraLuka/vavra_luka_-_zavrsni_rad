@@ -119,7 +119,7 @@ include_once 'header.php';
                         echo '<input type="hidden" name="speakerType" value="' . $_GET['speakerType'] . '">';
                     }
                     ?>
-                    <input type="submit" value="Sortiraj">
+                    <input style="width: 85%;" type="submit" value="Sortiraj">
                 </form><br>
             </div>
             <div class="manufacturers">
@@ -139,8 +139,14 @@ include_once 'header.php';
                 while ($row = mysqli_fetch_assoc($result)) {
                     $manufacturer = $row['manufacturer'];
                     $count = $row['count'];
-                    echo "<label class='checkbox-container'><input type='checkbox' name='manufacturer[]' value='{$manufacturer}'>
-                    <span class='custom-checkbox'></span>
+                    echo "<label class='checkbox-container'><input type='checkbox' name='manufacturer[]' value='{$manufacturer}'";
+                    if (isset($_GET['manufacturer'])) {
+                        $manufacturers = $_GET['manufacturer'];
+                        if (in_array($manufacturer, $manufacturers)) {
+                            echo "checked";
+                        }
+                    }
+                    echo "><span class='custom-checkbox'></span>
                     <p class='checkbox-input-text'>{$manufacturer} ({$count})</p></label>";
                 }
                 if (isset($_GET['productCategory'])) {
@@ -155,7 +161,7 @@ include_once 'header.php';
                     $sort = $_GET['sort'];
                     echo '<input type="hidden" name="sort" value="' . $sort . '">';
                 }
-                echo "<br><input type='submit' value='Odaberi'></form>";
+                echo "<br><input type='submit' style='width: 85%; display: block; margin: 0 auto;' value='Odaberi'></form>";
                 ?>
             </div>
         </div>

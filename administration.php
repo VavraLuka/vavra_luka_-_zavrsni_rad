@@ -15,6 +15,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
 
 <head>
     <title>Vokaton - Administracija</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32 64x64">
     <link rel="stylesheet" href="css/administration.css">
     <link rel="stylesheet" href="css/productupload-forms.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,6 +23,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
     <meta name="description" content="Usavršite svoj doživljaj zvuka uz Vokaton. Istražite naš odabrani izbor vrhunske audio opreme i dodataka, dostupnih za jednostavnu online kupnju.">
     <meta name="keywords" content="Audio oprema, Vrhunska tehnologija, Online kupovina, Kvaliteta zvuka">
     <meta name="author" content="Luka Vavra">
+    <meta name="theme-color" content="#17a4e5">
 </head>
 
 <body>

@@ -84,40 +84,41 @@ form h2 {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 2%;
+    gap: 16px;
     margin-top: 6px;
 }
 
 input[type=submit] {
-    background-color: black;
+    background-color: var(--main-blue-color);
+    border: none;
     color: white;
-    border: 2px solid black;
     cursor: pointer;
-    border-radius: 36px;
+    border-radius: 12px;
     font-size: 16px;
-    transition: 0.3s;
+    transition: all 0.15s linear;
     font-weight: 700;
+    outline: 3px solid var(--main-blue-color);
 }
 
 input[type=reset] {
     background-color: white;
-    color: black;
-    border: 2px solid black;
+    border: none;
+    color: var(--main-blue-color);
     cursor: pointer;
-    border-radius: 36px;
+    border-radius: 12px;
     font-size: 16px;
-    transition: 0.3s;
+    transition: all 0.15s linear;
     font-weight: 700;
+    outline: 3px solid var(--main-blue-color);
 }
 
-input[type=submit]:hover {
-    opacity: 86%;
-    transition: 0.3s;
+input[type=submit]:is(:hover, :focus) {
+    outline-offset: 3px;
 }
 
-input[type=reset]:hover {
-    background-color: #f3f3f3;
-    transition: 0.3s;
+input[type=reset]:is(:hover, :focus) {
+    color: white;
+    background-color: var(--main-blue-color);
 }
 
 .signin-link {

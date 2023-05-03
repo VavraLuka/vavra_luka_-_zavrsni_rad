@@ -55,5 +55,32 @@
             <div class="input-div-two"><input type="submit" name="submit" value="Ažurirajte podatke"></div>
             <div class="input-div-two"><input type="reset" value="Očisti podatke"></div>
         </div>
+        <button onclick="deleteProduct()">Obrišite proizvod</button>
+        <script>
+            function deleteProduct() {
+                if (confirm("Jeste li sigurni da želite izbrisati ovaj proizvod iz baze podataka? Proizvod će biti trajno izbrisan.")) {
+                    if (confirm("Potvrdite brisanje ovog proizvoda.")) {
+                        const productId = <?php echo $row['id']; ?>;
+                        $.ajax({
+                            url: 'deleteproduct-process.php',
+                            type: 'POST',
+                            data: {
+                                productId: productId
+                            },
+                            success: function(response) {
+
+                            },
+                            error: function(xhr, status, error) {
+
+                            }
+                        });
+                    } else {
+                        event.preventDefault();
+                    }
+                } else {
+                    event.preventDefault();
+                }
+            }
+        </script>
     </form>
 </section>

@@ -37,6 +37,7 @@ if (!isset($_SESSION['cart'])) {
     <meta name="description" content="Usavršite svoj doživljaj zvuka uz Vokaton. Istražite naš odabrani izbor vrhunske audio opreme i dodataka, dostupnih za jednostavnu online kupnju.">
     <meta name="keywords" content="Audio oprema, Vrhunska tehnologija, Online kupovina, Kvaliteta zvuka">
     <meta name="author" content="Luka Vavra">
+    <meta name="theme-color" content="#17a4e5">
 </head>
 
 <body>
@@ -64,7 +65,7 @@ if (!isset($_SESSION['cart'])) {
                             </div>
                         </div>
                         <div class="box main-logo">
-                            <p><a href="index.php"><img src="images/mainLogo.png" width="180"></a></p>
+                            <a style="cursor: pointer;" class="null-link" href="index.php"><img src="images/mainLogo.png" width="180"></a>
                         </div>
                         <div class="box">
                             <div class="inner-box">

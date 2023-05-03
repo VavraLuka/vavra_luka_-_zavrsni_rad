@@ -1,7 +1,7 @@
 <section class="newproduct-form">
     <form action="php/edituser-process.php" method="post" accept-charset="UTF-8" autocomplete="off">
-    <input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>"> 
-    <div class="two-inputs">
+        <input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>">
+        <div class="two-inputs">
             <div class="input-div-two"><label for="name">Ime</label><input value="<?php echo $row['name']; ?>" type="text" maxlength="24" name="name" id="name" placeholder="Ime"><br></div>
             <div class="input-div-two"><label for="surname">Prezime</label><input value="<?php echo $row['surname']; ?>" type="text" maxlength="24" name="surname" id="surname" placeholder="Prezime"><br></div>
         </div>
@@ -31,8 +31,36 @@
         <label for="contactNumber">Kontakt broj</label><input value="<?php echo $row['contactNumber']; ?>" type="text" name="contactNumber" id="contactNumber" maxlength="20" placeholder="Kontakt broj"><br>
         <label for="email">Email</label><input value="<?php echo $row['email']; ?>" type="email" name="email" id="email" maxlength="34" placeholder="Email"><br>
         <div class="form-buttons">
-            <input type="submit" name="submit" value="Registracija">
+            <input type="submit" name="submit" value="Ažurirajte podatke">
             <input type="reset" value="Očisti podatke">
         </div>
+
+        <button onclick="deleteUser()">Obrišite korisnički račun</button>
+        <script>
+            function deleteUser() {
+                if (confirm("Jeste li sigurni da želite izbrisati ovaj korisnički račun? Korisnik mu više neće moći pristupiti.")) {
+                    if (confirm("Potvrdite brisanje ovog korisničkog računa.")) {
+                        const userId = <?php echo $row['id']; ?>;
+                        $.ajax({
+                            url: 'deleteuser-process.php',
+                            type: 'POST',
+                            data: {
+                                userId: userId
+                            },
+                            success: function(response) {
+
+                            },
+                            error: function(xhr, status, error) {
+
+                            }
+                        });
+                    } else {
+                        event.preventDefault();
+                    }
+                } else {
+                    event.preventDefault();
+                }
+            }
+        </script>
     </form>
 </section>

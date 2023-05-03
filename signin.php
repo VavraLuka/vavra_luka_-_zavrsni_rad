@@ -19,11 +19,16 @@ include_once 'header.php';
             <form action="php/signin-process.php" method="post" autocomplete="off">
                 <div class="input-div-full"><input class="input-text" maxlength="60" type="text" name="email" id="email" placeholder="Email adresa"><br></div>
                 <div class="input-div-full"><input class="input-text" maxlength="28" minlength="8" type="password" name="passwordUser" id="passwordUser" placeholder="Lozinka"><br></div>
-
                 <div style="display: flex; justify-content: center; width: 50%; margin: 0 auto;">
                     <input class="inline-block" type="checkbox" id="showPassword" onclick="togglePassword()">
                     <p class="inline-block">Prikaži lozinku</p>
                 </div>
+                <!-- <div style="width: 85%; overflow: auto; margin: 0 auto;">
+                        <div style="display: flex; justify-content: center; width: 50%; float: left;">
+                        <input class="inline-block" type="checkbox" id="rememberMe" name="rememberMe">
+                        <p class="inline-block">Zapamti moju prijavu</p>
+                    </div> 
+                </div> -->
                 <div class="form-buttons"><input type="submit" name="submit" value="Prijava">
                     <input type="reset" value="Očisti podatke">
                 </div>

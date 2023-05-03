@@ -4,6 +4,7 @@
 html {
     scroll-behavior: smooth;
 }
+
 * {
     font-family: 'Open Sans', sans-serif;
     padding: 0;
@@ -11,6 +12,14 @@ html {
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    /* outline: 1px dotted red; */
+}
+
+p::selection,
+h1::selection,
+h2::selection {
+    color: white;
+    background-color: var(--main-blue-color);
 }
 
 .page-wrapper {
@@ -94,6 +103,7 @@ section {
 .float-right {
     float: right;
 }
+
 .float-left {
     float: left;
 }
@@ -125,9 +135,13 @@ section {
 
 /* Section 01 - navigation bar */
 div.main-logo {
-    padding: 18px;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+a.null-link {
+    all: unset;
 }
 
 ul.navigation-bar {
@@ -271,12 +285,15 @@ div.greeting-message img {
     h1 {
         font-size: var(--h1-mobile);
     }
+
     h2 {
         font-size: var(--h2-mobile);
     }
+
     p {
         font-size: var(--p-mobile)
     }
+
     div.navbar-m-l {
         display: none;
     }
@@ -307,12 +324,15 @@ div.greeting-message img {
     h1 {
         font-size: var(--h1-tablet);
     }
+
     h2 {
         font-size: var(--h2-tablet);
     }
+
     p {
         font-size: var(--p-tablet)
     }
+
     div.greeting-message {
         width: 90%;
     }

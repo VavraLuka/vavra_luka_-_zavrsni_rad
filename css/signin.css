@@ -31,7 +31,7 @@ div.signin-image {
     letter-spacing: -1px;
 }
 
-#showPassword {
+#showPassword, #rememberMe {
     width: 18px;
     height: 18px;
     margin-right: 6px;
