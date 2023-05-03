@@ -47,6 +47,10 @@
     margin: 0 auto;
 }
 
+a.null-link {
+    all: unset;
+}
+
 .vertical-padding {
     padding-top: 36px;
     padding-bottom: 40px;

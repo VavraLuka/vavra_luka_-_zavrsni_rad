@@ -34,33 +34,19 @@
             <input type="submit" name="submit" value="Ažurirajte podatke">
             <input type="reset" value="Očisti podatke">
         </div>
-
-        <button onclick="deleteUser()">Obrišite korisnički račun</button>
-        <script>
-            function deleteUser() {
-                if (confirm("Jeste li sigurni da želite izbrisati ovaj korisnički račun? Korisnik mu više neće moći pristupiti.")) {
-                    if (confirm("Potvrdite brisanje ovog korisničkog računa.")) {
-                        const userId = <?php echo $row['id']; ?>;
-                        $.ajax({
-                            url: 'deleteuser-process.php',
-                            type: 'POST',
-                            data: {
-                                userId: userId
-                            },
-                            success: function(response) {
-
-                            },
-                            error: function(xhr, status, error) {
-
-                            }
-                        });
-                    } else {
-                        event.preventDefault();
-                    }
-                } else {
-                    event.preventDefault();
-                }
-            }
-        </script>
     </form>
+    <form action="php/deleterow-process.php" method="POST" onsubmit="return confirmSubmit();">
+        <input type="number" name="userId" id="userId" value="<?php echo $row['id']; ?>" hidden>
+        <input type="submit" name="submit" value="Obrišite korisnički račun" onclick="deleteProduct()">
+    </form>
+    <script>
+        function confirmSubmit() {
+            var confirmed = confirm("Jeste li sigurni da želite ukloniti ovaj korisnički račun? Korisnički račun će biti trajno izbrisan iz baze podataka.");
+            if (confirmed) {
+                confirmed = confirm("Potvrdite brisanje korisničkog računa.");
+                return confirmed;
+            }
+            return false;
+        }
+    </script>
 </section>

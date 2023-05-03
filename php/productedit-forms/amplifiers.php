@@ -46,4 +46,18 @@
             <div class="input-div-two"><input type="reset" value="Očisti podatke"></div>
         </div>
     </form>
+    <form action="php/deleterow-process.php" method="POST" onsubmit="return confirmSubmit();">
+        <input type="number" name="productId" id="productId" value="<?php echo $row['id']; ?>" hidden>
+        <input type="submit" name="submit" value="Obrišite proizvod" onclick="deleteProduct()">
+    </form>
+    <script>
+        function confirmSubmit() {
+            var confirmed = confirm("Jeste li sigurni da želite ukloniti ovaj proizvod? Proizvod će biti trajno izbrisan iz baze podataka.");
+            if (confirmed) {
+                confirmed = confirm("Potvrdite brisanje proizvoda.");
+                return confirmed;
+            }
+            return false;
+        }
+    </script>
 </section>

@@ -39,7 +39,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                     </ul>
                 </div>
                 <div class="main-logo">
-                    <a href="index.php"><img src="images/mainLogo.png" width="160"></a>
+                    <a class="null-link" href="index.php"><img src="images/mainLogo.png" width="160"></a>
                 </div>
                 <div class="box">
                     <ul class="float-right text-black">
@@ -81,9 +81,8 @@ if (!isset($_SESSION["currentUserStatus"])) {
                         <?php
                         if (isset($_GET["uploaderror"])) {
                             if ($_GET["uploaderror"] == "none") {
-                                echo "<div class='signup-paragraph'><p>Proizvod je uspješno dodan u bazu podataka!</p></div>";
+                                echo "<p>Proizvod je uspješno dodan u bazu podataka!</p>";
                             }
-                            echo "<br>";
                         }
                         if (isset($_GET['productCategory'])) {
                             $productCategory = $_GET['productCategory'];
@@ -146,11 +145,15 @@ if (!isset($_SESSION["currentUserStatus"])) {
                     </div>
                     <div class="single-element-right">
                         <?php
-                        if (isset($_GET["productediterror"])) {
-                            if ($_GET["productediterror"] == "none") {
-                                echo "<div class='signup-paragraph'><p>Proizvod je uspješno ažuriran!</p></div>";
+                        if (isset($_GET['productediterror'])) {
+                            if ($_GET['productediterror'] == "none") {
+                                echo "<p>Proizvod je uspješno ažuriran!</p>";
                             }
-                            echo "<br>";
+                        }
+                        if (isset($_GET['productdelete'])){
+                            if ($_GET['productdelete'] == "success"){
+                                echo "<p>Proizvod je uspješno uklonjen iz baze podataka!</p>";
+                            }
                         }
                         if (isset($_GET['productid'])) {
                             $id = $_GET['productid'];
@@ -199,11 +202,15 @@ if (!isset($_SESSION["currentUserStatus"])) {
                     </div>
                     <div class="single-element-right">
                         <?php
-                        if (isset($_GET["userediterror"])) {
-                            if ($_GET["userediterror"] == "none") {
-                                echo "<div class='signup-paragraph'><p>Korisnički račun je uspješno ažuriran!</p></div>";
+                        if (isset($_GET['userediterror'])) {
+                            if ($_GET['userediterror'] == "none") {
+                                echo "<p>Korisnički račun je uspješno ažuriran!</p>";
                             }
-                            echo "<br>";
+                        }
+                        if (isset($_GET['userdelete'])){
+                            if ($_GET['userdelete'] == "success"){
+                                echo "<p>Korisnički račun je uspješno uklonjen iz baze podataka!</p>";
+                            }
                         }
                         if (isset($_GET['userid'])) {
                             $id = $_GET['userid'];

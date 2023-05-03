@@ -55,32 +55,19 @@
             <div class="input-div-two"><input type="submit" name="submit" value="Ažurirajte podatke"></div>
             <div class="input-div-two"><input type="reset" value="Očisti podatke"></div>
         </div>
-        <button onclick="deleteProduct()">Obrišite proizvod</button>
-        <script>
-            function deleteProduct() {
-                if (confirm("Jeste li sigurni da želite izbrisati ovaj proizvod iz baze podataka? Proizvod će biti trajno izbrisan.")) {
-                    if (confirm("Potvrdite brisanje ovog proizvoda.")) {
-                        const productId = <?php echo $row['id']; ?>;
-                        $.ajax({
-                            url: 'deleteproduct-process.php',
-                            type: 'POST',
-                            data: {
-                                productId: productId
-                            },
-                            success: function(response) {
-
-                            },
-                            error: function(xhr, status, error) {
-
-                            }
-                        });
-                    } else {
-                        event.preventDefault();
-                    }
-                } else {
-                    event.preventDefault();
-                }
-            }
-        </script>
     </form>
+    <form action="php/deleterow-process.php" method="POST" onsubmit="return confirmSubmit();">
+        <input type="number" name="productId" id="productId" value="<?php echo $row['id']; ?>" hidden>
+        <input type="submit" name="submit" value="Obrišite proizvod" onclick="deleteProduct()">
+    </form>
+    <script>
+        function confirmSubmit() {
+            var confirmed = confirm("Jeste li sigurni da želite ukloniti ovaj proizvod? Proizvod će biti trajno izbrisan iz baze podataka.");
+            if (confirmed) {
+                confirmed = confirm("Potvrdite brisanje proizvoda.");
+                return confirmed;
+            }
+            return false;
+        }
+    </script>
 </section>
