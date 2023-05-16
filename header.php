@@ -76,7 +76,14 @@ if (!isset($_SESSION['cart'])) {
                             </div>
                             <div class="inner-box">
                                 <ul class="navigation-bar float-right text-black">
-                                    <li><a href="cart.php">Košarica</a></li>
+                                    <li><a href="cart.php">Košarica <?php
+                                        echo "(";
+                                        $itemsInCart = 0;
+                                        foreach ($_SESSION['cart'] as $item) {
+                                            $itemsInCart += 1;
+                                        }
+                                        echo "$itemsInCart)";
+                                    ?></a></li>
                                     <?php
                                     if (isset($_SESSION["currentUserName"])) {
                                         if (isset($_SESSION["currentUserStatus"])) {

@@ -253,11 +253,14 @@ include_once 'header.php';
                     $id = $row['id'];
                     $name = $row['name'];
                     $manufacturer = $row['manufacturer'];
-                    $price = $row['price'];
+                    $regularPrice = $row['price'];
                     $quantity = $row['quantity'];
                     $imageURL = $row['imageURL'];
                     $review = $row['review'];
                     $reviewCount = $row['reviewCount'];
+                    $discount = $row['discount'];
+                    
+                    include "php/priceformatting.php";
 
                     if ($quantity > 0) {
                         $availability = "Dostupno na stanju";
@@ -275,16 +278,21 @@ include_once 'header.php';
                             <h1 class="inline-block">' . $manufacturer . '</h1>
                             <h2 class="inline-block">' . $name . '</h2>
                         </div></a>';
-                    include 'php/reviews.php';
-                    echo '<div class="bottom-div">
-                        <p class="' . $availabilityStyle . '">' . $availability . '</p>
+                    include "php/reviews.php";
+                    echo "<div class='bottom-div'>
+                        <p class='" . $availabilityStyle . "'>" . $availability . "</p>
                         </div>
                             </div>
-                        <div class="filtered-actions position-relative">
-                            <div class="filtered-price">
-                                <h1>€' . $price . '</h1>
-                            </div>
-                            <div class="filtered-buttons bottom-div">';
+                        <div class='filtered-actions position-relative'>
+                            <div class='filtered-price'>";
+                            if ($discount==0){
+                                echo "<h1>€" . $regularPrice . "</h1>";
+                            } else {
+                                echo "<div style='display: flex; float: right;'><p class='discount-text' style='font-size: 24px; float: right; margin-right: 6px;'>" . $discount . "%</p><h1 class='text-decoration-line' style='font-size: 24px; float: right;'>€" . $regularPrice . "</h1></div><h1 style='clear: both;'>€" . $discountPrice . "</h>";
+                            }
+                                
+                            echo "</div>
+                            <div class='filtered-buttons bottom-div'>";
                     if ($quantity > 0) {
                         echo "<img class='action-buttons' src='images/cartIcon.svg' width='36'>";
                     }

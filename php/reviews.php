@@ -26,7 +26,7 @@ if ($review > 0) {
     for ($i = 1; $i <= $empty_stars; $i++) {
         echo "<img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>";
     }
-    echo "<p class='inline-block' style='margin-left: 6px; color: grey; font-weight: 300;'>($reviewCount)</p>";
+    echo "<p class='inline-block' style='margin-left: 6px; color: grey; font-weight: 300;'>$review ($reviewCount)</p>";
 } else {
     echo "<p style='color: grey; font-weight: 300;'>Ovaj proizvod još nije ocijenjen</p>";
 }
