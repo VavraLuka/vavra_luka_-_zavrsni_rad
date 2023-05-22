@@ -36,7 +36,7 @@ $total_price = 0;
                         <td>
                             <form action="php/updatecart-process.php" method="post" autocomplete="off">
                                 <input type="hidden" name="product_id" value="<?php echo $item['product_id'] ?>">
-                                <input type="number" name="quantity" value="<?php echo $item['quantity'] ?>" min="1">
+                                <input type="number" name="quantity" value="<?php echo $item['quantity'] ?>" min="1" max="<?php echo $item['product_quantity']; ?>" oninvalid="this.setCustomValidity('Trenutno raspoloživa količina ovog proizvoda: <?php echo $quantity; ?>')">
                                 <input type="submit" name="update_quantity" value="Ažuriraj">
                             </form>
                         </td>

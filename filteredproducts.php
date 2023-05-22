@@ -259,7 +259,7 @@ include_once 'header.php';
                     $review = $row['review'];
                     $reviewCount = $row['reviewCount'];
                     $discount = $row['discount'];
-                    
+
                     include "php/priceformatting.php";
 
                     if ($quantity > 0) {
@@ -285,16 +285,29 @@ include_once 'header.php';
                             </div>
                         <div class='filtered-actions position-relative'>
                             <div class='filtered-price'>";
-                            if ($discount==0){
-                                echo "<h1>€" . $regularPrice . "</h1>";
-                            } else {
-                                echo "<div style='display: flex; float: right;'><p class='discount-text' style='font-size: 24px; float: right; margin-right: 6px;'>" . $discount . "%</p><h1 class='text-decoration-line' style='font-size: 24px; float: right;'>€" . $regularPrice . "</h1></div><h1 style='clear: both;'>€" . $discountPrice . "</h>";
-                            }
-                                
-                            echo "</div>
-                            <div class='filtered-buttons bottom-div'>";
+                    if ($discount == 0) {
+                        echo "<h1>€" . $regularPrice . "</h1>";
+                    } else {
+                        echo "<div style='display: flex; float: right;'><p class='discount-text' style='font-size: 24px; float: right; margin-right: 6px;'>" . $discount . "%</p><h1 class='text-decoration-line' style='font-size: 24px; float: right;'>€" . $regularPrice . "</h1></div><h1 style='clear: both;'>€" . $discountPrice . "</h>";
+                    }
+
+                    echo "</div>
+                            <div class='bottom-div'>";
                     if ($quantity > 0) {
-                        echo "<img class='action-buttons' src='images/cartIcon.svg' width='36'>";
+                        echo "<form style='width: 36px; display: inline-block; margin-right: 12px;' method='post' action='php/addtocart-process.php'>
+                        <input type='hidden' name='product_id' value='$id'>
+                        <input type='hidden' name='product_name' value='$name'>
+                        <input type='hidden' name='product_quantity' value='$quantity'>
+                        <input type='hidden' name='product_price' value='";
+                        if ($discount > 0) {
+                            echo $discountPrice;
+                        } else {
+                            echo $regularPrice;
+                        };
+                        echo "'>
+                        <input type='hidden' name='quantity' value='1'>
+                        <button style='all: unset;' type='submit' name='add_to_cart'><img class='action-buttons' src='images/cartIcon.svg' width='36'></button>
+                    </form>";
                     }
                     echo "<img class='action-buttons' src='images/favoriteIcon.svg' width='36'>
                             </div>

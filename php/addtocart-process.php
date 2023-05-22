@@ -7,6 +7,7 @@ if (isset($_POST['add_to_cart'])) {
     $product_name = $_POST['product_name'];
     $product_price = $_POST['product_price'];
     $quantity = $_POST['quantity'];
+    $product_quantity = $_POST['product_quantity'];
 
     if (isset($_SESSION['cart'][$product_id])) {
         $_SESSION['cart'][$product_id]['quantity'] += $quantity;
@@ -15,7 +16,8 @@ if (isset($_POST['add_to_cart'])) {
             'product_id' => $product_id,
             'product_name' => $product_name,
             'product_price' => $product_price,
-            'quantity' => $quantity
+            'quantity' => $quantity,
+            'product_quantity' => $product_quantity
         );
     }
 
