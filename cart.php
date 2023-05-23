@@ -36,8 +36,10 @@ $total_price = 0;
                         <td>
                             <form action="php/updatecart-process.php" method="post" autocomplete="off">
                                 <input type="hidden" name="product_id" value="<?php echo $item['product_id'] ?>">
-                                <input type="number" name="quantity" value="<?php echo $item['quantity'] ?>" min="1" max="<?php echo $item['product_quantity']; ?>" oninvalid="this.setCustomValidity('Trenutno raspoloživa količina ovog proizvoda: <?php echo $quantity; ?>')">
-                                <input type="submit" name="update_quantity" value="Ažuriraj">
+                                <div>
+                                    <input type="number" name="quantity" value="<?php echo $item['quantity'] ?>" min="1" max="<?php echo $item['product_quantity']; ?>" oninvalid="this.setCustomValidity('Trenutno raspoloživa količina ovog proizvoda: <?php echo $quantity; ?>')" style="float: left; width: 40%; margin-right: 16px;">
+                                    <input type="submit" name="update_quantity" value="Ažuriraj" style="float: left; width: 40%;">
+                                </div>
                             </form>
                         </td>
                         <td><?php echo $item_price ?> €</td>
@@ -56,7 +58,15 @@ $total_price = 0;
                 </tr>
             </tbody>
         </table>
-
+        <?php
+        if (isset($_SESSION["currentUserName"])) {
+            echo "<form method='POST' action='php/orderconfirmation-process' style='width: 35%; margin: 0 auto;'>
+                <input type='submit' value='Potvrdi narudžbu'>
+            </form>";
+        } else {
+            echo "<p style='text-align: center;'>Kako biste dovršili narudžbu, <a href='signin.php' style='text-decoration: none; color: var(--main-blue-color); transition: all 0.15s ease 0s; opacity: 1;' onmouseover=\"this.style.opacity='75%';\" onmouseout=\"this.style.opacity='100%';\">prijavite se</a> u svoj korisnički račun.</p>";
+        }
+        ?>
     <?php
     } ?>
 </section>
