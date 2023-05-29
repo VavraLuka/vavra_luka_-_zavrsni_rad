@@ -36,6 +36,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                         <li><a href="#productUpload">Unos proizvoda</a></li>
                         <li><a href="#productManagement">Uređivanje proizvoda</a></li>
                         <li><a href="#usersManagement">Korisnički računi</a></li>
+                        <li><a href="#orderHistory">Povijest narudžbi</a></li>
                     </ul>
                 </div>
                 <div class="main-logo">
@@ -54,6 +55,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                 <h1 class="welcome-message">Administracijski sustav web trgovine</h1>
             </div>
         </section>
+        <!-- Product upload -->
         <section id="productUpload">
             <div class="section-wrapper">
                 <div class="two-elements">
@@ -150,8 +152,8 @@ if (!isset($_SESSION["currentUserStatus"])) {
                                 echo "<p>Proizvod je uspješno ažuriran!</p>";
                             }
                         }
-                        if (isset($_GET['productdelete'])){
-                            if ($_GET['productdelete'] == "success"){
+                        if (isset($_GET['productdelete'])) {
+                            if ($_GET['productdelete'] == "success") {
                                 echo "<p>Proizvod je uspješno uklonjen iz baze podataka!</p>";
                             }
                         }
@@ -207,8 +209,8 @@ if (!isset($_SESSION["currentUserStatus"])) {
                                 echo "<p>Korisnički račun je uspješno ažuriran!</p>";
                             }
                         }
-                        if (isset($_GET['userdelete'])){
-                            if ($_GET['userdelete'] == "success"){
+                        if (isset($_GET['userdelete'])) {
+                            if ($_GET['userdelete'] == "success") {
                                 echo "<p>Korisnički račun je uspješno uklonjen iz baze podataka!</p>";
                             }
                         }
@@ -223,6 +225,107 @@ if (!isset($_SESSION["currentUserStatus"])) {
                         ?>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Order history -->
+        <section id="orderHistory">
+            <div class="section-wrapper">
+                <hr>
+                <div class="two-elements">
+                    <div class="single-element-left">
+                        <h2>Povijest narudžbi</h2>
+                    </div>
+                </div>
+                <?php
+                include_once "php/databaseconnect.php";
+                $sql = "SELECT * FROM orders";
+                $result = mysqli_query($dbc, $sql);
+
+                echo "<div class='two-elements'><div style='flex-basis: 38%;'><div class='user-table-div'>
+                        <table class='user-edit'>
+                        <thead>
+                            <tr>
+                                <th>ID narudžbe</th>
+                                <th>Korisnik</th>
+                                <th>Email adresa računa</th>
+                            </tr>
+                        </thead>
+                        <tbody>";
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>
+                            <td>{$row['id']}</td>
+                            <td>{$row['userName']} {$row['userSurname']}</td>
+                            <td>{$row['userEmail']}</td>
+                        </tr>";
+                }
+                echo "</tbody></table></div></div>";
+                echo "<div style='flex-basis: 62%;'><div class='user-table-div'>
+                    <table class='user-edit'>
+                    <thead>
+                        <tr>
+                            <th>ID proizvoda</th>
+                            <th>Proizvođač</th>
+                            <th>Proizvod</th>
+                            <th>Cijena</th>
+                            <th>Količina</th>
+                            <th>Ukupno</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+                $sql = "SELECT * FROM orders";
+                $result = mysqli_query($dbc, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $products_IDs = $row['products_IDs'];
+                    $products = $row['products'];
+                    $products_manufacturers = $row['products_manufacturers'];
+                    $products_prices = $row['products_prices'];
+                    $products_total_prices = $row['products_total_prices'];
+                    $products_quantities = $row['products_quantities'];
+
+                    $products_IDs_array = explode(",", $products_IDs);
+                    $products_array = explode(",", $products);
+                    $products_manufacturers_array = explode(",", $products_manufacturers);
+                    $products_prices_array = explode(",", $products_prices);
+                    $products_total_prices_array = explode(",", $products_total_prices);
+                    $products_quantities_array = explode(",", $products_quantities);
+
+                    echo "<tr><td>";
+                    foreach ($products_IDs_array as $product_ID) {
+                        echo $product_ID . "<br>";
+                    }
+                    echo "</td><td>";
+                    foreach ($products_manufacturers_array as $product_manufacturer) {
+                        echo $product_manufacturer . "<br>";
+                    }
+                    echo "</td><td>";
+                    foreach ($products_array as $product) {
+                        echo $product . "<br>";
+                    }
+                    echo "</td><td style='text-align: right;'>";
+                    foreach ($products_prices_array as $product_price) {
+                        $product_price = number_format($product_price, 2, '.', ',');
+                        echo $product_price . "€<br>";
+                    }
+                    echo "</td><td style='text-align: right;'>";
+                    foreach ($products_quantities_array as $product_quantity) {
+                        echo $product_quantity . "<br>";
+                    }
+                    echo "</td><td style='text-align: right;'>";
+                    foreach ($products_total_prices_array as $product_total_price) {
+                        $product_total_price = number_format($product_total_price, 2, '.', ',');
+                        echo $product_total_price . "€<br>";
+                    }
+
+                    $total_price = number_format($row['total_price'], 2, '.', ',');
+                    echo "</td></tr>
+                    <tr>
+                        <td colspan='5'>Cijena ukupno</td>
+                        <td style='text-align: right;'>$total_price €</td>
+                    </tr>";
+                }
+                echo "</tbody></table></div></div></div>";
+                ?>
             </div>
         </section>
 

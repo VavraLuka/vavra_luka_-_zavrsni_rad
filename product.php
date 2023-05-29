@@ -163,6 +163,7 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
             </div>
             <form method="post" action="php/addtocart-process.php">
                 <input type="hidden" name="product_id" value="<?php echo $id; ?>">
+                <input type="hidden" name="product_manufacturer" value="<?php echo $manufacturer; ?>">
                 <input type="hidden" name="product_name" value="<?php echo $name; ?>">
                 <input type="hidden" name="product_quantity" value="<?php echo $quantity; ?>">
                 <input type="hidden" name="product_price" value="

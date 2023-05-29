@@ -296,6 +296,7 @@ include_once 'header.php';
                     if ($quantity > 0) {
                         echo "<form style='width: 36px; display: inline-block; margin-right: 12px;' method='post' action='php/addtocart-process.php'>
                         <input type='hidden' name='product_id' value='$id'>
+                        <input type='hidden' name='product_manufacturer' value='$manufacturer'>
                         <input type='hidden' name='product_name' value='$name'>
                         <input type='hidden' name='product_quantity' value='$quantity'>
                         <input type='hidden' name='product_price' value='";

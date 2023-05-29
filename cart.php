@@ -16,6 +16,7 @@ $total_price = 0;
             <thead style="font-size: 18px; letter-spacing: -1px;">
                 <tr>
                     <th>Šifra proizvoda</th>
+                    <th>Proizvođač</th>
                     <th>Proizvod</th>
                     <th>Cijena</th>
                     <th>Količina</th>
@@ -31,6 +32,7 @@ $total_price = 0;
                 ?>
                     <tr>
                         <td><?php echo $item['product_id'] ?></td>
+                        <td><?php echo $item['product_manufacturer'] ?></td>
                         <td><?php echo $item['product_name'] ?></td>
                         <td><?php echo $item['product_price'] ?> €</td>
                         <td>
@@ -52,7 +54,7 @@ $total_price = 0;
                     </tr>
                 <?php } ?>
                 <tr>
-                    <td colspan="4">Cijena ukupno</td>
+                    <td colspan="5">Cijena ukupno</td>
                     <td><?php echo $total_price ?> €</td>
                     <td></td>
                 </tr>
@@ -60,8 +62,8 @@ $total_price = 0;
         </table>
         <?php
         if (isset($_SESSION["currentUserName"])) {
-            echo "<form method='POST' action='php/orderconfirmation-process' style='width: 35%; margin: 0 auto;'>
-                <input type='submit' value='Potvrdi narudžbu'>
+            echo "<form method='POST' action='php/orderconfirmation-process.php' style='width: 35%; margin: 0 auto;'>
+                <input type='submit' name='order_confirm' value='Potvrdi narudžbu'>
             </form>";
         } else {
             echo "<p style='text-align: center;'>Kako biste dovršili narudžbu, <a href='signin.php' style='text-decoration: none; color: var(--main-blue-color); transition: all 0.15s ease 0s; opacity: 1;' onmouseover=\"this.style.opacity='75%';\" onmouseout=\"this.style.opacity='100%';\">prijavite se</a> u svoj korisnički račun.</p>";
