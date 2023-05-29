@@ -241,30 +241,32 @@ if (!isset($_SESSION["currentUserStatus"])) {
                 include_once "php/databaseconnect.php";
                 $sql = "SELECT * FROM orders";
                 $result = mysqli_query($dbc, $sql);
-
-                echo "<div class='two-elements'><div style='flex-basis: 38%;'><div class='user-table-div'>
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<div class='two-elements'><div style='flex-basis: 40%;'><div class='user-table-div'>
                         <table class='user-edit'>
                         <thead>
                             <tr>
-                                <th>ID narudžbe</th>
+                                <th>ID</th>
                                 <th>Korisnik</th>
-                                <th>Email adresa računa</th>
+                                <th>Email adresa</th>
+                                <th>Datum</th>
+                                <th>Vrijeme</th>
                             </tr>
                         </thead>
-                        <tbody>";
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>
+                        <tbody>
+                        <tr>
                             <td>{$row['id']}</td>
                             <td>{$row['userName']} {$row['userSurname']}</td>
                             <td>{$row['userEmail']}</td>
+                            <td>{$row['submit_date']}</td>
+                            <td>{$row['submit_time']}</td>
                         </tr>";
-                }
-                echo "</tbody></table></div></div>";
-                echo "<div style='flex-basis: 62%;'><div class='user-table-div'>
+                    echo "</tbody></table></div></div>";
+                    echo "<div style='flex-basis: 60%;'><div class='user-table-div'>
                     <table class='user-edit'>
                     <thead>
                         <tr>
-                            <th>ID proizvoda</th>
+                            <th>ID</th>
                             <th>Proizvođač</th>
                             <th>Proizvod</th>
                             <th>Cijena</th>
@@ -273,9 +275,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                         </tr>
                     </thead>
                     <tbody>";
-                $sql = "SELECT * FROM orders";
-                $result = mysqli_query($dbc, $sql);
-                while ($row = mysqli_fetch_assoc($result)) {
+
                     $products_IDs = $row['products_IDs'];
                     $products = $row['products'];
                     $products_manufacturers = $row['products_manufacturers'];
@@ -323,9 +323,8 @@ if (!isset($_SESSION["currentUserStatus"])) {
                         <td colspan='5'>Cijena ukupno</td>
                         <td style='text-align: right;'>$total_price €</td>
                     </tr>";
-                }
-                echo "</tbody></table></div></div></div>";
-                ?>
+                    echo "</tbody></table></div></div></div>";
+                } ?>
             </div>
         </section>
 

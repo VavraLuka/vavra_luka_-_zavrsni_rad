@@ -13,6 +13,8 @@ if (isset($_POST['order_confirm'])) {
     $currentUserName = $_SESSION['currentUserName'];
     $currentUserSurname = $_SESSION['currentUserSurname'];
     $currentUserEmail = $_SESSION['currentUserEmail'];
+    $submit_date = date('Y-m-d');
+    $submit_time = date('H:i:s');
 
     include_once "databaseconnect.php";
 
@@ -34,8 +36,10 @@ if (isset($_POST['order_confirm'])) {
     $products_quantities = substr($products_quantities, 0, -1);
     $products_total_prices = substr($products_total_prices, 0, -1);
 
-    $query = "INSERT INTO orders (userName, userSurname, userEmail, total_price, products, products_IDs, products_manufacturers, products_prices, products_quantities, products_total_prices) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO orders (userName, userSurname, userEmail, total_price, products, products_IDs, products_manufacturers, products_prices, products_quantities, products_total_prices, submit_date, submit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $statement = mysqli_prepare($dbc, $query);
-    mysqli_stmt_bind_param($statement, "sssissssss", $currentUserName, $currentUserSurname, $currentUserEmail, $total_price, $products, $products_IDs, $products_manufacturers, $products_prices, $products_quantities, $products_total_prices);
+    mysqli_stmt_bind_param($statement, "sssissssssss", $currentUserName, $currentUserSurname, $currentUserEmail, $total_price, $products, $products_IDs, $products_manufacturers, $products_prices, $products_quantities, $products_total_prices, $submit_date, $submit_time);
     mysqli_stmt_execute($statement);
+    unset($_SESSION['cart']);
+    header("location: ../cart.php?order=succesful");
 }

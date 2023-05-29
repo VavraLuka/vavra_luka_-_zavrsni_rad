@@ -9,7 +9,15 @@ $total_price = 0;
 <section class="section-wrapper" style="display: block;">
     <?php
     if (empty($_SESSION['cart'])) {
-        echo '<div style="margin: 0 auto; width: 60%; text-align: center;"><img src="images/emptyCart.svg" width="240" style="margin: 0 auto; padding: 24px 0px;"><h1 style="padding-bottom: 24px;">Oh, čini se da je vaša košarica prazna!</h1></div>';
+        if (isset($_GET['order'])) {
+            if ($_GET['order'] == "successfull") {
+                echo '<div style="margin: 0 auto; width: 60%; text-align: center;"><img src="images/orderSuccessfull.svg" width="240" style="margin: 0 auto; padding: 24px 0px;"><h1 style="padding-bottom: 24px;">Odlično, Vaša narudžba je zaprimljena!</h1></div>';
+            } else {
+                echo '<div style="margin: 0 auto; width: 60%; text-align: center;"><img src="images/emptyCart.svg" width="240" style="margin: 0 auto; padding: 24px 0px;"><h1 style="padding-bottom: 24px;">Oh, čini se da je vaša košarica prazna!</h1></div>';
+            }
+        } else {
+            echo '<div style="margin: 0 auto; width: 60%; text-align: center;"><img src="images/emptyCart.svg" width="240" style="margin: 0 auto; padding: 24px 0px;"><h1 style="padding-bottom: 24px;">Oh, čini se da je vaša košarica prazna!</h1></div>';
+        }
     } else {
     ?>
         <table class="cart-table">
