@@ -40,6 +40,26 @@ if (isset($_POST['order_confirm'])) {
     $statement = mysqli_prepare($dbc, $query);
     mysqli_stmt_bind_param($statement, "sssissssssss", $currentUserName, $currentUserSurname, $currentUserEmail, $total_price, $products, $products_IDs, $products_manufacturers, $products_prices, $products_quantities, $products_total_prices, $submit_date, $submit_time);
     mysqli_stmt_execute($statement);
+
+    foreach ($_SESSION['cart'] as $item) {
+        $productID = $item['product_id'];
+        $orderedQuantity = $item['quantity'];
+
+        $sql = "SELECT quantity FROM products WHERE id = $productID";
+        $result = $dbc->query($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $currentQuantity = $row["quantity"];
+        } else {
+            echo "Proizvod nije pronađen.";
+        }
+        $newQuantity = $currentQuantity - $orderedQuantity;
+        $updateSql = "UPDATE products SET quantity = $newQuantity WHERE id = $productID";
+        if ($dbc->query($updateSql) === TRUE) {
+            echo "Proizvod uspješno ažuriran.";
+        }
+    }
+
     unset($_SESSION['cart']);
     header("location: ../cart.php?order=succesful");
 }
