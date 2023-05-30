@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2023 at 11:49 PM
+-- Generation Time: May 30, 2023 at 07:57 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -38,6 +38,42 @@ CREATE TABLE `newsletter` (
 
 INSERT INTO `newsletter` (`id`, `email`) VALUES
 (10, 'luka123vavra@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(20) NOT NULL,
+  `userName` varchar(40) NOT NULL,
+  `userSurname` varchar(40) NOT NULL,
+  `userEmail` varchar(60) NOT NULL,
+  `total_price` int(20) NOT NULL,
+  `products` mediumtext NOT NULL,
+  `products_IDs` mediumtext NOT NULL,
+  `products_manufacturers` mediumtext NOT NULL,
+  `products_prices` mediumtext NOT NULL,
+  `products_total_prices` mediumtext NOT NULL,
+  `products_quantities` mediumtext NOT NULL,
+  `submit_date` date NOT NULL,
+  `submit_time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `userName`, `userSurname`, `userEmail`, `total_price`, `products`, `products_IDs`, `products_manufacturers`, `products_prices`, `products_total_prices`, `products_quantities`, `submit_date`, `submit_time`) VALUES
+(7, 'Luka', 'Vavra', 'lvavra@tvz.hr', 797, 'Powercord UK C13,BS-2011 MK II,PA 502,B112D', '22,50,43,42', 'the sssnake,Millenium,the box,Behringer', '\r\n                3.59,\r\n                29.00,\r\n                218.00,\r\n                239.00', '14.36,87,218,478', '4,3,1,2', '2023-05-29', '22:54:28'),
+(8, 'Luka', 'Vavra', 'lvavra@tvz.hr', 973, 'PA 502,B112D,MA120 MKII', '43,42,45', 'the box,Behringer,the box', '\r\n                218.00,\r\n                239.00,\r\n                149.00', '436,239,298', '2,1,2', '2023-05-29', '22:55:58'),
+(12, 'Luka', 'Vavra', 'lvavra@tvz.hr', 689, 'Eurolive B212D,PicoSpot 20 LED', '1,52', 'Behringer,Fun Generation', '\r\n                278.00,133', '556,133', '2,1', '2023-05-29', '23:23:01'),
+(13, 'Luka', 'Vavra', 'lvavra@tvz.hr', 822, 'Eurolive B212D,PicoSpot 20 LED', '1,52', 'Behringer,Fun Generation', '\r\n                278.00,133', '556,266', '2,2', '2023-05-29', '23:24:08'),
+(14, 'Luka', 'Vavra', 'lvavra@tvz.hr', 822, 'Eurolive B212D,PicoSpot 20 LED', '1,52', 'Behringer,Fun Generation', '\r\n                278.00,133', '556,266', '2,2', '2023-05-29', '23:24:25'),
+(15, 'Ana', 'Horvat', 'ana.horvat@gmail.com', 666, 'Mixstream Pro+', '54', 'Numark', '666', '666', '1', '2023-05-30', '19:47:47'),
+(16, 'Ana', 'Horvat', 'ana.horvat@gmail.com', 1305, 'ZED-14', '55', 'Allen & Heath', '435', '1305', '3', '2023-05-30', '19:48:15'),
+(17, 'Ana', 'Horvat', 'ana.horvat@gmail.com', 436, 'PA 502', '43', 'the box', '218', '436', '2', '2023-05-30', '19:48:43');
 
 -- --------------------------------------------------------
 
@@ -103,7 +139,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category`, `name`, `manufacturer`, `price`, `quantity`, `speakerType`, `drivers`, `RMS`, `maxPower`, `soundPressure`, `maxFrequency`, `minFrequency`, `dimensions`, `weight`, `imageURL`, `salesCount`, `faders`, `inputs`, `outputs`, `cableType`, `length`, `leftJack`, `leftJackType`, `rightJack`, `rightJackType`, `color`, `limiter`, `channels`, `power`, `lightSource`, `powerConsumption`, `lightType`, `beamAngle`, `discount`, `caseFor`, `caseType`, `accessoryType`, `description`, `additionalLine1`, `additionalLineValue1`, `additionalLine2`, `additionalLineValue2`, `additionalLine3`, `additionalLineValue3`, `review`, `reviewCount`, `softwareSupport`, `deckNumber`, `externalPowerSource`) VALUES
-(1, 'speakers', 'Eurolive B212D', 'Behringer', 278, 20, 'activeSpeaker', '12\" woofer i 1.35\" visokotonac s aluminijskom dijafragmom', 345, 550, 125, 18000, 65, '550 x 345 x 270', 14.5, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/246474/5351269_800.jpg', 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 4.2, 4, NULL, NULL, NULL),
+(1, 'speakers', 'Eurolive B212D', 'Behringer', 278, 18, 'activeSpeaker', '12\" woofer i 1.35\" visokotonac s aluminijskom dijafragmom', 345, 550, 125, 18000, 65, '550 x 345 x 270', 14.5, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/246474/5351269_800.jpg', 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 4.2, 4, NULL, NULL, NULL),
 (2, 'adapters', 'Adapter za slušalice', 'the t.bone', 2.66, 63, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/300470/12337492_800.jpg', 23, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 'Zlatna', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 4.6, 18, NULL, NULL, NULL),
 (3, 'cables', 'SK366-2-RED Midi', 'the sssnake', 3, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/129093/9929056_800.jpg', 3, NULL, NULL, NULL, 'midiCable', 200, 'DIN 5-pin (m', 'male', 'DIN 5-pin (m', 'male', 'Crvena', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 5, 2, NULL, NULL, NULL),
 (4, 'speakers', 'Achat 115 M', 'the box pro', 525, 0, 'passiveSpeaker', '5\" bass + 1.4\" neoademijski mid-range/visokotonac (3\" voice coil)', 350, 1400, 131, 17000, 60, '438 x 440 x 766', 32, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/214529/14055747_800.jpg', 23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 4.9, 19, NULL, NULL, NULL),
@@ -145,7 +181,7 @@ INSERT INTO `products` (`id`, `category`, `name`, `manufacturer`, `price`, `quan
 (40, 'speakers', 'ZLX 12P', 'EV', 435, 10, 'activeSpeaker', ' 12\" woofer + 1.5\" kompresijski driver', 250, 1000, 125, 20000, 55, '610 x 356 x 356', 15.6, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/313039/14407389_800.jpg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', 'Disperzija zvuka', '90Â° x 60Â°', 'Pojačalo', 'Class D', 'Kućište', 'Polipropilen plastika', 0, 0, NULL, NULL, NULL),
 (41, 'speakers', 'Mon A12', 'the box pro', 348, 8, 'monitorSpeaker', '12\" woofer + 1,35\" koaksijalni visokotonac', 350, 700, 124, 20000, 50, '510 x 340 x 500', 15, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/309205/7360603_800.jpg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', 'Disperzija zvuka', '80Â° x 80Â°', 'Boja', 'Crna', 'Kućište', 'Drvo', 0, 0, NULL, NULL, NULL),
 (42, 'speakers', 'B112D', 'Behringer', 239, 10, 'activeSpeaker', '12\" woofer + 1,35\" kompresijski driver', 350, 1000, 128, 20000, 50, '568 x 342 x 270', 12.3, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/284049/15160138_800.jpg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', 'Boja', 'Siva', 'Kućište', 'Plastika', 'Utor za stalak', '35 mm', 0, 0, NULL, NULL, NULL),
-(43, 'speakers', 'PA 502', 'the box', 218, 8, 'passiveSpeaker', '15\" woofer + horn sa 44 mm titanijskim driver-om', 300, 600, 122, 20000, 35, '715 x 495 x 450', 25.5, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/160814/12315732_800.jpg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', 'Boja', 'Crna', 'Kućište', 'Plastika', NULL, NULL, 0, 0, NULL, NULL, NULL),
+(43, 'speakers', 'PA 502', 'the box', 218, 6, 'passiveSpeaker', '15\" woofer + horn sa 44 mm titanijskim driver-om', 300, 600, 122, 20000, 35, '715 x 495 x 450', 25.5, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/160814/12315732_800.jpg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', 'Boja', 'Crna', 'Kućište', 'Plastika', NULL, NULL, 0, 0, NULL, NULL, NULL),
 (44, 'speakers', 'Achat 204 A', 'the box pro', 133, 6, 'activeSpeaker', ' 2x 4\" woofer + 1\" Fabric dome visokotonac', 80, 320, 112, 20000, 90, '172 x 142 x 360', 4.5, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/375150/17386838_800.jpg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', 'Disperzija zvuka', '90Â° x 90Â°', 'Boja', 'Crna', 'Kućište', 'Drvo', 0, 0, NULL, NULL, NULL),
 (45, 'speakers', 'MA120 MKII', 'the box', 149, 12, 'monitorSpeaker', '12\" woofer + visokotonac', 120, 240, 120, 16000, 80, '370 x 580 x 420', 16.5, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/195950/7228139_800.jpg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', 'Kućište', 'Drvo', NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL),
 (46, 'cables', 'TPM 6', 'pro snake', 7.3, 30, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/213368/8608147_800.jpg', 23, NULL, NULL, NULL, 'microphoneCable', 600, 'XLR', 'female', 'XLR', 'male', 'Crna', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4.4, 17, NULL, NULL, NULL),
@@ -154,10 +190,10 @@ INSERT INTO `products` (`id`, `category`, `name`, `manufacturer`, `price`, `quan
 (49, 'accessories', 'BS-2020S MK II', 'Millenium', 29, 20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/299891/13055834_800.jpg', 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'stands', NULL, 'Materijal', 'Metal', 'Boja', 'Crna', 'Nosivost', '35 kg', 4.3, 5, NULL, NULL, NULL),
 (50, 'accessories', 'BS-2011 MK II', 'Millenium', 29, 48, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/323921/14688941_800.jpg', 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'stands', NULL, 'Boja', 'Crna', 'Promjer', '35 mm', 'Nosivost', '30 kg', 4.1, 12, NULL, NULL, NULL),
 (51, 'amplifiers', 'TA 2400 MK-X', 'the t.amp', 333, 24, NULL, NULL, NULL, NULL, NULL, 0, 0, '420 x 450 x 95', 19.7, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/156557/15007245_800.jpg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Da', 2, 2400, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', 'RMS 4 ohma', '2x 1200 W', 'RMS 8 ohma', '2x 760 W', 'Pojačalo', 'Class AB', 0, 0, NULL, NULL, NULL),
-(52, 'light', 'PicoSpot 20 LED', 'Fun Generation', 133, 35, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '174 x 162 x 242', 3, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/372642/13714511_800.jpg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1x 12 W CREE', 35, 'movingHeadSpot', '13', 0, NULL, NULL, NULL, '', 'Strobo efekt', '0-20 Hz', '3 DMX moda', '5 & 9 & 11 kanala', NULL, NULL, 0, 0, NULL, NULL, NULL),
+(52, 'light', 'PicoSpot 20 LED', 'Fun Generation', 133, 33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '174 x 162 x 242', 3, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/372642/13714511_800.jpg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1x 12 W CREE', 35, 'movingHeadSpot', '13', 0, NULL, NULL, NULL, '', 'Strobo efekt', '0-20 Hz', '3 DMX moda', '5 & 9 & 11 kanala', NULL, NULL, 0, 0, NULL, NULL, NULL),
 (53, 'covers', 'Case Behringer B 207', 'Thomann', 53, 20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/486782/15618865_800.jpg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Crna', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Behringer B 207', 'flightCases', NULL, '', 'Dimenzije', '412 x 252 x 304 mm', 'Materijal', 'Aluminij + plastika', NULL, NULL, 0, 0, NULL, NULL, NULL),
-(54, 'controllers', 'Mixstream Pro+', 'Numark', 666, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '566 x 74 x 284', 3.7, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/559714/17970162_800.jpg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 'Serato DJ Intro (Pro), Virtual DJ', 2, 'yes'),
-(55, 'mixers', 'ZED-14', 'Allen & Heath', 435, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '384 x 95 x 465', 7.5, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/137330/11228955_800.jpg', 0, 99, 16, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL);
+(54, 'controllers', 'Mixstream Pro+', 'Numark', 666, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '566 x 74 x 284', 3.7, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/559714/17970162_800.jpg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 'Serato DJ Intro (Pro), Virtual DJ', 2, 'yes'),
+(55, 'mixers', 'ZED-14', 'Allen & Heath', 435, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '384 x 95 x 465', 7.5, 'https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/137330/11228955_800.jpg', 0, 99, 16, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -211,6 +247,12 @@ ALTER TABLE `newsletter`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -231,6 +273,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `newsletter`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `products`
