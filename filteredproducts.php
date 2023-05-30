@@ -292,7 +292,7 @@ include_once 'header.php';
                     }
 
                     echo "</div>
-                            <div class='bottom-div'>";
+                            <div class='bottom-div' style='justify-content: right;'>";
                     if ($quantity > 0) {
                         echo "<form style='width: 36px; display: inline-block; margin-right: 12px;' method='post' action='php/addtocart-process.php'>
                         <input type='hidden' name='product_id' value='$id'>
