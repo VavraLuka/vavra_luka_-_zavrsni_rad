@@ -78,6 +78,7 @@ function loginUser($dbc, $email, $passwordUser)
         exit();
     } else if ($checkPassword === true) {
         session_start();
+        $_SESSION["currentUserID"] = $emailExists["id"];
         $_SESSION["currentUserName"] = $emailExists["name"];
         $_SESSION["currentUserSurname"] = $emailExists["surname"];
         $_SESSION["currentUserAddress"] = $emailExists["address"];

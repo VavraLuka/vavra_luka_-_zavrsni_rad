@@ -1,0 +1,40 @@
+table.user-edit th,
+td {
+    text-align: left;
+    padding-right: 6px;
+}
+
+table.user-edit {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.user-edit thead th {
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+div.user-table-div {
+    max-height: 360px;
+    overflow-y: scroll;
+}
+
+table.user-edit a {
+    text-decoration-line: none;
+    display: block;
+    color: #1c1c1c;
+    transition: 0.15s;
+}
+
+table.user-edit td {
+    padding: 8px 0px;
+}
+
+table.user-edit tr {
+    border-bottom: 1px solid grey;
+}
+
+table.user-edit a:hover {
+    color: #17a4e5;
+}

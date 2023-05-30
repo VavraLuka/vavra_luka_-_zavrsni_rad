@@ -61,5 +61,5 @@ if (isset($_POST['order_confirm'])) {
     }
 
     unset($_SESSION['cart']);
-    header("location: ../cart.php?order=succesful");
+    header("location: ../cart.php?order=successfull");
 }

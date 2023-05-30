@@ -90,8 +90,8 @@ if (!isset($_SESSION['cart'])) {
                                             if ($_SESSION["currentUserStatus"] === 1) {
                                                 echo "<li><a href='administration.php'>Administracija</a></li>";
                                             } else {
-                                                echo "<li><a href='#favorites'>Favoriti</a></li>";
-                                                echo "<li><a href='#myprofile'>Profil</a></li>";
+                                                echo "<li><a href='myprofile.php#profileFavorites'>Favoriti</a></li>";
+                                                echo "<li><a href='myprofile.php'>Profil</a></li>";
                                             }
                                         } else {
                                             echo "<li><a href='#myprofile'>Profil</a></li>";
