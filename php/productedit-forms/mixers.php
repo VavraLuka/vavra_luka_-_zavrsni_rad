@@ -40,9 +40,9 @@
             <div class="input-div-two"><input type="reset" value="Očisti podatke"></div>
         </div>
     </form>
-    <form action="php/deleterow-process.php" method="POST" onsubmit="return confirmSubmit();">
+    <form action="php/deleterow-process.php" method="POST" onsubmit="return confirmSubmit();" style="width: 49%; float: right;">
         <input type="number" name="productId" id="productId" value="<?php echo $row['id']; ?>" hidden>
-        <input type="submit" name="submit" value="Obrišite proizvod" onclick="deleteProduct()">
+        <input style="background-color: red; border: 2px solid red;" type="submit" name="submit" value="Obrišite proizvod" onclick="deleteProduct()">
     </form>
     <script>
         function confirmSubmit() {

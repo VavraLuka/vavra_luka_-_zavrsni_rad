@@ -35,7 +35,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                     <ul class="text-black">
                         <li><a href="#productUpload">Unos proizvoda</a></li>
                         <li><a href="#productManagement">Uređivanje proizvoda</a></li>
-                        <li><a href="#usersManagement">Korisnički računi</a></li>
+                        <li style="clear: both;"><a href="#usersManagement">Korisnički računi</a></li>
                         <li><a href="#orderHistory">Povijest narudžbi</a></li>
                     </ul>
                 </div>
@@ -45,7 +45,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                 <div class="box">
                     <ul class="float-right text-black">
                         <li><a href="index.php">Povratak na stranicu</a></li>
-                        <li><a href="php/signout-process.php">Odjava administratora</a></li>
+                        <li style="clear: both;"><a href="php/signout-process.php">Odjava administratora</a></li>
                     </ul>
                 </div>
             </div>
@@ -133,13 +133,13 @@ if (!isset($_SESSION["currentUserStatus"])) {
                             <tr>
                                 <th>ID</th>
                                 <th>Proizvod</th>
-                                <th>Uredi</th>
+                                <th style='text-align: right; padding-right: 16px;'>Uredi</th>
                             </tr></thead><tbody>";
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo "<tr>
                                 <td>{$row['id']}</td>
                                 <td>{$row['manufacturer']} {$row['name']}</td>
-                                <td><a href='administration.php?productid={$row['id']}#productManagement'>Uredi</a></td>
+                                <td style='text-align: right; padding-right: 16px;'><a href='administration.php?productid={$row['id']}#productManagement'>Uredi</a></td>
                             </tr>";
                         }
                         echo "</tbody></table></div>";
@@ -190,13 +190,13 @@ if (!isset($_SESSION["currentUserStatus"])) {
                             <tr>
                                 <th>ID</th>
                                 <th>Korisnik</th>
-                                <th>Uredi</th>
+                                <th style='text-align: right; padding-right: 16px;'>Uredi</th>
                             </tr></thead><tbody>";
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo "<tr>
                                 <td>{$row['id']}</td>
                                 <td>{$row['name']} {$row['surname']}</td>
-                                <td><a href='administration.php?userid={$row['id']}#usersManagement'>Uredi</a></td>
+                                <td style='text-align: right; padding-right: 16px;'><a href='administration.php?userid={$row['id']}#usersManagement'>Uredi</a></td>
                             </tr>";
                         }
                         echo "</tbody></table></div>";
@@ -271,7 +271,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                             <th>Proizvod</th>
                             <th>Cijena</th>
                             <th>Količina</th>
-                            <th>Ukupno</th>
+                            <th style='text-align: right;'>Ukupno</th>
                         </tr>
                     </thead>
                     <tbody>";
@@ -290,24 +290,24 @@ if (!isset($_SESSION["currentUserStatus"])) {
                     $products_total_prices_array = explode(",", $products_total_prices);
                     $products_quantities_array = explode(",", $products_quantities);
 
-                    echo "<tr><td>";
+                    echo "<tr><td style='width: 36px;'>";
                     foreach ($products_IDs_array as $product_ID) {
-                        echo $product_ID . "<br>";
+                        echo "<a style='all: unset; cursor: pointer; color: var(--main-blue-color);' href='product.php?id={$product_ID}'>" . $product_ID . "</a><br>";
                     }
-                    echo "</td><td>";
+                    echo "</td><td style='width: 200px;'>";
                     foreach ($products_manufacturers_array as $product_manufacturer) {
                         echo $product_manufacturer . "<br>";
                     }
-                    echo "</td><td>";
+                    echo "</td><td style='width: 200px;'>";
                     foreach ($products_array as $product) {
                         echo $product . "<br>";
                     }
-                    echo "</td><td style='text-align: right;'>";
+                    echo "</td><td style='width: 100px;'>";
                     foreach ($products_prices_array as $product_price) {
                         $product_price = number_format($product_price, 2, '.', ',');
                         echo $product_price . "€<br>";
                     }
-                    echo "</td><td style='text-align: right;'>";
+                    echo "</td><td style='width: 100px;'>";
                     foreach ($products_quantities_array as $product_quantity) {
                         echo $product_quantity . "<br>";
                     }
@@ -320,8 +320,8 @@ if (!isset($_SESSION["currentUserStatus"])) {
                     $total_price = number_format($row['total_price'], 2, '.', ',');
                     echo "</td></tr>
                     <tr>
-                        <td colspan='5'>Cijena ukupno</td>
-                        <td style='text-align: right;'>$total_price €</td>
+                        <td style='color: var(--main-blue-color);' colspan='5'>Cijena ukupno</td>
+                        <td style='text-align: right; color: var(--main-blue-color);'>{$total_price}€</td>
                     </tr>";
                     echo "</tbody></table></div></div></div>";
                 } ?>
