@@ -4,9 +4,10 @@
         <input type="hidden" name="category" id="category" value="covers">
         <label for="name">Naziv proizvoda</label><input type="text" name="name" id="name" maxlength="60" placeholder="Naziv proizvoda" required oninvalid="this.setCustomValidity('Obavezan naziv proizvoda')" value="<?php echo $row['name']; ?>"><br>
         <label for="manufacturer">Proizvođač</label><input type="text" name="manufacturer" id="manufacturer" maxlength="30" placeholder="Proizvođač" required oninvalid="this.setCustomValidity('Obavezan naziv proizvođača')" value="<?php echo $row['manufacturer']; ?>"><br>
-        <div class="two-inputs">
-            <div class="input-div-two"><label for="price">Cijena (€)</label><input type="number" name="price" maxlength="14" id="price" step="0.01" placeholder="Cijena (€)" required oninvalid="this.setCustomValidity('Obavezna cijena proizvoda')" value="<?php echo $row['price']; ?>"><br></div>
-            <div class="input-div-two"><label for="quantity">Količina na stanju</label><input type="number" name="quantity" maxlength="4" id="quantity" placeholder="Količina na stanju" required oninvalid="this.setCustomValidity('Obavezna količina na stanju')" value="<?php echo $row['quantity']; ?>"><br></div>
+        <div class="three-inputs">
+            <div class="input-div-three"><label for="price">Cijena (€)</label><input type="number" name="price" maxlength="14" id="price" step="0.01" placeholder="Cijena (€)" required oninvalid="this.setCustomValidity('Obavezna cijena proizvoda')" value="<?php echo $row['price']; ?>"><br></div>
+            <div class="input-div-three"><label for="discount">Popust (%)</label><input max="100" min="0" type="number" maxlength="3" name="discount" id="discount" placeholder="Popust (%)" value="<?php echo $row['discount'] ?>"><br></div>
+            <div class="input-div-three"><label for="quantity">Količina na stanju</label><input type="number" name="quantity" maxlength="4" id="quantity" placeholder="Količina na stanju" required oninvalid="this.setCustomValidity('Obavezna količina na stanju')" value="<?php echo $row['quantity']; ?>"><br></div>
         </div>
         <label for="caseFor">Namijenjeno za</label><input type="text" name="caseFor" id="caseFor" maxlength="60" placeholder="Namijenjeno za" required oninvalid="this.setCustomValidity('Obavezno polje')" value="<?php echo $row['caseFor']; ?>"><br>
         <div class="two-inputs">
