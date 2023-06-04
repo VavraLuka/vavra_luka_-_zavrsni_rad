@@ -10,7 +10,18 @@ include_once "header.php";
 ?>
 <section class="products-section">
     <div class="products-wrapper" style="justify-content: none; gap: 0%; display: block; margin-top: 36px; margin-bottom: 36px;">
-        <h1 style="margin-bottom: 12px; letter-spacing: -1px;">Zaboravili ste lozinku?</h1>
+        <?php
+        if (isset($_GET['error'])) {
+            if ($_GET['error'] == "none") {
+                echo "<img src='images/PasswordRecoverySuccess.svg' width='240'>";
+                echo "<h1 style='margin-bottom: 12px; letter-spacing: -1px;'>Odlično, uskoro ćete moći pristupiti Vašem korisničkom računu!</h1>";
+            } else {
+                echo "<img src='images/PasswordRecovery.svg' width='240'>";
+                echo "<h1 style='margin-bottom: 12px; letter-spacing: -1px;'>Zaboravili ste lozinku?</h1>";
+            }
+        }
+        ?>
+        
         <?php
         $passwordRecoveryMessage = array(
             "Uh-oh, izgleda da ste izgubili lozinku! Ne brinite, mi Vam čuvamo leđa. Jednostavno unesite svoju email adresu i mi ćemo Vam poslati poveznicu za resetiranje lozinke. Ovdje smo kako bismo bili sigurni da ste uvijek povezani sa svojim računom, bez obzira na sve.",
@@ -40,7 +51,7 @@ include_once "header.php";
         </div>
         <?php
         if (isset($_GET['error'])) {
-            if ($_GET['error'] == "emailnotstored") {
+            if ($_GET['error'] == "emailNotStored") {
                 echo "<p>Hm, unešena email adresa ne nalazi se u našem sustavu, molimo ponovno unesite email adresu.</p>";
             }
         }
