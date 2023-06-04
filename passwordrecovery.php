@@ -19,9 +19,12 @@ include_once "header.php";
                 echo "<img src='images/PasswordRecovery.svg' width='240'>";
                 echo "<h1 style='margin-bottom: 12px; letter-spacing: -1px;'>Zaboravili ste lozinku?</h1>";
             }
+        } else {
+            echo "<img src='images/PasswordRecovery.svg' width='240'>";
+            echo "<h1 style='margin-bottom: 12px; letter-spacing: -1px;'>Zaboravili ste lozinku?</h1>";
         }
         ?>
-        
+
         <?php
         $passwordRecoveryMessage = array(
             "Uh-oh, izgleda da ste izgubili lozinku! Ne brinite, mi Vam čuvamo leđa. Jednostavno unesite svoju email adresu i mi ćemo Vam poslati poveznicu za resetiranje lozinke. Ovdje smo kako bismo bili sigurni da ste uvijek povezani sa svojim računom, bez obzira na sve.",
@@ -40,6 +43,14 @@ include_once "header.php";
                 } else {
                     echo '<p style="text-align: center; width: 75%; margin: 0 auto;">' . $passwordRecoveryMessage[2] . '</p>';
                 }
+            }
+        } else {
+            if ($random_number == 0) {
+                echo '<p style="text-align: center; width: 75%; margin: 0 auto;">' . $passwordRecoveryMessage[0] . '</p>';
+            } elseif ($random_number == 1) {
+                echo '<p style="text-align: center; width: 75%; margin: 0 auto;">' . $passwordRecoveryMessage[1] . '</p>';
+            } else {
+                echo '<p style="text-align: center; width: 75%; margin: 0 auto;">' . $passwordRecoveryMessage[2] . '</p>';
             }
         }
         ?>

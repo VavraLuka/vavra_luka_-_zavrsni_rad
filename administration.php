@@ -37,6 +37,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                         <li><a href="#productManagement">Uređivanje proizvoda</a></li>
                         <li style="clear: both;"><a href="#usersManagement">Korisnički računi</a></li>
                         <li><a href="#orderHistory">Povijest narudžbi</a></li>
+                        <li><a href="#newsletterEmails">Newsletter</a></li>
                     </ul>
                 </div>
                 <div class="main-logo">
@@ -292,7 +293,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
 
                     echo "<tr><td style='width: 36px;'>";
                     foreach ($products_IDs_array as $product_ID) {
-                        echo "<a style='all: unset; cursor: pointer; color: var(--main-blue-color);' href='product.php?id={$product_ID}'>" . $product_ID . "</a><br>";
+                        echo "<a style='all: unset; text-decoration: underline; cursor: pointer; color: var(--main-blue-color);' href='product.php?id={$product_ID}'>" . $product_ID . "</a><br>";
                     }
                     echo "</td><td style='width: 200px;'>";
                     foreach ($products_manufacturers_array as $product_manufacturer) {
@@ -325,6 +326,29 @@ if (!isset($_SESSION["currentUserStatus"])) {
                     </tr>";
                     echo "</tbody></table></div></div></div>";
                 } ?>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section id="newsletterEmails">
+            <div class="section-wrapper">
+                <hr>
+                <div class="two-elements">
+                    <div class="single-element-left">
+                        <h2>Newsletter</h2>
+                    </div>
+                    <div class="single-element-right" style="text-align: left;">
+                        <h2>Email adrese prijavljene na newsletter</h2>
+                        <?php
+                        include_once "php/databaseconnect.php";
+                        $sql = "SELECT * FROM newsletter";
+                        $result = mysqli_query($dbc, $sql);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<p>{$row['email']}</p>";
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
         </section>
 

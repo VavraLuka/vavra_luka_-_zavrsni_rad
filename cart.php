@@ -16,7 +16,7 @@ $total_price = 0;
                 echo '<div style="margin: 0 auto; width: 60%; text-align: center;"><img src="images/emptyCart.svg" width="240" style="margin: 0 auto; padding: 24px 0px;"><h1 style="padding-bottom: 24px;">Oh, čini se da je vaša košarica prazna!</h1></div>';
             }
         } else {
-            echo '<div style="margin: 0 auto; width: 60%; text-align: center;"><img src="images/emptyCart.svg" width="240" style="margin: 0 auto; padding: 24px 0px;"><h1 style="padding-bottom: 24px;">Oh, čini se da je vaša košarica prazna!</h1></div>';
+            echo '<div style="margin: 0 auto; width: 60%; text-align: center;"><img src="images/emptyCart.svg" width="240" style="margin: 0 auto; padding: 24px 0px;"><h1 style="padding-bottom: 24px; letter-spacing: -1px;">Oh, čini se da je vaša košarica prazna!</h1></div>';
         }
     } else {
     ?>

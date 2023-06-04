@@ -189,8 +189,51 @@ include_once "greetingstext.php";
             echo "</tbody></table></div></div></div>";
         } ?>
     </div>
+</section>
+<section id="newsletter">
+    <div class="section-wrapper">
+        <hr>
+        <h2 style="width: 50%; margin: 0 auto; text-align: center;">Newsletter</h2>
+        <?php
+        include_once "php/databaseconnect.php";
+        $email = $_SESSION['currentUserEmail'];
+        $sql = "SELECT * FROM newsletter WHERE email = '$email'";
+        $result = mysqli_query($dbc, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            echo "<p style='text-align: center;'>Prijavljeni ste na naš newsletter. Hvala Vam!</p><br>";
+            echo "<form action='php/newsletter-process.php' method='POST' onsubmit='return confirmSubmit();' style='width: 30%; margin: 0 auto;'><input type='hidden' name='email' id='email' value='{$email}'>
+            <input type='submit' name='removeNewsletter' value='Odjava s newsletter-a'>
+        </form>";
+        } else {
+            echo "<p style='text-align: center; width: 55%; margin: 0 auto;'>Želite li među prvima saznati o posebnim pogodnostima i najnovijim inovacijama u svijetu audio opreme? Personalizirane ponude je ono što ste tražili? Zanimaju Vas tajni savjeti i trikovi u audio svijetu?<br>Prijavite se na naš newsletter kako bi zajedno stvorili audio čaroliju!</p><br>";
+            echo "<form action='php/newsletter-process.php' method='POST' style='width: 30%; margin: 0 auto;'><input type='hidden' name='email' id='email' value='{$email}'><input type='hidden' name='location' id='location' value='profile'>
+            <input type='submit' name='addNewsletter' value='Prijava na newsletter'>
+        </form>";
+        }
+        mysqli_close($dbc);
+        if (isset($_GET["newsletter"])) {
+            if ($_GET["newsletter"] == "removed") {
+                echo "<p style='text-align: center;'>Uspješno ste odjavljeni sa newsletter-a.";
+            }
+        }
+        if (isset($_GET["newsletter"])) {
+            if ($_GET["newsletter"] == "success") {
+                echo "<p style='text-align: center;'>Uspješno ste prijavljeni na newsletter.";
+            }
+        }
+        ?>
     </div>
 </section>
+<script>
+    function confirmSubmit() {
+        var confirmed = confirm("Jako nam je žao što ste odlučili napustiti našu audio obitelj i odjaviti se s našeg newslettera. Ako ste odlučili da trenutno niste zainteresirani za primanje naših e-mailova, razumijemo i poštujemo vašu odluku. Vaše želje su nam važne i uvijek ćemo se truditi pružiti vam najbolje iskustvo.");
+        if (confirmed) {
+            confirmed = confirm("Odjava s newsletter-a");
+            return confirmed;
+        }
+        return false;
+    }
+</script>
 <?php
 include_once "footer.php";
 ?>

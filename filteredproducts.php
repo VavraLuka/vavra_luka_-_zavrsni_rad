@@ -310,8 +310,15 @@ include_once 'header.php';
                         <button style='all: unset;' type='submit' name='add_to_cart'><img class='action-buttons' src='images/cartIcon.svg' width='36'></button>
                     </form>";
                     }
-                    echo "<img class='action-buttons' src='images/favoriteIcon.svg' width='36'>
-                            </div>
+                    if (isset($_SESSION['currentUserEmail'])) {
+                        echo "<form style='width: 36px; display: inline-block; margin-right: 12px;' method='post' action='php/addtofavorites-process.php'>
+                        <input type='hidden' name='productID' value='$id'>
+                        <input type='hidden' name='currentLocation' value='{$_SERVER['REQUEST_URI']}'>
+                        <input type='hidden' name='userEmail' value='{$_SESSION['currentUserEmail']}'>
+                        <button style='all: unset;' type='submit' name='add_to_favorites'><img class='action-buttons' src='images/favoriteIcon.svg' width='36'></button>
+                    </form>";
+                    }
+                    echo "</div>
                         </div>
                     </div>
                     ";
