@@ -7,6 +7,7 @@ if (!isset($_SESSION["currentUserName"])) {
     exit();
 }
 include_once "header.php";
+echo "<br>";
 include_once "greetingstext.php";
 ?>
 <section id="profileInformations">
@@ -81,21 +82,49 @@ include_once "greetingstext.php";
 </section>
 <section id="profileFavorites">
     <div class="section-wrapper">
-        <hr>
+        <br>
+        <hr><br>
         <div style="display: flex; gap: 5%; margin-top: 24px;">
             <div style="flex-basis: 30%;">
                 <h2>Vaši omiljeni proizvodi</h2>
                 <p>Popis Vaših spremljenih proizvoda.</p>
             </div>
             <div style="flex-basis: 70%;">
+                <div class="favorite-product-container">
+                    <?php
+                    include_once "php/databaseconnect.php";
 
+                    $productIDs = "52,12,13,14,16";
+
+                    $productIDsArray = explode(",", $productIDs);
+                    $productIDsList = implode(",", $productIDsArray);
+                    $query = "SELECT * FROM products WHERE id IN ($productIDsList)";
+                    $result = mysqli_query($dbc, $query);
+                    $currentUserEmail = $_SESSION['currentUserEmail'];
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $id = $row['id'];
+                        $manufacturer = $row['manufacturer'];
+                        $name = $row['name'];
+                        $imageURL = $row['imageURL'];
+                        echo "<div class='favorite-product'>
+                            <a href='product.php?id={$id}'><div class='product-highlight-image' style='background-image: url({$imageURL})'></div></a>
+                            <div><span style='font-weight: 700;'>{$manufacturer}</span> {$name}</div>
+                            <br><form method='POST' action='php/removeproductfromfavorites-process.php'>
+                            <input type='hidden' id='id' name='id' value='$id'>
+                            <input type='hidden' id='currentUserEmail' name='currentUserEmail' value='$currentUserEmail'>
+                            <input type='submit' id='submit' name='submit' value='Ukloni'>
+                            </form></div>";
+                    }
+                    ?>
+                </div>
             </div>
         </div>
     </div>
 </section>
 <section id="profileOrders">
     <div class="section-wrapper">
-        <hr>
+        <br>
+        <hr><br>
         <h2>Vaše narudžbe</h2>
         <p>Popis vaših prethodnih narudžbi.</p>
         <?php
@@ -192,7 +221,8 @@ include_once "greetingstext.php";
 </section>
 <section id="newsletter">
     <div class="section-wrapper">
-        <hr>
+        <br>
+        <hr><br>
         <h2 style="width: 50%; margin: 0 auto; text-align: center;">Newsletter</h2>
         <?php
         include_once "php/databaseconnect.php";
