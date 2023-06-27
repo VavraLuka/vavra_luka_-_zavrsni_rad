@@ -5,7 +5,8 @@
     padding-bottom: 24px;
     text-align: center;
 }
-.categories-wrapper{
+
+.categories-wrapper {
     text-align: left;
     width: 100%;
     margin: 0 auto;
@@ -14,12 +15,14 @@
     justify-content: flex-start;
     gap: 4%;
 }
+
 .product-category {
     flex-basis: 22%;
     margin-bottom: 2%;
     padding: 12px;
     border-bottom: 2px solid #f3f3f3;
 }
+
 .product-category h3 {
     float: left;
     margin-left: 24px;
@@ -27,17 +30,21 @@
     top: 40%;
     position: relative;
 }
+
 .product-category img {
     float: left;
 }
+
 .product-category a {
     color: #1c1c1c;
     transition: 0.15s;
 }
+
 .product-category a:hover {
-    color: #46B1C9;
+    color: var(--main-blue-color);
     transition: 0.15s;
 }
+
 .section-wrapper-categories h1 {
     padding-bottom: 36px;
 }

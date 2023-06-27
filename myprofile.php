@@ -94,7 +94,14 @@ include_once "greetingstext.php";
                     <?php
                     include_once "php/databaseconnect.php";
 
-                    $productIDs = "52,12,13,14,16";
+                    $query = "SELECT favoritesList FROM favorites WHERE userEmail = '$userEmail'";
+                    $result = mysqli_query($dbc, $query);
+                    if ($result) {
+                        $row = mysqli_fetch_assoc($result);
+                        $productIDs = $row['favoritesList'];
+                    } else {
+                        die("Error retrieving existing string: " . mysqli_error($dbc));
+                    }
 
                     $productIDsArray = explode(",", $productIDs);
                     $productIDsList = implode(",", $productIDsArray);
@@ -110,7 +117,7 @@ include_once "greetingstext.php";
                             <a href='product.php?id={$id}'><div class='product-highlight-image' style='background-image: url({$imageURL})'></div></a>
                             <div><span style='font-weight: 700;'>{$manufacturer}</span> {$name}</div>
                             <br><form method='POST' action='php/removeproductfromfavorites-process.php'>
-                            <input type='hidden' id='id' name='id' value='$id'>
+                            <input type='hidden' id='product_ID' name='product_ID' value='$id'>
                             <input type='hidden' id='currentUserEmail' name='currentUserEmail' value='$currentUserEmail'>
                             <input type='submit' id='submit' name='submit' value='Ukloni'>
                             </form></div>";
