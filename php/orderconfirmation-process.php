@@ -13,6 +13,7 @@ if (isset($_POST['order_confirm'])) {
     $currentUserName = $_SESSION['currentUserName'];
     $currentUserSurname = $_SESSION['currentUserSurname'];
     $currentUserEmail = $_SESSION['currentUserEmail'];
+    $currentUserState = $_SESSION['currentUserState'];
     $submit_date = date('Y-m-d');
     $submit_time = date('H:i:s');
 
@@ -27,6 +28,15 @@ if (isset($_POST['order_confirm'])) {
         $products_prices .= $item['product_price'] . ",";
         $products_quantities .= $item['quantity'] . ",";
         $products_total_prices .= $item_price . ",";
+    }
+
+    if ($currentUserState == "Hrvatska") {
+        $shipping_price = 8;
+    } else {
+        $shipping_price = 16;
+    }
+    if($total_price < 150) {
+        $total_price = $total_price + $shipping_price;
     }
 
     $products = substr($products, 0, -1);

@@ -61,10 +61,38 @@ $total_price = 0;
                         </td>
                     </tr>
                 <?php } ?>
+                <?php
+
+                ?>
+                <tr>
+                    <td colspan="5">Cijena dostave</td>
+                    <td colspan="2"><?php
+                                    if (isset($_SESSION['currentUserState'])) {
+                                        if ($_SESSION['currentUserState'] == "Hrvatska") {
+                                            $shipping_price = 8;
+                                        } else {
+                                            $shipping_price = 16;
+                                        }
+
+                                        if ($total_price >= 150) {
+                                            echo "Besplatna dostava";
+                                        } else {
+                                            echo $shipping_price . " €";
+                                        }
+                                    } else {
+                                        echo "Prijavite se za izračun dostave";
+                                    }
+                                    ?></td>
+                </tr>
                 <tr>
                     <td colspan="5">Cijena ukupno</td>
-                    <td><?php echo $total_price ?> €</td>
-                    <td></td>
+                    <td colspan="2"><?php
+                                    if ($total_price < 150) {
+                                        echo $total_price + $shipping_price;
+                                    } else {
+                                        echo $total_price;
+                                    }
+                                    ?> €</td>
                 </tr>
             </tbody>
         </table>

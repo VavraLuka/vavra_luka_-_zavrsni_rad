@@ -352,11 +352,23 @@ if (!isset($_SESSION["currentUserStatus"])) {
             </div>
         </section>
 
-        <!-- Footer -->
-        <section>
-        </section>
         <a href="#" class="back-to-top"><img src="images/DropdownIcon.png" width="24"></a>
         <script type="text/javascript" src="js/main.js"></script>
+
+        <!-- Footer -->
+        <footer>
+            <section class="background-grey footer-padding">
+                <div class="section-wrapper-navigation">
+                    <ul class="text-black" style="margin: 0 auto;">
+                        <li><a href="#productUpload">Unos proizvoda</a></li>
+                        <li><a href="#productManagement">Uređivanje proizvoda</a></li>
+                        <li><a href="#usersManagement">Korisnički računi</a></li>
+                        <li><a href="#orderHistory">Povijest narudžbi</a></li>
+                        <li><a href="#newsletterEmails">Newsletter</a></li>
+                    </ul>
+                </div>
+            </section>
+        </footer>
     </div>
 </body>
 
