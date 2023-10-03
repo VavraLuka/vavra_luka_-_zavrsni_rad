@@ -18,8 +18,8 @@ if (!isset($_SESSION["currentUserStatus"])) {
     <link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32 64x64">
     <link rel="stylesheet" href="css/administration.css">
     <link rel="stylesheet" href="css/productupload-forms.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Usavršite svoj doživljaj zvuka uz Vokaton. Istražite naš odabrani izbor vrhunske audio opreme i dodataka, dostupnih za jednostavnu online kupnju.">
     <meta name="keywords" content="Audio oprema, Vrhunska tehnologija, Online kupovina, Kvaliteta zvuka">
     <meta name="author" content="Luka Vavra">
@@ -29,24 +29,24 @@ if (!isset($_SESSION["currentUserStatus"])) {
 <body>
     <div class="page-wrapper">
         <!-- Navigation bar -->
-        <section class="background-grey" style="margin-bottom: 0px;" id="navigationBar">
+        <section style="margin-bottom: 0px;" id="navigationBar">
             <div class="section-wrapper-navigation">
                 <div class="box">
                     <ul class="text-black">
                         <li><a href="#productUpload">Unos proizvoda</a></li>
                         <li><a href="#productManagement">Uređivanje proizvoda</a></li>
-                        <li style="clear: both;"><a href="#usersManagement">Korisnički računi</a></li>
+                        <li><a href="#usersManagement">Korisnički računi</a></li>
                         <li><a href="#orderHistory">Povijest narudžbi</a></li>
                         <li><a href="#newsletterEmails">Newsletter</a></li>
                     </ul>
                 </div>
                 <div class="main-logo">
-                    <a class="null-link" href="index.php"><img src="images/mainLogo.png" width="160"></a>
+                    <a class="null-link" style="cursor: pointer;" href="index.php"><img src="images/mainLogo.png" width="180" alt="Vokaton logo"></a>
                 </div>
                 <div class="box">
                     <ul class="float-right text-black">
                         <li><a href="index.php">Povratak na stranicu</a></li>
-                        <li style="clear: both;"><a href="php/signout-process.php">Odjava administratora</a></li>
+                        <li><a href="php/signout-process.php">Odjava administratora</a></li>
                     </ul>
                 </div>
             </div>
@@ -82,146 +82,150 @@ if (!isset($_SESSION["currentUserStatus"])) {
                     </div>
                     <div class="single-element-right">
                         <?php
-                        if (isset($_GET["uploaderror"])) {
-                            if ($_GET["uploaderror"] == "none") {
-                                echo "<p>Proizvod je uspješno dodan u bazu podataka!</p>";
-                            }
+                        if (isset($_GET["uploaderror"]) && $_GET["uploaderror"] == "none") {
+                            echo "<p>Proizvod je uspješno dodan u bazu podataka!</p>";
                         }
                         if (isset($_GET['productCategory'])) {
                             $productCategory = $_GET['productCategory'];
-                            if ($productCategory == "speakers") {
-                                $productCategoryTitle = "Zvučnici";
-                            } else if ($productCategory == "amplifiers") {
-                                $productCategoryTitle = "Pojačala";
-                            } else if ($productCategory == "mixers") {
-                                $productCategoryTitle = "Miksete";
-                            } else if ($productCategory == "controllers") {
-                                $productCategoryTitle = "Kontroleri";
-                            } else if ($productCategory == "light") {
-                                $productCategoryTitle = "Rasvjeta";
-                            } else if ($productCategory == "cables") {
-                                $productCategoryTitle = "Kablovi";
-                            } else if ($productCategory == "adapters") {
-                                $productCategoryTitle = "Adapteri";
-                            } else if ($productCategory == "accessories") {
-                                $productCategoryTitle = "Dodatna oprema";
-                            } else {
-                                $productCategoryTitle = "Torbe";
-                            }
-                            echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2>Unosite novi proizvod u kategoriji: <span style='font-weight: 600; color: var(--main-blue-color);'>" . $productCategoryTitle . "</span></h2><a href='administration.php#productUpload' class='clear-link'><img class='close-icon' src='images/closeIcon.svg'></a></div>";
+                            $productCategoryTitle = getProductCategoryTitle($productCategory);
+                            echo "<div style='display: flex; width: 100%; justify-content: space-between;'>";
+                            echo "<h2>Unosite novi proizvod u kategoriji: <span style='font-weight: 600; color: var(--main-blue-color);'>$productCategoryTitle</span></h2>";
+                            echo "<a href='administration.php#productUpload' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a>";
+                            echo "</div>";
                             $includeProductForm = "php/productupload-forms/$productCategory.php";
                             include_once $includeProductForm;
+                        }
+                        function getProductCategoryTitle($category)
+                        {
+                            $categoryTitles = [
+                                'speakers' => 'Zvučnici',
+                                'amplifiers' => 'Pojačala',
+                                'mixers' => 'Miksete',
+                                'controllers' => 'Kontroleri',
+                                'light' => 'Rasvjeta',
+                                'cables' => 'Kablovi',
+                                'adapters' => 'Adapteri',
+                                'accessories' => 'Dodatna oprema',
+                                'covers' => 'Torbe',
+                            ];
+                            return isset($categoryTitles[$category]) ? $categoryTitles[$category] : '';
                         }
                         ?>
                     </div>
                 </div>
-                <hr>
             </div>
         </section>
 
         <!-- Product management -->
         <section id="productManagement">
             <div class="section-wrapper">
+            <hr>
                 <div class="two-elements">
                     <div class="single-element-left">
                         <h2>Uređivanje proizvoda u bazi podataka</h2>
                         <?php
                         include_once "php/databaseconnect.php";
-                        $sql = "SELECT * FROM products";
-                        $result = mysqli_query($dbc, $sql);
-
+                        $sql = "SELECT id, manufacturer, name FROM products";
+                        $stmt = mysqli_prepare($dbc, $sql);
+                        mysqli_stmt_execute($stmt);
+                        mysqli_stmt_bind_result($stmt, $id, $manufacturer, $productName);
                         echo "<div class='product-table-div'><table class='product-edit'><thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Proizvod</th>
-                                <th style='text-align: right; padding-right: 16px;'>Uredi</th>
-                            </tr></thead><tbody>";
-                        while ($row = mysqli_fetch_assoc($result)) {
+                        <tr>
+                            <th>ID</th>
+                            <th>Proizvod</th>
+                            <th style='text-align: right; padding-right: 16px;'>Uredi</th>
+                        </tr></thead><tbody>";
+                        while (mysqli_stmt_fetch($stmt)) {
                             echo "<tr>
-                                <td>{$row['id']}</td>
-                                <td>{$row['manufacturer']} {$row['name']}</td>
-                                <td style='text-align: right; padding-right: 16px;'><a href='administration.php?productid={$row['id']}#productManagement'>Uredi</a></td>
-                            </tr>";
+                        <td>{$id}</td>
+                        <td>{$manufacturer} {$productName}</td>
+                        <td style='text-align: right; padding-right: 16px;'><a href='administration.php?productid={$id}#productManagement'>Uredi</a></td>
+                    </tr>";
                         }
                         echo "</tbody></table></div>";
+                        mysqli_stmt_close($stmt);
                         ?>
                     </div>
                     <div class="single-element-right">
                         <?php
-                        if (isset($_GET['productediterror'])) {
-                            if ($_GET['productediterror'] == "none") {
-                                echo "<p>Proizvod je uspješno ažuriran!</p>";
-                            }
+                        if (isset($_GET['productediterror']) && $_GET['productediterror'] == "none") {
+                            echo "<p>Proizvod je uspješno ažuriran!</p>";
                         }
-                        if (isset($_GET['productdelete'])) {
-                            if ($_GET['productdelete'] == "success") {
-                                echo "<p>Proizvod je uspješno uklonjen iz baze podataka!</p>";
-                            }
+
+                        if (isset($_GET['productdelete']) && $_GET['productdelete'] == "success") {
+                            echo "<p>Proizvod je uspješno uklonjen iz baze podataka!</p>";
                         }
                         if (isset($_GET['productid'])) {
                             $id = $_GET['productid'];
-                            $sql = "SELECT * FROM products WHERE id = $id";
-                            $result = mysqli_query($dbc, $sql);
-                            $row = mysqli_fetch_assoc($result);
-                            if (isset($row['category'])) {
-                                $productCategory = $row['category'];
-                                echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete proizvod: <span style='font-weight: 600; color: var(--main-blue-color);'>{$row['manufacturer']} {$row['name']}</span></h2><a href='administration.php#productManagement' class='clear-link'><img class='close-icon' src='images/closeIcon.svg'></a></div>";
-                                $includeProductForm = "php/productedit-forms/$productCategory.php";
+                            $sql = "SELECT category, manufacturer, name FROM products WHERE id = ?";
+                            $stmt = mysqli_prepare($dbc, $sql);
+                            mysqli_stmt_bind_param($stmt, "i", $id);
+                            mysqli_stmt_execute($stmt);
+                            mysqli_stmt_bind_result($stmt, $productCategory, $manufacturer, $productName);
+                            if (mysqli_stmt_fetch($stmt)) {
+                                echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete proizvod: <span style='font-weight: 600; color: var(--main-blue-color);'>{$manufacturer} {$productName}</span></h2><a href='administration.php#productManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a></div>";
+                                $includeProductForm = "php/productedit-forms/{$productCategory}.php";
                                 include_once $includeProductForm;
                             }
+                            mysqli_stmt_close($stmt);
                         }
                         ?>
                     </div>
                 </div>
+            </div>
         </section>
 
         <!-- Users management -->
         <section id="usersManagement">
             <div class="section-wrapper">
-                <hr>
+            <hr>
                 <div class="two-elements">
                     <div class="single-element-left">
                         <h2>Upravljanje korisničkim računima iz baze podataka</h2>
                         <?php
                         include_once "php/databaseconnect.php";
-                        $sql = "SELECT * FROM users";
-                        $result = mysqli_query($dbc, $sql);
-
+                        $sql = "SELECT id, name, surname FROM users";
+                        $stmt = mysqli_prepare($dbc, $sql);
+                        mysqli_stmt_execute($stmt);
+                        mysqli_stmt_bind_result($stmt, $id, $userName, $userSurname);
                         echo "<div class='user-table-div'><table class='user-edit'><thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Korisnik</th>
-                                <th style='text-align: right; padding-right: 16px;'>Uredi</th>
-                            </tr></thead><tbody>";
-                        while ($row = mysqli_fetch_assoc($result)) {
+                        <tr>
+                            <th>ID</th>
+                            <th>Korisnik</th>
+                            <th style='text-align: right; padding-right: 16px;'>Uredi</th>
+                        </tr></thead><tbody>";
+                        while (mysqli_stmt_fetch($stmt)) {
                             echo "<tr>
-                                <td>{$row['id']}</td>
-                                <td>{$row['name']} {$row['surname']}</td>
-                                <td style='text-align: right; padding-right: 16px;'><a href='administration.php?userid={$row['id']}#usersManagement'>Uredi</a></td>
-                            </tr>";
+                        <td>{$id}</td>
+                        <td>{$userName} {$userSurname}</td>
+                        <td style='text-align: right; padding-right: 16px;'><a href='administration.php?userid={$id}#usersManagement'>Uredi</a></td>
+                    </tr>";
                         }
                         echo "</tbody></table></div>";
+                        mysqli_stmt_close($stmt);
                         ?>
                     </div>
                     <div class="single-element-right">
                         <?php
-                        if (isset($_GET['userediterror'])) {
-                            if ($_GET['userediterror'] == "none") {
-                                echo "<p>Korisnički račun je uspješno ažuriran!</p>";
-                            }
+                        if (isset($_GET['userediterror']) && $_GET['userediterror'] == "none") {
+                            echo "<p>Korisnički račun je uspješno ažuriran!</p>";
                         }
-                        if (isset($_GET['userdelete'])) {
-                            if ($_GET['userdelete'] == "success") {
-                                echo "<p>Korisnički račun je uspješno uklonjen iz baze podataka!</p>";
-                            }
+
+                        if (isset($_GET['userdelete']) && $_GET['userdelete'] == "success") {
+                            echo "<p>Korisnički račun je uspješno uklonjen iz baze podataka!</p>";
                         }
                         if (isset($_GET['userid'])) {
                             $id = $_GET['userid'];
-                            $sql = "SELECT * FROM users WHERE id = $id";
-                            $result = mysqli_query($dbc, $sql);
-                            $row = mysqli_fetch_assoc($result);
-                            echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete korisnički račun: <span style='font-weight: 600; color: var(--main-blue-color);'>{$row['name']} {$row['surname']}</span></h2><a href='administration.php#productManagement' class='clear-link'><img class='close-icon' src='images/closeIcon.svg'></a></div>";
-                            include_once "php/edituserform.php";
+                            $sql = "SELECT name, surname FROM users WHERE id = ?";
+                            $stmt = mysqli_prepare($dbc, $sql);
+                            mysqli_stmt_bind_param($stmt, "i", $id);
+                            mysqli_stmt_execute($stmt);
+                            mysqli_stmt_bind_result($stmt, $userName, $userSurname);
+                            if (mysqli_stmt_fetch($stmt)) {
+                                echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete korisnički račun: <span style='font-weight: 600; color: var(--main-blue-color);'>{$userName} {$userSurname}</span></h2><a href='administration.php#productManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a></div>";
+                                include_once "php/edituserform.php";
+                            }
+                            mysqli_stmt_close($stmt);
                         }
                         ?>
                     </div>
@@ -232,7 +236,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
         <!-- Order history -->
         <section id="orderHistory">
             <div class="section-wrapper">
-                <hr>
+            <hr>
                 <div class="two-elements">
                     <div class="single-element-left">
                         <h2>Povijest narudžbi</h2>
@@ -276,55 +280,42 @@ if (!isset($_SESSION["currentUserStatus"])) {
                         </tr>
                     </thead>
                     <tbody>";
+                    $products_IDs_array = array_map('trim', explode(",", $row['products_IDs']));
+                    $products_array = array_map('trim', explode(",", $row['products']));
+                    $products_manufacturers_array = array_map('trim', explode(",", $row['products_manufacturers']));
+                    $products_prices_array = array_map('trim', explode(",", $row['products_prices']));
+                    $products_total_prices_array = array_map('trim', explode(",", $row['products_total_prices']));
+                    $products_quantities_array = array_map('trim', explode(",", $row['products_quantities']));
 
-                    $products_IDs = $row['products_IDs'];
-                    $products = $row['products'];
-                    $products_manufacturers = $row['products_manufacturers'];
-                    $products_prices = $row['products_prices'];
-                    $products_total_prices = $row['products_total_prices'];
-                    $products_quantities = $row['products_quantities'];
-
-                    $products_IDs_array = explode(",", $products_IDs);
-                    $products_array = explode(",", $products);
-                    $products_manufacturers_array = explode(",", $products_manufacturers);
-                    $products_prices_array = explode(",", $products_prices);
-                    $products_total_prices_array = explode(",", $products_total_prices);
-                    $products_quantities_array = explode(",", $products_quantities);
-
-                    echo "<tr><td style='width: 36px;'>";
-                    foreach ($products_IDs_array as $product_ID) {
-                        echo "<a style='all: unset; text-decoration: underline; cursor: pointer; color: var(--main-blue-color);' href='product.php?id={$product_ID}'>" . $product_ID . "</a><br>";
+                    echo "<tr>";
+                    $columns = [
+                        $products_IDs_array,
+                        $products_manufacturers_array,
+                        $products_array,
+                        $products_prices_array,
+                        $products_quantities_array,
+                        $products_total_prices_array
+                    ];
+                    foreach ($columns as $column) {
+                        echo "<td>";
+                        foreach ($column as $value) {
+                            if ($column === $products_prices_array || $column === $products_total_prices_array) {
+                                $value = number_format($value, 2, '.', ',') . "€";
+                            }
+                            echo $value . "<br>";
+                        }
+                        echo "</td>";
                     }
-                    echo "</td><td style='width: 200px;'>";
-                    foreach ($products_manufacturers_array as $product_manufacturer) {
-                        echo $product_manufacturer . "<br>";
-                    }
-                    echo "</td><td style='width: 200px;'>";
-                    foreach ($products_array as $product) {
-                        echo $product . "<br>";
-                    }
-                    echo "</td><td style='width: 100px;'>";
-                    foreach ($products_prices_array as $product_price) {
-                        $product_price = number_format($product_price, 2, '.', ',');
-                        echo $product_price . "€<br>";
-                    }
-                    echo "</td><td style='width: 100px;'>";
-                    foreach ($products_quantities_array as $product_quantity) {
-                        echo $product_quantity . "<br>";
-                    }
-                    echo "</td><td style='text-align: right;'>";
-                    foreach ($products_total_prices_array as $product_total_price) {
-                        $product_total_price = number_format($product_total_price, 2, '.', ',');
-                        echo $product_total_price . "€<br>";
-                    }
-
+                    echo "</tr>";
                     $total_price = number_format($row['total_price'], 2, '.', ',');
-                    echo "</td></tr>
-                    <tr>
-                        <td style='color: var(--main-blue-color);' colspan='5'>Cijena ukupno</td>
-                        <td style='text-align: right; color: var(--main-blue-color);'>{$total_price}€</td>
-                    </tr>";
-                    echo "</tbody></table></div></div></div>";
+                    echo "</tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan='5' class='total-label'>Cijena ukupno</td>
+                            <td style='text-align: right;'>{$total_price}€</td>
+                        </tr>
+                    </tfoot>
+                    </table></div></div></div>";
                 } ?>
             </div>
         </section>
@@ -332,7 +323,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
         <!-- Newsletter -->
         <section id="newsletterEmails">
             <div class="section-wrapper">
-                <hr>
+            <hr>
                 <div class="two-elements">
                     <div class="single-element-left">
                         <h2>Newsletter</h2>
@@ -352,7 +343,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
             </div>
         </section>
 
-        <a href="#" class="back-to-top"><img src="images/DropdownIcon.png" width="24"></a>
+        <a href="#" class="back-to-top"><img alt="Gumb za povratak na vrh stranice" src="images/DropdownIcon.png" width="24"></a>
         <script type="text/javascript" src="js/main.js"></script>
 
         <!-- Footer -->

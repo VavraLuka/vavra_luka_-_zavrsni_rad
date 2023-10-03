@@ -39,6 +39,8 @@
     margin: 0 auto;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .section-wrapper {
@@ -125,7 +127,7 @@ li {
 ul.text-black li a {
     text-decoration-line: none;
     display: block;
-    padding: 8px;
+    padding: 6px;
     color: #1c1c1c;
     transition: 0.15s;
 }
@@ -216,6 +218,7 @@ input[type=submit]:hover {
 .main-logo {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .back-to-top {
@@ -374,6 +377,10 @@ td {
 table.user-edit {
     width: 100%;
     border-collapse: collapse;
+}
+
+table.user-edit td:last-child {
+    text-align: right;
 }
 
 table.user-edit thead th {

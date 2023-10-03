@@ -3,6 +3,7 @@
 /* General */
 html {
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 * {
@@ -167,7 +168,7 @@ ul.space-between li {
 ul.text-black li a {
     text-decoration-line: none;
     display: block;
-    padding: 8px;
+    padding: 6px;
     color: var(--main-black-color);
     transition: 0.15s;
 }
@@ -175,7 +176,7 @@ ul.text-black li a {
 ul.text-white li a {
     text-decoration-line: none;
     display: block;
-    padding: 8px;
+    padding: 6px;
     color: #ffffff;
     transition: 0.15s;
 }
@@ -187,7 +188,8 @@ ul li a:hover {
 
 h1.main-title {
     font-size: var(--h1-laptop);
-    letter-spacing: -1px;
+    letter-spacing: -2px;
+    font-weight: 700;
     display: inline-block;
 }
 
@@ -195,7 +197,7 @@ div.greeting-message {
     position: relative;
     width: 50%;
     text-align: center;
-    padding: 16px;
+    padding: 32px;
     margin: 0 auto;
 }
 

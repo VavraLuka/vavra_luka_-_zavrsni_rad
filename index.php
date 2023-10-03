@@ -1,6 +1,7 @@
 <?php
 include_once 'header.php';
 include_once 'greetingstext.php';
+include_once 'landingpageillustration.php';
 include_once 'topdeals.php';
 include_once 'newproducts.php';
 include_once 'highsaleproducts.php';
