@@ -9,15 +9,14 @@ $total_price = 0;
 <section class="section-wrapper" style="display: block;">
     <?php
     if (empty($_SESSION['cart'])) {
-        if (isset($_GET['order'])) {
-            if ($_GET['order'] == "successfull") {
-                echo '<div style="margin: 0 auto; width: 60%; text-align: center;"><img src="images/orderSuccessfull.svg" width="240" style="margin: 0 auto; padding: 24px 0px;"><h1 style="padding-bottom: 24px;">Odlično, Vaša narudžba je zaprimljena!</h1></div>';
-            } else {
-                echo '<div style="margin: 0 auto; width: 60%; text-align: center;"><img src="images/emptyCart.svg" width="240" style="margin: 0 auto; padding: 24px 0px;"><h1 style="padding-bottom: 24px;">Oh, čini se da je vaša košarica prazna!</h1></div>';
-            }
-        } else {
-            echo '<div style="margin: 0 auto; width: 60%; text-align: center;"><img src="images/emptyCart.svg" width="240" style="margin: 0 auto; padding: 24px 0px;"><h1 style="padding-bottom: 24px; letter-spacing: -1px;">Oh, čini se da je vaša košarica prazna!</h1></div>';
+        $emptyCartMessage = "Oh, čini se da je vaša košarica prazna!";
+        if (isset($_GET['order']) && $_GET['order'] == "successfull") {
+            $emptyCartMessage = "Odlično, Vaša narudžba je zaprimljena!";
         }
+        echo '<div style="margin: 0 auto; width: 60%; text-align: center;">
+                <img alt="Ilustracija prazne košarice" src="images/' . (empty($_SESSION['cart']) ? 'emptyCart' : 'orderSuccessfull') . '.svg" width="240" style="margin: 0 auto; padding: 24px 0px;">
+                <h1 style="padding-bottom: 24px;">' . $emptyCartMessage . '</h1>
+              </div>';
     } else {
     ?>
         <table class="cart-table">
@@ -56,43 +55,23 @@ $total_price = 0;
                         <td>
                             <form action="php/removeproductfromcart-process.php" method="post" autocomplete="off">
                                 <input type="hidden" name="product_id" value="<?php echo $item['product_id'] ?>">
-                                <button type="submit" class="image-button"><img src="images/removeIcon.svg" width="36"></button>
+                                <button style="cursor: pointer;" type="submit" class="image-button"><img alt="Uklanjanje proizvoda iz košarice" src="images/removeIcon.svg" width="36"></button>
                             </form>
                         </td>
                     </tr>
                 <?php } ?>
-                <?php
-
-                ?>
                 <tr>
                     <td colspan="5">Cijena dostave</td>
                     <td colspan="2"><?php
-                                    if (isset($_SESSION['currentUserState'])) {
-                                        if ($_SESSION['currentUserState'] == "Hrvatska") {
-                                            $shipping_price = 8;
-                                        } else {
-                                            $shipping_price = 16;
-                                        }
-
-                                        if ($total_price >= 150) {
-                                            echo "Besplatna dostava";
-                                        } else {
-                                            echo $shipping_price . " €";
-                                        }
-                                    } else {
-                                        echo "Prijavite se za izračun dostave";
-                                    }
+                                    $shipping_price = ($_SESSION['currentUserState'] == "Hrvatska") ? 8 : 16;
+                                    echo ($total_price >= 150) ? "Besplatna dostava" : $shipping_price . " €";
                                     ?></td>
                 </tr>
                 <tr>
                     <td colspan="5">Cijena ukupno</td>
                     <td colspan="2"><?php
-                                    if ($total_price < 150) {
-                                        echo $total_price + $shipping_price;
-                                    } else {
-                                        echo $total_price;
-                                    }
-                                    ?> €</td>
+                                    echo ($total_price < 150) ? ($total_price + $shipping_price) . " €" : $total_price . " €";
+                                    ?></td>
                 </tr>
             </tbody>
         </table>
@@ -105,8 +84,7 @@ $total_price = 0;
             echo "<p style='text-align: center;'>Kako biste dovršili narudžbu, <a href='signin.php' style='text-decoration: none; color: var(--main-blue-color); transition: all 0.15s ease 0s; opacity: 1;' onmouseover=\"this.style.opacity='75%';\" onmouseout=\"this.style.opacity='100%';\">prijavite se</a> u svoj korisnički račun.</p>";
         }
         ?>
-    <?php
-    } ?>
+    <?php } ?>
 </section>
 <?php
 include_once "footer.php";

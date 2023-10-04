@@ -97,23 +97,21 @@ include_once "greetingstext.php";
                     $query = "SELECT favoritesList FROM favorites WHERE userEmail = '$userEmail'";
                     $result = mysqli_query($dbc, $query);
                     if ($result) {
-                        $row = mysqli_fetch_assoc($result);
-                        $productIDs = $row['favoritesList'];
-                    } else {
-                        die("Error retrieving existing string: " . mysqli_error($dbc));
-                    }
+                        if (mysqli_num_rows($result) > 0) {
+                            $row = mysqli_fetch_assoc($result);
+                            $productIDs = $row['favoritesList'];
 
-                    $productIDsArray = explode(",", $productIDs);
-                    $productIDsList = implode(",", $productIDsArray);
-                    $query = "SELECT * FROM products WHERE id IN ($productIDsList)";
-                    $result = mysqli_query($dbc, $query);
-                    $currentUserEmail = $_SESSION['currentUserEmail'];
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row['id'];
-                        $manufacturer = $row['manufacturer'];
-                        $name = $row['name'];
-                        $imageURL = $row['imageURL'];
-                        echo "<div class='favorite-product'>
+                            $productIDsArray = explode(",", $productIDs);
+                            $productIDsList = implode(",", $productIDsArray);
+                            $query = "SELECT * FROM products WHERE id IN ($productIDsList)";
+                            $result = mysqli_query($dbc, $query);
+                            $currentUserEmail = $_SESSION['currentUserEmail'];
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $id = $row['id'];
+                                $manufacturer = $row['manufacturer'];
+                                $name = $row['name'];
+                                $imageURL = $row['imageURL'];
+                                echo "<div class='favorite-product'>
                             <a href='product.php?id={$id}'><div class='product-highlight-image' style='background-image: url({$imageURL})'></div></a>
                             <div><span style='font-weight: 700;'>{$manufacturer}</span> {$name}</div>
                             <br><form method='POST' action='php/removeproductfromfavorites-process.php'>
@@ -121,6 +119,12 @@ include_once "greetingstext.php";
                             <input type='hidden' id='currentUserEmail' name='currentUserEmail' value='$currentUserEmail'>
                             <input type='submit' id='submit' name='submit' value='Ukloni'>
                             </form></div>";
+                            }
+                        } else {
+                            echo "Pretražite naš katalog proizvoda i spremite omiljene proizvode za lakše praćenje dostupnosti i posebnih ponuda.";
+                        }
+                    } else {
+                        die("Error retrieving existing string: " . mysqli_error($dbc));
                     }
                     ?>
                 </div>
@@ -165,12 +169,12 @@ include_once "greetingstext.php";
                     <table class='user-edit'>
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Proizvođač</th>
-                            <th>Proizvod</th>
-                            <th>Cijena</th>
-                            <th>Količina</th>
-                            <th>Ukupno</th>
+                            <th style='width: 5%;'>ID</th>
+                            <th style='width: 26%;'>Proizvođač</th>
+                            <th style='width: 26%;'>Proizvod</th>
+                            <th style='width: 16%;'>Cijena</th>
+                            <th style='width: 11%;'>Količina</th>
+                            <th style='width: 16%; text-align: right;'>Ukupno</th>
                         </tr>
                     </thead>
                     <tbody>";
@@ -210,7 +214,7 @@ include_once "greetingstext.php";
             foreach ($products_quantities_array as $product_quantity) {
                 echo $product_quantity . "<br>";
             }
-            echo "</td><td>";
+            echo "</td><td style='text-align: right;'>";
             foreach ($products_total_prices_array as $product_total_price) {
                 $product_total_price = number_format($product_total_price, 2, '.', ',');
                 echo $product_total_price . "€<br>";
@@ -220,7 +224,7 @@ include_once "greetingstext.php";
             echo "</td></tr>
                     <tr style='color: var(--main-blue-color);'>
                         <td colspan='5'>Cijena ukupno</td>
-                        <td>$total_price €</td>
+                        <td style='text-align: right;'>$total_price €</td>
                     </tr>";
             echo "</tbody></table></div></div></div>";
         } ?>
@@ -247,17 +251,12 @@ include_once "greetingstext.php";
             <input type='submit' name='addNewsletter' value='Prijava na newsletter'>
         </form>";
         }
+        if (isset($_GET["newsletter"])) {
+            $message = ($_GET["newsletter"] == "removed") ? "Uspješno ste odjavljeni sa newsletter-a." : "Uspješno ste prijavljeni na newsletter.";
+            echo "<p style='text-align: center;'>$message</p>";
+        }
+
         mysqli_close($dbc);
-        if (isset($_GET["newsletter"])) {
-            if ($_GET["newsletter"] == "removed") {
-                echo "<p style='text-align: center;'>Uspješno ste odjavljeni sa newsletter-a.";
-            }
-        }
-        if (isset($_GET["newsletter"])) {
-            if ($_GET["newsletter"] == "success") {
-                echo "<p style='text-align: center;'>Uspješno ste prijavljeni na newsletter.";
-            }
-        }
         ?>
     </div>
 </section>

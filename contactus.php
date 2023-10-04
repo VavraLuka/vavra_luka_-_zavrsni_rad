@@ -5,11 +5,11 @@ include_once 'header.php';
     <div class="section-wrapper vertical-padding">
         <div class="contact-title">
             <div class="contact-title-image">
-                <img src="images/ContactUs.svg" width="360">
+                <img src="images/ContactUs.svg" width="360" alt="Ilustracija službenice kontakt službe">
             </div>
             <div class="contact-title-text">
-                <h1 style="letter-spacing: -1px;">Kontaktiraj nas</h1>
-                <p>Kao klijent online trgovine Vokaton možete kontaktirati naše odjele, stručnjake i administrativni tim putem telefona ili email adresa. Ovdje se nalazi popis svih email adresa i telefonskih brojeva za sve naše odjele.</p>
+                <h1 class="title-bottom-padding" style="letter-spacing: -1px;">Kontaktiraj nas</h1>
+                <p class="line-height">Kao klijent online trgovine Vokaton možete kontaktirati naše odjele, stručnjake i administrativni tim putem telefona ili email adresa. Ovdje se nalazi popis svih email adresa i telefonskih brojeva za sve naše odjele.</p>
             </div>
         </div>
     </div>

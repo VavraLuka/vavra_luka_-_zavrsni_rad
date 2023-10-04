@@ -4,14 +4,14 @@
             <div class="box">
                 <h2>Kupujte i plaćajte sigurno</h2>
                 <ul class="payingmethods">
-                    <li><a href="paymentoptions.php"><img width="75" class="grayscale" src="images/PaymentMethods/PayPal.png"></a></li>
-                    <li><a href="paymentoptions.php"><img width="75" src="images/PaymentMethods/Visa.png"></a></li>
-                    <li><a href="paymentoptions.php"><img width="75" src="images/PaymentMethods/MasterCard.png"></a></li>
+                    <li><a href="paymentoptions.php"><img width="75" alt="PayPal" src="images/PaymentMethods/PayPal.png"></a></li>
+                    <li><a href="paymentoptions.php"><img width="75" alt="Visa" src="images/PaymentMethods/Visa.png"></a></li>
+                    <li><a href="paymentoptions.php"><img width="75" alt="Master Card" src="images/PaymentMethods/MasterCard.png"></a></li>
                 </ul>
                 <ul class="payingmethods">
-                    <li><a href="paymentoptions.php"><img width="75" src="images/PaymentMethods/AmericanExpress.png"></a></li>
-                    <li><a href="paymentoptions.php"><img width="75" src="images/PaymentMethods/Diners.png"></a></li>
-                    <li><a href="paymentoptions.php"><img width="75" src="images/PaymentMethods/BankTransfer.png"></a></li>
+                    <li><a href="paymentoptions.php"><img width="75" alt="American Express" src="images/PaymentMethods/AmericanExpress.png"></a></li>
+                    <li><a href="paymentoptions.php"><img width="75" alt="Diners" src="images/PaymentMethods/Diners.png"></a></li>
+                    <li><a href="paymentoptions.php"><img width="75" alt="Bankovni prijenos" src="images/PaymentMethods/BankTransfer.png"></a></li>
                 </ul>
             </div>
             <div class="box">
@@ -52,15 +52,15 @@
             <div class="box">
                 <h2 style="color:grey;">Pratite nas i na društvenim mrežama!</h2>
                 <ul class="socialIcons">
-                    <li><img width="50" src="images/socialIcons/Facebook.png"></li>
-                    <li><img width="50" src="images/socialIcons/Instagram.png"></li>
-                    <li><img width="50" src="images/socialIcons/LinkedIn.png"></li>
-                    <li><img width="50" src="images/socialIcons/YouTube.png"></li>
+                    <li><img width="50" alt="Facebook stranica" src="images/socialIcons/Facebook.png"></li>
+                    <li><img width="50" alt="Instagram profil" src="images/socialIcons/Instagram.png"></li>
+                    <li><img width="50" alt="LinkedIn profil" src="images/socialIcons/LinkedIn.png"></li>
+                    <li><img width="50" alt="YouTube kanal" src="images/socialIcons/YouTube.png"></li>
                 </ul>
                 <div class="newsletter" id="newsletter">
                     <form method="POST" action="php/newsletter-process.php" autocomplete="off" accept-charset="UTF-8">
                         <input maxlength="60" type="email" name="email" id="email" class="inline-block" required oninvalid="this.setCustomValidity('Unesite email adresu')" placeholder="Prijavite se na naš newsletter!">
-                        <input type='hidden' name='location' id='location' value='footer'>
+                        <input type="hidden" name="location" id="location" value="footer">
                         <input type="submit" name="addNewsletter" class="inline-block" value="Prijava">
                     </form>
                 </div>

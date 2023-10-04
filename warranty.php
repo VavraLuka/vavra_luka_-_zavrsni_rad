@@ -3,7 +3,7 @@ include_once 'header.php';
 ?>
 <section class="background-white">
     <div class="section-wrapper-warranty">
-        <img src="images/Warranty.svg" width="240">
+        <img src="images/Warranty.svg" width="240" alt="3 godine jamstva na sve proizvode">
         <h1 style="letter-spacing: -1px;">3 godine jamstva</h1>
         <p>U našoj online trgovini, želimo osigurati najbolju moguću uslugu i kvalitetu proizvoda. Zato su Vaše kupnje u Vokatonu podržane našim 3-godišnjim jamstvom, tj. produljujemo jamstveni rok proizvođača (obično 12 mjeseci) na punih 36 mjeseci - o vlastitom trošku i nema dodatnih troškova za vas!.<br><br>
             To znači da ako se dogodi bilo kakav problem s Vašim proizvodom unutar tog razdoblja, popravit ćemo ga ili zamijeniti novim, bez ikakvih dodatnih troškova za vas.<br><br>
