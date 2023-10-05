@@ -76,11 +76,22 @@ if (!isset($_SESSION['cart'])) {
                                 <li><a href="cart.php">Košarica (<?php echo count($_SESSION['cart']); ?>)</a></li>
                                 <?php
                                 if (isset($_SESSION["currentUserName"])) {
-                                    if (isset($_SESSION["currentUserStatus"]) && $_SESSION["currentUserStatus"] === 1) {
-                                        echo "<li><a href='administration.php'>Administracija</a></li>";
-                                    } else {
-                                        echo "<li><a href='myprofile.php#profileFavorites'>Favoriti</a></li>";
-                                        echo "<li><a href='myprofile.php'>Profil</a></li>";
+                                    switch ($_SESSION["currentUserStatus"]) {
+                                        case "user":
+                                            echo "<li><a href='myprofile.php#profileFavorites'>Favoriti</a></li>";
+                                            echo "<li><a href='myprofile.php'>Profil</a></li>";
+                                            break;
+                                        case "admin":
+                                            echo "<li><a href='administration.php'>Administracija</a></li>";
+                                            break;
+                                        case "support":
+                                            echo "<li><a href='support.php'>Korisnička podrška</a></li>";
+                                            break;
+                                        case "coordinator":
+                                            echo "<li><a href='logistics.php'>Logistika</a></li>";
+                                            break;
+                                        default:
+                                            echo "It's the weekend!";
                                     }
                                     echo "<li><a href='php/signout-process.php'>Odjava</a></li>";
                                 } else {
@@ -179,6 +190,6 @@ if (!isset($_SESSION['cart'])) {
             </ul>
         </nav>
     </div>
-    
+
     <a href="#" class="back-to-top"><img src="images/DropdownIcon.png" width="24" alt="Gumb za povratak na vrh stranice"></a>
     <script type="text/javascript" src="js/main.js"></script>

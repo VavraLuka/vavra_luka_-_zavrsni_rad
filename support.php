@@ -4,7 +4,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
     header("location: pagenotfound.php");
     exit();
 } else {
-    if ($_SESSION["currentUserStatus"] != "admin") {
+    if ($_SESSION["currentUserStatus"] != "support") {
         header("location: pagenotfound.php");
         exit();
     }
@@ -14,7 +14,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
 <html>
 
 <head>
-    <title>Vokaton - Administracija</title>
+    <title>Vokaton - Korisnička podrška</title>
     <link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32 64x64">
     <link rel="stylesheet" href="css/controlpanel.css">
     <link rel="stylesheet" href="css/productupload-forms.css">
@@ -33,11 +33,9 @@ if (!isset($_SESSION["currentUserStatus"])) {
             <div class="section-wrapper-navigation">
                 <div class="box">
                     <ul class="text-black">
-                        <li><a href="#productUpload">Unos proizvoda</a></li>
-                        <li><a href="#productManagement">Uređivanje proizvoda</a></li>
-                        <li><a href="#usersManagement">Korisnički računi</a></li>
-                        <li><a href="#orderHistory">Povijest narudžbi</a></li>
                         <li><a href="#messageCenter">Upiti korisnika</a></li>
+                        <li><a href="#orderHistory">Povijest narudžbi</a></li>
+                        <li><a href="#usersManagement">Korisnički računi</a></li>
                         <li><a href="#newsletterEmails">Newsletter</a></li>
                     </ul>
                 </div>
@@ -47,24 +45,23 @@ if (!isset($_SESSION["currentUserStatus"])) {
                 <div class="box">
                     <ul class="float-right text-black">
                         <li><a href="index.php">Povratak na stranicu</a></li>
-                        <li><a href="php/signout-process.php">Odjava administratora</a></li>
+                        <li><a href="php/signout-process.php">Odjava korisničke podrške</a></li>
                     </ul>
                 </div>
             </div>
         </section>
         <section class="background-black text-white">
             <div class="section-wrapper">
-                <h1 class="welcome-message">Administracijski sustav web trgovine</h1>
+                <h1 class="welcome-message">Sustav korisničke podrške</h1>
             </div>
         </section>
 
-        <?php 
-        include_once "php/productuploadsection.php";
-        include_once "php/productmanagementsection.php";
-        include_once "php/usermanagementsection.php";
-        include_once "php/orderhistorysection.php";
+        <?php
         include_once "php/messagecentersection.php";
-        include_once "php/newslettersection.php"; ?>
+        include_once "php/orderhistorysection.php";
+        include_once "php/usermanagementsection.php";
+        include_once "php/newslettersection.php";
+        ?>
 
         <a href="#" class="back-to-top"><img alt="Gumb za povratak na vrh stranice" src="images/DropdownIcon.png" width="24"></a>
         <script type="text/javascript" src="js/main.js"></script>
@@ -74,8 +71,6 @@ if (!isset($_SESSION["currentUserStatus"])) {
             <section class="background-grey footer-padding">
                 <div class="section-wrapper-navigation">
                     <ul class="text-black" style="margin: 0 auto;">
-                        <li><a href="#productUpload">Unos proizvoda</a></li>
-                        <li><a href="#productManagement">Uređivanje proizvoda</a></li>
                         <li><a href="#usersManagement">Korisnički računi</a></li>
                         <li><a href="#userMessages">Upiti korisnika</a></li>
                         <li><a href="#orderHistory">Povijest narudžbi</a></li>

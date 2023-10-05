@@ -95,10 +95,14 @@ $manufacturer_logos = array(
     "the sssnake" => "thesssnake.gif",
     "the t.bone" => "thetbone.gif",
     "Thomann" => "thomann.gif",
+    "thomann" => "thomann.gif",
     "Numark" => "numark.gif",
-    "Fun Generation" => "fungeneration",
+    "Fun Generation" => "fungeneration.gif",
     "the t.amp" => "thetamp.gif",
     "Allen & Heath" => "allenheath.gif",
+    "Thon" => "thon.gif",
+    "Botex" => "botex.gif",
+    "Sony" => "sony.gif",
 );
 if (array_key_exists($manufacturer, $manufacturer_logos)) {
     $logo_file = $manufacturer_logos[$manufacturer];
