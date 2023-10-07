@@ -103,6 +103,18 @@ $manufacturer_logos = array(
     "Thon" => "thon.gif",
     "Botex" => "botex.gif",
     "Sony" => "sony.gif",
+    "Native Instruments" => "nativeinstruments.gif",
+    "Hercules" => "hercules.gif",
+    "Denon DJ" => "denondj.gif",
+    "Rane" => "rane.gif",
+    "Yamaha" => "yamaha.gif",
+    "Mackie" => "mackie.gif",
+    "Tascam" => "tascam.gif",
+    "the t.mix" => "thetmix.gif",
+    "Apple" => "apple.gif",
+    "Eurolite" => "eurolite.gif",
+    "Varytec" => "varytec.gif",
+    "Cameo" => "cameo.gif",
 );
 if (array_key_exists($manufacturer, $manufacturer_logos)) {
     $logo_file = $manufacturer_logos[$manufacturer];

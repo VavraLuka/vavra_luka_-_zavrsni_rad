@@ -165,9 +165,12 @@ include_once 'header.php';
                 $manufacturerList = "'" . implode("', '", $_GET['manufacturer']) . "'";
                 $manufacturer = "AND manufacturer IN ($manufacturerList)";
             }
-
-            $sql = "SELECT * FROM products WHERE $productCategory $manufacturer ORDER BY $sort";
-
+            if (isset($_GET['speakerType'])) {
+                $speakerType = $_GET['speakerType'];
+                $sql = "SELECT * FROM products WHERE speakerType = '$speakerType' ORDER BY $sort";
+            } else {
+                $sql = "SELECT * FROM products WHERE $productCategory $manufacturer ORDER BY $sort";
+            }
             $stmt = mysqli_stmt_init($dbc);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                 $error = mysqli_stmt_error($stmt);
