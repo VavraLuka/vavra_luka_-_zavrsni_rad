@@ -15,7 +15,7 @@ table.user-edit thead th {
     background-color: white;
 }
 
-div.user-table-div {
+.user-table-div {
     max-height: 360px;
     overflow-y: scroll;
 }
@@ -28,7 +28,7 @@ table.user-edit a {
 }
 
 table.user-edit td {
-    padding: 8px 0px;
+    padding: 8px 0;
 }
 
 table.user-edit tr {
@@ -39,7 +39,7 @@ table.user-edit a:hover {
     color: #17a4e5;
 }
 
-div.favorite-product-container {
+.favorite-product-container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -48,11 +48,11 @@ div.favorite-product-container {
 
 div.favorite-product {
     width: calc(25% - 24px);
-    padding: 0px 12px 4px 12px;
+    padding: 0 12px 4px 12px;
     transition: 0.15s;
-    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.12);
 }
 
 div.favorite-product:hover {
-    box-shadow: 0px 0px 18px 0px var(--main-blue-color);
+    box-shadow: 0 0 18px 0 var(--main-blue-color);
 }

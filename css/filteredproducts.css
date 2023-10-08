@@ -39,7 +39,7 @@
     font-size: 36px;
 }
 
-form.sorting-form select {
+.sorting-form select {
     width: 100%;
     padding: 12px;
     margin-bottom: 12px;
@@ -53,7 +53,7 @@ form.sorting-form select {
 }
 
 hr {
-    margin: 24px 0px;
+    margin: 24px 0;
     width: 100%;
 }
 
@@ -94,7 +94,6 @@ hr {
 
 .filtered-product-info h1 {
     font-size: 20px;
-    font-size: 700;
 }
 
 .filtered-actions {
@@ -258,7 +257,7 @@ img.action-buttons:hover {
 }
 
 div.star-reviews {
-    padding: 6px 0px;
+    padding: 6px 0;
 }
 
 div.star-reviews p {

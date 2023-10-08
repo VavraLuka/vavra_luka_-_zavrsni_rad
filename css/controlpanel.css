@@ -348,7 +348,7 @@ table.product-edit a {
 }
 
 table.product-edit td {
-    padding: 8px 0px;
+    padding: 8px 0;
 }
 
 table.product-edit tr {
@@ -402,7 +402,7 @@ table.user-edit a {
 }
 
 table.user-edit td {
-    padding: 8px 0px;
+    padding: 8px 0;
 }
 
 table.user-edit tr {

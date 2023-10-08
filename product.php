@@ -3,6 +3,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 } else {
     header("location: pagenotfound.php");
+    exit;
 }
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -147,7 +148,7 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                 <?php
                 if (isset($logo_file)) {
                     echo "<div class='manufacturer-logo'>
-                            <img src='images/manufacturerLogos/$logo_file' width='100'>
+                            <a style='all: unset; cursor: pointer;' href='manufacturerinfo.php?manufacturer=$manufacturer'><img src='images/manufacturerLogos/$logo_file' width='100'></a>
                         </div>";
                 }
                 ?>

@@ -1,12 +1,12 @@
 table.cart-table {
     width: 85%;
     margin: 0 auto;
-    padding: 24px 0px;
+    padding: 24px 0;
     text-align: left;
 }
 
 table.cart-table td {
-    padding: 4px 0px 4px 12px;
+    padding: 4px 0 4px 12px;
     border-bottom: 1px solid lightskyblue;
 }
 
@@ -20,14 +20,14 @@ table.cart-table tr td:not(:first-child) {
 }
 
 table.cart-table th {
-    padding: 4px 0px 4px 12px;
+    padding: 4px 0 4px 12px;
 }
 
-table.cart-table tr.last-row td {
+table.cart-table .last-row td {
     border-bottom: none;
 }
 
-button.image-button {
+.image-button {
     border: none;
     background-color: transparent;
     padding: 0;

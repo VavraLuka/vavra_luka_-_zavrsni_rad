@@ -18,7 +18,15 @@ html {
 
 p::selection,
 h1::selection,
-h2::selection {
+h2::selection,
+h3::selection,
+select::selection,
+br::selection,
+img::selection,
+li::selection,
+a::selection,
+input::selection,
+span::selection {
     color: white;
     background-color: var(--main-blue-color);
 }
@@ -70,11 +78,11 @@ section {
 }
 
 .vertical-padding-m {
-    padding: 36px 0px;
+    padding: 36px 0;
 }
 
 .vertical-padding-sm {
-    padding: 12px 0px;
+    padding: 12px 0;
 }
 
 .background-grey {
@@ -313,7 +321,7 @@ div.greeting-message img {
 
     div.greeting-message {
         width: 100%;
-        padding: 0px;
+        padding: 0;
     }
 
     div.greeting-message img {
@@ -323,7 +331,7 @@ div.greeting-message img {
 
     h1.main-title {
         font-size: var(--h1-mobile);
-        letter-spacing: 0px;
+        letter-spacing: 0;
         display: block;
     }
 }

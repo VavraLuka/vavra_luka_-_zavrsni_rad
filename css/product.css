@@ -1,4 +1,4 @@
-div.product-section-wrapper {
+.product-section-wrapper {
     width: 75%;
     margin: 0 auto;
     display: flex;
@@ -6,26 +6,26 @@ div.product-section-wrapper {
     padding-top: 24px;
 }
 
-div.product-title-image {
+.product-title-image {
     flex-basis: 50%;
 }
 
-div.product-action-price {
+.product-action-price {
     flex-grow: 1;
 }
 
-div.product-title h1.manufacturer {
+.product-title h1.manufacturer {
     font-size: 36px;
     font-weight: 300;
 }
 
-div.product-title h1.name {
+.product-title h1.name {
     font-size: 36px;
     font-weight: 700;
 }
 
-div.product-image {
-    margin: 18px 0px;
+.product-image {
+    margin: 18px 0;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -33,34 +33,34 @@ div.product-image {
     height: 480px;
 }
 
-div.product-action-price h1 {
+.product-action-price h1 {
     font-size: 36px;
 }
 
-div.manufacturer-logo {
+.manufacturer-logo {
     margin-top: 12px;
 }
 
-div.product-specifications {
+.product-specifications {
     padding-top: 24px;
     padding-bottom: 24px;
 }
 
-table.product-specifications {
+.product-specifications {
     width: 100%;
 }
 
-table.product-specifications td {
-    padding: 4px 0px 4px 12px;
+.product-specifications td {
+    padding: 4px 0 4px 12px;
     border-bottom: 1px solid lightskyblue;
 }
 
-table.product-specifications tr td:first-child {
+.product-specifications tr td:first-child {
     font-weight: 300;
     width: 35%;
 }
 
-table.product-specifications tr td:not(:first-child) {
+.product-specifications tr td:not(:first-child) {
     width: 65%;
     font-weight: 400;
 }

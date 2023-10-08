@@ -30,6 +30,7 @@ if (!isset($_SESSION['cart'])) {
     <link rel="stylesheet" href="css/passwordrecovery.css">
     <link rel="stylesheet" href="css/help.css">
     <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/manufacturer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-Si7wKphCgEtk8nI+jyPj/KgJ9D9R4W8Mv4D4Jg3qdi15QzSd8HvLkySsQrlYq/l3qZaJ+xHg8FyU6RbU6TVrTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
