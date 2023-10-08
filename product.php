@@ -115,6 +115,14 @@ $manufacturer_logos = array(
     "Eurolite" => "eurolite.gif",
     "Varytec" => "varytec.gif",
     "Cameo" => "cameo.gif",
+    "the t.amp" => "thetamp.gif",
+    "Sirus" => "sirus.gif",
+    "LAB Gruppen" => "labgruppen.gif",
+    "the t.racks" => "thetracks.gif",
+    "Crown" => "crown.gif",
+    "HK Audio" => "hkaudio.gif",
+    "Syrincs" => "syrincs.gif",
+    "Seeburg Acoustic" => "seeburgacoustic.gif",
 );
 if (array_key_exists($manufacturer, $manufacturer_logos)) {
     $logo_file = $manufacturer_logos[$manufacturer];
