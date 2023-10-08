@@ -117,7 +117,8 @@ include_once 'header.php';
                 $sql = "SELECT manufacturer, COUNT(*) as count FROM products WHERE $speakerTypeFilter AND $productCategoryFilter GROUP BY manufacturer";
                 $result = mysqli_query($dbc, $sql);
 
-                echo "<form method='GET' action='filteredproducts.php'>";
+                echo "<form method='GET' action='filteredproducts.php'><div style='max-height: 300px;
+                overflow-y: scroll;'>";
                 while ($row = mysqli_fetch_assoc($result)) {
                     $manufacturer = $row['manufacturer'];
                     $count = $row['count'];
@@ -136,7 +137,7 @@ include_once 'header.php';
                         echo "<input type='hidden' name='$param' value='$value'>";
                     }
                 }
-                echo "<br><input type='submit' style='width: 97%; display: block; margin: 0 auto;' value='Odaberi'></form>";
+                echo "</div><br><input type='submit' style='width: 97%; display: block; margin: 0 auto;' value='Odaberi'></form>";
                 ?>
             </div>
 
