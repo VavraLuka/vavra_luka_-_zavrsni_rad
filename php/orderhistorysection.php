@@ -12,7 +12,7 @@
         $sql = "SELECT * FROM orders";
         $result = mysqli_query($dbc, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "<div class='two-elements'><div style='flex-basis: 40%;'><div class='user-table-div'>
+            echo "<div class='two-elements' style='margin: 0 0 20px 0'><div style='flex-basis: 40%;'><div class='user-table-div'>
                 <table class='user-edit'>
                 <thead>
                     <tr>
@@ -20,7 +20,7 @@
                         <th>Korisnik</th>
                         <th>Email adresa</th>
                         <th>Datum</th>
-                        <th>Vrijeme</th>
+                        <th style='text-align: right; padding-right: 0;'>Vrijeme</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,7 +41,7 @@
                     <th>Proizvod</th>
                     <th>Cijena</th>
                     <th>Količina</th>
-                    <th style='text-align: right;'>Ukupno</th>
+                    <th style='text-align: right; padding-right: 0;'>Ukupno</th>
                 </tr>
             </thead>
             <tbody>";

@@ -38,6 +38,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                         <li><a href="#usersManagement">Korisnički računi</a></li>
                         <li><a href="#orderHistory">Povijest narudžbi</a></li>
                         <li><a href="#messageCenter">Upiti korisnika</a></li>
+                        <li><a href="#manufacturerManagement">Proizvođači</a></li>
                         <li><a href="#newsletterEmails">Newsletter</a></li>
                     </ul>
                 </div>
@@ -64,6 +65,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
         include_once "php/usermanagementsection.php";
         include_once "php/orderhistorysection.php";
         include_once "php/messagecentersection.php";
+        include_once "php/manufacturersection.php";
         include_once "php/newslettersection.php"; ?>
 
         <a href="#" class="back-to-top"><img alt="Gumb za povratak na vrh stranice" src="images/DropdownIcon.png" width="24"></a>

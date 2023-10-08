@@ -321,7 +321,9 @@ input[type=submit]:hover {
 table.product-edit th,
 td {
     text-align: left;
-    padding-right: 6px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 16px;
 }
 
 table.product-edit {
@@ -372,6 +374,8 @@ table.user-edit th,
 td {
     text-align: left;
     padding-right: 6px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 table.user-edit {
