@@ -10,7 +10,7 @@ $sql = "UPDATE manufacturers SET manufacturer='$manufacturer', description='$des
 $result = mysqli_query($dbc, $sql);
 
 if ($result) {
-    header("location: ../administration.php?manufacturerediterror=none");
+    header("location: ../administration.php?manufacturerediterror=none#manufacturerManagement");
 } else {
     echo "Greška prilikom ažuriranja podataka proizvoda: " . mysqli_error($dbc);
 }

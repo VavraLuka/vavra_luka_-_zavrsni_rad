@@ -20,7 +20,10 @@ Baza podataka nalazi se u folder-u "database" s nazivom "vavra_luka_-_zavrsni_ra
 
 Za dovršiti:
 - responzivnost (za tablete i mobilne uređaje)
-- mogućnost dodavanja proizvoda u "omiljene" / pregledavanje "omiljenih" proizvoda unutar svog profila
-- pregled povijest kupnji unutar svog profila / kupljeni proizvodi, količina, cijena, datum i vrijeme kupnje
 - validacija formi / kontrola unešenih podataka
+- mogućnost ocjenjivanja kupljenih proizvoda
+- opcija "Podsjeti me kad bude dostupno", za proizvode koji trenutno nisu na stanju
+- opcija kupona za popuste
+- forma za povrat proizvoda
+- kontakt obrazac
 - generalna ispravka i optimizacija koda / dodavanje animacija

@@ -15,7 +15,7 @@ $sql = "UPDATE users SET name='$name', surname='$surname', address='$address', p
 $result = mysqli_query($dbc, $sql);
 
 if ($result) {
-    header("location: ../administration.php?userediterror=none");
+    header("location: ../administration.php?userediterror=none#userManagement");
 } else {
     echo "Greška prilikom ažuriranja podataka korisničkog računa: " . mysqli_error($dbc);
 }
