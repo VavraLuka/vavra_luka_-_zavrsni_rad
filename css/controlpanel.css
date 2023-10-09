@@ -369,6 +369,15 @@ label {
 }
 
 /* Users management */
+.radio-buttons-container {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.radio-button {
+    display: inline-block;
+    margin-right: 8px;
+}
 
 table.user-edit th,
 td {

@@ -1,4 +1,3 @@
-<!-- Manufacturer management -->
 <section id="manufacturerManagement">
     <div class="section-wrapper">
         <hr>
@@ -8,6 +7,11 @@
                 <?php
                 include_once "php/databaseconnect.php";
                 $sql = "SELECT id, manufacturer FROM manufacturers";
+                if ($_SESSION['currentUserStatus'] == "admin") {
+                    $currentControlPanel = "administration";
+                } else if ($_SESSION['currentUserStatus'] == "coordinator") {
+                    $currentControlPanel = "logistics";
+                }
                 $stmt = mysqli_prepare($dbc, $sql);
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_bind_result($stmt, $id, $manufacturer);
@@ -21,13 +25,13 @@
                     echo "<tr>
                 <td>{$id}</td>
                 <td>{$manufacturer}</td>
-                <td style='text-align: right; padding-right: 16px;'><a href='administration.php?manufacturerid={$id}#manufacturerManagement'>Uredi</a></td>
+                <td style='text-align: right; padding-right: 16px;'><a href='$currentControlPanel.php?manufacturerid={$id}#manufacturerManagement'>Uredi</a></td>
             </tr>";
                 }
                 echo "</tbody></table></div>";
                 mysqli_stmt_close($stmt);
                 ?><br>
-                <form method="GET" action="administration.php#manufacturerManagement">
+                <form method="GET" action="$currentControlPanel.php#manufacturerManagement">
                     <div class="form-button">
                         <input type="text" name="addmanufacturer" value="addmanufacturer" hidden>
                         <input type="submit" name="submit" value="Dodaj proizvođača">
@@ -54,7 +58,7 @@
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $manufacturer, $description, $imageURL);
                     if (mysqli_stmt_fetch($stmt)) {
-                        echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete proizvođača: <span style='font-weight: 600; color: var(--main-blue-color);'>{$manufacturer}</span></h2><a href='administration.php#manufacturerManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a></div>";
+                        echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete proizvođača: <span style='font-weight: 600; color: var(--main-blue-color);'>{$manufacturer}</span></h2><a href='$currentControlPanel.php#manufacturerManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a></div>";
                         include_once "php/editmanufacturerform.php";
                     }
                     mysqli_stmt_close($stmt);
@@ -62,7 +66,7 @@
                 if (isset($_GET['addmanufacturer'])) {
                     echo "<div style='display: flex; width: 100%; justify-content: space-between;'>";
                     echo "<h2>Unosite novog proizvođača</h2>";
-                    echo "<a href='administration.php#manufacturerManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a>";
+                    echo "<a href='$currentControlPanel.php#manufacturerManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a>";
                     echo "</div>";
                     include_once "php/manufacturerupload-form.php";
                 }

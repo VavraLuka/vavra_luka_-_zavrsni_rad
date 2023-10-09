@@ -1,6 +1,6 @@
 <section class="newproduct-form">
     <form action="php/edituser-process.php" method="post" accept-charset="UTF-8" autocomplete="off">
-        <input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>">
+        <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
         <div class="two-inputs">
             <div class="input-div-two"><label for="name">Ime</label><input value="<?php echo $name; ?>" type="text" maxlength="24" name="name" id="name" placeholder="Ime"><br></div>
             <div class="input-div-two"><label for="surname">Prezime</label><input value="<?php echo $surname; ?>" type="text" maxlength="24" name="surname" id="surname" placeholder="Prezime"><br></div>
@@ -30,6 +30,18 @@
         </div>
         <label for="contactNumber">Kontakt broj</label><input value="<?php echo $contactNumber; ?>" type="text" name="contactNumber" id="contactNumber" maxlength="20" placeholder="Kontakt broj"><br>
         <label for="email">Email</label><input value="<?php echo $email; ?>" type="email" name="email" id="email" maxlength="34" placeholder="Email"><br>
+        <?php
+        if ($_SESSION["currentUserStatus"] == "admin") {
+            echo '<label for="status">Vrsta korisničkog računa</label><select class="input-type" name="status" id="status">';
+
+            $statuses = ["user", "admin", "support", "coordinator"];
+            foreach ($statuses as $statusOption) {
+                $selected = ($status == $statusOption) ? 'selected' : '';
+                echo "<option value='$statusOption' $selected>$statusOption</option>";
+            }
+            echo '</select>';
+        }
+        ?>
         <div class="form-buttons">
             <input type="submit" name="submit" value="Ažurirajte podatke">
             <input type="reset" value="Resetiraj podatke">

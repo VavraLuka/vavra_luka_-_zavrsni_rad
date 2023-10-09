@@ -28,13 +28,13 @@ if (!isset($_SESSION["currentUserStatus"])) {
 
 <body>
     <div class="page-wrapper">
-        <!-- Navigation bar -->
         <section style="margin-bottom: 0px;" id="navigationBar">
             <div class="section-wrapper-navigation">
                 <div class="box">
                     <ul class="text-black">
                         <li><a href="#productUpload">Unos proizvoda</a></li>
                         <li><a href="#productManagement">Uređivanje proizvoda</a></li>
+                        <li><a href="#manufacturerManagement">Uređivanje proizvođača</a></li>
                     </ul>
                 </div>
                 <div class="main-logo">
@@ -57,6 +57,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
         <?php
         include_once "php/productuploadsection.php";
         include_once "php/productmanagementsection.php";
+        include_once "php/manufacturersection.php"
         ?>
 
         <a href="#" class="back-to-top"><img alt="Gumb za povratak na vrh stranice" src="images/DropdownIcon.png" width="24"></a>
@@ -69,6 +70,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                     <ul class="text-black" style="margin: 0 auto;">
                         <li><a href="#productUpload">Unos proizvoda</a></li>
                         <li><a href="#productManagement">Uređivanje proizvoda</a></li>
+                        <li><a href="#manufacturerManagement">Uređivanje proizvođača</a></li>
                     </ul>
                 </div>
             </section>

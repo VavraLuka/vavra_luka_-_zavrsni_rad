@@ -9,6 +9,11 @@
                 include_once "php/databaseconnect.php";
                 $sql = "SELECT id, manufacturer, name FROM products";
                 $stmt = mysqli_prepare($dbc, $sql);
+                if($_SESSION['currentUserStatus'] == "admin"){
+                    $currentControlPanel = "administration";
+                } else if ($_SESSION['currentUserStatus'] == "coordinator"){
+                    $currentControlPanel = "logistics";
+                }
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_bind_result($stmt, $id, $manufacturer, $productName);
                 echo "<div class='product-table-div'><table class='product-edit'><thead>
@@ -21,7 +26,7 @@
                     echo "<tr>
                 <td>{$id}</td>
                 <td>{$manufacturer} {$productName}</td>
-                <td style='text-align: right; padding-right: 16px;'><a href='administration.php?productid={$id}#productManagement'>Uredi</a></td>
+                <td style='text-align: right; padding-right: 16px;'><a href='$currentControlPanel.php?productid={$id}#productManagement'>Uredi</a></td>
             </tr>";
                 }
                 echo "</tbody></table></div>";
@@ -45,7 +50,7 @@
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $category, $name, $manufacturer, $price, $quantity, $speakerType, $drivers, $RMS, $maxPower, $soundPressure, $maxFrequency, $minFrequency, $dimensions, $weight, $imageURL, $salesCount, $faders, $inputs, $outputs, $cableType, $length, $leftJack, $leftJackType, $rightJack, $rightJackType, $color, $limiter, $channels, $power, $lightSource, $powerConsumption, $lightType, $beamAngle, $discount, $caseFor, $caseType, $accessoryType, $description, $additionalLine1, $additionalLineValue1, $additionalLine2, $additionalLineValue2, $additionalLine3, $additionalLineValue3, $review, $reviewCount, $softwareSupport, $deckNumber, $externalPowerSource);
                     if (mysqli_stmt_fetch($stmt)) {
-                        echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete proizvod: <span style='font-weight: 600; color: var(--main-blue-color);'>{$manufacturer} {$name}</span></h2><a href='administration.php#productManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a></div>";
+                        echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete proizvod: <span style='font-weight: 600; color: var(--main-blue-color);'>{$manufacturer} {$name}</span></h2><a href='$currentControlPanel.php#productManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a></div>";
                         $includeProductForm = "php/productedit-forms/{$category}.php";
                         include_once $includeProductForm;
                     }

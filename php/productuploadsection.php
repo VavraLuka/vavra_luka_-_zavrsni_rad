@@ -1,10 +1,16 @@
-<!-- Product upload -->
+<?php
+if ($_SESSION['currentUserStatus'] == "admin") {
+    $currentControlPanel = "administration";
+} else if ($_SESSION['currentUserStatus'] == "coordinator") {
+    $currentControlPanel = "logistics";
+}
+?>
 <section id="productUpload">
     <div class="section-wrapper">
         <div class="two-elements">
             <div class="single-element-left">
                 <h2>Unos novog proizvoda u bazu podataka</h2>
-                <form method="GET" action="administration.php">
+                <form method="GET" action="<?php echo $currentControlPanel; ?>.php">
                     <select class="input-product-category" name="productCategory" id="productCategory">
                         <option value="" disabled selected hidden>Kategorija proizvoda</option>
                         <option value="speakers">Zvučnici</option>
@@ -32,7 +38,7 @@
                     $productCategoryTitle = getProductCategoryTitle($productCategory);
                     echo "<div style='display: flex; width: 100%; justify-content: space-between;'>";
                     echo "<h2>Unosite novi proizvod u kategoriji: <span style='font-weight: 600; color: var(--main-blue-color);'>$productCategoryTitle</span></h2>";
-                    echo "<a href='administration.php#productUpload' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a>";
+                    echo "<a href='$currentControlPanel.php#productUpload' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a>";
                     echo "</div>";
                     $includeProductForm = "php/productupload-forms/$productCategory.php";
                     include_once $includeProductForm;
