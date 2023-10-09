@@ -19,7 +19,7 @@
             <div class="input-div-two"><label for="weight">Težina (kg)</label><input type="number" name="weight" maxlength="6" id="weight" step="0.1" placeholder="Težina (kg)" required oninvalid="this.setCustomValidity('Obavezno polje')" value="<?php echo $weight; ?>"><br></div>
         </div>
         <label for="description">Opis proizvoda (neobavezno)</label>
-        <textarea name="description" id="description" maxlength="800" placeholder="Opis proizvoda (neobavezno)" value="<?php echo $description; ?>"></textarea>
+        <textarea name="description" id="description" maxlength="800" placeholder="Opis proizvoda (neobavezno)"><?php echo $description; ?></textarea>
         <label for="imageURL">URL fotografije</label>
         <input type="text" name="imageURL" id="imageURL" maxlength="100" placeholder="URL fotografije" required oninvalid="this.setCustomValidity('Obavezna fotografija proizvoda')" value="<?php echo $imageURL; ?>"><br>
         <div id="extra-inputs">
