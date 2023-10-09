@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
         $sql = "DELETE FROM products WHERE id = '$productId'";
         $result = mysqli_query($dbc, $sql);
         if ($result) {
-            header("location: ../administration.php?productdelete=success");
+            header("location: ../administration.php?productdelete=success#productManagement");
         } else {
             echo "Greška prilikom brisanja proizvoda iz baze podataka: " . mysqli_error($dbc);
         }
@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
         $sql = "DELETE FROM users WHERE id = '$userId'";
         $result = mysqli_query($dbc, $sql);
         if ($result) {
-            header("location: ../administration.php?userdelete=success");
+            header("location: ../administration.php?userdelete=success#usersManagement");
         } else {
             echo "Greška prilikom brisanja korisničkog računa iz baze podataka: " . mysqli_error($dbc);
         }
@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
         $sql = "DELETE FROM manufacturers WHERE id = '$manufacturerId'";
         $result = mysqli_query($dbc, $sql);
         if ($result) {
-            header("location: ../administration.php?manufacturerdelete=success");
+            header("location: ../administration.php?manufacturerdelete=success#manufacturerManagement");
         } else {
             echo "Greška prilikom brisanja proizvođača iz baze podataka: " . mysqli_error($dbc);
         }

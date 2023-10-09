@@ -59,6 +59,6 @@ if (isset($_POST["submit"])) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }
-    header("location: ../administration.php?uploaderror=none");
+    header("location: ../administration.php?uploaderror=none#productUpload");
 }
 mysqli_close($dbc);

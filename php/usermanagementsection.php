@@ -45,7 +45,7 @@
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $name, $surname, $address, $postalCode, $city, $state, $contactNumber, $email);
                     if (mysqli_stmt_fetch($stmt)) {
-                        echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete korisnički račun: <span style='font-weight: 600; color: var(--main-blue-color);'>{$name} {$surname}</span></h2><a href='administration.php#productManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a></div>";
+                        echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete korisnički račun: <span style='font-weight: 600; color: var(--main-blue-color);'>{$name} {$surname}</span></h2><a href='administration.php#usersManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a></div>";
                         include_once "edituserform.php";
                     }
                     mysqli_stmt_close($stmt);

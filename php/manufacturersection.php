@@ -26,7 +26,13 @@
                 }
                 echo "</tbody></table></div>";
                 mysqli_stmt_close($stmt);
-                ?>
+                ?><br>
+                <form method="GET" action="administration.php#manufacturerManagement">
+                    <div class="form-button">
+                        <input type="text" name="addmanufacturer" value="addmanufacturer" hidden>
+                        <input type="submit" name="submit" value="Dodaj proizvođača">
+                    </div>
+                </form>
             </div>
             <div class="single-element-right">
                 <?php
@@ -37,6 +43,9 @@
                 if (isset($_GET['manufacturerdelete']) && $_GET['manufacturerdelete'] == "success") {
                     echo "<p>Proizvođač je uspješno uklonjen iz baze podataka!</p>";
                 }
+                if (isset($_GET['manufactureruploaderror']) && $_GET['manufactureruploaderror'] == "none") {
+                    echo "<p>Proizvođač je uspješno dodan u bazu podataka!</p>";
+                }
                 if (isset($_GET['manufacturerid'])) {
                     $id = $_GET['manufacturerid'];
                     $sql = "SELECT manufacturer, description, imageURL FROM manufacturers WHERE id = ?";
@@ -45,10 +54,17 @@
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $manufacturer, $description, $imageURL);
                     if (mysqli_stmt_fetch($stmt)) {
-                        echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete proizvođača: <span style='font-weight: 600; color: var(--main-blue-color);'>{$manufacturer}</span></h2><a href='administration.php#productManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a></div>";
+                        echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete proizvođača: <span style='font-weight: 600; color: var(--main-blue-color);'>{$manufacturer}</span></h2><a href='administration.php#manufacturerManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a></div>";
                         include_once "php/editmanufacturerform.php";
                     }
                     mysqli_stmt_close($stmt);
+                }
+                if (isset($_GET['addmanufacturer'])) {
+                    echo "<div style='display: flex; width: 100%; justify-content: space-between;'>";
+                    echo "<h2>Unosite novog proizvođača</h2>";
+                    echo "<a href='administration.php#manufacturerManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a>";
+                    echo "</div>";
+                    include_once "php/manufacturerupload-form.php";
                 }
                 ?>
             </div>
