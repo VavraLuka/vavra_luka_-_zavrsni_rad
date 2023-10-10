@@ -147,9 +147,12 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                 </div>
                 <?php
                 if (isset($logo_file)) {
-                    echo "<div class='manufacturer-logo'>
-                            <a style='all: unset; cursor: pointer;' href='manufacturerinfo.php?manufacturer=$manufacturer'><img src='images/manufacturerLogos/$logo_file' width='100'></a>
-                        </div>";
+                    $image_path = "images/manufacturerLogos/$logo_file";
+                    if (file_exists($image_path)) {
+                        echo "<div class='manufacturer-logo'>
+                <a style='all: unset; cursor: pointer;' href='manufacturerinfo.php?manufacturer=$manufacturer'><img src='$image_path' width='100'></a>
+            </div>";
+                    }
                 }
                 ?>
             </div>
@@ -197,6 +200,7 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                 } else {
                     echo $regularPrice;
                 }; ?>">
+                <label for="quantity">Količina</label><br>
                 <input type="number" name="quantity" value="1" min="1" max="<?php echo $quantity; ?>" oninvalid="this.setCustomValidity('Trenutno raspoloživa količina ovog proizvoda: <?php echo $quantity; ?>')" oninput="this.setCustomValidity('')">
                 <input type="submit" name="add_to_cart" value="Dodaj u košaricu">
             </form>
@@ -204,9 +208,9 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
     </div>
     <?php
     if ($description != NULL) {
-        echo "<div class='product-description' style='width: 50%, margin: 0 auto; text-align: left;'>
-                    <h1>Opis proizvoda</h1>    
-                    <p>$description</p>
+        echo "<div style='width: 75%; margin: 0 auto; padding-top: 24px; text-align: left;'>
+                    <h1 style='padding-bottom: 16px;'>Opis proizvoda</h1>    
+                    <p style='line-height: 1.5;'>$description</p>
                     </div>";
     };
     ?>
@@ -218,7 +222,7 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
             <?php
             require_once 'php/databaseconnect.php';
 
-            $sql = "SELECT * FROM products WHERE category = '$category' LIMIT 4";
+            $sql = "SELECT * FROM products WHERE category = '$category' ORDER BY RAND() LIMIT 4";
             $stmt = mysqli_stmt_init($dbc);
 
             if (!mysqli_stmt_prepare($stmt, $sql)) {

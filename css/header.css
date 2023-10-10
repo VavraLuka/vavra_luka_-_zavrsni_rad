@@ -223,6 +223,7 @@ div.greeting-message {
 .title-bottom-padding {
     padding-bottom: 16px;
 }
+
 .line-height {
     line-height: 1.5;
 }
@@ -295,6 +296,12 @@ div.navbar-s {
 div.greeting-message img {
     display: inline-block;
     margin-left: 18px;
+}
+
+label {
+    font-size: 18px;
+    color: #1c1c1c;
+    font-weight: 300;
 }
 
 /* Mobile phones */
