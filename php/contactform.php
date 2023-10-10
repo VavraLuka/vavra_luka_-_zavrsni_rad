@@ -12,7 +12,7 @@
                 <form action="php/contactform-process.php" method="post" accept-charset="UTF-8" autocomplete="off" style="margin: 0 auto;">
                     <div class="two-inputs">
                         <div class="postal-code"><input required type="text" maxlength="24" name="name" id="name" placeholder="Ime"><br></div>
-                        <div class="address"><input required type="text" maxlength="50" name="email" id="email" placeholder="Email"><br></div>
+                        <div class="address"><input required type="email" maxlength="50" name="email" id="email" placeholder="Email"><br></div>
                     </div>
                     <textarea required name="message" id="message" maxlength="2000" placeholder="Poruka (obavezno)"></textarea>
                     <input type="number" id="product" name="product" maxlength="4" placeholder="Šifra proizvoda">
