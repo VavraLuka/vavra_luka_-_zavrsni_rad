@@ -204,6 +204,7 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                 <input type="number" name="quantity" value="1" min="1" max="<?php echo $quantity; ?>" oninvalid="this.setCustomValidity('Trenutno raspoloživa količina ovog proizvoda: <?php echo $quantity; ?>')" oninput="this.setCustomValidity('')">
                 <input type="submit" name="add_to_cart" value="Dodaj u košaricu">
             </form>
+            <p style="color: grey; font-weight: 300;">Šifra proizvoda: <?php echo $id; ?></p>
         </div>
     </div>
     <?php

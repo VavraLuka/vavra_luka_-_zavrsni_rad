@@ -5,12 +5,25 @@
     padding-top: 36px;
     padding-bottom: 36px;
 }
+
 .section-wrapper-help h1 {
     padding-bottom: 24px;
 }
+
 .section-wrapper-help p {
     text-align: left;
 }
+
 .section-wrapper-help p span {
     font-weight: 700;
+}
+
+textarea {
+    width: 100%;
+    min-height: 24px;
+    max-width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: grey;
 }

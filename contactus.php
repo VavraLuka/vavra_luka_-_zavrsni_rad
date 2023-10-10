@@ -9,7 +9,8 @@ include_once 'header.php';
             </div>
             <div class="contact-title-text">
                 <h1 class="title-bottom-padding" style="letter-spacing: -1px;">Kontaktiraj nas</h1>
-                <p class="line-height">Kao klijent online trgovine Vokaton možete kontaktirati naše odjele, stručnjake i administrativni tim putem telefona ili email adresa. Ovdje se nalazi popis svih email adresa i telefonskih brojeva za sve naše odjele.</p>
+                <p class="line-height">Kao klijent online trgovine Vokaton možete kontaktirati naše odjele, stručnjake i administrativni tim putem telefona ili email adresa. Ovdje se nalazi popis svih email adresa i telefonskih brojeva za sve naše odjele.<br>
+                Također, upit u vezi naših proizvoda i usluga možete poslati putem <a style="text-decoration: none; color: var(--main-blue-color); transition: 0.15s;" onmouseover="this.style.opacity='75%';" onmouseout="this.style.opacity='100%';"href="help.php#contactForm">kontakt obrasca.</a></p>
             </div>
         </div>
     </div>
