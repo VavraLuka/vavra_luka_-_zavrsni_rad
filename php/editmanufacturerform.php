@@ -2,8 +2,7 @@
     <form method="POST" action="php/editmanufacturer-process.php" accept-charset="UTF-8" autocomplete="off">
         <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
         <label for="manufacturer">Naziv proizvođača</label><input type="text" name="manufacturer" maxlength="60" id="manufacturer" placeholder="Naziv proizvođača" required oninvalid="this.setCustomValidity('Obavezan naziv proizvođača')" value="<?php echo $manufacturer; ?>"><br>
-        <label for="description">Opis proizvođača</label><textarea name="description" id="description" maxlength="1200" required oninvalid="this.setCustomValidity('Obavezan opis proizvođača')"><?php echo $description; ?></textarea>
-        <label for="imageURL">URL fotografije</label><input type="text" name="imageURL" id="imageURL" maxlength="160" placeholder="URL fotografije" required oninvalid="this.setCustomValidity('Obavezan vizualni identitet proizvođača')" value="<?php echo $imageURL; ?>"><br>
+        <label for="description">Opis proizvođača</label><textarea name="description" id="description" maxlength="1200" required oninvalid="this.setCustomValidity('Obavezan opis proizvođača')"><?php echo $description; ?></textarea><br>
         <div class="form-buttons">
             <div class="input-div-two"><input type="submit" name="submit" value="Ažurirajte podatke"></div>
             <div class="input-div-two"><input type="reset" value="Resetiraj podatke"></div>
@@ -22,5 +21,12 @@
             }
             return false;
         }
+
+        const textarea = document.getElementById('description');
+
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        });
     </script>
 </section>

@@ -368,6 +368,19 @@ label {
     font-weight: 300;
 }
 
+#description {
+    width: 100%;
+    min-height: 160px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+#description::-webkit-scrollbar {
+    width: 0;
+}
+
 /* Users management */
 .radio-buttons-container {
     margin-top: 16px;

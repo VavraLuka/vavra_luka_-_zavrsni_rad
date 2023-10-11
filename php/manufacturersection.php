@@ -31,7 +31,7 @@
                 echo "</tbody></table></div>";
                 mysqli_stmt_close($stmt);
                 ?><br>
-                <form method="GET" action="$currentControlPanel.php#manufacturerManagement">
+                <form method="GET" action="<?php echo $currentControlPanel; ?>.php#manufacturerManagement">
                     <div class="form-button">
                         <input type="text" name="addmanufacturer" value="addmanufacturer" hidden>
                         <input type="submit" name="submit" value="Dodaj proizvođača">
@@ -52,11 +52,11 @@
                 }
                 if (isset($_GET['manufacturerid'])) {
                     $id = $_GET['manufacturerid'];
-                    $sql = "SELECT manufacturer, description, imageURL FROM manufacturers WHERE id = ?";
+                    $sql = "SELECT manufacturer, description FROM manufacturers WHERE id = ?";
                     $stmt = mysqli_prepare($dbc, $sql);
                     mysqli_stmt_bind_param($stmt, "i", $id);
                     mysqli_stmt_execute($stmt);
-                    mysqli_stmt_bind_result($stmt, $manufacturer, $description, $imageURL);
+                    mysqli_stmt_bind_result($stmt, $manufacturer, $description);
                     if (mysqli_stmt_fetch($stmt)) {
                         echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete proizvođača: <span style='font-weight: 600; color: var(--main-blue-color);'>{$manufacturer}</span></h2><a href='$currentControlPanel.php#manufacturerManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a></div>";
                         include_once "php/editmanufacturerform.php";

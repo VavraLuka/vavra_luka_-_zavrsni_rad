@@ -4,9 +4,8 @@ include_once "databaseconnect.php";
 $id = $_POST["id"];
 $manufacturer = $_POST["manufacturer"];
 $description = $_POST["description"];
-$imageURL = $_POST["imageURL"];
 
-$sql = "UPDATE manufacturers SET manufacturer='$manufacturer', description='$description', imageURL='$imageURL' WHERE id='$id'";
+$sql = "UPDATE manufacturers SET manufacturer='$manufacturer', description='$description' WHERE id='$id'";
 $result = mysqli_query($dbc, $sql);
 
 if ($result) {
