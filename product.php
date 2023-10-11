@@ -14,6 +14,7 @@ if (!isset($_SESSION['cart'])) {
 
 include_once "header.php";
 require_once "php/databaseconnect.php";
+include_once "php/manufacturer-logos.php";
 
 $sql = "SELECT * FROM products WHERE id = $id";
 $result = mysqli_query($dbc, $sql);
@@ -81,50 +82,6 @@ $specificationadapters = array('length', 'color', 'leftJack', 'leftJackType', 'r
 $specificationaccessories = array('accessoryType');
 $specificationcovers = array('caseFor', 'color', 'caseType');
 
-$manufacturer_logos = array(
-    "Behringer" => "behringer.gif",
-    "Bose" => "bose.gif",
-    "EV" => "ev.gif",
-    "JBL" => "jbl.gif",
-    "LD Systems" => "ldsystems.gif",
-    "Millenium" => "millenium.gif",
-    "pro snake" => "prosnake.gif",
-    "QSC" => "qsc.gif",
-    "Stairville" => "stairville.gif",
-    "the box" => "thebox.gif",
-    "the box pro" => "theboxpro.gif",
-    "the sssnake" => "thesssnake.gif",
-    "the t.bone" => "thetbone.gif",
-    "Thomann" => "thomann.gif",
-    "thomann" => "thomann.gif",
-    "Numark" => "numark.gif",
-    "Fun Generation" => "fungeneration.gif",
-    "the t.amp" => "thetamp.gif",
-    "Allen & Heath" => "allenheath.gif",
-    "Thon" => "thon.gif",
-    "Botex" => "botex.gif",
-    "Sony" => "sony.gif",
-    "Native Instruments" => "nativeinstruments.gif",
-    "Hercules" => "hercules.gif",
-    "Denon DJ" => "denondj.gif",
-    "Rane" => "rane.gif",
-    "Yamaha" => "yamaha.gif",
-    "Mackie" => "mackie.gif",
-    "Tascam" => "tascam.gif",
-    "the t.mix" => "thetmix.gif",
-    "Apple" => "apple.gif",
-    "Eurolite" => "eurolite.gif",
-    "Varytec" => "varytec.gif",
-    "Cameo" => "cameo.gif",
-    "the t.amp" => "thetamp.gif",
-    "Sirus" => "sirus.gif",
-    "LAB Gruppen" => "labgruppen.gif",
-    "the t.racks" => "thetracks.gif",
-    "Crown" => "crown.gif",
-    "HK Audio" => "hkaudio.gif",
-    "Syrincs" => "syrincs.gif",
-    "Seeburg Acoustic" => "seeburgacoustic.gif",
-);
 if (array_key_exists($manufacturer, $manufacturer_logos)) {
     $logo_file = $manufacturer_logos[$manufacturer];
 }

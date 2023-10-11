@@ -23,7 +23,7 @@ if (isset($_GET['manufacturer'])) {
 ?>
 <section class="background-white">
     <div class="section-wrapper-help">
-        <img src="<?php echo $imageURL; ?>" alt="<?php echo $manufacturer . ' logo'; ?>">
+        <img src="<?php echo $imageURL; ?>" width="360" alt="<?php echo $manufacturer . ' logo'; ?>">
         <h1 style="letter-spacing: -1px;"><?php echo '<span style="font-weight: 300;">O proizvođaču</span> ' . $manufacturer; ?></h1>
         <p class="line-height"><?php echo $description; ?></p>
     </div>

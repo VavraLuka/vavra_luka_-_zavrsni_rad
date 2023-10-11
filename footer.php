@@ -28,7 +28,8 @@
             <div class="box">
                 <h2>Usluge</h2>
                 <ul>
-                    <li><a href="catalog.php">Katalog proizvoda</a></li>
+                    <li><a href="productcatalog.php">Katalog proizvoda</a></li>
+                    <li><a href="manufacturercatalog.php">Marke i proizvođači</a></li>
                     <li><a href="shipingcostsanddeliverytimes.php">Cijena i vrijeme dostave</a></li>
                     <li><a href="help.php">Pomoć</a></li>
                     <li><a href="paymentoptions.php">Načini plaćanja</a></li>

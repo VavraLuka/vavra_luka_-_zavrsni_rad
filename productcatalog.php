@@ -3,7 +3,7 @@ include_once 'header.php';
 ?>
 <section>
     <div class="section-wrapper-categories">
-        <h1>Kategorije proizvoda</h1>
+        <h1 class="main-title" style="letter-spacing: -1px;">Kategorije proizvoda</h1>
         <div class="categories-wrapper">
             <div class="product-category">
                 <img src="images/productCategories/SpeakerSystems.png" width="90">
