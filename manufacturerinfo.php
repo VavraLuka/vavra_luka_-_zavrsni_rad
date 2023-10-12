@@ -4,12 +4,12 @@ if (isset($_GET['manufacturer'])) {
     $manufacturer = $_GET['manufacturer'];
     $sql = "SELECT * FROM manufacturers WHERE manufacturer = '$manufacturer'";
     $result = mysqli_query($dbc, $sql);
-
+    include_once "php/manufacturer-logos.php";
     if ($result) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
             $description = $row['description'];
-            $imageURL = $row['imageURL'];
+            $image = "images/manufacturerLogos/$manufacturer_logos_hq[$manufacturer]";
 
             include_once "header.php";
             mysqli_free_result($result);
@@ -23,7 +23,7 @@ if (isset($_GET['manufacturer'])) {
 ?>
 <section class="background-white">
     <div class="section-wrapper-help">
-        <img src="<?php echo $imageURL; ?>" width="360" alt="<?php echo $manufacturer . ' logo'; ?>">
+        <br><img src="<?php echo $image; ?>" height="220" alt="<?php echo $manufacturer . ' logo'; ?>" alt="<?php echo $manufacturer; ?> logo"><br><br>
         <h1 style="letter-spacing: -1px;"><?php echo '<span style="font-weight: 300;">O proizvođaču</span> ' . $manufacturer; ?></h1>
         <p class="line-height"><?php echo $description; ?></p>
     </div>
