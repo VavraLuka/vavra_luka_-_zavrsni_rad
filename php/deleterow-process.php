@@ -7,6 +7,7 @@ if (isset($_POST['submit'])) {
         $result = mysqli_query($dbc, $sql);
         if ($result) {
             header("location: ../administration.php?productdelete=success#productManagement");
+            exit;
         } else {
             echo "Greška prilikom brisanja proizvoda iz baze podataka: " . mysqli_error($dbc);
         }
@@ -17,6 +18,7 @@ if (isset($_POST['submit'])) {
         $result = mysqli_query($dbc, $sql);
         if ($result) {
             header("location: ../administration.php?userdelete=success#usersManagement");
+            exit;
         } else {
             echo "Greška prilikom brisanja korisničkog računa iz baze podataka: " . mysqli_error($dbc);
         }
@@ -27,8 +29,20 @@ if (isset($_POST['submit'])) {
         $result = mysqli_query($dbc, $sql);
         if ($result) {
             header("location: ../administration.php?manufacturerdelete=success#manufacturerManagement");
+            exit;
         } else {
             echo "Greška prilikom brisanja proizvođača iz baze podataka: " . mysqli_error($dbc);
+        }
+    }
+    if (isset($_POST['messageId'])) {
+        $messageId = $_POST['messageId'];
+        $sql = "DELETE FROM messages WHERE id = '$messageId'";
+        $result = mysqli_query($dbc, $sql);
+        if ($result) {
+            header("location: ../administration.php#messageCenter");
+            exit;
+        } else {
+            echo "Greška prilikom brisanja upita korisnika iz baze podataka: " . mysqli_error($dbc);
         }
     }
     mysqli_close($dbc);
