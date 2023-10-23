@@ -1,4 +1,3 @@
-<!-- Product management -->
 <section id="productManagement">
     <div class="section-wrapper">
         <hr>
@@ -44,11 +43,11 @@
                 }
                 if (isset($_GET['productid'])) {
                     $id = $_GET['productid'];
-                    $sql = "SELECT category, name, manufacturer, price, quantity, speakerType, drivers, RMS, maxPower, soundPressure, maxFrequency, minFrequency, dimensions, weight, imageURL, salesCount, faders, inputs, outputs, cableType, length, leftJack, leftJackType, rightJack, rightJackType, color, limiter, channels, power, lightSource, powerConsumption, lightType, beamAngle, discount, caseFor, caseType, accessoryType, description, additionalLine1, additionalLineValue1, additionalLine2, additionalLineValue2, additionalLine3, additionalLineValue3, review, reviewCount, softwareSupport, deckNumber, externalPowerSource FROM products WHERE id = ?";
+                    $sql = "SELECT category, name, manufacturer, price, quantity, speakerType, drivers, RMS, maxPower, soundPressure, maxFrequency, minFrequency, dimensions, weight, imageURL1, imageURL2, imageURL3,salesCount, faders, inputs, outputs, cableType, length, leftJack, leftJackType, rightJack, rightJackType, color, limiter, channels, power, lightSource, powerConsumption, lightType, beamAngle, discount, caseFor, caseType, accessoryType, description, additionalLine1, additionalLineValue1, additionalLine2, additionalLineValue2, additionalLine3, additionalLineValue3, review, reviewCount, softwareSupport, deckNumber, externalPowerSource FROM products WHERE id = ?";
                     $stmt = mysqli_prepare($dbc, $sql);
                     mysqli_stmt_bind_param($stmt, "i", $id);
                     mysqli_stmt_execute($stmt);
-                    mysqli_stmt_bind_result($stmt, $category, $name, $manufacturer, $price, $quantity, $speakerType, $drivers, $RMS, $maxPower, $soundPressure, $maxFrequency, $minFrequency, $dimensions, $weight, $imageURL, $salesCount, $faders, $inputs, $outputs, $cableType, $length, $leftJack, $leftJackType, $rightJack, $rightJackType, $color, $limiter, $channels, $power, $lightSource, $powerConsumption, $lightType, $beamAngle, $discount, $caseFor, $caseType, $accessoryType, $description, $additionalLine1, $additionalLineValue1, $additionalLine2, $additionalLineValue2, $additionalLine3, $additionalLineValue3, $review, $reviewCount, $softwareSupport, $deckNumber, $externalPowerSource);
+                    mysqli_stmt_bind_result($stmt, $category, $name, $manufacturer, $price, $quantity, $speakerType, $drivers, $RMS, $maxPower, $soundPressure, $maxFrequency, $minFrequency, $dimensions, $weight, $imageURL1, $imageURL2, $imageURL3, $salesCount, $faders, $inputs, $outputs, $cableType, $length, $leftJack, $leftJackType, $rightJack, $rightJackType, $color, $limiter, $channels, $power, $lightSource, $powerConsumption, $lightType, $beamAngle, $discount, $caseFor, $caseType, $accessoryType, $description, $additionalLine1, $additionalLineValue1, $additionalLine2, $additionalLineValue2, $additionalLine3, $additionalLineValue3, $review, $reviewCount, $softwareSupport, $deckNumber, $externalPowerSource);
                     if (mysqli_stmt_fetch($stmt)) {
                         echo "<div style='display: flex; width: 100%; justify-content: space-between;'><h2 class='center-element'>Trenutno uređujete proizvod: <span style='font-weight: 600; color: var(--main-blue-color);'>{$manufacturer} {$name}</span></h2><a href='$currentControlPanel.php#productManagement' class='clear-link'><img alt='Zatvaranje forme' class='close-icon' src='images/closeIcon.svg'></a></div>";
                         $includeProductForm = "php/productedit-forms/{$category}.php";

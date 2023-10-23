@@ -45,8 +45,9 @@
         </div>
         <label for="description">Opis proizvoda (neobavezno)</label>
         <textarea name="description" id="description" maxlength="800" placeholder="Opis proizvoda (neobavezno)"><?php echo $description; ?></textarea>
-        <label for="imageURL">URL fotografije</label>
-        <input type="text" name="imageURL" id="imageURL" maxlength="200" placeholder="URL fotografije" required oninvalid="this.setCustomValidity('Obavezna fotografija proizvoda')" value="<?php echo $imageURL; ?>"><br>
+        <label for="imageURL1">URL fotografije</label><input type="text" name="imageURL1" id="imageURL1" maxlength="100" placeholder="URL fotografije" required oninvalid="this.setCustomValidity('Obavezna fotografija proizvoda')" value="<?php echo $imageURL1; ?>"><br>
+        <label for="imageURL2">Fotografija</label><input type="text" name="imageURL2" id="imageURL2" maxlength="100" placeholder="URL fotografije" value="<?php echo $imageURL2; ?>"><br>
+        <label for="imageURL3">Fotografija</label><input type="text" name="imageURL3" id="imageURL3" maxlength="100" placeholder="URL fotografije" value="<?php echo $imageURL3; ?>"><br>
         <div id="extra-inputs">
             <div class="two-inputs">
                 <input type="text" name="additionalLine1" id="additionalLine1" placeholder="Opis" maxlength="30" value="<?php echo $additionalLine1; ?>">

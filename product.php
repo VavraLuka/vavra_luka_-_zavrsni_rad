@@ -34,7 +34,9 @@ $minFrequency = $row["minFrequency"];
 $maxFrequency = $row["maxFrequency"];
 $dimensions = $row["dimensions"];
 $weight = $row["weight"];
-$imageURL = $row["imageURL"];
+$imageURL1 = $row["imageURL1"];
+$imageURL2 = $row["imageURL2"];
+$imageURL3 = $row["imageURL3"];
 $salesCount = $row["salesCount"];
 $faders = $row["faders"];
 $inputs = $row["inputs"];
@@ -113,7 +115,29 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                 }
                 ?>
             </div>
-            <div class="product-image" style="background-image: url('<?php echo $imageURL; ?>');">
+            <div class="product-images">
+                <?php
+                if (isset($imageURL2) && isset($imageURL3)) {
+                    echo "<div class='product-small-images'>
+                        <img src='$imageURL1' onclick='productImageFunction(this)'>
+                        <img src='$imageURL2' onclick='productImageFunction(this)'>
+                        <img src='$imageURL3' onclick='productImageFunction(this)'>
+                    </div>
+                    <div class='product-image-container'>
+                        <img id='mainImage' src='$imageURL1'>
+                    </div>";
+                } else if (isset($imageURL1)) {
+                    echo "<div style='text-align: center;'>
+                    <img height='480' src='$imageURL1'>
+                </div>";
+                } else {
+                    echo "<div style='text-align: center;'>
+                    <img height='360' src='images/missingImage.svg'><br><br>
+                    <p style='text-align: left;'>Čini se da ovaj proizvod nema dostupnu fotografiju za prikaz. Za pomoć kontaktirajte službu za korisnike.</p>
+                </div>";
+                }
+                ?>
+
             </div>
         </div>
         <div class="product-action-price">
@@ -194,12 +218,12 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                     $manufacturer = $row['manufacturer'];
                     $regularPrice = $row['price'];
                     $discount = $row['discount'];
-                    $imageURL = $row['imageURL'];
+                    $imageURL1 = $row['imageURL1'];
 
                     include 'php/priceformatting.php';
 
                     echo "<div class='product-highlight'>
-                <a href='product.php?id=$id'><div class='product-highlight-image' style='background-image: url($imageURL)'></div></a>";
+                <a href='product.php?id=$id'><div class='product-highlight-image' style='background-image: url($imageURL1)'></div></a>";
                     echo "<h3>$manufacturer</h3>
                 <h2>$name</h2>";
                     if ($discount > 0) {
@@ -215,6 +239,12 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
             ?>
         </div>
     </section>
+    <script>
+        function productImageFunction(smallImage) {
+            var fullImage = document.getElementById("mainImage");
+            fullImage.src = smallImage.src;
+        }
+    </script>
     <?php
     include_once "footer.php";
     ?>

@@ -110,9 +110,9 @@ include_once "greetingstext.php";
                                 $id = $row['id'];
                                 $manufacturer = $row['manufacturer'];
                                 $name = $row['name'];
-                                $imageURL = $row['imageURL'];
+                                $imageURL1 = $row['imageURL1'];
                                 echo "<div class='favorite-product'>
-                            <a href='product.php?id={$id}'><div class='product-highlight-image' style='background-image: url({$imageURL})'></div></a>
+                            <a href='product.php?id={$id}'><div class='product-highlight-image' style='background-image: url({$imageURL1})'></div></a>
                             <div><span style='font-weight: 700;'>{$manufacturer}</span> {$name}</div>
                             <br><form method='POST' action='php/removeproductfromfavorites-process.php'>
                             <input type='hidden' id='product_ID' name='product_ID' value='$id'>

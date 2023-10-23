@@ -64,3 +64,28 @@
     width: 65%;
     font-weight: 400;
 }
+
+.product-small-images img {
+    height: 130px;
+    margin: 28px 0;
+    cursor: pointer;
+    display: block;
+    opacity: 0.6;
+    transition: 0.15s;
+}
+.product-small-images img:hover {
+    opacity: 1;
+}
+
+.product-small-images {
+    float: left;
+}
+
+.product-image-container img {
+    height: 480px;
+}
+
+.product-image-container {
+    float: right;
+    padding: 24px;
+}

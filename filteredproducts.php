@@ -186,7 +186,7 @@ include_once 'header.php';
                     $manufacturer = $row['manufacturer'];
                     $regularPrice = $row['price'];
                     $quantity = $row['quantity'];
-                    $imageURL = $row['imageURL'];
+                    $imageURL1 = $row['imageURL1'];
                     $review = $row['review'];
                     $reviewCount = $row['reviewCount'];
                     $discount = $row['discount'];
@@ -199,7 +199,7 @@ include_once 'header.php';
                         $availabilityStyle = "filtered-not-available";
                     }
                     echo '<div class="filtered-product">
-                            <div class="filtered-product-image" style="background-image:url(' . $imageURL . ');">
+                            <div class="filtered-product-image" style="background-image:url(' . $imageURL1 . ');">
                             </div>
                             <div class="filtered-product-info position-relative">
                                 <a class="product-link" href="product.php?id=' . $id . '">

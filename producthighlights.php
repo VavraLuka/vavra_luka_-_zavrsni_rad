@@ -21,14 +21,14 @@
                 $manufacturer = $row['manufacturer'];
                 $regularPrice = $row['price'];
                 $discount = $row['discount'];
-                $imageURL = $row['imageURL'];
+                $imageURL1 = $row['imageURL1'];
                 $review = $row['review'];
                 $reviewCount = $row['reviewCount'];
 
                 include 'php/priceformatting.php';
 
                 echo "<div class='product-highlight'>
-            <a href='product.php?id=$id'><div class='product-highlight-image' style='background-image: url($imageURL)'></div></a>";
+            <a href='product.php?id=$id'><div class='product-highlight-image' style='background-image: url($imageURL1)'></div></a>";
                 include 'php/reviews.php';
                 echo "<h3>$manufacturer</h3>
         <h2>$name</h2>";

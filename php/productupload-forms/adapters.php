@@ -28,7 +28,9 @@
             <div class="input-div-two"><input type="number" maxlength="10" name="length" id="length" step="0.1" placeholder="Duljina (cm)"><br></div>
         </div>
         <textarea name="description" id="description" maxlength="800" placeholder="Opis proizvoda (neobavezno)"></textarea>
-        <input type="text" name="imageURL" id="imageURL" maxlength="100" placeholder="URL fotografije" required oninvalid="this.setCustomValidity('Obavezna fotografija proizvoda')"><br>
+        <input type="text" name="imageURL1" id="imageURL1" maxlength="200" placeholder="URL fotografije" required oninvalid="this.setCustomValidity('Obavezna fotografija proizvoda')"><br>
+        <input type="text" name="imageURL2" id="imageURL2" maxlength="200" placeholder="Fotografija"><br>
+        <input type="text" name="imageURL3" id="imageURL3" maxlength="200" placeholder="Fotografija"><br>
         <div id="extra-inputs"></div>
         <div id="add-extra-inputs">
             <p>Za dodavanje do 3 dodatne informacije o proizvodu, pritisnite '+' ikonu ispod.</p>

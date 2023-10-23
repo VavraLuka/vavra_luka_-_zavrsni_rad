@@ -17,7 +17,9 @@ $defaultValues = array(
     "maxFrequency" => NULL,
     "dimensions" => NULL,
     "weight" => NULL,
-    "imageURL" => NULL,
+    "imageURL1" => NULL,
+    "imageURL2" => NULL,
+    "imageURL3" => NULL,
     "salesCount" => 0,
     "faders" => NULL,
     "inputs" => NULL,
@@ -57,7 +59,7 @@ foreach ($defaultValues as $key => $defaultValue) {
     ${$key} = isset($_POST[$key]) ? $_POST[$key] : $defaultValue;
 }
 
-$sql = "UPDATE products SET category='$category', name='$name', manufacturer='$manufacturer', price='$price', quantity='$quantity', speakerType='$speakerType', drivers='$drivers', RMS='$RMS', maxPower='$maxPower', soundPressure='$soundPressure', minFrequency='$minFrequency', maxFrequency='$maxFrequency', dimensions='$dimensions', weight='$weight', imageURL='$imageURL', salesCount='$salesCount', faders='$faders', inputs='$inputs', outputs='$outputs', cableType='$cableType', length='$length', leftJack='$leftJack', leftJackType='$leftJackType', rightJack='$rightJack', rightJackType='$rightJackType', color='$color', limiter='$limiter', channels='$channels', power='$power', lightSource='$lightSource', powerConsumption='$powerConsumption', lightType='$lightType', beamAngle='$beamAngle', discount='$discount', caseFor='$caseFor', caseType='$caseType', accessoryType='$accessoryType', description='$description', additionalLine1='$additionalLine1', additionalLineValue1='$additionalLineValue1', additionalLine2='$additionalLine2', additionalLineValue2='$additionalLineValue2', additionalLine3='$additionalLine3', additionalLineValue3='$additionalLineValue3', softwareSupport='$softwareSupport', deckNumber='$deckNumber', externalPowerSource='$externalPowerSource' WHERE id='$id'";
+$sql = "UPDATE products SET category='$category', name='$name', manufacturer='$manufacturer', price='$price', quantity='$quantity', speakerType='$speakerType', drivers='$drivers', RMS='$RMS', maxPower='$maxPower', soundPressure='$soundPressure', minFrequency='$minFrequency', maxFrequency='$maxFrequency', dimensions='$dimensions', weight='$weight', imageURL1='$imageURL1', imageURL2='$imageURL2', imageURL3='$imageURL3', salesCount='$salesCount', faders='$faders', inputs='$inputs', outputs='$outputs', cableType='$cableType', length='$length', leftJack='$leftJack', leftJackType='$leftJackType', rightJack='$rightJack', rightJackType='$rightJackType', color='$color', limiter='$limiter', channels='$channels', power='$power', lightSource='$lightSource', powerConsumption='$powerConsumption', lightType='$lightType', beamAngle='$beamAngle', discount='$discount', caseFor='$caseFor', caseType='$caseType', accessoryType='$accessoryType', description='$description', additionalLine1='$additionalLine1', additionalLineValue1='$additionalLineValue1', additionalLine2='$additionalLine2', additionalLineValue2='$additionalLineValue2', additionalLine3='$additionalLine3', additionalLineValue3='$additionalLineValue3', softwareSupport='$softwareSupport', deckNumber='$deckNumber', externalPowerSource='$externalPowerSource' WHERE id='$id'";
 $result = mysqli_query($dbc, $sql);
 
 if ($result) {

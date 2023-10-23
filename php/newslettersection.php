@@ -1,4 +1,3 @@
-<!-- Newsletter -->
 <section id="newsletterEmails">
     <div class="section-wrapper">
         <hr>

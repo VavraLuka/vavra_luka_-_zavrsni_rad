@@ -14,7 +14,9 @@ if (isset($_POST["submit"])) {
     $maxFrequency = isset($_POST["maxFrequency"]) ? $_POST["maxFrequency"] : NULL;
     $dimensions = isset($_POST["dimensions"]) ? $_POST["dimensions"] : NULL;
     $weight = isset($_POST["weight"]) ? $_POST["weight"] : NULL;
-    $imageURL = isset($_POST["imageURL"]) ? $_POST["imageURL"] : NULL;
+    $imageURL1 = isset($_POST["imageURL1"]) ? $_POST["imageURL1"] : NULL;
+    $imageURL2 = isset($_POST["imageURL2"]) ? $_POST["imageURL2"] : NULL;
+    $imageURL3 = isset($_POST["imageURL3"]) ? $_POST["imageURL3"] : NULL;
     $salesCount = isset($_POST["salesCount"]) ? $_POST["salesCount"] : 0;
     $faders = isset($_POST["faders"]) ? $_POST["faders"] : NULL;
     $inputs = isset($_POST["inputs"]) ? $_POST["inputs"] : NULL;
@@ -50,12 +52,12 @@ if (isset($_POST["submit"])) {
 
     require_once 'databaseconnect.php';
 
-    $sql = "INSERT INTO products (category, name, manufacturer, price, quantity, speakerType, drivers, RMS, maxPower, soundPressure, minFrequency, maxFrequency, dimensions, weight, imageURL, salesCount, faders, inputs, outputs, cableType, length, leftJack, leftJackType, rightJack, rightJackType, color, limiter, channels, power, lightSource, powerConsumption, lightType, beamAngle, discount, caseFor, caseType, accessoryType, description, additionalLine1, additionalLineValue1, additionalLine2, additionalLineValue2, additionalLine3, additionalLineValue3, softwareSupport, deckNumber, externalPowerSource) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO products (category, name, manufacturer, price, quantity, speakerType, drivers, RMS, maxPower, soundPressure, minFrequency, maxFrequency, dimensions, weight, imageURL1, imageURL2, imageURL3 salesCount, faders, inputs, outputs, cableType, length, leftJack, leftJackType, rightJack, rightJackType, color, limiter, channels, power, lightSource, powerConsumption, lightType, beamAngle, discount, caseFor, caseType, accessoryType, description, additionalLine1, additionalLineValue1, additionalLine2, additionalLineValue2, additionalLine3, additionalLineValue3, softwareSupport, deckNumber, externalPowerSource) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($dbc);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         echo "Greška: SQL statement.";
     } else {
-        mysqli_stmt_bind_param($stmt, "sssdissiiiiisdsiiiisdssssssiisississsssssssssis", $category, $name, $manufacturer, $price, $quantity, $speakerType, $drivers, $RMS, $maxPower, $soundPressure, $minFrequency, $maxFrequency, $dimensions, $weight, $imageURL, $salesCount, $faders, $inputs, $outputs, $cableType, $length, $leftJack, $leftJackType, $rightJack, $rightJackType, $color, $limiter, $channels, $power, $lightSource, $powerConsumption, $lightType, $beamAngle, $discount, $caseFor, $caseType, $accessoryType, $description, $additionalLine1, $additionalLineValue1, $additionalLine2, $additionalLineValue2, $additionalLine3, $additionalLineValue3, $softwareSupport, $deckNumber, $externalPowerSource);
+        mysqli_stmt_bind_param($stmt, "sssdissiiiiisdsiiiisdssssssiisississsssssssssis", $category, $name, $manufacturer, $price, $quantity, $speakerType, $drivers, $RMS, $maxPower, $soundPressure, $minFrequency, $maxFrequency, $dimensions, $weight, $imageURL1, $imageURL2, $imageURL3, $salesCount, $faders, $inputs, $outputs, $cableType, $length, $leftJack, $leftJackType, $rightJack, $rightJackType, $color, $limiter, $channels, $power, $lightSource, $powerConsumption, $lightType, $beamAngle, $discount, $caseFor, $caseType, $accessoryType, $description, $additionalLine1, $additionalLineValue1, $additionalLine2, $additionalLineValue2, $additionalLine3, $additionalLineValue3, $softwareSupport, $deckNumber, $externalPowerSource);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }

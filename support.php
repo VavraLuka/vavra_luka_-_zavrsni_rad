@@ -12,7 +12,6 @@ if (!isset($_SESSION["currentUserStatus"])) {
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Vokaton - Korisnička podrška</title>
     <link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32 64x64">
@@ -25,10 +24,8 @@ if (!isset($_SESSION["currentUserStatus"])) {
     <meta name="author" content="Luka Vavra">
     <meta name="theme-color" content="#17a4e5">
 </head>
-
 <body>
     <div class="page-wrapper">
-        <!-- Navigation bar -->
         <section style="margin-bottom: 0px;" id="navigationBar">
             <div class="section-wrapper-navigation">
                 <div class="box">
@@ -55,18 +52,14 @@ if (!isset($_SESSION["currentUserStatus"])) {
                 <h1 class="welcome-message">Sustav korisničke podrške</h1>
             </div>
         </section>
-
         <?php
         include_once "php/messagecentersection.php";
         include_once "php/orderhistorysection.php";
         include_once "php/usermanagementsection.php";
         include_once "php/newslettersection.php";
         ?>
-
         <a href="#" class="back-to-top"><img alt="Gumb za povratak na vrh stranice" src="images/DropdownIcon.png" width="24"></a>
         <script type="text/javascript" src="js/main.js"></script>
-
-        <!-- Footer -->
         <footer>
             <section class="background-grey footer-padding">
                 <div class="section-wrapper-navigation">

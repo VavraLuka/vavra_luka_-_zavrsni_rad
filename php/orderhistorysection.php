@@ -1,4 +1,3 @@
-<!-- Order history -->
 <section id="orderHistory">
     <div class="section-wrapper">
         <hr>
