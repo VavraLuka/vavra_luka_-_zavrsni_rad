@@ -5,7 +5,7 @@
         <div style="text-align: left;">
             <?php
             include_once "php/databaseconnect.php";
-            $sql = "SELECT * FROM messages";
+            $sql = "SELECT * FROM messages ORDER BY date DESC";
             $result = mysqli_query($dbc, $sql);
             echo "<div class='user-table-div'>
                         <table class='user-edit'>

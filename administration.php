@@ -28,7 +28,6 @@ if (!isset($_SESSION["currentUserStatus"])) {
 
 <body>
     <div class="page-wrapper">
-        <!-- Navigation bar -->
         <section style="margin-bottom: 0px;" id="navigationBar">
             <div class="section-wrapper-navigation">
                 <div class="box">
