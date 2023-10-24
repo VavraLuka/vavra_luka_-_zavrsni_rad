@@ -47,14 +47,14 @@ if (!isset($_SESSION['cart'])) {
             <header>
                 <div class="section-wrapper flex-row vertical-padding-sm">
                     <div class="box">
-                        <div class="inner-box">
-                            <ul class="navigation-bar float-left text-black">
+                        <div style="width: 100%; display: flex; justify-content: flex-start;">
+                            <ul class="navigation-bar text-black">
                                 <li><a href="contactus.php">Kontaktiraj nas</a></li>
                                 <li><a href="aboutus.php">O nama</a></li>
                             </ul>
                         </div>
-                        <div class="inner-box">
-                            <ul class="navigation-bar float-left bold-text text-black">
+                        <div style="width: 100%; display: flex; justify-content: flex-start;">
+                            <ul class="navigation-bar bold-text text-black">
                                 <li><a href="index.php#topdeals">Top ponude</a></li>
                                 <li><a href="index.php#new">Novo</a></li>
                                 <li><a href="index.php#mostsales">Najprodavanije</a></li>
@@ -66,21 +66,24 @@ if (!isset($_SESSION['cart'])) {
                         <a style="cursor: pointer;" class="null-link" href="index.php"><img src="images/mainLogo.png" width="180" alt="Vokaton logo"></a>
                     </div>
                     <div class="box">
-                        <div class="inner-box">
-                            <ul class="navigation-bar float-right text-black">
+                        <div style="width: 100%; display: flex; justify-content: flex-end;">
+                            <ul class="navigation-bar text-black">
                                 <li><a href="warranty.php">3 godine jamstva</a></li>
                                 <li><a href="returns.php">Povrat robe</a></li>
                             </ul>
                         </div>
-                        <div class="inner-box">
-                            <ul class="navigation-bar float-right text-black">
-                                <li><a href="cart.php">Košarica (<?php echo count($_SESSION['cart']); ?>)</a></li>
+                        <div style="width: 100%; display: flex; justify-content: flex-end;">
+                            <ul class="navigation-bar text-black" style="display: flex; align-items: center;">
+                                <li><a href="cart.php" style="display: flex;
+    align-items: center;"><img src="images/cartIcon.png" style="margin-right: 6px;" height="24"> (<?php echo count($_SESSION['cart']); ?>)</a></li>
                                 <?php
                                 if (isset($_SESSION["currentUserName"])) {
                                     switch ($_SESSION["currentUserStatus"]) {
                                         case "user":
-                                            echo "<li><a href='myprofile.php#profileFavorites'>Favoriti</a></li>";
-                                            echo "<li><a href='myprofile.php'>Profil</a></li>";
+                                            echo "<li><a href='myprofile.php#profileFavorites' style='display: flex;
+                                            align-items: center;'><img src='images/favoriteIcon.png' style='margin-right: 6px;' height='24'>Favoriti</a></li>";
+                                            echo "<li><a href='myprofile.php' style='display: flex;
+                                            align-items: center;'><img src='images/profileIcon.png' style='margin-right: 6px;' height='24'>Profil</a></li>";
                                             break;
                                         case "admin":
                                             echo "<li><a href='administration.php'>Administracija</a></li>";
@@ -92,7 +95,6 @@ if (!isset($_SESSION['cart'])) {
                                             echo "<li><a href='logistics.php'>Logistika</a></li>";
                                             break;
                                         default:
-                                            echo "It's the weekend!";
                                     }
                                     echo "<li><a href='php/signout-process.php'>Odjava</a></li>";
                                 } else {
