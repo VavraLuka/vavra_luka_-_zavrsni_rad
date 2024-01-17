@@ -14,8 +14,19 @@
                         <div class="postal-code"><input required type="text" maxlength="24" name="name" id="name" placeholder="Ime"><br></div>
                         <div class="address"><input required type="email" maxlength="50" name="email" id="email" placeholder="Email"><br></div>
                     </div>
-                    <textarea required name="message" id="message" maxlength="2000" placeholder="Poruka (obavezno)"></textarea>
-                    <input type="number" id="product" name="product" maxlength="4" placeholder="Šifra proizvoda">
+                    <textarea required name="message" id="message" maxlength="2000" placeholder="Poruka (obavezno)"><?php
+                    if (isset($_GET["product"])){
+                        echo "Imam upit za ovaj proizvod.";
+                    }
+                    ?></textarea>
+                    <input type="number" id="product" name="product" maxlength="4" placeholder="Šifra proizvoda" <?php
+                    if (isset($_GET["product"])){
+                        echo 'value="';
+                        echo $_GET["product"];
+                        echo '"';
+                    };
+                    ?>
+                    >
                     <div class="form-buttons">
                         <input type="submit" name="submit" value="Pošalji">
                         <input type="reset" value="Očisti podatke">

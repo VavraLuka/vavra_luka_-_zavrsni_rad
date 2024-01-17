@@ -168,7 +168,7 @@ include_once 'header.php';
             }
             if (isset($_GET['speakerType'])) {
                 $speakerType = $_GET['speakerType'];
-                $sql = "SELECT * FROM products WHERE speakerType = '$speakerType' ORDER BY $sort";
+                $sql = "SELECT * FROM products WHERE speakerType = '$speakerType' $manufacturer ORDER BY $sort";
             } else {
                 $sql = "SELECT * FROM products WHERE $productCategory $manufacturer ORDER BY $sort";
             }
@@ -187,8 +187,6 @@ include_once 'header.php';
                     $regularPrice = $row['price'];
                     $quantity = $row['quantity'];
                     $imageURL1 = $row['imageURL1'];
-                    $review = $row['review'];
-                    $reviewCount = $row['reviewCount'];
                     $discount = $row['discount'];
                     include "php/priceformatting.php";
                     if ($quantity > 0) {
@@ -208,6 +206,16 @@ include_once 'header.php';
                                         <h2 class="inline-block">' . $name . '</h2>
                                     </div>
                                 </a>';
+
+                    $countQuery = "SELECT COUNT(*) as count, AVG(rating) as average FROM reviews WHERE product = '$id'";
+                    $result2 = $dbc->query($countQuery);
+                    if ($result2->num_rows > 0) {
+                        $row2 = $result2->fetch_assoc();
+                        $ratingCount = $row2['count'];
+                        $averageRating = $row2['average'];
+                        $averageRating = round($averageRating, 1);
+                    };
+
                     include "php/reviews.php";
                     echo "<div class='bottom-div'>
                         <p class='" . $availabilityStyle . "'>" . $availability . "</p>

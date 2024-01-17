@@ -17,6 +17,9 @@ html {
 }
 
 p::selection,
+hr::selection,
+form::selection,
+ul::selection,
 h1::selection,
 h2::selection,
 h3::selection,

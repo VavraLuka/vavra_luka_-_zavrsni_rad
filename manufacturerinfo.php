@@ -46,14 +46,20 @@ if (isset($_GET['manufacturer'])) {
                 $manufacturer = $row['manufacturer'];
                 $regularPrice = $row['price'];
                 $discount = $row['discount'];
-                $imageURL = $row['imageURL'];
-                $review = $row['review'];
-                $reviewCount = $row['reviewCount'];
+                $imageURL = $row['imageURL1'];
 
                 include 'php/priceformatting.php';
 
                 echo "<div class='manufacturer-product'>
             <a href='product.php?id=$id'><div class='manufacturer-product-image' style='background-image: url($imageURL)'></div></a>";
+                $countQuery = "SELECT COUNT(*) as count, AVG(rating) as average FROM reviews WHERE product = '$id'";
+                $result2 = $dbc->query($countQuery);
+                if ($result2->num_rows > 0) {
+                    $row = $result2->fetch_assoc();
+                    $ratingCount = $row['count'];
+                    $averageRating = $row['average'];
+                    $averageRating = round($averageRating, 1);
+                };
                 include 'php/reviews.php';
                 echo "<h3>$manufacturer</h3>
         <h2>$name</h2>";

@@ -66,8 +66,6 @@ $additionalLine2 = $row["additionalLine2"];
 $additionalLineValue2 = $row["additionalLineValue2"];
 $additionalLine3 = $row["additionalLine3"];
 $additionalLineValue3 = $row["additionalLineValue3"];
-$review = $row['review'];
-$reviewCount = $row['reviewCount'];
 $softwareSupport = $row['softwareSupport'];
 $deckNumber = $row['deckNumber'];
 $externalPowerSource = $row['externalPowerSource'];
@@ -98,11 +96,24 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                     <h1 class="name inline-block"><?php echo $name; ?></h1>
                 </div>
                 <div class="reviews">
-                    <?php if ($review > 0) {
+                    <?php
+                    require_once "php/databaseconnect.php";
+                    $countQuery = "SELECT COUNT(*) as count, AVG(rating) as average FROM reviews WHERE product = '$id'";
+                    $result = $dbc->query($countQuery);
+                    if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
+                        $ratingCount = $row['count'];
+                        $averageRating = $row['average'];
+                        $averageRating = round($averageRating, 1);
+                    }
+                    if ($ratingCount > 0) {
+                        echo "<a href='#productRating'>";
                         include 'php/reviews.php';
+                        echo "</a>";
                     } else {
                         echo "<p>Ovaj proizvod još nije ocijenjen</p>";
-                    } ?>
+                    }
+                    ?>
                 </div>
                 <?php
                 if (isset($logo_file)) {
@@ -186,17 +197,117 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                 <input type="submit" name="add_to_cart" value="Dodaj u košaricu">
             </form>
             <p style="color: grey; font-weight: 300;">Šifra proizvoda: <?php echo $id; ?></p>
+            <a href="help.php?product=<?php echo $id; ?>#contactForm">
+                <p style="color: var(--main-blue-color); font-weight: 400; margin-top: 8px;">Pošaljite upit za ovaj proizvod</p>
+            </a>
         </div>
     </div>
     <?php
     if ($description != NULL) {
         echo "<div style='width: 75%; margin: 0 auto; padding-top: 24px; text-align: left;'>
-                    <h1 style='padding-bottom: 16px;'>Opis proizvoda</h1>    
+                    <h1 style='padding-bottom: 16px; font-size: var(--h1-laptop); letter-spacing: -1px;'>Opis proizvoda</h1>    
                     <p style='line-height: 1.5;'>$description</p>
                     </div>";
     };
     ?>
-    <div class="products-title" id="topdeals">
+    <br>
+    <div class="products-title ratings-title" style="text-align: left; width: 75%;">
+        <div class="ratings-left">
+            <h1 id="productRating">Ocjene proizvoda</h1>
+            <?php
+            include 'php/reviews.php';
+            ?>
+        </div>
+        <div class="ratings-right">
+            <form method="GET" action="product.php" onsubmit="redirectToProductRating()">
+                <input type="number" id="id" name="id" value="<?php echo $id; ?>" hidden>
+                <select id="sort" name="sort">
+                    <option value="" disabled selected>Sortirajte recenzije:</option>
+                    <option value="highest">Najviše ocjene</option>
+                    <option value="lowest">Najniže ocjene</option>
+                </select>
+                <button type="submit">Sortiraj</button>
+            </form>
+            <script>
+                function redirectToProductRating() {
+                    event.preventDefault();
+                    window.location.href = "#productRating";
+                }
+            </script>
+        </div>
+    </div><br>
+    <div style='width: 75%; margin: 0 auto; padding-top: 24px; text-align: left;'>
+        <?php
+        require_once 'php/databaseconnect.php';
+
+        if (isset($_GET["sort"])) {
+            if ($_GET["sort"] == "highest") {
+                $sql = "SELECT * FROM reviews WHERE product = '$id' ORDER BY rating DESC";
+            }
+            if ($_GET["sort"] == "lowest") {
+                $sql = "SELECT * FROM reviews WHERE product = '$id' ORDER BY rating ASC";
+            }
+        } else {
+            $sql = "SELECT * FROM reviews WHERE product = '$id'";
+        }
+        $stmt = mysqli_stmt_init($dbc);
+
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            echo "Greška: SQL statement.";
+        } else {
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            while ($row = mysqli_fetch_array($result)) {
+                $user = $row["user"];
+                $message = $row["message"];
+                $rating = $row["rating"];
+                $randomNumber = rand(1, 10);
+                echo "<div class='review-box'>
+                    <div class='review-box-left'>
+                        <h1>$user</h1>
+                        <p>$message<p>
+                    </div>
+                    <div class='review-box-right'>";
+                $starWidth = 24;
+                echo "<div class='star-reviews inline-block'>";
+
+                $half_stars = 0;
+
+                if ($rating > 0) {
+                    $full_stars = floor($rating);
+                    $decimal = fmod($rating, 1);
+                    $decimal = intval($decimal * 10);
+
+                    for ($i = 1; $i <= $full_stars; $i++) {
+                        echo "<img src='images/fullStarIcon.png' class='inline-block' width='$starWidth'>";
+                    }
+                    if ($decimal != 0) {
+                        if ($decimal > 0 && $decimal < 5) {
+                            echo "<img src='images/quarterStarIcon.png' class='inline-block' width='$starWidth'>";
+                        } else if ($decimal == 5) {
+                            echo "<img src='images/halfStarIcon.png' class='inline-block' width='$starWidth'>";
+                        } else if ($decimal > 5 && $decimal <= 9) {
+                            echo "<img src='images/halfQuarterStarIcon.png' class='inline-block' width='$starWidth'>";
+                        }
+                        $half_stars = 1;
+                    }
+                    $empty_stars = 5 - $full_stars - $half_stars;
+                    for ($i = 1; $i <= $empty_stars; $i++) {
+                        echo "<img src='images/emptyStarIcon.png' class='inline-block' width='$starWidth'>";
+                    }
+                } else {
+                    echo "<p style='color: grey; font-weight: 300;'>Ovaj proizvod još nije ocijenjen</p>";
+                }
+                echo "</div>";
+                echo "
+                    </div>
+                </div>";
+            }
+        }
+        ?>
+    </div>
+
+    <div class="products-title">
         <h1>Slični proizvodi</h1>
     </div>
     <section class="products-section">

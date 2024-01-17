@@ -73,6 +73,7 @@
     opacity: 0.6;
     transition: 0.15s;
 }
+
 .product-small-images img:hover {
     opacity: 1;
 }
@@ -88,4 +89,49 @@
 .product-image-container {
     float: right;
     padding: 24px;
+}
+
+.review-box {
+    width: 100%;
+    display: flex;
+    padding-bottom: 24px;
+}
+
+.review-box-left {
+    width: 90%;
+}
+
+.review-box-left h1 {
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+}
+
+.review-box-right {
+    width: 10%;
+}
+
+.ratings-title {
+    display: flex;
+    width: 100%;
+}
+
+.ratings-left {
+    width: 50%;
+}
+
+.ratings-right {
+    width: 50%;
+    text-align: right;
+}
+
+button {
+    background-color: var(--main-blue-color);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.15s linear;
+    font-weight: 700;
+    outline: 3px solid var(--main-blue-color);
 }
