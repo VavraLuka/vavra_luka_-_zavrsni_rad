@@ -12,11 +12,11 @@
                         <thead>
                             <tr>
                                 <th style='width: 2%; max-width: 2%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>ID</th>
-                                <th style='width: 6%; max-width: 6%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Ime</th>
+                                <th style='width: 4%; max-width: 4%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Ime</th>
                                 <th style='width: 16%; max-width: 16%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Email adresa</th>
                                 <th style='width: 7%; max-width: 7%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Datum</th>
                                 <th style='width: 6%; max-width: 6%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Vrijeme</th>
-                                <th style='width: 50%; max-width: 50%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Poruka</th>
+                                <th style='width: 52%; max-width: 52%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Poruka</th>
                                 <th style='width: 5%; max-width: 5%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Proizvod</th>
                                 <th style='width: 3%; max-width: 3%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Status</th>
                                 <th style='width: 3%; max-width: 3%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Obriši</th>
@@ -38,7 +38,7 @@
                             <td style='vertical-align: top;'>{$row['date']}</td>
                             <td style='vertical-align: top;'>{$row['time']}</td>
                             <td style='vertical-align: top;'>{$row['message']}</td>
-                            <td style='vertical-align: top;'>{$row['product']}</td>";
+                            <td style='vertical-align: top;'><a style='text-decoration: underline;' href='product.php?id={$row['product']}'>{$row['product']}</a></td>";
                 if ($status == "unread") {
                     echo "<td style='vertical-align: top; text-align: center;'>
                                 <form style='width: 36px; display: inline-block; margin-right: 12px;' method='post' action='php/message-process.php'>

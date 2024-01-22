@@ -153,25 +153,43 @@ include_once 'header.php';
                 'nameza' => 'name DESC',
                 'newfirst' => 'id DESC',
                 'oldfirst' => 'id ASC',
-                'bestrated' => 'review DESC',
+                'bestrated' => 'avg_rating DESC',
             ];
 
-            $defaultSort = 'id DESC';
-            $sort = isset($_GET['sort']) && isset($sortingOptions[$_GET['sort']]) ? $sortingOptions[$_GET['sort']] : $defaultSort;
-
-            $productCategory = isset($_GET['productCategory']) ? ($_GET['productCategory'] == 'all' ? '1' : "category='{$_GET['productCategory']}'") : '1';
-
-            $manufacturer = '';
-            if (isset($_GET['manufacturer'])) {
-                $manufacturerList = "'" . implode("', '", $_GET['manufacturer']) . "'";
-                $manufacturer = "AND manufacturer IN ($manufacturerList)";
-            }
-            if (isset($_GET['speakerType'])) {
-                $speakerType = $_GET['speakerType'];
-                $sql = "SELECT * FROM products WHERE speakerType = '$speakerType' $manufacturer ORDER BY $sort";
+            if (isset($_GET["speakerType"])) {
+                $type = $_GET["speakerType"];
+                $categorySort = "speakerType = '$type'";
             } else {
-                $sql = "SELECT * FROM products WHERE $productCategory $manufacturer ORDER BY $sort";
+                $productCategory = $_GET["productCategory"];
+                $categorySort = "category = '$productCategory'";
             }
+
+            $defaultSort = 'id DESC';
+            if (isset($_GET['sort']) && $_GET['sort'] === 'bestrated') {
+                $sql = "SELECT products.*, AVG(reviews.rating) AS avg_rating
+                        FROM products
+                        LEFT JOIN reviews ON products.id = reviews.product
+                        WHERE $categorySort
+                        GROUP BY products.id
+                        ORDER BY avg_rating DESC";
+            } else {
+                $sort = isset($_GET['sort']) && isset($sortingOptions[$_GET['sort']]) ? $sortingOptions[$_GET['sort']] : $defaultSort;
+                $productCategory = isset($_GET['productCategory']) ? ($_GET['productCategory'] == 'all' ? '1' : "category='{$_GET['productCategory']}'") : '1';
+
+                $manufacturer = '';
+                if (isset($_GET['manufacturer'])) {
+                    $manufacturerList = "'" . implode("', '", $_GET['manufacturer']) . "'";
+                    $manufacturer = "AND manufacturer IN ($manufacturerList)";
+                }
+
+                if (isset($_GET['speakerType'])) {
+                    $speakerType = $_GET['speakerType'];
+                    $sql = "SELECT * FROM products WHERE speakerType = '$speakerType' $manufacturer ORDER BY $sort";
+                } else {
+                    $sql = "SELECT * FROM products WHERE $productCategory $manufacturer ORDER BY $sort";
+                }
+            }
+
             $stmt = mysqli_stmt_init($dbc);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                 $error = mysqli_stmt_error($stmt);

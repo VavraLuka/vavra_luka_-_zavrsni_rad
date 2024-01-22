@@ -79,7 +79,7 @@ if (!isset($_SESSION["currentUserStatus"])) {
                         <li><a href="#productManagement">Uređivanje proizvoda</a></li>
                         <li><a href="#usersManagement">Korisnički računi</a></li>
                         <li><a href="#orderHistory">Povijest narudžbi</a></li>
-                        <li><a href="#userMessages">Upiti korisnika</a></li>
+                        <li><a href="#messageCenter">Upiti korisnika</a></li>
                         <li><a href="#manufacturerManagement">Uređivanje proizvođača</a></li>
                         <li><a href="#newsletterEmails">Newsletter</a></li>
                     </ul>

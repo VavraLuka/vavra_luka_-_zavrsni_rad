@@ -135,11 +135,11 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                         <img src='$imageURL3' onclick='productImageFunction(this)'>
                     </div>
                     <div class='product-image-container'>
-                        <img id='mainImage' src='$imageURL1'>
+                        <img id='mainImage' src='$imageURL1' onClick='openModal(this)'>
                     </div>";
                 } else if (isset($imageURL1)) {
                     echo "<div style='text-align: center;'>
-                    <img height='480' src='$imageURL1'>
+                    <img id='mainImage' height='480' src='$imageURL1' onClick='openModal(this)'>
                 </div>";
                 } else {
                     echo "<div style='text-align: center;'>
@@ -148,9 +148,9 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                 </div>";
                 }
                 ?>
-
             </div>
         </div>
+
         <div class="product-action-price">
             <div>
                 <?php
@@ -221,17 +221,20 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
         <div class="ratings-right">
             <form method="GET" action="product.php" onsubmit="redirectToProductRating()">
                 <input type="number" id="id" name="id" value="<?php echo $id; ?>" hidden>
-                <select id="sort" name="sort">
+                <select id="sort" name="sort" class="ratingsSortSelect">
                     <option value="" disabled selected>Sortirajte recenzije:</option>
                     <option value="highest">Najviše ocjene</option>
                     <option value="lowest">Najniže ocjene</option>
                 </select>
-                <button type="submit">Sortiraj</button>
+                <input style="width: 200px; padding: 8px 0px; border-radius: 0; margin-left: 14px;" type="submit" value="Sortiraj">
             </form>
+
             <script>
                 function redirectToProductRating() {
                     event.preventDefault();
-                    window.location.href = "#productRating";
+                    var selectedSort = document.getElementById("sort").value;
+                    var url = "product.php?id=<?php echo $id; ?>&sort=" + selectedSort + "#productRating";
+                    window.location.href = url;
                 }
             </script>
         </div>
@@ -350,12 +353,32 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
             ?>
         </div>
     </section>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
     <script>
         function productImageFunction(smallImage) {
             var fullImage = document.getElementById("mainImage");
             fullImage.src = smallImage.src;
         }
+        
+        function openModal(img) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modalImage");
+
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
     </script>
+
     <?php
     include_once "footer.php";
     ?>

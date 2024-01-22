@@ -35,12 +35,12 @@
             <table class='user-edit'>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Proizvođač</th>
-                    <th>Proizvod</th>
-                    <th>Cijena</th>
-                    <th>Količina</th>
-                    <th style='text-align: right; padding-right: 0;'>Ukupno</th>
+                    <th style='width: 6%;'>ID</th>
+                    <th style='width: 27%;'>Proizvođač</th>
+                    <th style='width: 27%;'>Proizvod</th>
+                    <th style='width: 16%;'>Cijena</th>
+                    <th style='width: 10%;'>Količina</th>
+                    <th style='text-align: right; padding-right: 0; width: 14%;'>Ukupno</th>
                 </tr>
             </thead>
             <tbody>";
@@ -60,13 +60,16 @@
                 $products_quantities_array,
                 $products_total_prices_array
             ];
-            foreach ($columns as $column) {
+            foreach ($columns as $index => $column) {
                 echo "<td>";
-                foreach ($column as $value) {
+                foreach ($column as $key => $value) {
                     if ($column === $products_prices_array || $column === $products_total_prices_array) {
                         $value = number_format($value, 2, '.', ',') . "€";
+                    } elseif ($index === 0) {
+                        echo "<a style='text-decoration: underline;' href='product.php?id=$value'>$value</a>";
+                    } else {
+                        echo $value . "<br>";
                     }
-                    echo $value . "<br>";
                 }
                 echo "</td>";
             }
