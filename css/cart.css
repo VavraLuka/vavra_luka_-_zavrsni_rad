@@ -1,5 +1,5 @@
 table.cart-table {
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
     padding: 24px 0;
     text-align: left;
@@ -12,7 +12,6 @@ table.cart-table td {
 
 table.cart-table tr td:first-child {
     font-weight: 300;
-    width: 20%;
 }
 
 table.cart-table tr td:not(:first-child) {

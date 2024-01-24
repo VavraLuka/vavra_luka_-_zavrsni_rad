@@ -206,7 +206,10 @@ include_once 'header.php';
                     $quantity = $row['quantity'];
                     $imageURL1 = $row['imageURL1'];
                     $discount = $row['discount'];
-                    include "php/priceformatting.php";
+                    if ($discount > 0) {
+                        $discountPrice = $regularPrice - ($regularPrice * $discount / 100);
+                    }
+                    /* include "php/priceformatting.php"; */ 
                     if ($quantity > 0) {
                         $availability = "Dostupno na stanju";
                         $availabilityStyle = "filtered-available";
@@ -256,8 +259,10 @@ include_once 'header.php';
                         <input type='hidden' name='product_quantity' value='$quantity'>
                         <input type='hidden' name='product_price' value='";
                         if ($discount > 0) {
+                            $discountPrice = floatval($discountPrice);
                             echo $discountPrice;
                         } else {
+                            $regularPrice = floatval($regularPrice);
                             echo $regularPrice;
                         };
                         echo "'>

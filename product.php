@@ -334,7 +334,7 @@ if (array_key_exists($manufacturer, $manufacturer_logos)) {
                     $discount = $row['discount'];
                     $imageURL1 = $row['imageURL1'];
 
-                    include 'php/priceformatting.php';
+                    /* include 'php/priceformatting.php'; */
 
                     echo "<div class='product-highlight'>
                 <a href='product.php?id=$id'><div class='product-highlight-image' style='background-image: url($imageURL1)'></div></a>";
