@@ -25,11 +25,8 @@ Baza podataka također se nalazi unutar GitHub repozitorija u folder-u "database
 
 To Do lista:
 - responzivnost (za tablete i mobilne uređaje)
-- validacija formi / kontrola unešenih podataka
 - mogućnost ocjenjivanja kupljenih proizvoda
-- opcija "Podsjeti me kad bude dostupno", za proizvode koji trenutno nisu na stanju
 - opcija kupona za popuste
 - "Search" opcija za pretraživanje proizvoda u bazi podataka
 - forma za povrat proizvoda
 - "Prikaži više" gumb kod prikaza proizvoda (limitiranje učitavanja proizvoda do 10 odjednom)
-- generalna ispravka i optimizacija koda
