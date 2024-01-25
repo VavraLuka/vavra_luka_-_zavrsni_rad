@@ -24,9 +24,10 @@ Unutar Google Drive folder-a nalazi se:
 Baza podataka također se nalazi unutar GitHub repozitorija u folder-u "database" s nazivom "vavra_luka_-_zavrsni_rad.sql"
 
 To Do lista:
-- responzivnost (za tablete i mobilne uređaje)
+- responzivnost - za tablete i mobilne uređaje
 - mogućnost ocjenjivanja kupljenih proizvoda
 - opcija kupona za popuste
 - "Search" opcija za pretraživanje proizvoda u bazi podataka
 - forma za povrat proizvoda
 - "Prikaži više" gumb kod prikaza proizvoda (limitiranje učitavanja proizvoda do 10 odjednom)
+- mogućnost brisanja korisničkog računa

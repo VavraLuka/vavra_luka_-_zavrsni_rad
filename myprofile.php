@@ -260,6 +260,28 @@ include_once "greetingstext.php";
         ?>
     </div>
 </section>
+<section id="newsletter">
+    <div class="section-wrapper">
+        <br>
+        <hr><br>
+        <h2 style="width: 50%; margin: 0 auto; text-align: center;">Brisanje korisničkog računa</h2><br>
+        <?php
+        $accountDeleteMessage = array(
+            "Za brisanje svog korisničkog računa koristite gumb ispod. Prije nego što donesete konačnu odluku, želimo provjeriti je li sve u redu. Ako imate poteškoća ili nešto što želite podijeliti s nama, slobodno nas kontaktirajte. Cijenimo Vaše povjerenje i trudimo se pružiti najbolju uslugu.",
+            "Za brisanje svog korisničkog računa koristite gumb ispod. Ako imate bilo kakvih pitanja ili nedoumica koje bismo mogli riješiti, stojimo Vam na raspolaganju. Vaše povjerenje je važno za nas, i zahvaljujemo Vam na suradnji.",
+            "Za brisanje svog korisničkog računa koristite gumb ispod. Ukoliko imate prigovora ili sugestija koje biste željeli podijeliti s nama, molimo Vas da nam se obratite. Cijenimo Vašu prisutnost i trudimo se poboljšati našu uslugu. Ako ipak odlučite nastaviti s brisanjem, zahvaljujemo Vam na povjerenju koje ste nam ukazali do sada."
+        );
+        $random_number = rand(0, 2);
+        $message = $accountDeleteMessage[$random_number];
+        echo '<p style="text-align: left; width: 60%; margin: 0 auto; line-height: 1.5rem;">' . $message . '</p>';
+        ?><br>
+        <p style="text-align: left; width: 60%; margin: 0 auto; font-weight: 300; line-height: 1.5rem;">* Brisanje korisničkog profila ukloniti će Vaše podatke, povijest narudžbi, omiljene proizvode te prijavu na newsletter</p><br>
+        <form method="POST" action="php/accountdelete-process.php" style="width: 30%; margin: 0 auto; text-align: center;">
+            <input type="hidden" name="profileID" id="profileID" value="<?php echo $id; ?>">
+            <input type="submit" value="Obriši korisnički račun" style="outline: 3px solid #D64550; background-color: #D64550;">
+        </form>
+    </div>
+</section>
 <script>
     function confirmSubmit() {
         var confirmed = confirm("Jako nam je žao što ste odlučili napustiti našu audio obitelj i odjaviti se s našeg newslettera. Ako ste odlučili da trenutno niste zainteresirani za primanje naših e-mailova, razumijemo i poštujemo vašu odluku. Vaše želje su nam važne i uvijek ćemo se truditi pružiti vam najbolje iskustvo.");
