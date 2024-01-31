@@ -84,7 +84,7 @@
                     <li><a href="warranty.php">3 godine jamstva</a></li>
                     <li><a href="returns.php">Povrat robe</a></li>
                 </ul>
-                <p class="footer-copyright-text text-dark-grey" style="margin-top: 24px; font-weight: 300;">© 2018 - 2023 Vokaton - trgovina audio opreme. Sva prava pridržana.</p>
+                <p class="footer-copyright-text text-dark-grey" style="margin-top: 24px; font-weight: 300;">© 2018 - 2024 Vokaton - trgovina audio opreme. Sva prava pridržana.</p>
             </div>
         </div>
     </section>

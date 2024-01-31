@@ -7,7 +7,20 @@
         <?php
         require_once 'php/databaseconnect.php';
 
-        $sql = "SELECT * FROM products ORDER BY review DESC LIMIT 4";
+        $sql = "SELECT
+        p.*,
+            FORMAT(AVG(r.rating), 0) AS average_rating,
+            COUNT(r.rating) AS rating_count
+    FROM
+        products p
+    LEFT JOIN
+        reviews r ON p.id = r.product
+    GROUP BY
+        p.id
+    ORDER BY
+        average_rating DESC
+    LIMIT 4";
+
         $stmt = mysqli_stmt_init($dbc);
 
         if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -22,8 +35,8 @@
                 $regularPrice = $row['price'];
                 $discount = $row['discount'];
                 $imageURL1 = $row['imageURL1'];
-                $review = $row['review'];
-                $reviewCount = $row['reviewCount'];
+                $averageRating = $row['average_rating'];
+                $ratingCount = $row['rating_count'];
 
                 include 'php/priceformatting.php';
 
