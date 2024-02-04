@@ -278,6 +278,7 @@ include_once "greetingstext.php";
         <p style="text-align: left; width: 60%; margin: 0 auto; font-weight: 300; line-height: 1.5rem;">* Brisanje korisničkog profila ukloniti će Vaše podatke, povijest narudžbi, omiljene proizvode te prijavu na newsletter</p><br>
         <form method="POST" action="php/accountdelete-process.php" style="width: 30%; margin: 0 auto; text-align: center;">
             <input type="hidden" name="profileID" id="profileID" value="<?php echo $id; ?>">
+            <input type="hidden" name="email" id="email" value="<?php echo $userEmail; ?>">
             <input type="submit" value="Obriši korisnički račun" style="outline: 3px solid #D64550; background-color: #D64550;">
         </form>
     </div>
