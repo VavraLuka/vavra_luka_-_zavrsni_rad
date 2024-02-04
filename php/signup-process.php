@@ -11,7 +11,7 @@ if (isset($_POST["submit"])) {
     $passwordUser = $_POST["passwordUser"];
     $passwordRepeatUser = $_POST["passwordRepeatUser"];
     $status = "user";
-    
+
     require_once 'databaseconnect.php';
     require_once 'functions.php';
 

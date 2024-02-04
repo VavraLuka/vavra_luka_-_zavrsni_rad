@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once "databaseconnect.php";
 if (isset($_POST['profileID'])) {
     $userId = $_POST['profileID'];
     $userEmail = $_POST['email'];
@@ -7,7 +8,7 @@ if (isset($_POST['profileID'])) {
     $sql = "DELETE FROM users WHERE id = '$userId'";
     $result = mysqli_query($dbc, $sql);
     if ($result) {
-        $sql = "DELETE FROM favorites WHERE email = '$userEmail'";
+        $sql = "DELETE FROM favorites WHERE userEmail = '$userEmail'";
         $result = mysqli_query($dbc, $sql);
         if ($result) {
             session_unset();
