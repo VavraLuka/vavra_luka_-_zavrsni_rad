@@ -80,7 +80,7 @@ include_once 'header.php';
                 } else if ($_GET["error"] == "emailexists") {
                     echo "<div class='error-paragraph'><p>Već postoji korisnik s unešenom email adresom. Želite li se <a class='signin-link' href='signin.php'>ulogirati?</a></p></div>";
                 } else if ($_GET["error"] == "none") {
-                    echo "<div class='signup-paragraph'><p>Uspješno ste registrirani! Prijavite se <a class='signin-link' href='signin.php'>ovdje</a>.</p></div>";
+                    echo "<div class='signup-paragraph'><p>Uspješno ste registrirani! Prijavite se <a class='signin-link' style='color: var(--main-blue-color);' href='signin.php'>ovdje</a>.</p></div>";
                 }
                 echo "<br>";
             }
