@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2024 at 05:06 PM
+-- Generation Time: Feb 04, 2024 at 09:25 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -604,8 +604,8 @@ INSERT INTO `users` (`id`, `name`, `surname`, `address`, `postalCode`, `city`, `
 (26, 'Paolo', 'Bianchi', 'Via Milano 13', 100, 'Roma', 'Italija', '+393456789012', 'paolo.bianchi@email.com', '$2y$10$6JzRd5nUkc5a2bCY04rOUO4.LGntdd40CTbrt9WeeoUYyubAIv9PK', 'user'),
 (27, 'Nenad', 'Janković', 'Ul. 13. jul bb', 81000, 'Podgorica', 'CrnaGora', '+38268234567', 'nenad.jankovic@email.com', '$2y$10$8zW/jB09S0roiul0nHauQ.HXFMf7rutKmufeKPMiHGLNafaB1VtBi', 'user'),
 (28, 'Luka', 'Vavra', 'Radićeva 13', 43500, 'Daruvar', 'Hrvatska', '+385981330950', 'lvavra@tvz.hr', '$2y$10$z4mHz5sO49ULoWlRRYcZTeBThdrJOzHkAknqNeggRB9RXLLepHRnC', 'admin'),
-(29, 'Sara', 'Sarić', 'Gundulićeva 13', 43500, 'Daruvar', 'Hrvatska', '385981334950', 'ssaric@podrska.hr', '$2y$10$fOpgYQG0XoSbAHLRfOo0ael.pi5ZCeI8JcmIU1rEuiUxwdM.lOQbm', 'support'),
-(30, 'David', 'Vidić', 'Mažuranićeva 13', 43500, 'Daruvar', 'Hrvatska', '385981337952', 'dvidic@koordinator.hr', '$2y$10$uRTDy.RUPNSPahGl7wi0puIOjjJDKIBwcv7MnA3yl27h.gUfuucPm', 'coordinator');
+(29, 'Sara', 'Sarić', 'Gundulićeva 13', 43500, 'Daruvar', 'Hrvatska', '+385981334950', 'ssaric@podrska.hr', '$2y$10$fOpgYQG0XoSbAHLRfOo0ael.pi5ZCeI8JcmIU1rEuiUxwdM.lOQbm', 'support'),
+(30, 'David', 'Vidić', 'Mažuranićeva 13', 43500, 'Daruvar', 'Hrvatska', '+385981337952', 'dvidic@koordinator.hr', '$2y$10$uRTDy.RUPNSPahGl7wi0puIOjjJDKIBwcv7MnA3yl27h.gUfuucPm', 'coordinator');
 
 --
 -- Indexes for dumped tables
@@ -667,7 +667,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `manufacturers`
@@ -709,7 +709,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

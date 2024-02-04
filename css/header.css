@@ -307,6 +307,10 @@ label {
     font-weight: 300;
 }
 
+hr.tablet-breakline {
+    display: none;
+}
+
 /* Mobile phones */
 @media screen and (max-width: 767px) {
     h1 {
@@ -344,6 +348,9 @@ label {
         letter-spacing: 0;
         display: block;
     }
+    div.section-wrapper {
+        width: 96%;
+    }
 }
 
 /* Tablets */
@@ -373,7 +380,7 @@ label {
     }
 
     div.section-wrapper {
-        width: 90%;
+        width: 96%;
     }
 
     ul.navigation-bar li {
@@ -399,5 +406,9 @@ label {
 
     ul.space-between li:last-child {
         display: none;
+    }
+
+    hr.tablet-breakline {
+        display: flex;
     }
 }

@@ -8,5 +8,5 @@
     ?>
     <div style="width: 60%; margin:  auto;">
         <img src="images/landingPageIllustration.svg" style="width: 100%;">
-    </div>
+    </div><br class="tablet-breakline">
 </section>
