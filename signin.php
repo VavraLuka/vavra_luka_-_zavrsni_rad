@@ -23,12 +23,6 @@ include_once 'header.php';
                     <input class="inline-block" type="checkbox" id="showPassword" onclick="togglePassword()">
                     <p class="inline-block">Prikaži lozinku</p>
                 </div>
-                <!-- <div style="width: 85%; overflow: auto; margin: 0 auto;">
-                        <div style="display: flex; justify-content: center; width: 50%; float: left;">
-                        <input class="inline-block" type="checkbox" id="rememberMe" name="rememberMe">
-                        <p class="inline-block">Zapamti moju prijavu</p>
-                    </div> 
-                </div> -->
                 <div class="form-buttons"><input type="submit" name="submit" value="Prijava">
                     <input type="reset" value="Očisti podatke">
                 </div>
