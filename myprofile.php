@@ -240,34 +240,67 @@ include_once "greetingstext.php";
         <div class="product-rating-div">
             <div class="product-rating-div-left">
                 <?php
-                    include_once "php/databaseconnect.php";
-                    $uniqueProductIDs = array();
-                    $sql = "SELECT * FROM orders WHERE userEmail = ?";
-                    $stmt = mysqli_prepare($dbc, $sql);
-                    mysqli_stmt_bind_param($stmt, "s", $userEmail);
-                    mysqli_stmt_execute($stmt);
-                    $result = mysqli_stmt_get_result($stmt);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $products_IDs = $row['products_IDs'];
-                        $products_IDs_array = explode(",", $products_IDs);
-                        foreach ($products_IDs_array as $product_ID) {
-                            if (!in_array($product_ID, $uniqueProductIDs)) {
-                                $uniqueProductIDs[] = $product_ID;
-                                $query = "SELECT imageURL1 FROM products WHERE id = $product_ID";
-                                $result_image = mysqli_query($dbc, $query);
-                                $row_image = mysqli_fetch_assoc($result_image);
-                                $imageURL = $row_image['imageURL1'];
-                                echo "<div class='rating-product'>
+                include_once "php/databaseconnect.php";
+                $uniqueProductIDs = array();
+                $sql = "SELECT * FROM orders WHERE userEmail = ?";
+                $stmt = mysqli_prepare($dbc, $sql);
+                mysqli_stmt_bind_param($stmt, "s", $userEmail);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $products_IDs = $row['products_IDs'];
+                    $products_IDs_array = explode(",", $products_IDs);
+                    foreach ($products_IDs_array as $product_ID) {
+                        if (!in_array($product_ID, $uniqueProductIDs)) {
+                            $uniqueProductIDs[] = $product_ID;
+                            $query = "SELECT imageURL1 FROM products WHERE id = $product_ID";
+                            $result_image = mysqli_query($dbc, $query);
+                            $row_image = mysqli_fetch_assoc($result_image);
+                            $imageURL = $row_image['imageURL1'];
+                            echo "<div class='rating-product'>
                                         <img src='$imageURL'>
-                                        <button style='width: 80%; margin-bottom: 12px; font-weight: 400; letter-spacing: -1px;' href='myprofile.php?ratingProduct=$product_ID#productRating'>Ocijeni</button>
+                                        <a href='myprofile.php?ratingProduct=$product_ID#productRating'>
+                                        <button style='width: 80%; margin-bottom: 12px; font-weight: 400; letter-spacing: -1px;'>Ocijeni</button>
+                                        </a>
                                     </div>";
-                            }
                         }
                     }
+                }
                 ?>
             </div>
             <div class="product-rating-div-right">
+                <?php
+                if (isset($_GET["ratingProduct"])) {
+                    $ratingProductID = $_GET["ratingProduct"];
+                    $user = $userName . " " . $userSurname;
+                    include_once "php/databaseconnect.php";
+                    $sql = "SELECT * FROM products WHERE id = ?";
+                    $stmt = mysqli_prepare($dbc, $sql);
+                    mysqli_stmt_bind_param($stmt, "i", $ratingProductID);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $productName = $row["name"];
+                        $productManufacturer = $row["manufacturer"];
+                    }
 
+                    echo "<h2 style='padding-bottom: 12px;'>Ocijenjujete proizvod: <span style='font-weight: 300;'>" . $productManufacturer . " " . $productName . "</span></h2>";
+                    echo "<form method='POST' action='php/productrating-process.php'>
+                    <input type='hidden' id='product' name='product' value='$ratingProductID'>
+                    <input type='hidden' id='user' name='user' value='$user'>
+                    <label for='message'>Unesite svoju recenziju</label><br>
+                    <textarea style='margin-top: 12px;' id='message' name='message' rows='4' cols='50' maxlength='500' oninput='updateCharacterCount()'></textarea>
+                    <label for='rating'>Ocijenite proizvod (od 1 do 5)</label><br>
+                    <input style='margin-top: 12px;' type='number' id='rating' name='rating'>
+                    <div class='form-buttons'>
+            <div class='input-div-two' style='width: 48%;'><input type='submit' name='submit' value='Ocijeni proizvod'></div>
+            <div class='input-div-two' style='width: 48%;'><input type='reset' value='Očisti podatke'></div>
+            </div>
+                    </form>";
+                } else {
+                    echo "Odaberite proizvod koji želite ocijeniti.";
+                }
+                ?>
             </div>
         </div>
     </div>
