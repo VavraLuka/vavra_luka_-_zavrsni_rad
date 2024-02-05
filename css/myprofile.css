@@ -56,3 +56,40 @@ div.favorite-product {
 div.favorite-product:hover {
     box-shadow: 0 0 18px 0 var(--main-blue-color);
 }
+
+.product-rating-div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 36px;
+    padding-bottom: 36px;
+}
+
+.product-rating-div-left,
+.product-rating-div-right {
+    width: 48%;
+}
+
+.product-rating-div-left {
+    margin-right: 4%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rating-product {
+    width: 23.5%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    padding: 12px;
+    transition: 0.15s;
+    box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+.rating-product img {
+    width: 96px;
+    padding-bottom: 12px;
+}
+
+.rating-product:nth-child(4n) {
+    margin-right: 0;
+}

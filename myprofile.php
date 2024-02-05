@@ -137,7 +137,7 @@ include_once "greetingstext.php";
         <br>
         <hr><br>
         <h2>Vaše narudžbe</h2>
-        <p>Popis vaših prethodnih narudžbi.</p>
+        <p>Popis Vaših prethodnih narudžbi.</p>
         <?php
         $sql = "SELECT * FROM orders WHERE userEmail = ?";
         $stmt = mysqli_prepare($dbc, $sql);
@@ -230,6 +230,49 @@ include_once "greetingstext.php";
         } ?>
     </div>
 </section>
+
+<section id="productRating">
+    <div class="section-wrapper">
+        <br>
+        <hr><br>
+        <h2>Ocjenjivanje proizvoda</h2>
+        <p>Napišite recenziju i ocijenite proizvode koje posjedujete</p>
+        <div class="product-rating-div">
+            <div class="product-rating-div-left">
+                <?php
+                    include_once "php/databaseconnect.php";
+                    $uniqueProductIDs = array();
+                    $sql = "SELECT * FROM orders WHERE userEmail = ?";
+                    $stmt = mysqli_prepare($dbc, $sql);
+                    mysqli_stmt_bind_param($stmt, "s", $userEmail);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $products_IDs = $row['products_IDs'];
+                        $products_IDs_array = explode(",", $products_IDs);
+                        foreach ($products_IDs_array as $product_ID) {
+                            if (!in_array($product_ID, $uniqueProductIDs)) {
+                                $uniqueProductIDs[] = $product_ID;
+                                $query = "SELECT imageURL1 FROM products WHERE id = $product_ID";
+                                $result_image = mysqli_query($dbc, $query);
+                                $row_image = mysqli_fetch_assoc($result_image);
+                                $imageURL = $row_image['imageURL1'];
+                                echo "<div class='rating-product'>
+                                        <img src='$imageURL'>
+                                        <button style='width: 80%; margin-bottom: 12px; font-weight: 400; letter-spacing: -1px;' href='myprofile.php?ratingProduct=$product_ID#productRating'>Ocijeni</button>
+                                    </div>";
+                            }
+                        }
+                    }
+                ?>
+            </div>
+            <div class="product-rating-div-right">
+
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="newsletter">
     <div class="section-wrapper">
         <br>
