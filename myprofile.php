@@ -284,7 +284,7 @@ include_once "greetingstext.php";
                         $productManufacturer = $row["manufacturer"];
                     }
 
-                    echo "<h2 style='padding-bottom: 12px;'>Ocijenjujete proizvod: <span style='font-weight: 300;'>" . $productManufacturer . " " . $productName . "</span></h2>";
+                    echo "<h2 style='padding-bottom: 12px;'>Ocjenjujete proizvod: <span style='font-weight: 300;'>" . $productManufacturer . " " . $productName . "</span></h2>";
                     echo "<form method='POST' action='php/productrating-process.php'>
                     <input type='hidden' id='product' name='product' value='$ratingProductID'>
                     <input type='hidden' id='user' name='user' value='$user'>
