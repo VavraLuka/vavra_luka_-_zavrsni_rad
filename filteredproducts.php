@@ -165,6 +165,10 @@ include_once 'header.php';
             }
 
             $defaultSort = 'id DESC';
+
+
+
+
             if (isset($_GET['sort']) && $_GET['sort'] === 'bestrated') {
                 $sql = "SELECT products.*, AVG(reviews.rating) AS avg_rating
                         FROM products
@@ -172,6 +176,18 @@ include_once 'header.php';
                         WHERE $categorySort
                         GROUP BY products.id
                         ORDER BY avg_rating DESC";
+            } elseif (isset($_GET["productCategory"]) || isset($_GET["sort"])) {
+                if ($_GET["productCategory"] == "all" || $_GET["sort"] == "bestrated") {
+                    $sql = "SELECT products.*, AVG(reviews.rating) AS avg_rating
+                        FROM products
+                        LEFT JOIN reviews ON products.id = reviews.product
+                        GROUP BY products.id
+                        ORDER BY avg_rating DESC";
+            }
+
+
+
+            
             } else {
                 $sort = isset($_GET['sort']) && isset($sortingOptions[$_GET['sort']]) ? $sortingOptions[$_GET['sort']] : $defaultSort;
                 $productCategory = isset($_GET['productCategory']) ? ($_GET['productCategory'] == 'all' ? '1' : "category='{$_GET['productCategory']}'") : '1';
@@ -189,7 +205,6 @@ include_once 'header.php';
                     $sql = "SELECT * FROM products WHERE $productCategory $manufacturer ORDER BY $sort";
                 }
             }
-
             $stmt = mysqli_stmt_init($dbc);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                 $error = mysqli_stmt_error($stmt);
@@ -209,7 +224,7 @@ include_once 'header.php';
                     if ($discount > 0) {
                         $discountPrice = $regularPrice - ($regularPrice * $discount / 100);
                     }
-                    /* include "php/priceformatting.php"; */ 
+                    /* include "php/priceformatting.php"; */
                     if ($quantity > 0) {
                         $availability = "Dostupno na stanju";
                         $availabilityStyle = "filtered-available";
